@@ -1,0 +1,1437 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>揀馬世一</title>
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/fontawesome.min.css">
+    <link rel="stylesheet" href="assets/css/fonts.css">
+    <link rel="stylesheet" href="assets/css/swiper-bundle.min.css">
+    <link rel="stylesheet" href="assets/css/aos.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Noto+Sans+SC:wght@100..900&family=Noto+Sans+TC:wght@100..900&family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <style>
+
+
+     .section-title {
+        font-family: "Noto Sans TC", sans-serif;
+        color:#022169;
+        font-size: 50px;
+        font-weight: 600;
+    }
+
+    .section-title-description {
+        font-family: "Noto Sans TC", sans-serif;
+        color:#000;
+        font-size: 16px;
+        font-weight: 300;
+        max-width: 600px;
+        margin: 0 auto;
+        max-width: 1000px;
+    }
+
+    .section-sub-title{
+        font-family: "Noto Sans TC", sans-serif;
+        color:#022169;
+        font-size: 30px;
+        font-weight: 600;
+    }
+
+    main.main-content {
+        width: 100vw;
+        height: 100vh;
+        overflow-x: hidden;
+    }
+
+    /* ============================= Banner / Swiper Hero Section ============================= */
+
+    .banner_main_area {
+        position:relative;
+        width:100%;
+        min-height:100vh;
+        overflow:hidden;
+    }
+    .banner-main {
+        position:relative;
+        width:100%;
+        height:100%;
+    }
+    .main-home-banner {
+        width:100%;
+        height:100vh;
+    }
+    .main-home-banner .swiper-wrapper {
+        height:100%;
+    }
+    .main-home-banner .swiper-slide {
+        position:relative;
+        width:100%;
+        height:100%;
+    }
+    .swiper-image {
+        width:100%;
+        height:100%;
+        background-size:contain;
+        background-position:center center;
+        background-repeat:no-repeat;
+        position:relative;
+    }
+    .swiper-image {
+        background-image: url(assets/images/hero_banner_one_c.jpg);
+    }
+    .banner-title {
+        font-size:clamp(2rem,4.2vw,3.75rem);
+        line-height:1.1;
+        text-shadow:0 4px 16px rgba(0,0,0,0.45);
+    }
+
+    /* Centered slides scaling / opacity */
+    .main-home-banner {
+        --header-h:72px;
+        height:calc(100vh - var(--header-h));
+        padding-top:16px;
+        padding-bottom:32px;
+    }
+    @media (max-width: 991.98px){
+        .main-home-banner {
+            --header-h:64px;
+            height:calc(100vh - var(--header-h));
+        }
+    }
+    .main-home-banner .swiper-wrapper {
+        align-items:center;
+    }
+    .main-home-banner .swiper-slide {
+        transition:transform .6s ease, opacity .6s ease;
+    }
+    .main-home-banner .swiper-slide .swiper-image {
+        border-radius:32px;
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        position:relative;
+        overflow:hidden;
+    }
+    .main-home-banner .swiper-slide .image {
+        position:relative;
+        z-index:1;
+    }
+    /* Inner headline adjustments when slides scaled */
+    .main-home-banner .swiper-slide:not(.swiper-slide-active) .banner-title {
+        filter:blur(.5px);
+        opacity:.85;
+    }
+    /* Override previous full-screen rule */
+    .banner_main_area, .banner-main {
+        min-height:unset;
+    }
+    @media (max-width: 767.98px) {
+        .banner_main_area {
+            min-height:70vh;
+        }
+        .main-home-banner {
+            height:70vh;
+        }
+        .banner-title {
+            font-size:clamp(1.75rem,7vw,2.75rem);
+        }
+        .swiper-pagination-bullets.swiper-pagination-horizontal {
+            bottom:20px;
+        }
+    }
+    /* Accessibility focus states for controls */
+    .swiper-button-prev:focus, .swiper-button-next:focus {
+        outline:2px solid #fff;
+        outline-offset:2px;
+    }
+    /* === Overrides: Adjust banner ratio, gap, continuous side visibility === */
+    .banner_main_area {
+        min-height:auto;
+        padding:32px 0 48px;
+        overflow:visible;
+    }
+    .main-home-banner {
+        height:auto;
+        padding:0;
+    }
+    .main-home-banner .swiper-wrapper {
+        align-items:stretch;
+    }
+    .main-home-banner .swiper-slide {
+        width:85%;
+        height:auto;
+    }
+    @media (min-width: 992px){
+        .main-home-banner .swiper-slide {
+            width:82%;
+        }
+    }
+    .swiper-image {
+        aspect-ratio:1670/720;
+        background-size:cover !important;
+        background-position:center center;
+        border-radius:32px;
+    }
+    /* Ensure border radius visible */
+    .main-home-banner .swiper-slide .swiper-image {
+        border-radius:32px;
+    }
+    /* Slight shadow to lift slide */
+    .main-home-banner .swiper-slide .swiper-image {
+        box-shadow:0 8px 28px -6px rgba(0,0,0,0.2);
+    }
+    /* Passive slides style (transition still applied via JS) */
+    .main-home-banner .swiper-slide {
+        will-change:transform, opacity;
+    }
+    body {
+        background:#ffffff;
+    }
+
+    /* ============================= Specialists styles ============================= */
+
+   
+
+    .specialists-wrap {
+        font-family: "Noto Sans TC", sans-serif;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    .specialists-swiper .swiper-slide {
+        transition: 0.6s!important;
+        height:360px;
+        cursor: pointer;
+    }
+
+    .specialists-swiper .swiper-slide.swiper-slide-next,
+    .specialists-swiper .swiper-slide.swiper-slide-prev {
+        width: calc( (1200px - 40px) / 5 )!important;
+        opacity:0.4;
+    }
+    .specialists-swiper .swiper-slide.swiper-slide-active {
+        width: calc( (1200px - 40px) * (3 / 5) )!important;
+    }
+ 
+    .specialists-swiper .swiper-slide {
+        width: 320px;
+    }
+    @media (min-width: 992px){
+        .specialists-swiper .swiper-slide {
+            width: 420px;
+        }
+    }
+    .specialists-swiper .swiper-slide-active {
+        width: 640px;
+    }
+
+    .specialist-bg{
+        width: 100%;
+        height: 90%;
+        overflow: hidden; /* clip pseudo-element to rounded corners */
+        isolation: isolate; /* keep ::before below content within this element */
+        pointer-events: none; /* avoid intercepting clicks */
+        /* default band color, overridden per theme */
+        /* Use SVG clipPath rounded trapezium */
+        clip-path: url(#roundedTrap-small);
+        -webkit-clip-path: url(#roundedTrap-small);
+    }
+
+    .swiper-slide-active .specialist-bg{
+        clip-path: url(#roundedTrap-large);
+        -webkit-clip-path: url(#roundedTrap-large);
+    }
+
+    /* Diagonal lighter band (cap): full-width top layer with a cut using clip-path */
+    .specialist-bg::before{
+        content: "";
+        position: absolute;
+        inset: 0; /* cover the whole background and clip a diagonal bottom edge */
+        background: var(--band);
+        /* Create the diagonal bottom edge. Tweak percentages to match art. */
+        clip-path: polygon(
+          0% 0%, 100% 0%, 100% 54%, 0% 72%
+        );
+        z-index: 0;
+    }
+
+    /* Diagonal lighter band (cap): full-width top layer with a cut using clip-path */
+    .swiper-slide-active .specialist-bg::before{
+        content: "";
+        position: absolute;
+        inset: 0; /* cover the whole background and clip a diagonal bottom edge */
+        background: var(--band);
+        /* Create the diagonal bottom edge. Tweak percentages to match art. */
+        clip-path: polygon(
+          0% 0%, 100% 0%, 100% 40%, 0% 72%
+        );
+        z-index: 0;
+    }
+
+    .tone-purple{ 
+        background: #804CFF; 
+        --band:#9E7DEB;
+    }
+    .tone-green{ 
+        background:#5CAD2E; 
+        --band:#96D473;
+    }
+    .tone-teal { 
+        background: #25B7A8; 
+        --band:#89D9D0;
+    }
+    .tone-gold{ 
+        background: #CCA627; 
+        --band:#DDC577;
+    }
+    .tone-slate{ 
+        background: #9C9C9C; 
+        --band:#D7D7D7;
+    }
+    .tone-blue{
+        background: #153CC0;
+        --band:#3B60E0;
+    }
+    .tone-amber{
+        background: #f39c12;
+        --band:#f7b733;
+    }
+    .tone-pink {
+        background: #f05b93;
+        --band:#f78fb3;
+    }
+
+    .badge-rank{
+        bottom: 30px;
+        left: 10px;
+        transition: all 0.6s;
+        z-index: 0;
+    }
+
+
+    .swiper-slide-active .badge-rank{
+        bottom: 20px;
+        left: 20px;
+        z-index: 1;
+    }
+
+    .badge-rank .rank-number  {
+        font-family: "Noto Sans", sans-serif;
+        font-weight:800;
+        font-size:110px;
+        font-style:italic;
+        line-height:1;
+        transform: scale(1, 1.2);
+    }
+
+    .specialist-wrapper{
+        opacity:0;
+        transition: opacity 0.6s;
+    }
+
+    .swiper-slide-active .specialist-wrapper{
+        opacity:1;
+    }
+
+    .badge-rank .specialist-wrapper .specialist-name  {
+        font-family: "Noto Sans TC", sans-serif;
+        font-weight:700;
+        font-size:30px;
+        line-height:1.2;
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    }
+
+    .badge-rank .specialist-wrapper .specialist-title  {
+        font-family: "Noto Sans TC", sans-serif;
+        font-weight:500;
+        font-size:20px;
+        line-height:1.2;
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    }
+
+    .swiper-slide-active .portrait {
+        width: 270px;
+        left: 80px;
+        z-index: 0;
+    }
+
+    .portrait {
+        width: 250px;
+        left: 10px;
+        bottom:0;
+        transition: all 0.6s;
+        z-index: 1;
+    }
+
+    .portrait img {
+        width: 100%;
+        height:auto;
+        display:block;
+        
+    }
+
+    .stats-box {
+        background:#fff;
+        color:#001b44;
+        width: 300px;
+        height: fit-content;
+        opacity:0;
+        visibility: hidden;
+        transition:
+            opacity .3s ease-in 0s,     /* fade out quickly */
+            visibility 0s linear .3s;   /* flip to hidden after fade-out completes */
+    }
+    .specialists-swiper .swiper-slide-active .stats-box {
+        opacity:1;
+        visibility: visible;
+        transition:
+            opacity .3s ease-out .3s,   /* wait 0.3s, then fade in over 0.3s */
+            visibility 0s linear 0s;    /* become visible immediately (opacity is 0 initially) */
+    }
+
+    .metric{
+        color:#003c84;
+    }
+
+    .metric .label {
+        font-size: 20px;
+    }
+    .metric .value {
+        font-weight:800;
+        font-size: 33px;
+    }
+
+    .race-chip {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap:8px;
+        background:#eaf2ff;
+        color:#003c84;
+        border-radius:12px;
+        padding:8px 12px;
+        font-weight:600;
+    }
+
+    .race-chip .text{
+        margin-top:-3px;
+    }
+
+    /* Picks cards */
+    .pick-card {
+        background:#fff;
+        box-shadow:0 10px 30px rgba(0,0,0,.08);
+        text-align:left;
+    }
+    .pick-card h6 {
+        font-weight:700;
+        margin:0 0 6px;
+    }
+    .pick-card .meta {
+        font-size:12px;
+        color:#6b7785;
+        margin-bottom:12px;
+    }
+    .pick-card hr {
+        margin:10px 0 12px;
+    }
+    .pick-card .list {
+        margin:0;
+        padding-left: 18px;
+        font-weight:800;
+        color:#003c84;
+    }
+    .pick-card .cta {
+        padding:6px 18px;
+        border-radius:50px;
+        background:#ffd303;
+        color:#111;
+        font-weight:400;
+        border:0;
+    }
+    .pick-card .type {
+        font-size: 14px;
+        font-weight: 800;
+        color: #000;
+    }
+
+    /* ============================= Picks Swiper ============================= */
+    .picks-swiper {
+        padding: 8px 4px 24px;
+    }
+    .picks-swiper .swiper-wrapper {
+        align-items: stretch;
+    }
+    .picks-swiper .swiper-slide {
+        height: auto;
+    }
+    .picks-swiper .pick-card {
+        height: 100%;
+    }
+
+    /* ============================= More Specialists (Second) ============================= */
+    .more-specialists-wrap {
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    .more-specialists-swiper .swiper-wrapper { 
+        align-items: center; 
+    }
+    .more-specialists-swiper .swiper-slide {
+        transition: all .6s;
+    }
+    @media (min-width: 992px){
+        .more-specialists-swiper .swiper-slide { width: 280px; }
+    }
+
+    .more-specialists-swiper .swiper-slide:not(.swiper-slide-active, .swiper-slide-prev, .swiper-slide-next) {
+        opacity: .65; 
+    }
+
+    .more-specialists-swiper .swiper-slide-prev,
+    .more-specialists-swiper .swiper-slide-next{
+        opacity: .65; 
+    }
+
+    .more-specialists-swiper .swiper-slide-active{ 
+        opacity: 1; 
+    }
+
+    .mspec-card {
+        position: relative;
+        height: 300px;
+        border-radius: 24px;
+        display: flex;
+        align-items: flex-end;
+        justify-content: flex-start;
+        padding: 16px;
+        color: #fff;
+        overflow: hidden;
+    }
+    .mspec-bg {
+        position: absolute;
+        inset: 0;
+        clip-path: url(#roundedTrap-small);
+        -webkit-clip-path: url(#roundedTrap-small);
+        border-radius: 24px;
+        z-index: 0;
+    }
+
+    .mspec-bg::before{
+        content: "";
+        position: absolute;
+        inset: 0; /* cover the whole background and clip a diagonal bottom edge */
+        background: var(--band);
+        /* Create the diagonal bottom edge. Tweak percentages to match art. */
+        clip-path: polygon(
+          0% 0%, 100% 0%, 100% 54%, 0% 72%
+        );
+        z-index: 0;
+    }
+
+    .mspec-avatar { 
+        position: absolute; 
+        bottom: 0; right: 0; 
+        width: 100%; 
+        max-width: 260px; 
+        z-index: 0; 
+    }
+    .mspec-avatar img { 
+        width: 100%; 
+        height: auto; 
+        display: block; 
+    }
+    .mspec-text {
+        position: relative;
+        z-index: 1;
+        opacity: 0;
+    }
+    .swiper-slide-active .mspec-text {
+        opacity: 1;
+        transition: all 0.6s;
+    }
+    .mspec-name { 
+        font-family: "Noto Sans TC", sans-serif;
+        font-weight: 700;
+        font-size: 30px;
+        line-height: 1.2;
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    }
+    .mspec-title { 
+        font-family: "Noto Sans TC", sans-serif;
+        font-weight: 500;
+        font-size: 20px;
+        line-height: 1.2;
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    }
+
+    </style>
+</head>
+<body class="bg-white">
+    <header class="bg-white site-header fixed-top border-top border-bottom">
+        <div class="px-5 py-4 container-fluid d-flex justify-content-between align-items-center header-bar">
+            <div class="d-flex align-items-center left-cluster">
+                <div class="logo pe-5 d-flex">
+                    <a href="#" class="d-inline-flex align-items-center">
+                        <img src="assets/images/logo.png" width="108" height="40" alt="HKJC Logo">
+                    </a>
+                </div>
+                <nav class="main-nav d-none d-lg-flex align-items-center" aria-label="Primary">
+                    <ul class="nav mb-0">
+                        <li class="nav-item first-item-wrapper">
+                            <div class="border-start border-end px-3 me-2">
+                                <a class="nav-link px-2 fw-bold text-black" href="#">主頁</a>
+                            </div>
+                        </li>
+                        <li class="nav-item"><a class="nav-link px-3 fw-normal text-body" href="#tipping">揀馬世一</a></li>
+                        <li class="nav-item"><a class="nav-link px-3 fw-normal text-body" href="#academy">馬上研究所</a></li>
+                        <li class="nav-item"><a class="nav-link px-3 fw-normal text-body" href="#discover">馬上發現精選</a></li>
+                        <li class="nav-item"><a class="nav-link px-3 fw-normal text-body" href="#experience">馬場精彩活動</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <!-- Mobile cluster: language + hamburger -->
+            <div class="d-lg-none d-flex align-items-center justify-content-end mobile-controls">
+                <div class="lang me-3">
+                    <a href="#en" class="text-black text-decoration-none d-flex align-items-center lang-switch-link">
+                        <span class="lang-icon" aria-hidden="true">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                        </span>
+                        <span class="ms-1">English</span>
+                    </a>
+                </div>
+                <button class="navbar-toggler p-0 border-0 bg-transparent" type="button" data-bs-toggle="collapse" data-bs-target="#mobileNav" aria-controls="mobileNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <svg width="26" height="26" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 6H21" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M3 12H21" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M3 18H21" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </button>
+            </div>
+            <!-- Desktop language switcher -->
+            <div class="lang d-none d-lg-flex align-items-center desktop-lang">
+                <a href="#en" class="text-black text-decoration-none d-flex align-items-center lang-switch-link">
+                    <img src="assets/images/icon_lang.svg">
+                    <span class="ms-1 fw-normal text-body">English</span>
+                </a>
+            </div>
+        </div>
+        <div class="collapse mobile-nav-wrapper" id="mobileNav">
+            <div class="container pt-1 pb-5">
+                <nav aria-label="Mobile Primary">
+                    <ul class="nav flex-column">
+                        <li class="nav-item"><a class="nav-link px-2 text-black" href="#">主頁</a></li>
+                        <li class="nav-item"><a class="nav-link px-2 text-black" href="#tipping">揀馬世一</a></li>
+                        <li class="nav-item"><a class="nav-link px-2 text-black" href="#academy">馬上研究所</a></li>
+                        <li class="nav-item"><a class="nav-link px-2 text-black" href="#discover">馬上發現精選</a></li>
+                        <li class="nav-item"><a class="nav-link px-2 text-black" href="#experience">馬場精彩活動</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main class="main-content" style="padding-top: 90px;">
+        <!-- Banner Section -->
+        <section class="text-center position-relative z-0 banner_main_area" id="home-banner">
+          <div class="banner-main">
+            <div class="swiper main-home-banner">
+              <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                  <div class="swiper-image d-flex align-items-center justify-content-center">
+                  </div>
+                </div>
+                <div class="swiper-slide">
+                  <div class="swiper-image d-flex align-items-center justify-content-center">
+                  </div>
+                </div>
+                <div class="swiper-slide">
+                  <div class="swiper-image d-flex align-items-center justify-content-center">
+                  </div>
+                </div>
+                <div class="swiper-slide">
+                  <div class="swiper-image d-flex align-items-center justify-content-center">
+                  </div>
+                </div>
+                <div class="swiper-slide">
+                  <div class="swiper-image d-flex align-items-center justify-content-center">
+                  </div>
+                </div>
+              </div>
+              <!-- Removed pagination and navigation per requirements -->
+            </div>
+          </div>
+        </section>
+        
+        <!-- Specialists Section -->
+        <section id="specialists" class="py-5">
+            <div class="container">
+                <div class="text-center mb-4">
+                <h2 class="section-title mb-3">Top 3 Racing Specialist</h2>
+                <p class="section-title-description">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy
+                text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+                </div>
+            </div>
+
+            <div class="position-relative specialists-wrap">
+                <div class="swiper specialists-swiper">
+                    <div class="swiper-wrapper ">
+                        <!-- Specialist 1 -->
+                        <div class="swiper-slide overflow-hidden rounded-4">
+                            <div class="specialist-bg tone-blue z-0 rounded-4 position-absolute bottom-0 start-0"></div>   
+                            <article class="specialist-card d-flex flex-row justify-content-end align-items-end w-100 h-100 p-4">
+                                <div class="badge-rank z-1 position-absolute text-white d-flex flex-column justify-content-end gap-3">
+                                    <div class="rank-number mb-2">1</div>
+                                    <div class="specialist-wrapper">
+                                        <p class="specialist-name mb-1">Elke</p>
+                                        <p class="specialist-title mb-0">King of QIN</p>
+                                    </div>
+                                </div>
+                                <div class="portrait position-absolute">
+                                    <img src="assets/images/KOL Image.png" alt="Elke" />
+                                </div>
+                                <div class="stats-box rounded-4 p-4 z-1">
+                                <div class="row g-3 align-items-center">
+                                    <div class="col-6">
+                                    <div class="metric d-flex flex-column"><span class="label">Strike Rate</span><span class="value">50%</span></div>
+                                    </div>
+                                    <div class="col-6">
+                                    <div class="metric d-flex flex-column"><span class="label">Score</span><span class="value">59553</span></div>
+                                    </div>
+                                    <div class="col-12">
+                                    <div class="race-chip w-100"><img class="icon" src="assets/images/movie-icon.png" alt="video" width="18" height="18"> <span class="text">Race 1</span></div>
+                                    </div>
+                                </div>
+                                </div>
+                            </article>
+                        </div>
+                        
+                        <!-- Specialist 3 -->
+                        <div class="swiper-slide overflow-hidden rounded-4">
+                            <div class="specialist-bg tone-pink z-0 rounded-4 position-absolute bottom-0 start-0"></div>
+                            <article class="specialist-card d-flex flex-row justify-content-end align-items-end w-100 h-100 p-4">
+                                <div class="badge-rank z-1 position-absolute text-white d-flex flex-column justify-content-end gap-3">
+                                    <div class="rank-number mb-2">3</div>
+                                    <div class="specialist-wrapper">
+                                        <p class="specialist-name mb-1">Krystal</p>
+                                        <p class="specialist-title mb-0">King of QIN</p>
+                                    </div>
+                                </div>
+                                <div class="portrait position-absolute">
+                                    <img src="assets/images/KOL Image-5.png" alt="Krystal" />
+                                </div>
+                                <div class="stats-box rounded-4 p-4 z-1">
+                                    <div class="row g-3 align-items-center">
+                                        <div class="col-6">
+                                            <div class="metric d-flex flex-column"><span class="label">Strike Rate</span><span class="value">36%</span></div>
+                                        </div>
+                                        <div class="col-6">
+                                            <div class="metric d-flex flex-column"><span class="label">Score</span><span class="value">38112</span></div>
+                                        </div>
+                                        <div class="col-12">
+                                            <div class="race-chip w-100"><img class="icon" src="assets/images/movie-icon.png" alt="video" width="18" height="18"> <span class="text">Race 1</span></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+
+                        <!-- Specialist 2 -->
+                        <div class="swiper-slide overflow-hidden rounded-4">
+                            <div class="specialist-bg tone-amber z-0 rounded-4 position-absolute bottom-0 start-0"></div>
+                            <article class="specialist-card d-flex flex-row justify-content-end align-items-end w-100 h-100 p-4">
+                                <div class="badge-rank z-1 position-absolute text-white d-flex flex-column justify-content-end gap-3">
+                                    <div class="rank-number mb-2">2</div>
+                                    <div class="specialist-wrapper">
+                                        <p class="specialist-name mb-1">KK</p>
+                                        <p class="specialist-title mb-0">King of QIN</p>
+                                    </div>
+                                </div>
+                                <div class="portrait position-absolute">
+                                    <img src="assets/images/KOL Image-1.png" alt="KK" />
+                                </div>
+                                <div class="stats-box rounded-4 p-4 z-1">
+                                    <div class="row g-3 align-items-center">
+                                        <div class="col-6">
+                                            <div class="metric d-flex flex-column"><span class="label">Strike Rate</span><span class="value">41%</span></div>
+                                        </div>
+                                        <div class="col-6">
+                                            <div class="metric d-flex flex-column"><span class="label">Score</span><span class="value">42310</span></div>
+                                        </div>
+                                        <div class="col-12">
+                                            <div class="race-chip w-100"><img class="icon" src="assets/images/movie-icon.png" alt="video" width="18" height="18"> <span class="text">Race 1</span></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+
+                        <!-- Specialist 1 -->
+                        <div class="swiper-slide overflow-hidden rounded-4">
+                            <div class="specialist-bg tone-blue z-0 rounded-4 position-absolute bottom-0 start-0"></div>   
+                            <article class="specialist-card d-flex flex-row justify-content-end align-items-end w-100 h-100 p-4">
+                                <div class="badge-rank z-1 position-absolute text-white d-flex flex-column justify-content-end gap-3">
+                                    <div class="rank-number mb-2">1</div>
+                                    <div class="specialist-wrapper">
+                                        <p class="specialist-name mb-1">Elke</p>
+                                        <p class="specialist-title mb-0">King of QIN</p>
+                                    </div>
+                                </div>
+                                <div class="portrait position-absolute">
+                                    <img src="assets/images/KOL Image.png" alt="Elke" />
+                                </div>
+                                <div class="stats-box rounded-4 p-4 z-1">
+                                <div class="row g-3 align-items-center">
+                                    <div class="col-6">
+                                    <div class="metric d-flex flex-column"><span class="label">Strike Rate</span><span class="value">50%</span></div>
+                                    </div>
+                                    <div class="col-6">
+                                    <div class="metric d-flex flex-column"><span class="label">Score</span><span class="value">59553</span></div>
+                                    </div>
+                                    <div class="col-12">
+                                    <div class="race-chip w-100"><img class="icon" src="assets/images/movie-icon.png" alt="video" width="18" height="18"> <span class="text">Race 1</span></div>
+                                    </div>
+                                </div>
+                                </div>
+                            </article>
+                        </div>
+                        
+                        <!-- Specialist 3 -->
+                        <div class="swiper-slide overflow-hidden rounded-4">
+                            <div class="specialist-bg tone-pink z-0 rounded-4 position-absolute bottom-0 start-0"></div>
+                            <article class="specialist-card d-flex flex-row justify-content-end align-items-end w-100 h-100 p-4">
+                                <div class="badge-rank z-1 position-absolute text-white d-flex flex-column justify-content-end gap-3">
+                                    <div class="rank-number mb-2">3</div>
+                                    <div class="specialist-wrapper">
+                                        <p class="specialist-name mb-1">Krystal</p>
+                                        <p class="specialist-title mb-0">King of QIN</p>
+                                    </div>
+                                </div>
+                                <div class="portrait position-absolute">
+                                    <img src="assets/images/KOL Image-5.png" alt="Krystal" />
+                                </div>
+                                <div class="stats-box rounded-4 p-4 z-1">
+                                    <div class="row g-3 align-items-center">
+                                        <div class="col-6">
+                                            <div class="metric d-flex flex-column"><span class="label">Strike Rate</span><span class="value">36%</span></div>
+                                        </div>
+                                        <div class="col-6">
+                                            <div class="metric d-flex flex-column"><span class="label">Score</span><span class="value">38112</span></div>
+                                        </div>
+                                        <div class="col-12">
+                                            <div class="race-chip w-100"><img class="icon" src="assets/images/movie-icon.png" alt="video" width="18" height="18"> <span class="text">Race 1</span></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+
+                        <!-- Specialist 2 -->
+                        <div class="swiper-slide overflow-hidden rounded-4">
+                            <div class="specialist-bg tone-amber z-0 rounded-4 position-absolute bottom-0 start-0"></div>
+                            <article class="specialist-card d-flex flex-row justify-content-end align-items-end w-100 h-100 p-4">
+                                <div class="badge-rank z-1 position-absolute text-white d-flex flex-column justify-content-end gap-3">
+                                    <div class="rank-number mb-2">2</div>
+                                    <div class="specialist-wrapper">
+                                        <p class="specialist-name mb-1">KK</p>
+                                        <p class="specialist-title mb-0">King of QIN</p>
+                                    </div>
+                                </div>
+                                <div class="portrait position-absolute">
+                                    <img src="assets/images/KOL Image-1.png" alt="KK" />
+                                </div>
+                                <div class="stats-box rounded-4 p-4 z-1">
+                                    <div class="row g-3 align-items-center">
+                                        <div class="col-6">
+                                            <div class="metric d-flex flex-column"><span class="label">Strike Rate</span><span class="value">41%</span></div>
+                                        </div>
+                                        <div class="col-6">
+                                            <div class="metric d-flex flex-column"><span class="label">Score</span><span class="value">42310</span></div>
+                                        </div>
+                                        <div class="col-12">
+                                            <div class="race-chip w-100"><img class="icon" src="assets/images/movie-icon.png" alt="video" width="18" height="18"> <span class="text">Race 1</span></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+
+
+                        <!-- Specialist 1 -->
+                        <div class="swiper-slide overflow-hidden rounded-4">
+                            <div class="specialist-bg tone-blue z-0 rounded-4 position-absolute bottom-0 start-0"></div>   
+                            <article class="specialist-card d-flex flex-row justify-content-end align-items-end w-100 h-100 p-4">
+                                <div class="badge-rank z-1 position-absolute text-white d-flex flex-column justify-content-end gap-3">
+                                    <div class="rank-number mb-2">1</div>
+                                    <div class="specialist-wrapper">
+                                        <p class="specialist-name mb-1">Elke</p>
+                                        <p class="specialist-title mb-0">King of QIN</p>
+                                    </div>
+                                </div>
+                                <div class="portrait position-absolute">
+                                    <img src="assets/images/KOL Image.png" alt="Elke" />
+                                </div>
+                                <div class="stats-box rounded-4 p-4 z-1">
+                                <div class="row g-3 align-items-center">
+                                    <div class="col-6">
+                                    <div class="metric d-flex flex-column"><span class="label">Strike Rate</span><span class="value">50%</span></div>
+                                    </div>
+                                    <div class="col-6">
+                                    <div class="metric d-flex flex-column"><span class="label">Score</span><span class="value">59553</span></div>
+                                    </div>
+                                    <div class="col-12">
+                                    <div class="race-chip w-100"><img class="icon" src="assets/images/movie-icon.png" alt="video" width="18" height="18"> <span class="text">Race 1</span></div>
+                                    </div>
+                                </div>
+                                </div>
+                            </article>
+                        </div>
+                        
+                        <!-- Specialist 3 -->
+                        <div class="swiper-slide overflow-hidden rounded-4">
+                            <div class="specialist-bg tone-pink z-0 rounded-4 position-absolute bottom-0 start-0"></div>
+                            <article class="specialist-card d-flex flex-row justify-content-end align-items-end w-100 h-100 p-4">
+                                <div class="badge-rank z-1 position-absolute text-white d-flex flex-column justify-content-end gap-3">
+                                    <div class="rank-number mb-2">3</div>
+                                    <div class="specialist-wrapper">
+                                        <p class="specialist-name mb-1">Krystal</p>
+                                        <p class="specialist-title mb-0">King of QIN</p>
+                                    </div>
+                                </div>
+                                <div class="portrait position-absolute">
+                                    <img src="assets/images/KOL Image-5.png" alt="Krystal" />
+                                </div>
+                                <div class="stats-box rounded-4 p-4 z-1">
+                                    <div class="row g-3 align-items-center">
+                                        <div class="col-6">
+                                            <div class="metric d-flex flex-column"><span class="label">Strike Rate</span><span class="value">36%</span></div>
+                                        </div>
+                                        <div class="col-6">
+                                            <div class="metric d-flex flex-column"><span class="label">Score</span><span class="value">38112</span></div>
+                                        </div>
+                                        <div class="col-12">
+                                            <div class="race-chip w-100"><img class="icon" src="assets/images/movie-icon.png" alt="video" width="18" height="18"> <span class="text">Race 1</span></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+
+                        <!-- Specialist 2 -->
+                        <div class="swiper-slide overflow-hidden rounded-4">
+                            <div class="specialist-bg tone-amber z-0 rounded-4 position-absolute bottom-0 start-0"></div>
+                            <article class="specialist-card d-flex flex-row justify-content-end align-items-end w-100 h-100 p-4">
+                                <div class="badge-rank z-1 position-absolute text-white d-flex flex-column justify-content-end gap-3">
+                                    <div class="rank-number mb-2">2</div>
+                                    <div class="specialist-wrapper">
+                                        <p class="specialist-name mb-1">KK</p>
+                                        <p class="specialist-title mb-0">King of QIN</p>
+                                    </div>
+                                </div>
+                                <div class="portrait position-absolute">
+                                    <img src="assets/images/KOL Image-1.png" alt="KK" />
+                                </div>
+                                <div class="stats-box rounded-4 p-4 z-1">
+                                    <div class="row g-3 align-items-center">
+                                        <div class="col-6">
+                                            <div class="metric d-flex flex-column"><span class="label">Strike Rate</span><span class="value">41%</span></div>
+                                        </div>
+                                        <div class="col-6">
+                                            <div class="metric d-flex flex-column"><span class="label">Score</span><span class="value">42310</span></div>
+                                        </div>
+                                        <div class="col-12">
+                                            <div class="race-chip w-100"><img class="icon" src="assets/images/movie-icon.png" alt="video" width="18" height="18"> <span class="text">Race 1</span></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="container text-center pt-3">
+                <div class="down-icon d-flex flex-column pb-3" style="color: #022169;">
+                    <i class="fa-solid fa-chevron-down"></i>
+                    <i class="fa-solid fa-chevron-down" style="
+                        font-size: 20px;
+                        margin-top: -9px;
+                        "></i></div>
+                <h4 class="section-sub-title pb-3">See My Picks</h4>
+                <div class="swiper picks-swiper overflow-visible">
+                    <div class="swiper-wrapper" id="picksWrapper">
+                        <!-- dynamic pick slides -->
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- End Specialists Section -->
+
+        <section id="specialists-second" class="pb-5">
+            <div class="container">
+                <div class="text-center mb-4">
+                    <h2 class="section-title mb-3">More Racing Specialist's Pick</h2>
+                </div>
+            </div>
+            <div class="more-specialists-wrap position-relative">
+                <div class="swiper more-specialists-swiper pb-5 pt-5">
+                    <div class="swiper-wrapper">
+                        <!-- Sample slides (colors are placeholder tone-*) -->
+                        <div class="swiper-slide">
+                            <article class="mspec-card">
+                                <div class="mspec-bg tone-purple"></div>
+                                <div class="mspec-text">
+                                    <div class="mspec-name">Ling Ling</div>
+                                    <div class="mspec-title">King of QIN</div>
+                                </div>
+                                <div class="mspec-avatar"><img src="assets/images/KOL Image-4.png" alt="Ling Ling"></div>
+                            </article>
+                        </div>
+                        <div class="swiper-slide">
+                            <article class="mspec-card">
+                                <div class="mspec-bg tone-green"></div>
+                                <div class="mspec-text">
+                                    <div class="mspec-name">Fu Jai</div>
+                                    <div class="mspec-title">King of QIN</div>
+                                </div>
+                                <div class="mspec-avatar"><img src="assets/images/KOL Image-2.png" alt="Fu Jai"></div>
+                            </article>
+                        </div>
+                        <div class="swiper-slide">
+                            <article class="mspec-card">
+                                <div class="mspec-bg tone-gold"></div>
+                                <div class="mspec-text">
+                                    <div class="mspec-name">Colette</div>
+                                    <div class="mspec-title">King of QIN</div>
+                                </div>
+                                <div class="mspec-avatar"><img src="assets/images/KOL Image-3.png" alt="Colette"></div>
+                            </article>
+                        </div>
+                        <div class="swiper-slide">
+                            <article class="mspec-card">
+                                <div class="mspec-bg tone-slate"></div>
+                                <div class="mspec-text">
+                                    <div class="mspec-name">Steven's Bros</div>
+                                    <div class="mspec-title">King of QIN</div>
+                                </div>
+                                <div class="mspec-avatar"><img src="assets/images/KOL Image-6.png" alt="Homan"></div>
+                            </article>
+                        </div>
+                        <div class="swiper-slide">
+                            <article class="mspec-card">
+                                <div class="mspec-bg tone-teal"></div>
+                                <div class="mspec-text">
+                                    <div class="mspec-name">Alex Ng</div>
+                                    <div class="mspec-title">King of QIN</div>
+                                </div>
+                                <div class="mspec-avatar"><img src="assets/images/KOL Image-7.png" alt="Kenson"></div>
+                            </article>
+                        </div>
+                        <div class="swiper-slide">
+                            <article class="mspec-card">
+                                <div class="mspec-bg tone-purple rounded-4 position-absolute bottom-0 start-0"></div>
+                                <div class="mspec-text">
+                                    <div class="mspec-name">Ling Ling</div>
+                                    <div class="mspec-title">King of QIN</div>
+                                </div>
+                                <div class="mspec-avatar"><img src="assets/images/KOL Image-6.png" alt="Ling Ling"></div>
+                            </article>
+                        </div>
+                        <div class="swiper-slide">
+                            <article class="mspec-card">
+                                <div class="mspec-bg tone-green"></div>
+                                <div class="mspec-text">
+                                    <div class="mspec-name">Fu Jai</div>
+                                    <div class="mspec-title">King of QIN</div>
+                                </div>
+                                <div class="mspec-avatar"><img src="assets/images/KOL Image-2.png" alt="Fu Jai"></div>
+                            </article>
+                        </div>
+                        <div class="swiper-slide">
+                            <article class="mspec-card">
+                                <div class="mspec-bg tone-gold"></div>
+                                <div class="mspec-text">
+                                    <div class="mspec-name">Colette</div>
+                                    <div class="mspec-title">King of QIN</div>
+                                </div>
+                                <div class="mspec-avatar"><img src="assets/images/KOL Image-3.png" alt="Colette"></div>
+                            </article>
+                        </div>
+                        <div class="swiper-slide">
+                            <article class="mspec-card">
+                                <div class="mspec-bg tone-slate"></div>
+                                <div class="mspec-text">
+                                    <div class="mspec-name">Steven's Bros</div>
+                                    <div class="mspec-title">King of QIN</div>
+                                </div>
+                                <div class="mspec-avatar"><img src="assets/images/KOL Image-6.png" alt="Homan"></div>
+                            </article>
+                        </div>
+                        <div class="swiper-slide">
+                            <article class="mspec-card">
+                                <div class="mspec-bg tone-teal"></div>
+                                <div class="mspec-text">
+                                    <div class="mspec-name">Alex Ng</div>
+                                    <div class="mspec-title">King of QIN</div>
+                                </div>
+                                <div class="mspec-avatar"><img src="assets/images/KOL Image-7.png" alt="Kenson"></div>
+                            </article>
+                        </div>
+                        <div class="swiper-slide">
+                            <article class="mspec-card">
+                                <div class="mspec-bg tone-purple rounded-4 position-absolute bottom-0 start-0"></div>
+                                <div class="mspec-text">
+                                    <div class="mspec-name">Ling Ling</div>
+                                    <div class="mspec-title">King of QIN</div>
+                                </div>
+                                <div class="mspec-avatar"><img src="assets/images/KOL Image-6.png" alt="Ling Ling"></div>
+                            </article>
+                        </div>
+                        <div class="swiper-slide">
+                            <article class="mspec-card">
+                                <div class="mspec-bg tone-green"></div>
+                                <div class="mspec-text">
+                                    <div class="mspec-name">Fu Jai</div>
+                                    <div class="mspec-title">King of QIN</div>
+                                </div>
+                                <div class="mspec-avatar"><img src="assets/images/KOL Image-2.png" alt="Fu Jai"></div>
+                            </article>
+                        </div>
+                        <div class="swiper-slide">
+                            <article class="mspec-card">
+                                <div class="mspec-bg tone-gold"></div>
+                                <div class="mspec-text">
+                                    <div class="mspec-name">Colette</div>
+                                    <div class="mspec-title">King of QIN</div>
+                                </div>
+                                <div class="mspec-avatar"><img src="assets/images/KOL Image-3.png" alt="Colette"></div>
+                            </article>
+                        </div>
+                        <div class="swiper-slide">
+                            <article class="mspec-card">
+                                <div class="mspec-bg tone-slate"></div>
+                                <div class="mspec-text">
+                                    <div class="mspec-name">Steven's Bros</div>
+                                    <div class="mspec-title">King of QIN</div>
+                                </div>
+                                <div class="mspec-avatar"><img src="assets/images/KOL Image-6.png" alt="Homan"></div>
+                            </article>
+                        </div>
+                        <div class="swiper-slide">
+                            <article class="mspec-card">
+                                <div class="mspec-bg tone-teal"></div>
+                                <div class="mspec-text">
+                                    <div class="mspec-name">Alex Ng</div>
+                                    <div class="mspec-title">King of QIN</div>
+                                </div>
+                                <div class="mspec-avatar"><img src="assets/images/KOL Image-7.png" alt="Kenson"></div>
+                            </article>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-center pt-4">
+                    <blockquote class="fst-italic fs-5 mb-3" id="mspec-quote">“A novice in horse racing, prioritizes the horses’ strength and their racing records.”</blockquote>
+                    <button id="mspec-explore" class="btn btn-outline-primary rounded-pill px-4 py-2">Explore More</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- SVG defs for reusable clip paths/masks -->
+    <svg width="0" height="0" style="position:absolute">
+        <defs>
+            <!-- Rounded trapezium: narrower top, rounded corners; normalized to 0..1 -->
+            <clipPath id="roundedTrap-large" clipPathUnits="objectBoundingBox">
+                <path d="M0.05,1 
+               L0.98,1 
+               Q1,1,1,0.92 
+               L1,0.2 
+               Q1,0.1,0.96,0.12 
+               L0.03,0.3 
+               Q0,0.32,0,0.4 
+               L0,0.92 
+               Q0,1,0.02,1 Z" />
+            </clipPath>
+        </defs>
+    </svg>
+
+    <svg width="0" height="0" style="position:absolute">
+        <defs>
+            <!-- Rounded trapezium: narrower top, rounded corners; normalized to 0..1 -->
+            <clipPath id="roundedTrap-small" clipPathUnits="objectBoundingBox">
+                <path d="M0.05,1 
+               L0.92,1 
+               Q1,1,1,0.92 
+               L1,0.2 
+               Q1,0.1,0.9,0.12 
+               L0.1,0.3 
+               Q0,0.32,0,0.4 
+               L0,0.92 
+               Q0,1,0.08,1 Z" />
+            </clipPath>
+        </defs>
+    </svg>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="assets/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/swiper-bundle.min.js"></script>
+    <script src="assets/js/aos.js"></script>
+    <script> AOS.init(); </script>
+    <script>
+      $(document).ready(function() {
+        if (typeof Swiper === 'undefined') {
+          console.warn('Swiper library not loaded');
+          return;
+        }
+        const bannerSwiper = new Swiper('.main-home-banner', {
+          loop: true,
+          speed: 600,
+          slidesPerView: 1.2,
+          centeredSlides: true,
+          spaceBetween: 0,
+          watchSlidesProgress: true,
+          on: {
+            progress(swiper) {
+              $(swiper.slides).each(function() {
+                const slide = this;
+                const slideProgress = slide.progress;
+                const scale = 1 - Math.min(Math.abs(slideProgress) * 0.06, 0.12); // gentler scale
+                const opacity = 1 - Math.min(Math.abs(slideProgress) * 0.35, 0.50); // keep side visible
+                $(slide).css({
+                  'transform': `scale(${scale})`,
+                  'opacity': opacity
+                });
+              });
+            },
+            setTransition(swiper, duration) {
+              $(swiper.slides).each(function() {
+                $(this).css('transition', duration + 'ms');
+              });
+            }
+          }
+        });
+      });
+    </script>
+
+    <script>
+      // Specialists Swiper + Tab syncing
+      $(document).ready(function(){
+        if (typeof Swiper === 'undefined') return;
+
+        const specialistsSwiper = new Swiper('.specialists-swiper', {
+          loop: true,
+          slidesPerView: 3,
+          centeredSlides: true,
+          spaceBetween: 20,
+          speed: 600,
+          allowTouchMove: false,
+          watchSlidesProgress: true,
+        //   allowTouchMove: false
+        });
+
+                const picksData = [
+          {
+            name: 'Elke',
+            picks: [
+                            { race: 'Race 1', type: 'QUINELLA PLACE', meta: '16:45 Group 2 TURF 1600M', list: ['5. BEAUTY WAVES','7. HAPPY UNITED','12. SUPER FORTUNE'] },
+                            { race: 'Race 2', type: 'WIN', meta: '16:45 Group 2 TURF 1600M', list: ['3. FAST GLORY','8. RAIN SHADOW','14. SUNNY ACE'] },
+                            { race: 'Race 3', type: 'PLACE', meta: '16:45 Group 2 TURF 1600M', list: ['1. GOLDEN STAR','6. WIND RIDER','11. MOON HUNTER'] },
+                            { race: 'Race 4', type: 'QUINELLA PLACE', meta: '16:45 Group 2 TURF 1600M', list: ['2. NIGHT FURY','7. OCEAN KING','10. SWIFT ARROW'] },
+                            { race: 'Race 5', type: 'WIN', meta: '16:45 Group 2 TURF 1600M', list: ['4. DREAM CHASER','9. BOLD HERO','12. LUCKY HARBOR'] },
+                            { race: 'Race 6', type: 'PLACE', meta: '16:45 Group 2 TURF 1600M', list: ['5. SKY DANCER','8. RIVER FLOW','13. FIRE BLOOM'] },
+                            { race: 'Race 7', type: 'QUINELLA PLACE', meta: '16:45 Group 2 TURF 1600M', list: ['2. SUNRISE GLOW','6. VICTORY LANE','15. BLUE COMET'] },
+                            { race: 'Race 8', type: 'WIN', meta: '16:45 Group 2 TURF 1600M', list: ['3. DESERT KING','7. THUNDER ROAD','10. SILK LEGEND'] },
+                            { race: 'Race 9', type: 'PLACE', meta: '16:45 Group 2 TURF 1600M', list: ['1. STARLIGHT SON','5. ROYAL CHARM','12. GREEN HAWK'] },
+                            { race: 'Race 10', type: 'QUINELLA PLACE', meta: '16:45 Group 2 TURF 1600M', list: ['6. BRAVE SWORD','9. SEA SPRINTER','11. PURE MAGIC'] }
+            ]
+          },
+          {
+            name: 'KK',
+            picks: [
+                            { race: 'Race 1', type: 'WIN', meta: '16:45 Group 2 TURF 1600M', list: ['1. SMART ACE','4. GOLDEN DASH','9. TACTICAL MASTER'] },
+                            { race: 'Race 2', type: 'PLACE', meta: '16:45 Group 2 TURF 1600M', list: ['2. SILVER WIND','6. BLUE RIVER','8. BRAVE CHAMP'] },
+                            { race: 'Race 3', type: 'QUINELLA PLACE', meta: '16:45 Group 2 TURF 1600M', list: ['3. LUCKY DRAGON','5. NIGHT STAR','11. OCEAN PRIDE'] },
+                            { race: 'Race 4', type: 'WIN', meta: '16:45 Group 2 TURF 1600M', list: ['7. CITY LIGHTS','10. RED FALCON','12. NOBLE QUEST'] },
+                            { race: 'Race 5', type: 'PLACE', meta: '16:45 Group 2 TURF 1600M', list: ['1. IRON WILL','8. SILENT RIVER','13. JADE EMPEROR'] },
+                            { race: 'Race 6', type: 'QUINELLA PLACE', meta: '16:45 Group 2 TURF 1600M', list: ['2. NORTHERN STAR','6. BRIGHT WINGS','9. MYSTIC HILL'] },
+                            { race: 'Race 7', type: 'WIN', meta: '16:45 Group 2 TURF 1600M', list: ['5. SHADOW BLADE','11. TOP HONOR','14. CRYSTAL KING'] },
+                            { race: 'Race 8', type: 'PLACE', meta: '16:45 Group 2 TURF 1600M', list: ['3. SILVER SAGA','7. DRAGON DANCE','12. JET STREAM'] },
+                            { race: 'Race 9', type: 'QUINELLA PLACE', meta: '16:45 Group 2 TURF 1600M', list: ['4. TIGER ROAR','6. WHITE LOTUS','10. RAPID CHARGE'] },
+                            { race: 'Race 10', type: 'QUINELLA PLACE', meta: '16:45 Group 2 TURF 1600M', list: ['2. GOLDEN PEAK','8. CLOUD RIDER','15. SKY VOYAGER'] }
+            ]
+          },
+          {
+            name: 'Krystal',
+            picks: [
+                            { race: 'Race 1', type: 'WIN', meta: '16:45 Group 2 TURF 1600M', list: ['2. MYSTIC LIGHT','7. HAPPY LUCK','10. FLYING HIGH'] },
+                            { race: 'Race 2', type: 'PLACE', meta: '16:45 Group 2 TURF 1600M', list: ['4. DANCING QUEEN','6. SKY HERO','12. SWIFT RUN'] },
+                            { race: 'Race 3', type: 'QUINELLA PLACE', meta: '16:45 Group 2 TURF 1600M', list: ['1. POWER KING','8. RAINBOW JOY','9. SILENT WAVE'] },
+                            { race: 'Race 4', type: 'WIN', meta: '16:45 Group 2 TURF 1600M', list: ['3. GOLD SPARK','6. VIOLET RAY','12. NIGHT SPRING'] },
+                            { race: 'Race 5', type: 'PLACE', meta: '16:45 Group 2 TURF 1600M', list: ['5. ROSE BLOOM','7. FAIRY TALE','9. DREAM RUN'] },
+                            { race: 'Race 6', type: 'QUINELLA PLACE', meta: '16:45 Group 2 TURF 1600M', list: ['2. WIND SONG','8. SILK RIVER','10. SHINING BELL'] },
+                            { race: 'Race 7', type: 'WIN', meta: '16:45 Group 2 TURF 1600M', list: ['1. AZURE LINE','4. PURE LIGHT','11. SWEET HONEY'] },
+                            { race: 'Race 8', type: 'PLACE', meta: '16:45 Group 2 TURF 1600M', list: ['3. LUNA BLOOM','5. DEEP OCEAN','8. STAR TRAIL'] },
+                            { race: 'Race 9', type: 'QUINELLA PLACE', meta: '16:45 Group 2 TURF 1600M', list: ['6. SUNNY LANE','9. EVERGREEN','12. HARMONY SKY'] },
+                            { race: 'Race 10', type: 'QUINELLA PLACE', meta: '16:45 Group 2 TURF 1600M', list: ['2. HIDDEN GEM','7. BLUE MEADOW','13. SILENT HARBOR'] }
+            ]
+          }
+        ];
+
+        // Picks Swiper instance (created after first render)
+        let picksSwiper = null;
+
+        function renderPicks(idx){
+            const spec = picksData[idx % picksData.length];
+            const slidesHtml = spec.picks.map(p => `
+                <div class="swiper-slide">
+                    <div class="pick-card p-4 rounded-4 h-100">
+                        <h6>${p.race}</h6>
+                        <div class="meta">${p.meta}</div>
+                        <hr/>
+                        <div class="type mb-2">${p.type}</div>
+                        <div class="d-flex flex-row justify-content-between flex-nowrap align-items-end w-100">
+                            <ol class="list">
+                                ${p.list.map(i => `<li>${i}</li>`).join('')}
+                            </ol>
+                            <div class="">
+                                <button class="cta" type="button">Bet Now</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+            $('#picksWrapper').html(slidesHtml);
+
+                        // (Re)initialize picks swiper for fresh content
+                        if (picksSwiper) {
+                            picksSwiper.destroy(true, true);
+                            picksSwiper = null;
+                        }
+                        picksSwiper = new Swiper('.picks-swiper', {
+                            slidesPerView: 3.5,
+                            spaceBetween: 16,
+                            watchSlidesProgress: true,
+                            breakpoints: {
+                                0: { slidesPerView: 1.2 },
+                                576: { slidesPerView: 2.2 },
+                                992: { slidesPerView: 3.5 }
+                            }
+                        });
+        }
+
+        // Initial render - use realIndex which is correct even in loop mode
+        renderPicks(specialistsSwiper.realIndex);
+
+        // Click to center slide
+        $('.specialists-swiper').on('click', '.swiper-slide', function() {
+            if( $(this).hasClass('swiper-slide-prev') ){
+                specialistsSwiper.slidePrev();
+            } else if( $(this).hasClass('swiper-slide-next') ){
+                specialistsSwiper.slideNext();
+            }
+        });
+
+                // Update picks on slide change
+        specialistsSwiper.on('slideChange', function() {
+          renderPicks(specialistsSwiper.realIndex);
+          specialistsSwiper.updateSlides();
+          specialistsSwiper.updateProgress();
+          specialistsSwiper.updateSlidesClasses();
+          specialistsSwiper.update();
+        });
+
+        // rAF handle for ongoing animation updates (hoisted before swiper init)
+        var moreAnimRaf = null;
+
+        const moreSwiper = new Swiper('.more-specialists-swiper', {
+            loop: true,
+            slidesPerView: 5,
+            spaceBetween: 30,
+            centeredSlides: true,
+            watchSlidesProgress: true,
+            on: {
+                init(sw) {
+                    // Apply initial scaling and update caption
+                    applyMoreScale(sw);
+                },
+                setTranslate(sw) {
+                    // Keep scaling smooth while swiping/animating
+                    applyMoreScale(sw);
+                },
+                progress(sw) {
+                    // Sync scale on internal progress updates
+                    applyMoreScale(sw);
+                },
+                setTransition(sw, duration) {
+                    $(sw.slides).each(function() {
+                        $(this).css('transition', duration + 'ms');
+                    });
+                },
+                transitionStart(sw) {
+                    // For fast swipes, continuously re-apply during animation
+                    ensureAnimatingUpdates(sw);
+                },
+                transitionEnd(sw) {
+                    // Final settle after animation completes
+                    applyMoreScale(sw);
+                },
+            },
+        });
+
+        // Helper: smooth, position-based scaling
+        // Mapping: |progress| = 0 => 1.00 (active), 1 => 0.85 (prev/next), >=2 => 0.70 (others)
+        function applyMoreScale(swiper) {
+            $(swiper.slides).each(function() {
+                const slide = this;
+                const raw = slide.progress || 0; // negative: left, positive: right
+                const p = Math.abs(raw);
+                const reduce = Math.min(0.30, 0.15 * p); // 0 -> 1.00, 1 -> 0.85, >=2 -> 0.70
+                const scale = 1 - reduce;
+                const $slide = $(slide);
+                // Dynamic transform-origin so scaling always pulls toward the center
+                // Combine class check with progress thresholds for robustness during fast swipes
+                const hasPrevNextClass = $slide.hasClass('swiper-slide-prev') || $slide.hasClass('swiper-slide-next');
+                const isActive = $slide.hasClass('swiper-slide-active');
+                const nearPrev = raw <= -0.85 && raw >= -1.15; // treat as immediate prev
+                const nearNext = raw >= 0.85 && raw <= 1.15;   // treat as immediate next
+                const isImmediate = hasPrevNextClass || nearPrev || nearNext;
+
+                if (isActive) {
+                    // Never set inline origin on active slide
+                    $slide.css('transform-origin', '');
+                } else if (isImmediate) {
+                    // Immediate prev/next -> clear inline to let CSS control
+                    $slide.css('transform-origin', '');
+                } else if (raw < -0.05) {
+                    // Slide is on the left side (beyond immediate prev) -> pull toward center
+                    $slide.css('transform-origin', 'left');
+                } else if (raw > 0.05) {
+                    // Slide is on the right side (beyond immediate next) -> pull toward center
+                    $slide.css('transform-origin', 'right');
+                } else {
+                    // Near center -> clear inline
+                    $slide.css('transform-origin', '');
+                }
+
+                $slide.css('transform', `scale(${scale})`);
+            });
+        }
+        // During animations, ensure updates keep running in case of fast swipes
+        function ensureAnimatingUpdates(swiper) {
+            if (moreAnimRaf) cancelAnimationFrame(moreAnimRaf);
+            const tick = () => {
+                applyMoreScale(swiper);
+                if (swiper && swiper.animating) {
+                    moreAnimRaf = requestAnimationFrame(tick);
+                } else {
+                    moreAnimRaf = null;
+                }
+            };
+            moreAnimRaf = requestAnimationFrame(tick);
+        }
+
+      });
+    </script>
+</body>
+</html>
