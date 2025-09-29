@@ -41,8 +41,7 @@
 
     main.main-content {
         width: 100vw;
-        height: 100vh;
-        overflow-x: hidden;
+        min-height: 100vh;
     }
 
     /* ============================= Banner / Swiper Hero Section ============================= */
@@ -192,12 +191,16 @@
 
     /* ============================= Specialists styles ============================= */
 
-   
+    section#specialists {
+        overflow-x: hidden;
+        max-width: 100vw;
+    }
 
     .specialists-wrap {
         font-family: "Noto Sans TC", sans-serif;
         max-width: 1200px;
         margin: 0 auto;
+        
     }
 
     .specialists-swiper .swiper-slide {
@@ -519,6 +522,24 @@
         border-radius: 24px;
         z-index: 0;
     }
+    .mspec-quote{
+        font-family: "Noto Sans TC", sans-serif;
+        color:#000;
+        font-size: 20px;
+        line-height: 30px;
+        font-weight: 400;
+        margin: 0 auto;
+        max-width: 650px;
+    }
+
+    .mspec-explore {
+        border: 1px solid #003C84;
+        color: #003C84;
+        background: #FFF;
+        font-family: "Noto Sans TC", sans-serif;
+        font-size: 18px;
+        font-weight: 400;
+    }
 
     .mspec-bg::before{
         content: "";
@@ -566,6 +587,131 @@
         font-size: 20px;
         line-height: 1.2;
         text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    }
+
+    /* ============================= Social Feedback (Sticky Stack) ============================= */
+    
+    #animation {
+        position: relative;
+        overflow: visible;
+        width: 100vw;
+    }
+    .animation-stage {
+        height: calc(100vh - 90px); /* full viewport height - header height */
+        width: 100vw;
+    }
+    .animation-image-wrapper {
+        overflow: hidden;
+        isolation: isolate;
+    }
+
+    .animation-image-wrapper img {
+        position: absolute;
+        top: 80px;
+        left: 50%;      
+        transform: translate(-50%, -50%);
+        width: 350px;
+        height: auto;
+    }
+
+    .animation-group-wrapper {
+        position: absolute;
+        bottom: 0;
+        height: calc(100vh - 90px); /* full viewport height - header height */
+        width: 100vw;
+        overflow: hidden;
+        isolation: isolate;
+        background: #f8fafc; /* light backdrop to make cards pop */
+    }
+    .animation-text-wrapper {
+        inset: 0;
+        display: grid;
+        place-items: center;
+        pointer-events: none;
+        z-index: 0;
+    }
+    .animation-text-wrapper .animation-text {
+        font-family: "Chromatica", sans-serif;
+        font-weight: 900;
+        font-size: 300px;
+        letter-spacing: 3px;
+        line-height: 250px;
+        opacity: 0.08;
+        text-align: center;
+        user-select: none;
+        transform: translateZ(0);
+        will-change: transform, opacity;
+    }
+    .animation-text-wrapper .animation-text.top{
+        color: #022169;
+    }
+    .animation-text-wrapper .animation-text.center{
+        color: #2655CC;
+    }
+    .animation-text-wrapper .animation-text.bottom{
+        color: #46CCF2;
+    }
+    .animation-cards-layer {
+        position: absolute;
+        inset: 0;
+        z-index: 1;
+    }
+    .media-card {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        width: 280px;
+        aspect-ratio: 9 / 16; /* portrait like phone */
+        border-radius: 24px;
+        overflow: hidden;
+        /* white frame + shadow */
+        box-shadow: 0 0 0 8px #fff, 0 20px 60px rgba(0,0,0,0.18);
+        background: #000;
+        will-change: transform, opacity;
+        transform-style: preserve-3d;
+    }
+    .media-card img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .media-card .badge {
+        position: absolute;
+        left: 12px;
+        bottom: 12px;
+        padding: 6px 10px;
+        border-radius: 999px;
+        background: rgba(255,255,255,0.9);
+        color: #001b44;
+        font-family: "Noto Sans TC", sans-serif;
+        font-size: 12px;
+        font-weight: 700;
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        backdrop-filter: blur(4px);
+    }
+    .media-card .badge img { width: 14px; height: 14px; object-fit: contain; }
+    @media (max-width: 767.98px){
+        .media-card { width: clamp(120px, 42vw, 260px); }
+    }
+
+    /* ============================= Call to Action Section ============================= */
+    #cta {
+        background: #0a61b7;
+        height: 500px;
+        width: 100vw;
+        padding: 60px 0;
+    }
+    #cta .section-title {
+        font-size: 2.5rem;
+        font-weight: 700;
+        margin-bottom: 20px;
+    }
+    #cta .section-sub-title {
+        font-size: 1.25rem;
+        margin-bottom: 30px;
+    }
+    #cta .btn {
+        padding: 12px 30px;
+        font-size: 1.125rem;
     }
 
     </style>
@@ -975,7 +1121,7 @@
                 </div>
             </div>
             <div class="more-specialists-wrap position-relative">
-                <div class="swiper more-specialists-swiper pb-5 pt-5">
+                <div class="swiper more-specialists-swiper pb-2 pt-5">
                     <div class="swiper-wrapper">
                         <!-- Sample slides (colors are placeholder tone-*) -->
                         <div class="swiper-slide">
@@ -1131,12 +1277,58 @@
                     </div>
                 </div>
                 <div class="text-center pt-4">
-                    <blockquote class="fst-italic fs-5 mb-3" id="mspec-quote">“A novice in horse racing, prioritizes the horses’ strength and their racing records.”</blockquote>
-                    <button id="mspec-explore" class="btn btn-outline-primary rounded-pill px-4 py-2">Explore More</button>
+                    <div class="mspec-quote pb-4">“A novice in horse racing, prioritizes the horses’ strength and their racing records.”</div>
+                    <button class="mspec-explore rounded-5 px-4 py-2">Explore More</button>
                 </div>
             </div>
         </section>
+        <!-- Social Feedback (Sticky Stack) -->
+        <section id="animation" class="p-0">
+            <div class="animation-stage container-fluid p-0">
+                <div class="animation-group-wrapper">
+                    <div class="animation-image-wrapper">
+                        <img src="assets/images/yjs.png" alt="Racing Education Background" />
+                    </div>
+                    <div class="animation-text-wrapper">
+                        <div class="animation-text top">RACING</div>
+                        <div class="animation-text center">EDUCATION</div>
+                        <div class="animation-text bottom">FOR YOU</div>
+                    </div>
+                    <div class="animation-cards-layer">
+                        <!-- Use existing images as demo cards -->
+                        <figure class="media-card _1">
+                            <img src="assets/images/edu_area_video1.jpg" alt="Race replay highlight 1">
+                            <figcaption class="badge"><img src="assets/images/icon_video.png" alt="Video"> Replay</figcaption>
+                        </figure>
+                        <figure class="media-card _2">
+                            <img src="assets/images/edu_area_video2.jpg" alt="Race replay highlight 2">
+                            <figcaption class="badge"><img src="assets/images/icon_video.png" alt="Video"> Replay</figcaption>
+                        </figure>
+                        <figure class="media-card _3">
+                            <img src="assets/images/edu_area_video3.jpg" alt="Race replay highlight 3">
+                            <figcaption class="badge"><img src="assets/images/icon_video.png" alt="Video"> Replay</figcaption>
+                        </figure>
+                        <figure class="media-card _4">
+                            <img src="assets/images/edu_area_video4.jpg" alt="Race replay highlight 4">
+                            <figcaption class="badge"><img src="assets/images/icon_video.png" alt="Video"> Replay</figcaption>
+                        </figure>
+                        <figure class="media-card _5">
+                            <img src="assets/images/edu_area_video5.jpg" alt="Race replay highlight 5">
+                            <figcaption class="badge"><img src="assets/images/icon_video.png" alt="Video"> Replay</figcaption>
+                        </figure>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="cta" class="text-center py-5">
+            <div class="container">
+                <h2 class="section-title mb-3">Ready to Join the Fun?</h2>
+                <p class="section-sub-title mb-4">Sign up now and get a HK$100 free bet!</p>
+                <button class="btn btn-primary btn-lg rounded-5 px-4 py-2">Sign Up Now</button>
+            </div>
+        </section>
     </main>
+
 
     <!-- SVG defs for reusable clip paths/masks -->
     <svg width="0" height="0" style="position:absolute">
@@ -1178,6 +1370,9 @@
     <script src="assets/js/swiper-bundle.min.js"></script>
     <script src="assets/js/aos.js"></script>
     <script> AOS.init(); </script>
+    <script src="assets/js/gsap.min.js"></script>
+    <script src="assets/js/ScrollTrigger.min.js"></script>
+
     <script>
       $(document).ready(function() {
         if (typeof Swiper === 'undefined') {
@@ -1227,7 +1422,6 @@
           speed: 600,
           allowTouchMove: false,
           watchSlidesProgress: true,
-        //   allowTouchMove: false
         });
 
                 const picksData = [
@@ -1354,6 +1548,7 @@
                 init(sw) {
                     // Apply initial scaling and update caption
                     applyMoreScale(sw);
+                    updateMspecQuote(sw);
                 },
                 setTranslate(sw) {
                     // Keep scaling smooth while swiping/animating
@@ -1367,6 +1562,10 @@
                     $(sw.slides).each(function() {
                         $(this).css('transition', duration + 'ms');
                     });
+                },
+                slideChange(sw) {
+                    // Update quote whenever the active slide changes
+                    updateMspecQuote(sw);
                 },
                 transitionStart(sw) {
                     // For fast swipes, continuously re-apply during animation
@@ -1431,7 +1630,268 @@
             moreAnimRaf = requestAnimationFrame(tick);
         }
 
+        // Map specialist name to their dedicated quote
+        const quotesByName = {
+            'Ling Ling': 'A novice in horse racing, prioritizes the horses’ strength and their racing records.',
+            'Fu Jai': 'Trust the pace and the draw; value consistency over one-off performances.',
+            'Colette': 'Pedigree speaks—follow bloodlines and trainers’ patterns for long-term wins.',
+            "Steven's Bros": 'Teamwork makes the bet work—combine form, tempo, and market moves.',
+            'Alex Ng': 'Timing is everything—late finishers shine when the tempo is fierce.'
+        };
+        const defaultQuote = 'Insights that matter—balance data with instincts for smarter picks.';
+
+        // Update the quote below the carousel based on the active slide name
+        function updateMspecQuote(sw) {
+            try {
+                const $active = $(sw.slides[sw.activeIndex]);
+                const name = ($active.find('.mspec-name').text() || '').trim();
+                const quote = quotesByName[name] || defaultQuote;
+                const $q = $('.more-specialists-wrap .mspec-quote');
+                // Simple text swap; could be animated if desired
+                $q.text(`“${quote}”`);
+            } catch (e) {
+                // fail-safe: do nothing
+            }
+        }
+
       });
     </script>
+
+    <script>
+    // Sticky Social Feedback animations (GSAP + ScrollTrigger)
+    $(function() {
+        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+        if (!window.gsap || !window.ScrollTrigger) return;
+        gsap.registerPlugin(ScrollTrigger);
+
+        const sticky = document.querySelector('#animation .animation-group-wrapper');
+        if (!sticky) return;
+
+        const cards = gsap.utils.toArray('#animation .media-card');
+
+        // Dynamically set #animation height to (scroll distance in Y) + 100vh
+        function updateAnimationSectionHeight() {
+            try {
+                const st = ScrollTrigger.getById('animation-pin');
+                const sectionEl = document.querySelector('#animation');
+                if (!st || !sectionEl) return;
+                const vh = window.innerHeight;
+                const header = document.querySelector('.site-header');
+                const headerH = header ? header.offsetHeight : 0;
+                const dist = Math.max(0, st.end - st.start);
+                const targetHeight = Math.max(0, dist + (window.innerHeight - vh));
+                console.log('Set #animation height to', targetHeight);
+                sectionEl.style.height = Math.round(targetHeight) + 'px';
+            } catch (e) {
+                // no-op fail safe
+            }
+        }
+
+        function layoutRow() {
+            const n = cards.length;
+            const cw = cards[0].getBoundingClientRect().width;
+            // 30% of the back card is covered by the front → step (visible) = 70% width
+            const step = cw * 0.70;
+            const total = cw + (n - 1) * step;
+            // Center the row around the viewport center; we'll use xPercent:-50 as baseline
+            const centerOffset = -total / 2 + cw / 2; // px offset for i=0
+
+            cards.forEach((el, i) => {
+                const offsetX = centerOffset + i * step;
+                el.dataset.offsetX = String(offsetX);
+                el.style.zIndex = String(100 + i);
+            });
+        }
+
+        // Initial style for all three groups
+        function setStartState() {
+            // Text: start lower on screen and visible
+            gsap.set('#animation .animation-text-wrapper .animation-text', {
+                yPercent: 15,
+                opacity: 1
+            });
+
+            gsap.set('#animation .animation-text-wrapper .animation-text.top', {
+                xPercent: -30
+            });
+
+            gsap.set('#animation .animation-text-wrapper .animation-text.center', {
+                xPercent: 20
+            });
+
+            gsap.set('#animation .animation-text-wrapper .animation-text.bottom', {
+                xPercent: -20
+            });
+
+            // Image: start hidden, slight upscale
+            gsap.set('#animation .animation-image-wrapper img', {
+                opacity: 0,
+                scale: 1.04
+            });
+
+            // Cards: bottom-center pile
+            cards.forEach((el, i) => {
+                gsap.set(el, {
+                    xPercent: -50, // baseline center horizontally
+                    yPercent: -50, // baseline center vertically
+                    x: 0,
+                    y: '70vh', // appear from lower area
+                    scale: 0.94,
+                    opacity: 0,
+                });
+            });
+        }
+
+        // Build timeline
+        function buildTimeline() {
+            ScrollTrigger.getById('animation-pin')?.kill();
+            // Clear previous inline pin styles if any
+            gsap.set(sticky, { clearProps: 'all' });
+            // get viewport height
+            const vh = window.innerHeight;
+            const header = document.querySelector('.site-header');
+            const headerH = header ? header.offsetHeight : 0;
+            const sectionTopPosition = document.querySelector('section#animation')?.offsetTop || 0;
+            const triggerPosition = sectionTopPosition - vh;
+            const sectionEl = document.querySelector('#animation');
+            const tl = gsap.timeline({
+                scrollTrigger: {
+                    id: 'animation-pin',
+                    trigger: sectionEl,
+                    // Start when the TOP of the section hits the BOTTOM of the header
+                    start: triggerPosition,
+                    end: '+=200%',
+                    scrub: 1,
+                    anticipatePin: 1,
+                    invalidateOnRefresh: true,
+                    onRefresh: () => {
+                        gsap.set(sticky, { clearProps: 'all' });
+                        layoutRow();
+                        // After refresh, recalc scroll distance and set section height
+                        requestAnimationFrame(updateAnimationSectionHeight);
+                    },
+                    onToggle: (self) => {
+                        if( self.isActive ) {
+                            $('.animation-stage').css('position', 'relative');
+                        } else {
+                            // Clear styles when leaving active state
+                            $('.animation-stage').css('position', '');
+                            sticky.style.position = '';
+                            sticky.style.top = '';
+                            sticky.style.left = '';
+                            sticky.style.width = '';
+                            sticky.style.height = '';
+                            sticky.style.zIndex = '';
+                        }
+                    },
+                    onUpdate: (self) => {
+                        // Smooth sticky: become fixed only when section top reaches header height
+                        const header = document.querySelector('.site-header');
+                        const headerH = header ? header.offsetHeight : 0;
+                        const sectionRect = sectionEl.getBoundingClientRect();
+                        const shouldFix = sectionRect.top <= headerH && sectionRect.bottom > headerH;
+
+                        if (shouldFix) {
+                            if (sticky.style.position !== 'fixed') {
+                                Object.assign(sticky.style, {
+                                    position: 'fixed',
+                                    top: headerH + 'px',
+                                    left: '0',
+                                    width: '100%',
+                                    height: (window.innerHeight - headerH) + 'px',
+                                    zIndex: '10'
+                                });
+                            } else {
+                                // Keep height in sync in case of dynamic header/resize during scroll
+                                sticky.style.height = (window.innerHeight - headerH) + 'px';
+                                sticky.style.top = headerH + 'px';
+                            }
+                        } else {
+                            if (sticky.style.position === 'fixed') {
+                                sticky.style.position = '';
+                                sticky.style.top = '';
+                                sticky.style.left = '';
+                                sticky.style.width = '';
+                                sticky.style.height = '';
+                                sticky.style.zIndex = '';
+                            }
+                        }
+                    }
+                }
+            });
+            // Sequence label
+            tl.add('text');
+
+            // 1) TEXT: move upward across screen, with horizontal variations per line, then fade wrapper
+            // Top and Center move right; Bottom moves left
+            tl.to('#animation .animation-text-wrapper .animation-text.top', {
+
+                xPercent: 30,
+                ease: 'none',
+                opacity: 0,
+                duration: 1.5
+            }, 'text');
+            tl.to('#animation .animation-text-wrapper .animation-text.center', {
+
+                xPercent: -20,
+                ease: 'none',
+                opacity: 0,
+                duration: 1.7
+            }, 'text+=0.08');
+            tl.to('#animation .animation-text-wrapper .animation-text.bottom', {
+
+                xPercent: 1,
+                ease: 'none',
+                opacity: 0,
+                duration: 2.1
+            }, 'text+=0.16');
+            // tl.to('#animation .animation-text-wrapper', {
+            //     opacity: 0,
+            //     ease: 'none',
+            //     duration: 0.6
+            // }, 'text+=0.8');
+
+            // 2) CARDS: after text completes, stack into place sequentially
+            tl.to(cards, {
+                x: (i, el) => parseFloat(el.dataset.offsetX || '0'),
+                y: '3vh',
+                rotation: (i) => (i % 2 ? -7 : 7),
+                scale: 1,
+                opacity: 1,
+                ease: 'power2.out',
+                duration: 0.6,
+                stagger: 0.18
+            }, 'text+=1.05');
+
+            // 3) IMAGE: begin in the middle of the text sequence
+            tl.to('#animation .animation-image-wrapper img', {
+                opacity: 1,
+                scale: 1,
+                ease: 'power1.out',
+                duration: 0.6
+            }, 'text+=1.75');
+
+        }
+
+        layoutRow();
+        setStartState();
+        buildTimeline();
+        // Set initial dynamic height once ScrollTrigger exists
+    updateAnimationSectionHeight();
+
+        // Rebuild on resize
+        let resizeTO;
+        window.addEventListener('resize', () => {
+            clearTimeout(resizeTO);
+            resizeTO = setTimeout(() => {
+                layoutRow();
+                ScrollTrigger.refresh();
+                // Ensure height matches latest scroll distance
+                setTimeout(updateAnimationSectionHeight, 0);
+            }, 150);
+        });
+    });
+    </script>
+    
 </body>
 </html>
