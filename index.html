@@ -162,11 +162,7 @@
         width:85%;
         height:auto;
     }
-    @media (min-width: 992px){
-        .main-home-banner .swiper-slide {
-            width:82%;
-        }
-    }
+
     .swiper-image {
         aspect-ratio:1670/720;
         background-size:cover !important;
@@ -221,11 +217,7 @@
     .specialists-swiper .swiper-slide {
         width: 320px;
     }
-    @media (min-width: 992px){
-        .specialists-swiper .swiper-slide {
-            width: 420px;
-        }
-    }
+
     .specialists-swiper .swiper-slide-active {
         width: 640px;
     }
@@ -486,9 +478,6 @@
     .more-specialists-swiper .swiper-slide {
         transition: all .6s;
     }
-    @media (min-width: 992px){
-        .more-specialists-swiper .swiper-slide { width: 280px; }
-    }
 
     .more-specialists-swiper .swiper-slide:not(.swiper-slide-active, .swiper-slide-prev, .swiper-slide-next) {
         opacity: .65; 
@@ -532,13 +521,23 @@
         max-width: 650px;
     }
 
-    .mspec-explore {
-        border: 1px solid #003C84;
-        color: #003C84;
+    .hkjc-outline-button {
+        
         background: #FFF;
         font-family: "Noto Sans TC", sans-serif;
         font-size: 18px;
         font-weight: 400;
+    }
+
+    .button-blue{
+        border: 1px solid #003C84;
+        color: #003C84;
+    }
+
+    .button-white{
+        border: 1px solid #FFFFFF;
+        color: #FFFFFF;
+        background: transparent;
     }
 
     .mspec-bg::before{
@@ -610,7 +609,7 @@
         top: 80px;
         left: 50%;      
         transform: translate(-50%, -50%);
-        width: 350px;
+        width: 300px;
         height: auto;
     }
 
@@ -661,7 +660,7 @@
         left: 50%;
         top: 50%;
         transform: translate(-50%, -50%);
-        width: 280px;
+        width: 250px;
         aspect-ratio: 9 / 16; /* portrait like phone */
         border-radius: 24px;
         overflow: hidden;
@@ -688,31 +687,181 @@
         gap: 6px;
         backdrop-filter: blur(4px);
     }
-    .media-card .badge img { width: 14px; height: 14px; object-fit: contain; }
-    @media (max-width: 767.98px){
-        .media-card { width: clamp(120px, 42vw, 260px); }
+
+    .animation-button-wrapper button{
+        position: absolute;
+        bottom: 30px;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        opacity: 0;
     }
 
-    /* ============================= Call to Action Section ============================= */
-    #cta {
-        background: #0a61b7;
-        height: 500px;
+    /* ============================= Discover Section ============================= */
+
+    section#discover {
         width: 100vw;
-        padding: 60px 0;
+        height: calc(100vh - 90px);
+        position: relative;
+        overflow: hidden;
     }
-    #cta .section-title {
-        font-size: 2.5rem;
-        font-weight: 700;
-        margin-bottom: 20px;
+
+    .discover-background {
+        position: absolute;
+        display: flex;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        border-radius: 250px;   
+        width: 928px;
+        height: 490px;  
+        background-color: #2655CC;
+        z-index: 0;
     }
-    #cta .section-sub-title {
-        font-size: 1.25rem;
-        margin-bottom: 30px;
+
+    .discover-content {
+        position: absolute;
+        display: flex;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        flex-direction: column;
+        align-content: center;
+        justify-content: center;
+        align-items: center;
+        z-index: 1;
     }
-    #cta .btn {
-        padding: 12px 30px;
-        font-size: 1.125rem;
+
+    img.discover-icon {
+        width: 156px;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
     }
+
+    p.discover-text {
+        position: absolute;
+        transform: translate(-50%, -50%);
+        left: 50%;
+        top: 50%;
+        width: 500px;
+        text-align: center;
+        color: #FFF;
+        font-family: "Noto Sans TC", sans-serif;
+        font-size: 16px;
+    }
+
+    p.discover-dot {
+        position: absolute;
+        transform: translate(-50%, -50%);
+        left: 50%;
+        top: 50%;
+        width: 10px;
+        height: 10px;
+        background: #FFF;
+        border-radius: 10px;
+        z-index: 1;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+    }
+
+    .discover-post {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        padding: 0 20px;
+        max-width: 900px;
+        opacity: 0;
+    }
+    .post-row {
+        display: flex;
+        gap: 30px;
+        flex-direction: row;
+        flex-wrap: nowrap;
+    }
+    .feature-img img {
+        width: 100%;
+        height: auto;
+        aspect-ratio: 245 / 138;
+        object-fit: cover;
+    }
+
+    .post {
+        flex: 1;
+        box-shadow: 0 3px 20px rgb(0 0 0 / 20%);
+        border-radius: 16px;
+        overflow: hidden;
+    }
+
+    .post-wrapper {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        align-items: center;
+        gap: 30px;
+    }
+
+    p.post-excerpt {
+        font-family: "Noto Sans TC", sans-serif;
+        font-size: 12px;
+        font-weight: 300;
+    }
+
+    p.post-title {
+        font-size: 14px;
+        font-weight: 600;
+    }
+
+    .post-text-wrapper p {
+        margin: unset;
+        display: -webkit-box;
+        -webkit-line-clamp: 1;
+        -webkit-box-orient: vertical;  
+        overflow: hidden;
+        color: #000;
+    }
+
+    .post-text-wrapper {
+        padding: 8px 15px 10px;
+        background: #FFF;
+    }
+
+    .discover-image-background {
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+
+    .discover-image-background img {
+        width: 100vw;
+        height: calc(100vh - 90px);
+        object-fit: cover;
+    }
+
+    /* ============================= Footer ============================= */
+
+    p.footer-text, .footer-list {
+        font-family: "Noto Sans TC", sans-serif;
+        margin: unset;
+        font-size: 14px;
+        color: #000;
+        letter-spacing: 0.3px;
+        font-weight: 300;
+    }
+
+    p.footer-text a{
+        color: #000;
+        text-decoration: underline;
+    }
+    
+    section#footer {
+        background: #fcfcfc;
+    }
+
+
+
 
     </style>
 </head>
@@ -1278,7 +1427,7 @@
                 </div>
                 <div class="text-center pt-4">
                     <div class="mspec-quote pb-4">“A novice in horse racing, prioritizes the horses’ strength and their racing records.”</div>
-                    <button class="mspec-explore rounded-5 px-4 py-2">Explore More</button>
+                    <button class="hkjc-outline-button button-blue rounded-5 px-4 py-2">Explore More</button>
                 </div>
             </div>
         </section>
@@ -1317,14 +1466,89 @@
                             <figcaption class="badge"><img src="assets/images/icon_video.png" alt="Video"> Replay</figcaption>
                         </figure>
                     </div>
+                    <div class="animation-button-wrapper">
+                        <button class="hkjc-outline-button button-blue rounded-5 px-4 py-2">View More</button>
+                    </div>
                 </div>
             </div>
         </section>
-        <section id="cta" class="text-center py-5">
-            <div class="container">
-                <h2 class="section-title mb-3">Ready to Join the Fun?</h2>
-                <p class="section-sub-title mb-4">Sign up now and get a HK$100 free bet!</p>
-                <button class="btn btn-primary btn-lg rounded-5 px-4 py-2">Sign Up Now</button>
+        <!-- Discover More Section -->
+        <section id="discover" >
+            <div class="discover-image-background">
+                <img src="assets/images/discover-bg.png" alt="Discover More Background" />
+            </div>
+            <div class="discover-background"></div>
+            <div class="discover-content">
+                <img class="discover-icon" src="assets/images/EngLogo.png"/>
+                <p class="discover-dot"></p>
+                <p class="discover-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</p>
+            </div>
+            <div class="discover-post">
+                <div class="post-wrapper">
+                    <div class="post-row">
+                        <div class="post">
+                            <div class="feature-img"><img src="assets/images/KOL_video_1.png" alt="Race replay highlight 1"></div>
+                            <div class="post-text-wrapper">
+                                <p class="post-title">Meet Apprentice Jockey Bonnie Wong</p>
+                                <p class="post-excerpt">Lorem Ipsum is simply dummy text of the printing and Lorem Ipsum is simply dummy text of the printing and Lorem Ipsum is simply dummy text of the printing and Lorem Ipsum is simply dummy text of the printing and</p>
+                            </div>
+                        </div>
+                        <div class="post">
+                            <div class="feature-img"><img src="assets/images/KOL_video_2.png" alt="Race replay highlight 2"></div>
+                            <div class="post-text-wrapper">
+                                <p class="post-title">Meet Apprentice Jockey John Doe</p>
+                                <p class="post-excerpt">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</p>
+                            </div>
+                        </div>
+                        <div class="post">
+                            <div class="feature-img"><img src="assets/images/KOL_video_3.png" alt="Race replay highlight 3"></div>
+                            <div class="post-text-wrapper">
+                                <p class="post-title">Meet Apprentice Jockey Jane Smith</p>
+                                <p class="post-excerpt">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</p>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="hkjc-outline-button button-white rounded-5 px-4 py-2">View More</button>
+                </div>
+                <div class="post-wrapper mt-4">
+                    <h2 class="section-title text-white mb-2">Racecourse Experience</h2>
+                    <div class="post-row">
+                        <div class="post">
+                            <div class="feature-img"><img src="assets/images/KOL_video_4.png" alt="Race replay highlight 4"></div>
+                            <div class="post-text-wrapper">
+                                <p class="post-title">Meet Apprentice Jockey Alex Brown</p>
+                                <p class="post-excerpt">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</p>
+                            </div>
+                        </div>
+                        <div class="post">
+                            <div class="feature-img"><img src="assets/images/KOL_video_5.png" alt="Race replay highlight 5"></div>
+                            <div class="post-text-wrapper">
+                                <p class="post-title">Meet Apprentice Jockey Chris Green</p>
+                                <p class="post-excerpt">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</p>
+                            </div>
+                        </div>
+                        <div class="post">
+                            <div class="feature-img"><img src="assets/images/KOL_video_6.png" alt="Race replay highlight 6"></div>
+                            <div class="post-text-wrapper">
+                                <p class="post-title">Meet Apprentice Jockey David Lee</p>
+                                <p class="post-excerpt">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</p>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="hkjc-outline-button button-white rounded-5 px-4 py-2">View More</button>
+                </div>
+            </div>
+        </section>
+        <section id="footer" class="p-5">
+            <div class="container text-left">
+                <p class="footer-text">*All information is for reference only and does not represent the position of The Hong Kong Jockey Club or constitute any advice.</p>
+                <p class="footer-text">^ “One-Click Direct-Bet” function is only available to users who have logged into their betting accounts.</p>
+                <p class="footer-text"><a href="https://www.hkjc.com/responsible-gambling/en/index">Play Responsibly</a></p>
+                <ul class="footer-list">
+                    <li class="footer-list">No person under 18 is allowed to bet or enter premises where bets are accepted.</li>
+                    <li class="footer-list">Betting with illegal or overseas bookmakers is against the law and offenders may be liable to imprisonment.</li>
+                    <li class="footer-list">Don't gamble your life away. Call Ping Wo Fund hotline 1834 633 if you need help or counselling.</li>
+                </ul>                              
             </div>
         </section>
     </main>
@@ -1723,10 +1947,10 @@
                 xPercent: -20
             });
 
-            // Image: start hidden, slight upscale
+            // Image: start hidden, slight downscale
             gsap.set('#animation .animation-image-wrapper img', {
                 opacity: 0,
-                scale: 1.04
+                scale: 0.9
             });
 
             // Cards: bottom-center pile
@@ -1740,6 +1964,12 @@
                     opacity: 0,
                 });
             });
+
+            // button: start hidden
+            gsap.set('#animation .animation-button-wrapper button', {
+                opacity: 0,
+            });
+
         }
 
         // Build timeline
@@ -1854,11 +2084,11 @@
             // 2) CARDS: after text completes, stack into place sequentially
             tl.to(cards, {
                 x: (i, el) => parseFloat(el.dataset.offsetX || '0'),
-                y: '3vh',
+                y: '2vh',
                 rotation: (i) => (i % 2 ? -7 : 7),
                 scale: 1,
                 opacity: 1,
-                ease: 'power2.out',
+                ease: 'power1.out',
                 duration: 0.6,
                 stagger: 0.18
             }, 'text+=1.05');
@@ -1867,9 +2097,16 @@
             tl.to('#animation .animation-image-wrapper img', {
                 opacity: 1,
                 scale: 1,
-                ease: 'power1.out',
+                ease: 'power2.out',
                 duration: 0.6
             }, 'text+=1.75');
+
+            // 4) IMAGE: begin in the middle of the text sequence
+            tl.to('#animation .animation-button-wrapper button', {
+                ease: 'power2.out',
+                opacity: 1,
+                duration: 0.3
+            }, 'text+=2');
 
         }
 
@@ -1890,6 +2127,145 @@
                 setTimeout(updateAnimationSectionHeight, 0);
             }, 150);
         });
+    });
+    </script>
+
+    <script>
+        $(function() {
+        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+        if (!window.gsap || !window.ScrollTrigger) return;
+        gsap.registerPlugin(ScrollTrigger);
+
+        const sticky = document.querySelector('#discover');
+        if (!sticky) return;
+
+        // Initial style for all three groups
+        function setStartState() {
+
+            gsap.set('#discover .discover-background', {
+                xPercent: -50,
+                yPercent: -50,
+                scale: 1
+            });
+
+            gsap.set('#discover .discover-content .discover-dot', {
+                yPercent: -100,
+                opacity: 0,
+                scale: 7,
+            });
+
+            gsap.set('#discover .discover-content .discover-text', {
+                opacity: 0,
+                yPercent: 110,
+                scale:1.1
+            });   
+            
+            gsap.set('#discover .discover-content .discover-icon', {
+  
+            });
+
+        }
+
+        // Build timeline
+        function buildTimeline() {
+            ScrollTrigger.getById('discover-pin')?.kill();
+            const vh = window.innerHeight;
+            const header = document.querySelector('.site-header');
+            const headerH = header ? header.offsetHeight : 0;
+            const sectionTopPosition = document.querySelector('section#discover')?.offsetTop || 0;
+            const triggerPosition = sectionTopPosition + vh ;
+            const sectionEl = document.querySelector('#discover');
+            const tl = gsap.timeline({
+                scrollTrigger: {
+                    id: 'discover-pin',
+                    trigger: sectionEl,
+                    // Start when the TOP of the section hits the BOTTOM of the header
+                    start: triggerPosition,
+                    end: '+=400%',
+                    scrub: 1,
+                    pin: sticky,
+                    anticipatePin: 1,
+                    invalidateOnRefresh: true,
+                }
+            });
+            // Sequence label
+            tl.add('timeline');
+
+            //1 icon move up
+            tl.to('#discover .discover-content .discover-icon', {
+                yPercent: -80,
+                opacity: 1,
+                ease: 'power1.out',
+                duration: 1,
+            }, 'timeline');
+
+            //2 dot appear
+            tl.to('#discover .discover-content .discover-dot', {
+                opacity: 1,
+                scale: 0.5,
+                ease: 'power4.in',
+                duration: 1.5,
+            }, 'timeline+=0.5');
+
+            //3 dot grow
+            tl.to('#discover .discover-content .discover-dot', {
+                height: '120px',
+                ease: 'power1.in',
+                duration: 1.5,
+            }, 'timeline+=2');
+
+            tl.to('#discover .discover-content .discover-dot', {
+                yPercent: -32,
+                ease: 'power1.out',
+                duration: 1.5,
+            }, 'timeline+=2');
+
+            //4 text appear
+            tl.to('#discover .discover-content .discover-text', {
+                opacity: 1,
+                scale:1,
+                ease: 'power4.out',
+                duration: 2,
+            }, 'timeline+=3.5');
+
+            //5 bg expand
+            tl.to('#discover .discover-background', {
+                ease: 'none',
+                borderRadius: '0px',
+                scale: 3,
+                ease: 'power1.inout',
+                duration: 5,
+            }, 'timeline+=5.5');
+
+            //6 hideout everything except bg
+            tl.to('#discover .discover-content .discover-icon', {
+                opacity: 0,
+                ease: 'power1.out',
+                duration: 1,
+            }, 'timeline+=8'); 
+            tl.to('#discover .discover-content .discover-dot', {
+                opacity: 0,
+                ease: 'power1.out',
+                duration: 1,
+            }, 'timeline+=8');
+            tl.to('#discover .discover-content .discover-text', {
+                opacity: 0,
+                ease: 'power1.out',
+                duration: 1,
+            }, 'timeline+=8'); 
+
+            //7 display posts
+            tl.to('#discover .discover-post', {
+                opacity: 1,
+                ease: 'power1.out',
+                duration: 1,
+            }, 'timeline+=9');
+
+
+
+        }
+        setStartState();
+        buildTimeline();
     });
     </script>
     
