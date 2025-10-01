@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>揀馬世一</title>
+    <title>The Hong Kong Jockey Club</title>
+    <link rel="shortcut icon" href="assets/images/favicon.ico">
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/fontawesome.min.css">
     <link rel="stylesheet" href="assets/css/fonts.css">
@@ -475,9 +476,6 @@
     .more-specialists-swiper .swiper-wrapper { 
         align-items: center; 
     }
-    .more-specialists-swiper .swiper-slide {
-        transition: all .6s;
-    }
 
     .more-specialists-swiper .swiper-slide:not(.swiper-slide-active, .swiper-slide-prev, .swiper-slide-next) {
         opacity: .65; 
@@ -522,8 +520,7 @@
     }
 
     .hkjc-outline-button {
-        
-        background: #FFF;
+        background: transparent;
         font-family: "Noto Sans TC", sans-serif;
         font-size: 18px;
         font-weight: 400;
@@ -620,7 +617,7 @@
         width: 100vw;
         overflow: hidden;
         isolation: isolate;
-        background: #f8fafc; /* light backdrop to make cards pop */
+        background: #ededed; /* light backdrop to make cards pop */
     }
     .animation-text-wrapper {
         inset: 0;
@@ -670,22 +667,70 @@
         will-change: transform, opacity;
         transform-style: preserve-3d;
     }
-    .media-card img { width: 100%; height: 100%; object-fit: cover; display: block; }
-    .media-card .badge {
+
+    .media-card .video-thumbnail { 
+        width: 100%; 
+        height: auto; 
+        object-fit: cover; 
+        display: block; 
+        z-index: 0;
+    }
+
+    .media-card img.play-icon {
         position: absolute;
-        left: 12px;
-        bottom: 12px;
-        padding: 6px 10px;
-        border-radius: 999px;
-        background: rgba(255,255,255,0.9);
-        color: #001b44;
-        font-family: "Noto Sans TC", sans-serif;
-        font-size: 12px;
-        font-weight: 700;
-        display: inline-flex;
+        width: 70px;
+        height: auto;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        cursor: pointer;
+        z-index: 2;
+    }
+
+    .media-card .img-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+        background: linear-gradient(180deg, rgba(255, 255, 255, 0) 29%, rgba(0, 0, 0, 1) 100%);
+    }
+
+    .media-card .info-box {
+        position: absolute;
+        bottom: 0;
+        left: 20px;
+        z-index: 2;
+    }
+
+    .media-card .info-box .video-tag-wrapper {
+        display: flex;
+        gap: 8px;
         align-items: center;
-        gap: 6px;
-        backdrop-filter: blur(4px);
+        align-content: center;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+        flex-direction: row;
+    }
+
+    .media-card .info-box .video-tag-wrapper span.video-tag {
+        font-family: "Noto Sans TC", sans-serif;
+        color: #FFF;
+        font-size: 13px;
+        font-weight: 600;
+        padding: 2px 10px;
+        border: 1px solid #FFF;
+        border-radius: 30px;
+        display: inline-block;
+    }
+
+    .media-card p.video-title {
+        font-family: "Noto Sans TC", sans-serif;
+        color: #FFF;
+        font-size: 16px;
+        font-weight: 600;
+        margin: 3px 0 20px 0;
     }
 
     .animation-button-wrapper button{
@@ -710,12 +755,14 @@
         display: flex;
         top: 50%;
         left: 50%;
-        transform: translate(-50%, -50%);
-        border-radius: 250px;   
-        width: 928px;
-        height: 490px;  
+        width: 100vw;
+        height: calc(100vh - 90px);
         background-color: #2655CC;
+        clip-path: url(#discover-clip);
+        -webkit-clip-path: url(#discover-clip);
         z-index: 0;
+        overflow: hidden;
+        box-shadow: 0 40px 120px rgba(4, 24, 80, 0.35);
     }
 
     .discover-content {
@@ -774,6 +821,7 @@
         padding: 0 20px;
         max-width: 900px;
         opacity: 0;
+        z-index: 2;
     }
     .post-row {
         display: flex;
@@ -830,14 +878,26 @@
 
     .discover-image-background {
         position: absolute;
-        top: 0;
-        left: 0;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+        pointer-events: none;
+        clip-path: url(#discover-clip);
+        -webkit-clip-path: url(#discover-clip);
+        overflow: hidden;
     }
 
     .discover-image-background img {
-        width: 100vw;
-        height: calc(100vh - 90px);
+        width: 100%;
+        height: 100%;
         object-fit: cover;
+        transform-origin: center;
+        z-index: 1;
+    }
+
+    a.post-link {
+        text-decoration: none;
     }
 
     /* ============================= Footer ============================= */
@@ -1274,154 +1334,184 @@
                     <div class="swiper-wrapper">
                         <!-- Sample slides (colors are placeholder tone-*) -->
                         <div class="swiper-slide">
-                            <article class="mspec-card">
-                                <div class="mspec-bg tone-purple"></div>
-                                <div class="mspec-text">
-                                    <div class="mspec-name">Ling Ling</div>
-                                    <div class="mspec-title">King of QIN</div>
-                                </div>
-                                <div class="mspec-avatar"><img src="assets/images/KOL Image-4.png" alt="Ling Ling"></div>
-                            </article>
+                            <a href="#" class="text-decoration-none more-specialists-link">
+                                <article class="mspec-card">
+                                    <div class="mspec-bg tone-purple"></div>
+                                    <div class="mspec-text">
+                                        <div class="mspec-name">Ling Ling</div>
+                                        <div class="mspec-title">King of QIN</div>
+                                    </div>
+                                    <div class="mspec-avatar"><img src="assets/images/KOL Image-4.png" alt="Ling Ling"></div>
+                                </article>
+                            </a>
                         </div>
                         <div class="swiper-slide">
-                            <article class="mspec-card">
-                                <div class="mspec-bg tone-green"></div>
-                                <div class="mspec-text">
-                                    <div class="mspec-name">Fu Jai</div>
-                                    <div class="mspec-title">King of QIN</div>
-                                </div>
-                                <div class="mspec-avatar"><img src="assets/images/KOL Image-2.png" alt="Fu Jai"></div>
-                            </article>
+                            <a href="#" class="text-decoration-none more-specialists-link">
+                                <article class="mspec-card">
+                                    <div class="mspec-bg tone-green"></div>
+                                    <div class="mspec-text">
+                                        <div class="mspec-name">Fu Jai</div>
+                                        <div class="mspec-title">King of QIN</div>
+                                    </div>
+                                    <div class="mspec-avatar"><img src="assets/images/KOL Image-2.png" alt="Fu Jai"></div>
+                                </article>
+                            </a>
                         </div>
                         <div class="swiper-slide">
-                            <article class="mspec-card">
-                                <div class="mspec-bg tone-gold"></div>
-                                <div class="mspec-text">
-                                    <div class="mspec-name">Colette</div>
-                                    <div class="mspec-title">King of QIN</div>
-                                </div>
-                                <div class="mspec-avatar"><img src="assets/images/KOL Image-3.png" alt="Colette"></div>
-                            </article>
+                            <a href="#" class="text-decoration-none more-specialists-link">
+                                <article class="mspec-card">
+                                    <div class="mspec-bg tone-gold"></div>
+                                    <div class="mspec-text">
+                                        <div class="mspec-name">Colette</div>
+                                        <div class="mspec-title">King of QIN</div>
+                                    </div>
+                                    <div class="mspec-avatar"><img src="assets/images/KOL Image-3.png" alt="Colette"></div>
+                                </article>
+                            </a>
                         </div>
                         <div class="swiper-slide">
-                            <article class="mspec-card">
-                                <div class="mspec-bg tone-slate"></div>
-                                <div class="mspec-text">
-                                    <div class="mspec-name">Steven's Bros</div>
-                                    <div class="mspec-title">King of QIN</div>
-                                </div>
+                            <a href="#" class="text-decoration-none more-specialists-link">
+                                <article class="mspec-card">
+                                    <div class="mspec-bg tone-slate"></div>
+                                    <div class="mspec-text">
+                                        <div class="mspec-name">Steven's Bros</div>
+                                        <div class="mspec-title">King of QIN</div>
+                                    </div>
                                 <div class="mspec-avatar"><img src="assets/images/KOL Image-6.png" alt="Homan"></div>
-                            </article>
+                                </article>
+                            </a>
                         </div>
                         <div class="swiper-slide">
-                            <article class="mspec-card">
-                                <div class="mspec-bg tone-teal"></div>
-                                <div class="mspec-text">
-                                    <div class="mspec-name">Alex Ng</div>
-                                    <div class="mspec-title">King of QIN</div>
-                                </div>
-                                <div class="mspec-avatar"><img src="assets/images/KOL Image-7.png" alt="Kenson"></div>
-                            </article>
+                            <a href="#" class="text-decoration-none more-specialists-link">
+                                <article class="mspec-card">
+                                    <div class="mspec-bg tone-teal"></div>
+                                    <div class="mspec-text">
+                                        <div class="mspec-name">Alex Ng</div>
+                                        <div class="mspec-title">King of QIN</div>
+                                    </div>
+                                    <div class="mspec-avatar"><img src="assets/images/KOL Image-7.png" alt="Kenson"></div>
+                                </article>
+                            </a>
                         </div>
                         <div class="swiper-slide">
-                            <article class="mspec-card">
-                                <div class="mspec-bg tone-purple rounded-4 position-absolute bottom-0 start-0"></div>
-                                <div class="mspec-text">
-                                    <div class="mspec-name">Ling Ling</div>
-                                    <div class="mspec-title">King of QIN</div>
-                                </div>
-                                <div class="mspec-avatar"><img src="assets/images/KOL Image-6.png" alt="Ling Ling"></div>
-                            </article>
+                            <a href="#" class="text-decoration-none more-specialists-link">
+                                <article class="mspec-card">
+                                    <div class="mspec-bg tone-purple rounded-4 position-absolute bottom-0 start-0"></div>
+                                    <div class="mspec-text">
+                                        <div class="mspec-name">Ling Ling</div>
+                                        <div class="mspec-title">King of QIN</div>
+                                    </div>
+                                    <div class="mspec-avatar"><img src="assets/images/KOL Image-6.png" alt="Ling Ling"></div>
+                                </article>
+                            </a>
                         </div>
                         <div class="swiper-slide">
-                            <article class="mspec-card">
-                                <div class="mspec-bg tone-green"></div>
-                                <div class="mspec-text">
-                                    <div class="mspec-name">Fu Jai</div>
-                                    <div class="mspec-title">King of QIN</div>
-                                </div>
-                                <div class="mspec-avatar"><img src="assets/images/KOL Image-2.png" alt="Fu Jai"></div>
-                            </article>
+                            <a href="#" class="text-decoration-none more-specialists-link">
+                                <article class="mspec-card">
+                                    <div class="mspec-bg tone-green"></div>
+                                    <div class="mspec-text">
+                                        <div class="mspec-name">Fu Jai</div>
+                                        <div class="mspec-title">King of QIN</div>
+                                    </div>
+                                    <div class="mspec-avatar"><img src="assets/images/KOL Image-2.png" alt="Fu Jai"></div>
+                                </article>
+                            </a>
                         </div>
                         <div class="swiper-slide">
-                            <article class="mspec-card">
-                                <div class="mspec-bg tone-gold"></div>
-                                <div class="mspec-text">
-                                    <div class="mspec-name">Colette</div>
-                                    <div class="mspec-title">King of QIN</div>
-                                </div>
-                                <div class="mspec-avatar"><img src="assets/images/KOL Image-3.png" alt="Colette"></div>
-                            </article>
+                            <a href="#" class="text-decoration-none more-specialists-link">
+                                <article class="mspec-card">
+                                    <div class="mspec-bg tone-gold"></div>
+                                    <div class="mspec-text">
+                                        <div class="mspec-name">Colette</div>
+                                        <div class="mspec-title">King of QIN</div>
+                                    </div>
+                                    <div class="mspec-avatar"><img src="assets/images/KOL Image-3.png" alt="Colette"></div>
+                                </article>
+                            </a>
                         </div>
                         <div class="swiper-slide">
-                            <article class="mspec-card">
-                                <div class="mspec-bg tone-slate"></div>
-                                <div class="mspec-text">
-                                    <div class="mspec-name">Steven's Bros</div>
-                                    <div class="mspec-title">King of QIN</div>
-                                </div>
-                                <div class="mspec-avatar"><img src="assets/images/KOL Image-6.png" alt="Homan"></div>
-                            </article>
+                            <a href="#" class="text-decoration-none more-specialists-link">
+                                <article class="mspec-card">
+                                    <div class="mspec-bg tone-slate"></div>
+                                    <div class="mspec-text">
+                                        <div class="mspec-name">Steven's Bros</div>
+                                        <div class="mspec-title">King of QIN</div>
+                                    </div>
+                                    <div class="mspec-avatar"><img src="assets/images/KOL Image-6.png" alt="Homan"></div>
+                                </article>
+                            </a>
                         </div>
                         <div class="swiper-slide">
-                            <article class="mspec-card">
-                                <div class="mspec-bg tone-teal"></div>
-                                <div class="mspec-text">
-                                    <div class="mspec-name">Alex Ng</div>
-                                    <div class="mspec-title">King of QIN</div>
-                                </div>
-                                <div class="mspec-avatar"><img src="assets/images/KOL Image-7.png" alt="Kenson"></div>
-                            </article>
+                            <a href="#" class="text-decoration-none more-specialists-link">
+                                <article class="mspec-card">
+                                    <div class="mspec-bg tone-teal"></div>
+                                    <div class="mspec-text">
+                                        <div class="mspec-name">Alex Ng</div>
+                                        <div class="mspec-title">King of QIN</div>
+                                    </div>
+                                    <div class="mspec-avatar"><img src="assets/images/KOL Image-7.png" alt="Kenson"></div>
+                                </article>
+                            </a>
                         </div>
                         <div class="swiper-slide">
-                            <article class="mspec-card">
-                                <div class="mspec-bg tone-purple rounded-4 position-absolute bottom-0 start-0"></div>
-                                <div class="mspec-text">
-                                    <div class="mspec-name">Ling Ling</div>
-                                    <div class="mspec-title">King of QIN</div>
-                                </div>
-                                <div class="mspec-avatar"><img src="assets/images/KOL Image-6.png" alt="Ling Ling"></div>
-                            </article>
+                            <a href="#" class="text-decoration-none more-specialists-link">
+                                <article class="mspec-card">
+                                    <div class="mspec-bg tone-purple rounded-4 position-absolute bottom-0 start-0"></div>
+                                    <div class="mspec-text">
+                                        <div class="mspec-name">Ling Ling</div>
+                                        <div class="mspec-title">King of QIN</div>
+                                    </div>
+                                    <div class="mspec-avatar"><img src="assets/images/KOL Image-6.png" alt="Ling Ling"></div>
+                                </article>
+                            </a>
                         </div>
                         <div class="swiper-slide">
-                            <article class="mspec-card">
-                                <div class="mspec-bg tone-green"></div>
-                                <div class="mspec-text">
-                                    <div class="mspec-name">Fu Jai</div>
-                                    <div class="mspec-title">King of QIN</div>
-                                </div>
-                                <div class="mspec-avatar"><img src="assets/images/KOL Image-2.png" alt="Fu Jai"></div>
-                            </article>
+                            <a href="#" class="text-decoration-none more-specialists-link">
+                                <article class="mspec-card">
+                                    <div class="mspec-bg tone-green"></div>
+                                    <div class="mspec-text">
+                                        <div class="mspec-name">Fu Jai</div>
+                                        <div class="mspec-title">King of QIN</div>
+                                    </div>
+                                    <div class="mspec-avatar"><img src="assets/images/KOL Image-2.png" alt="Fu Jai"></div>
+                                </article>
+                            </a>
                         </div>
                         <div class="swiper-slide">
-                            <article class="mspec-card">
-                                <div class="mspec-bg tone-gold"></div>
-                                <div class="mspec-text">
-                                    <div class="mspec-name">Colette</div>
-                                    <div class="mspec-title">King of QIN</div>
-                                </div>
-                                <div class="mspec-avatar"><img src="assets/images/KOL Image-3.png" alt="Colette"></div>
-                            </article>
+                            <a href="#" class="text-decoration-none more-specialists-link">
+                                <article class="mspec-card">
+                                    <div class="mspec-bg tone-gold"></div>
+                                    <div class="mspec-text">
+                                        <div class="mspec-name">Colette</div>
+                                        <div class="mspec-title">King of QIN</div>
+                                    </div>
+                                    <div class="mspec-avatar"><img src="assets/images/KOL Image-3.png" alt="Colette"></div>
+                                </article>
+                            </a>
                         </div>
                         <div class="swiper-slide">
-                            <article class="mspec-card">
-                                <div class="mspec-bg tone-slate"></div>
-                                <div class="mspec-text">
-                                    <div class="mspec-name">Steven's Bros</div>
-                                    <div class="mspec-title">King of QIN</div>
-                                </div>
-                                <div class="mspec-avatar"><img src="assets/images/KOL Image-6.png" alt="Homan"></div>
-                            </article>
+                            <a href="#" class="text-decoration-none more-specialists-link">
+                                <article class="mspec-card">
+                                    <div class="mspec-bg tone-slate"></div>
+                                    <div class="mspec-text">
+                                        <div class="mspec-name">Steven's Bros</div>
+                                        <div class="mspec-title">King of QIN</div>
+                                    </div>
+                                    <div class="mspec-avatar"><img src="assets/images/KOL Image-6.png" alt="Homan"></div>
+                                </article>
+                            </a>
                         </div>
                         <div class="swiper-slide">
-                            <article class="mspec-card">
-                                <div class="mspec-bg tone-teal"></div>
-                                <div class="mspec-text">
-                                    <div class="mspec-name">Alex Ng</div>
-                                    <div class="mspec-title">King of QIN</div>
-                                </div>
-                                <div class="mspec-avatar"><img src="assets/images/KOL Image-7.png" alt="Kenson"></div>
-                            </article>
+                            <a href="#" class="text-decoration-none more-specialists-link">
+                                <article class="mspec-card">
+                                    <div class="mspec-bg tone-teal"></div>
+                                    <div class="mspec-text">
+                                        <div class="mspec-name">Alex Ng</div>
+                                        <div class="mspec-title">King of QIN</div>
+                                    </div>
+                                    <div class="mspec-avatar"><img src="assets/images/KOL Image-7.png" alt="Kenson"></div>
+                                </article>
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -1446,24 +1536,64 @@
                     <div class="animation-cards-layer">
                         <!-- Use existing images as demo cards -->
                         <figure class="media-card _1">
-                            <img src="assets/images/edu_area_video1.jpg" alt="Race replay highlight 1">
-                            <figcaption class="badge"><img src="assets/images/icon_video.png" alt="Video"> Replay</figcaption>
+                            <img src="assets/images/edu_area_video1.jpg" class="video-thumbnail" alt="Race replay highlight 1">
+                            <img src="assets/images/video-play-icon.png" class="play-icon" alt="Play Icon">
+                            <div class="img-overlay"></div>
+                            <div class="info-box">
+                                <div class="video-tag-wrapper">
+                                    <span class="video-tag">Beginner</span>
+                                    <span class="video-tag">Racing Kickstarter</span>
+                                </div>
+                                <p class="video-title">3 minutes Guide to Horse Racing!</p>
+                            </div>
                         </figure>
                         <figure class="media-card _2">
-                            <img src="assets/images/edu_area_video2.jpg" alt="Race replay highlight 2">
-                            <figcaption class="badge"><img src="assets/images/icon_video.png" alt="Video"> Replay</figcaption>
+                            <img src="assets/images/edu_area_video2.jpg" class="video-thumbnail" alt="Race replay highlight 2">
+                            <img src="assets/images/video-play-icon.png" class="play-icon" alt="Play Icon">
+                            <div class="img-overlay"></div>
+                            <div class="info-box">
+                                <div class="video-tag-wrapper">
+                                    <span class="video-tag">Beginner</span>
+                                    <span class="video-tag">Racing Kickstarter</span>
+                                </div>
+                                <p class="video-title">3 minutes Guide to Horse Racing!</p>
+                            </div>
                         </figure>
                         <figure class="media-card _3">
-                            <img src="assets/images/edu_area_video3.jpg" alt="Race replay highlight 3">
-                            <figcaption class="badge"><img src="assets/images/icon_video.png" alt="Video"> Replay</figcaption>
+                            <img src="assets/images/edu_area_video3.jpg" class="video-thumbnail" alt="Race replay highlight 3">
+                            <img src="assets/images/video-play-icon.png" class="play-icon" alt="Play Icon">
+                            <div class="img-overlay"></div>
+                            <div class="info-box">
+                                <div class="video-tag-wrapper">
+                                    <span class="video-tag">Beginner</span>
+                                    <span class="video-tag">Racing Kickstarter</span>
+                                </div>
+                                <p class="video-title">3 minutes Guide to Horse Racing!</p>
+                            </div>
                         </figure>
                         <figure class="media-card _4">
-                            <img src="assets/images/edu_area_video4.jpg" alt="Race replay highlight 4">
-                            <figcaption class="badge"><img src="assets/images/icon_video.png" alt="Video"> Replay</figcaption>
+                            <img src="assets/images/edu_area_video4.jpg" class="video-thumbnail" alt="Race replay highlight 4">
+                            <img src="assets/images/video-play-icon.png" class="play-icon" alt="Play Icon">
+                            <div class="img-overlay"></div>
+                            <div class="info-box">
+                                <div class="video-tag-wrapper">
+                                    <span class="video-tag">Beginner</span>
+                                    <span class="video-tag">Racing Kickstarter</span>
+                                </div>
+                                <p class="video-title">3 minutes Guide to Horse Racing!</p>
+                            </div>
                         </figure>
                         <figure class="media-card _5">
-                            <img src="assets/images/edu_area_video5.jpg" alt="Race replay highlight 5">
-                            <figcaption class="badge"><img src="assets/images/icon_video.png" alt="Video"> Replay</figcaption>
+                            <img src="assets/images/edu_area_video5.jpg" class="video-thumbnail" alt="Race replay highlight 5">
+                            <img src="assets/images/video-play-icon.png" class="play-icon" alt="Play Icon">
+                            <div class="img-overlay"></div>
+                            <div class="info-box">
+                                <div class="video-tag-wrapper">
+                                    <span class="video-tag">Beginner</span>
+                                    <span class="video-tag">Racing Kickstarter</span>
+                                </div>
+                                <p class="video-title">3 minutes Guide to Horse Racing!</p>
+                            </div>
                         </figure>
                     </div>
                     <div class="animation-button-wrapper">
@@ -1487,25 +1617,31 @@
                 <div class="post-wrapper">
                     <div class="post-row">
                         <div class="post">
-                            <div class="feature-img"><img src="assets/images/KOL_video_1.png" alt="Race replay highlight 1"></div>
-                            <div class="post-text-wrapper">
-                                <p class="post-title">Meet Apprentice Jockey Bonnie Wong</p>
-                                <p class="post-excerpt">Lorem Ipsum is simply dummy text of the printing and Lorem Ipsum is simply dummy text of the printing and Lorem Ipsum is simply dummy text of the printing and Lorem Ipsum is simply dummy text of the printing and</p>
-                            </div>
+                            <a class="post-link" href="#">
+                                <div class="feature-img"><img src="assets/images/KOL_video_1.png" alt="Race replay highlight 1"></div>
+                                <div class="post-text-wrapper">
+                                    <p class="post-title">Meet Apprentice Jockey Bonnie Wong</p>
+                                    <p class="post-excerpt">Lorem Ipsum is simply dummy text of the printing and Lorem Ipsum is simply dummy text of the printing and Lorem Ipsum is simply dummy text of the printing and Lorem Ipsum is simply dummy text of the printing and</p>
+                                </div>
+                            </a>
                         </div>
                         <div class="post">
-                            <div class="feature-img"><img src="assets/images/KOL_video_2.png" alt="Race replay highlight 2"></div>
-                            <div class="post-text-wrapper">
-                                <p class="post-title">Meet Apprentice Jockey John Doe</p>
-                                <p class="post-excerpt">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</p>
-                            </div>
+                            <a class="post-link" href="#">
+                                <div class="feature-img"><img src="assets/images/KOL_video_2.png" alt="Race replay highlight 2"></div>
+                                <div class="post-text-wrapper">
+                                    <p class="post-title">Meet Apprentice Jockey John Doe</p>
+                                    <p class="post-excerpt">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</p>
+                                </div>
+                            </a>
                         </div>
                         <div class="post">
-                            <div class="feature-img"><img src="assets/images/KOL_video_3.png" alt="Race replay highlight 3"></div>
-                            <div class="post-text-wrapper">
-                                <p class="post-title">Meet Apprentice Jockey Jane Smith</p>
-                                <p class="post-excerpt">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</p>
-                            </div>
+                            <a class="post-link" href="#">
+                                <div class="feature-img"><img src="assets/images/KOL_video_3.png" alt="Race replay highlight 3"></div>
+                                <div class="post-text-wrapper">
+                                    <p class="post-title">Meet Apprentice Jockey Jane Smith</p>
+                                    <p class="post-excerpt">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</p>
+                                </div>
+                            </a>
                         </div>
                     </div>
                     <button class="hkjc-outline-button button-white rounded-5 px-4 py-2">View More</button>
@@ -1514,25 +1650,31 @@
                     <h2 class="section-title text-white mb-2">Racecourse Experience</h2>
                     <div class="post-row">
                         <div class="post">
-                            <div class="feature-img"><img src="assets/images/KOL_video_4.png" alt="Race replay highlight 4"></div>
-                            <div class="post-text-wrapper">
-                                <p class="post-title">Meet Apprentice Jockey Alex Brown</p>
-                                <p class="post-excerpt">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</p>
-                            </div>
+                            <a class="post-link" href="#">
+                                <div class="feature-img"><img src="assets/images/KOL_video_4.png" alt="Race replay highlight 4"></div>
+                                <div class="post-text-wrapper">
+                                    <p class="post-title">Meet Apprentice Jockey Alex Brown</p>
+                                    <p class="post-excerpt">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</p>
+                                </div>
+                            </a>
                         </div>
                         <div class="post">
-                            <div class="feature-img"><img src="assets/images/KOL_video_5.png" alt="Race replay highlight 5"></div>
-                            <div class="post-text-wrapper">
-                                <p class="post-title">Meet Apprentice Jockey Chris Green</p>
-                                <p class="post-excerpt">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</p>
-                            </div>
+                            <a class="post-link" href="#">
+                                <div class="feature-img"><img src="assets/images/KOL_video_5.png" alt="Race replay highlight 5"></div>
+                                <div class="post-text-wrapper">
+                                    <p class="post-title">Meet Apprentice Jockey Chris Green</p>
+                                    <p class="post-excerpt">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</p>
+                                </div>
+                            </a>
                         </div>
                         <div class="post">
-                            <div class="feature-img"><img src="assets/images/KOL_video_6.png" alt="Race replay highlight 6"></div>
-                            <div class="post-text-wrapper">
-                                <p class="post-title">Meet Apprentice Jockey David Lee</p>
-                                <p class="post-excerpt">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</p>
-                            </div>
+                            <a class="post-link" href="#">
+                                <div class="feature-img"><img src="assets/images/KOL_video_6.png" alt="Race replay highlight 6"></div>
+                                <div class="post-text-wrapper">
+                                    <p class="post-title">Meet Apprentice Jockey David Lee</p>
+                                    <p class="post-excerpt">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</p>
+                                </div>
+                            </a>
                         </div>
                     </div>
                     <button class="hkjc-outline-button button-white rounded-5 px-4 py-2">View More</button>
@@ -1555,6 +1697,14 @@
 
 
     <!-- SVG defs for reusable clip paths/masks -->
+    <svg width="0" height="0" style="position:absolute">
+        <defs>
+            <clipPath id="discover-clip" clipPathUnits="userSpaceOnUse">
+                <rect id="discoverClipRect" x="0" y="0" width="0" height="0" rx="0" ry="0" />
+            </clipPath>
+        </defs>
+    </svg>
+
     <svg width="0" height="0" style="position:absolute">
         <defs>
             <!-- Rounded trapezium: narrower top, rounded corners; normalized to 0..1 -->
@@ -1767,7 +1917,12 @@
             slidesPerView: 5,
             spaceBetween: 30,
             centeredSlides: true,
+            allowTouchMove: false,
             watchSlidesProgress: true,
+            speed: 1000,
+            autoplay: {
+                delay: 3000
+            },
             on: {
                 init(sw) {
                     // Apply initial scaling and update caption
@@ -1828,10 +1983,10 @@
                     $slide.css('transform-origin', '');
                 } else if (raw < -0.05) {
                     // Slide is on the left side (beyond immediate prev) -> pull toward center
-                    $slide.css('transform-origin', 'left');
+                    $slide.css('transform-origin', '0% 50%');
                 } else if (raw > 0.05) {
                     // Slide is on the right side (beyond immediate next) -> pull toward center
-                    $slide.css('transform-origin', 'right');
+                    $slide.css('transform-origin', '100% 50%');
                 } else {
                     // Near center -> clear inline
                     $slide.css('transform-origin', '');
@@ -2138,9 +2293,94 @@
 
         const sticky = document.querySelector('#discover');
         if (!sticky) return;
+        const clipRect = document.querySelector('#discoverClipRect');
+        if (!clipRect) return;
+
+        const DISCOVER_BASE_RATIO = 490 / 928;
+        let discoverGeom = null;
+
+        function calculateDiscoverGeometry() {
+            const header = document.querySelector('.site-header');
+            const headerH = header ? header.offsetHeight : 0;
+            const sectionWidth = window.innerWidth;
+            const sectionHeight = Math.max(0, window.innerHeight - headerH);
+
+            const maxWidthFromViewport = sectionWidth * 0.82;
+            const maxWidthFromHeight = sectionHeight / DISCOVER_BASE_RATIO * 0.92;
+            const baseWidth = Math.max(280, Math.min(928, maxWidthFromViewport, maxWidthFromHeight));
+            const baseHeight = baseWidth * DISCOVER_BASE_RATIO;
+
+            const initialX = (sectionWidth - baseWidth) / 2;
+            const initialY = (sectionHeight - baseHeight) / 2;
+
+            const overshootX = sectionWidth * 0.18;
+            const overshootY = sectionHeight * 0.22;
+
+            return {
+                sectionWidth,
+                sectionHeight,
+                baseWidth,
+                baseHeight,
+                initialRect: {
+                    x: initialX,
+                    y: initialY,
+                    width: baseWidth,
+                    height: baseHeight,
+                    rx: baseHeight / 2,
+                    ry: baseHeight / 2
+                },
+                finalRect: {
+                    x: -overshootX,
+                    y: -overshootY,
+                    width: sectionWidth + overshootX * 2,
+                    height: sectionHeight + overshootY * 2,
+                    rx: 0,
+                    ry: 0
+                }
+            };
+        }
+
+        function applyDiscoverLayout(geom) {
+            const background = sticky.querySelector('.discover-background');
+            if (background) {
+                background.style.setProperty('--discover-shell-width', `${geom.baseWidth}px`);
+                background.style.setProperty('--discover-shell-height', `${geom.baseHeight}px`);
+                background.style.setProperty('--discover-shell-radius', `${geom.baseHeight / 2}px`);
+            }
+
+            const wrapper = sticky.querySelector('.discover-image-background');
+            if (wrapper) {
+                wrapper.style.width = `${geom.sectionWidth}px`;
+                wrapper.style.height = `${geom.sectionHeight}px`;
+            }
+
+            const postWrapper = sticky.querySelector('.discover-post');
+            if (postWrapper) {
+                const maxWidth = Math.min(geom.sectionWidth * 0.9, Math.max(geom.baseWidth, 640));
+                postWrapper.style.maxWidth = `${Math.round(maxWidth)}px`;
+            }
+
+            gsap.set(clipRect, {
+                attr: {
+                    x: geom.initialRect.x,
+                    y: geom.initialRect.y,
+                    width: geom.initialRect.width,
+                    height: geom.initialRect.height,
+                    rx: geom.initialRect.rx,
+                    ry: geom.initialRect.ry
+                }
+            });
+        }
+
+        function refreshDiscoverGeometry() {
+            discoverGeom = calculateDiscoverGeometry();
+            applyDiscoverLayout(discoverGeom);
+            return discoverGeom;
+        }
 
         // Initial style for all three groups
         function setStartState() {
+            refreshDiscoverGeometry();
 
             gsap.set('#discover .discover-background', {
                 xPercent: -50,
@@ -2164,6 +2404,15 @@
   
             });
 
+            gsap.set('#discover .discover-image-background img', {
+                scale: 1.04
+            });
+
+            gsap.set('#discover .discover-post', {
+                opacity: 0,
+                visibility: 'hidden'
+            });
+
         }
 
         // Build timeline
@@ -2175,6 +2424,7 @@
             const sectionTopPosition = document.querySelector('section#discover')?.offsetTop || 0;
             const triggerPosition = sectionTopPosition + vh ;
             const sectionEl = document.querySelector('#discover');
+            refreshDiscoverGeometry();
             const tl = gsap.timeline({
                 scrollTrigger: {
                     id: 'discover-pin',
@@ -2186,6 +2436,7 @@
                     pin: sticky,
                     anticipatePin: 1,
                     invalidateOnRefresh: true,
+                    onRefresh: refreshDiscoverGeometry,
                 }
             });
             // Sequence label
@@ -2228,12 +2479,17 @@
                 duration: 2,
             }, 'timeline+=3.5');
 
-            //5 bg expand
-            tl.to('#discover .discover-background', {
-                ease: 'none',
-                borderRadius: '0px',
-                scale: 3,
-                ease: 'power1.inout',
+            //5 reveal background image via clip-path expansion
+            tl.to(clipRect, {
+                attr: {
+                    x: () => discoverGeom.finalRect.x,
+                    y: () => discoverGeom.finalRect.y,
+                    width: () => discoverGeom.finalRect.width,
+                    height: () => discoverGeom.finalRect.height,
+                    rx: () => discoverGeom.finalRect.rx,
+                    ry: () => discoverGeom.finalRect.ry
+                },
+                ease: 'power2.inOut',
                 duration: 5,
             }, 'timeline+=5.5');
 
@@ -2257,6 +2513,7 @@
             //7 display posts
             tl.to('#discover .discover-post', {
                 opacity: 1,
+                visibility: 'visible',
                 ease: 'power1.out',
                 duration: 1,
             }, 'timeline+=9');
