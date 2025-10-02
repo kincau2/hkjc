@@ -1,11 +1,12 @@
 /*!
- * video-popup.js v0.2.2 (jQuery edition)
+ * video-popup.js v0.2.3 (jQuery edition)
  * - init(): 插入 <div class="videoPopContainer">，建立骨架並渲染 slides
  * - slick：單張置中；中心自動播 mp4，旁邊只顯示縮圖
- * - 進度條：僅顯示播放進度（移除拖曳）
+ * - 進度條：僅顯示播放進度（不拖曳）
  * - 自動循環下一段：影片 ended -> slickNext()
- * - 修正：所有播放控制都作用在「當前顯示的實際 DOM slide」（處理 clone 問題）
+ * - 修正：所有播放控制都作用在「當前顯示的實際 DOM slide」（處理 clone）
  * - 切換 slide 時，一律從 0 秒開始播放
+ * - 新增：首次使用者互動（click/touch/keydown）後自動解除靜音，之後皆有聲
  */
 (function (root, factory) {
   // 設定 --vh 以修正行動端 100vh 問題
@@ -41,6 +42,7 @@
       this.initialized = false;
       this.container = null;  // DOM element
       this.currentIndex = 0;  // 原始索引（0..N-1）
+      this._audioUnlocked = false; // 首次互動解除靜音後設為 true
     }
 
     /** 簡單 escape（用於 title） */
@@ -187,13 +189,13 @@
         });
 
         // 工具：由 internal index 取當前 DOM slide / 原始索引
-        const toEl   = (slick, internalIndex) => jQuery(slick.$slides[internalIndex]); // ★ 真正顯示中的 DOM slide（可能是 clone）
+        const toEl   = (slick, internalIndex) => jQuery(slick.$slides[internalIndex]); // 真正顯示中的 DOM slide（可能是 clone）
         const toReal = (slick, internalIndex) => Number(toEl(slick, internalIndex).data("index")); // 0..N-1
 
         // 切換前：暫停當前顯示中的 DOM slide
         $wrap.on("beforeChange.vp", (e, slick, curr, next) => {
           const $currEl = toEl(slick, curr);
-          this._pauseSlideEl($currEl); // 用元素暫停，避免 clone/原始混淆
+          this._pauseSlideEl($currEl);
         });
 
         // 切換後：啟動當前顯示中的 DOM slide，並從 0 秒開始
@@ -248,10 +250,18 @@
         $slideEl.find(".vp-progress-dot").css("left", "0%");
       }
 
+      // 確保已設置「首次互動後開聲」的監聽
+      this._enableAudioOnFirstInteraction();
+
       // 播放
       const p = video.play();
       if (p && typeof p.catch === "function") {
         p.catch(() => { /* 需要互動才可播放時保持靜默 */ });
+      }
+
+      // 若已解鎖音訊，立即取消靜音
+      if (this._audioUnlocked) {
+        try { video.muted = false; video.volume = 1; } catch (_) {}
       }
     }
 
@@ -301,6 +311,31 @@
       }
     }
 
+    /** 首次使用者互動後，解除靜音（之後皆有聲） */
+    _enableAudioOnFirstInteraction() {
+      if (this._audioUnlocked) return;
+
+      const unlock = () => {
+        const $wrap = this._getWrap();
+        if ($wrap.length && $wrap.hasClass("slick-initialized")) {
+          const api = $wrap.slick("getSlick");
+          const $el = jQuery(api.$slides[api.currentSlide]);
+          const vid = $el.find(".vp-video")[0];
+          if (vid) {
+            try { vid.muted = false; vid.volume = 1; vid.play().catch(()=>{}); } catch (_){}
+          }
+        }
+        this._audioUnlocked = true;
+        document.removeEventListener("click", unlock, true);
+        document.removeEventListener("touchstart", unlock, true);
+        document.removeEventListener("keydown", unlock, true);
+      };
+
+      document.addEventListener("click", unlock, true);
+      document.addEventListener("touchstart", unlock, true);
+      document.addEventListener("keydown", unlock, true);
+    }
+
     /**
      * 開啟彈窗（只顯示容器）
      * @param {number} index 原始索引 0..N-1（open 後會 goTo 該張）
@@ -320,6 +355,9 @@
         if ($wrap.length && $wrap.hasClass("slick-initialized")) {
           $wrap.slick('slickGoTo', index, true); // afterChange 會自動 _activateSlideEl 並歸零開始
         }
+
+        // 準備好互動後開聲
+        this._enableAudioOnFirstInteraction();
 
         try {
           window.dispatchEvent(new CustomEvent("videoPopup:open", { detail: { instance: this, index } }));
