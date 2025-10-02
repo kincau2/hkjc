@@ -41,3 +41,11 @@
   font-display: swap;
   src: url('../fonts/webfonts/fa-brands-400.woff2') format('woff2');
 }
+
+@font-face {
+  font-family: "Chromatica";
+  font-style: normal;
+  font-weight: 900;
+  font-display: swap;
+  src: url('../fonts/Chromatica-Black.ttf') format('truetype');
+}
