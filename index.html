@@ -19,7 +19,7 @@
      .section-title {
         font-family: "Noto Sans TC", sans-serif;
         color:#022169;
-        font-size: 50px;
+        font-size: 70px;
         font-weight: 600;
     }
 
@@ -45,146 +45,94 @@
         min-height: 100vh;
     }
 
+    @media (max-width: 768px) {
+        .section-title {
+            font-size: 40px;
+        }
+    }
+    @media (max-width: 576px) {
+        .section-title {
+            font-size: 32px;
+        }
+    }
+
     /* ============================= Banner / Swiper Hero Section ============================= */
 
-    .banner_main_area {
+    #home-banner {
         position:relative;
-        width:100%;
-        min-height:100vh;
+        width:100vw;
+        height:auto;
         overflow:hidden;
-    }
-    .banner-main {
-        position:relative;
-        width:100%;
-        height:100%;
-    }
-    .main-home-banner {
-        width:100%;
-        height:100vh;
-    }
-    .main-home-banner .swiper-wrapper {
-        height:100%;
-    }
-    .main-home-banner .swiper-slide {
-        position:relative;
-        width:100%;
-        height:100%;
-    }
-    .swiper-image {
-        width:100%;
-        height:100%;
-        background-size:contain;
-        background-position:center center;
-        background-repeat:no-repeat;
-        position:relative;
-    }
-    .swiper-image {
-        background-image: url(assets/images/hero_banner_one_c.jpg);
-    }
-    .banner-title {
-        font-size:clamp(2rem,4.2vw,3.75rem);
-        line-height:1.1;
-        text-shadow:0 4px 16px rgba(0,0,0,0.45);
+        padding: 24px 0;
     }
 
-    /* Centered slides scaling / opacity */
-    .main-home-banner {
-        --header-h:72px;
-        height:calc(100vh - var(--header-h));
-        padding-top:16px;
-        padding-bottom:32px;
+    .home-banner-wrapper {
+        height:auto;
     }
-    @media (max-width: 991.98px){
-        .main-home-banner {
-            --header-h:64px;
-            height:calc(100vh - var(--header-h));
-        }
+
+    .home-banner-wrapper .swiper-wrapper {
+        height:100%;
     }
-    .main-home-banner .swiper-wrapper {
-        align-items:center;
-    }
-    .main-home-banner .swiper-slide {
+
+    .home-banner-wrapper .swiper-slide {
+        position:relative;
+        width:100%;
+        height:100%;
         transition:transform .6s ease, opacity .6s ease;
     }
-    .main-home-banner .swiper-slide .swiper-image {
-        border-radius:32px;
-        display:flex;
-        align-items:center;
-        justify-content:center;
-        position:relative;
-        overflow:hidden;
-    }
-    .main-home-banner .swiper-slide .image {
-        position:relative;
-        z-index:1;
-    }
-    /* Inner headline adjustments when slides scaled */
-    .main-home-banner .swiper-slide:not(.swiper-slide-active) .banner-title {
-        filter:blur(.5px);
-        opacity:.85;
-    }
-    /* Override previous full-screen rule */
-    .banner_main_area, .banner-main {
-        min-height:unset;
-    }
-    @media (max-width: 767.98px) {
-        .banner_main_area {
-            min-height:70vh;
-        }
-        .main-home-banner {
-            height:70vh;
-        }
-        .banner-title {
-            font-size:clamp(1.75rem,7vw,2.75rem);
-        }
-        .swiper-pagination-bullets.swiper-pagination-horizontal {
-            bottom:20px;
-        }
-    }
-    /* Accessibility focus states for controls */
-    .swiper-button-prev:focus, .swiper-button-next:focus {
-        outline:2px solid #fff;
-        outline-offset:2px;
-    }
-    /* === Overrides: Adjust banner ratio, gap, continuous side visibility === */
-    .banner_main_area {
-        min-height:auto;
-        padding:32px 0 48px;
-        overflow:visible;
-    }
-    .main-home-banner {
-        height:auto;
-        padding:0;
-    }
-    .main-home-banner .swiper-wrapper {
-        align-items:stretch;
-    }
-    .main-home-banner .swiper-slide {
-        width:85%;
-        height:auto;
+
+    .home-banner-wrapper .swiper-slide .desktop-image,
+    .home-banner-wrapper .swiper-slide .mobile-image {
+        width:100%;
+        height:100%;
+        object-fit:cover;
+        border-radius:24px;
     }
 
-    .swiper-image {
-        aspect-ratio:1670/720;
-        background-size:cover !important;
-        background-position:center center;
-        border-radius:32px;
+    .swiper-image-overlay {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        left: 0;
+        top: 0;
+        border-radius: 24px;
+        background: #1212124d;
     }
-    /* Ensure border radius visible */
-    .main-home-banner .swiper-slide .swiper-image {
-        border-radius:32px;
+
+    .swiper-image-overlay .overlay-content {
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        flex-direction: column;
+        width: 100%;
+        height: 100%;
+        padding: 70px;
     }
-    /* Slight shadow to lift slide */
-    .main-home-banner .swiper-slide .swiper-image {
-        box-shadow:0 8px 28px -6px rgba(0,0,0,0.2);
+
+    .overlay-content h2.section-title {
+        max-width: 430px;
+        text-align: left;
+        line-height: 75px;
     }
-    /* Passive slides style (transition still applied via JS) */
-    .main-home-banner .swiper-slide {
-        will-change:transform, opacity;
+
+        a.banner-cta-link {
+        text-decoration: unset;
+        color: #022169;
+        font-size: 20px;
+        background: #FFF;
     }
-    body {
-        background:#ffffff;
+
+    @media (max-width: 768px) {
+        .home-banner-wrapper .swiper-slide .desktop-image {
+            display:none;
+        }
     }
+    @media (min-width: 769px) {
+        .home-banner-wrapper .swiper-slide .mobile-image {
+            display:none;
+        }
+    }   
+
 
     /* ============================= Specialists styles ============================= */
 
@@ -888,7 +836,7 @@
         overflow: hidden;
     }
 
-    .discover-image-background img {
+    .discover-image-background img{
         width: 100%;
         height: 100%;
         object-fit: cover;
@@ -987,34 +935,96 @@
 
     <main class="main-content" style="padding-top: 90px;">
         <!-- Banner Section -->
-        <section class="text-center position-relative z-0 banner_main_area" id="home-banner">
-          <div class="banner-main">
-            <div class="swiper main-home-banner">
-              <div class="swiper-wrapper">
-                <div class="swiper-slide">
-                  <div class="swiper-image d-flex align-items-center justify-content-center">
-                  </div>
+        <section class="text-center position-relative z-0 cover-swiper-banner" id="home-banner">
+            <div class="swiper home-banner-wrapper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <div class="swiper-image d-flex align-items-center justify-content-center">
+                            <img src="assets/images/cover.png" class="desktop-image" alt="Banner Image 1">
+                            <img src="assets/images/Discover Campaign Site.png" class="mobile-image" alt="Banner Image 1">
+                            <div class="swiper-image-overlay">
+                                <div class="overlay-content">
+                                    <h2 class="section-title text-white mb-3">Discover the New Way of Racing</h2>
+                                    <a class="banner-cta-link rounded-5 px-4 py-2" href="#">View More</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="swiper-image d-flex align-items-center justify-content-center">
+                            <img src="assets/images/cover.png" class="desktop-image" alt="Banner Image 1">
+                            <img src="assets/images/Discover Campaign Site.png" class="mobile-image" alt="Banner Image 1">
+                            <div class="swiper-image-overlay">
+                                <div class="overlay-content">
+                                    <h2 class="section-title text-white mb-3">Discover the New Way of Racing</h2>
+                                    <a class="banner-cta-link rounded-5 px-4 py-2" href="#">View More</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="swiper-image d-flex align-items-center justify-content-center">
+                            <img src="assets/images/cover.png" class="desktop-image" alt="Banner Image 1">
+                            <img src="assets/images/Discover Campaign Site.png" class="mobile-image" alt="Banner Image 1">
+                            <div class="swiper-image-overlay">
+                                <div class="overlay-content">
+                                    <h2 class="section-title text-white mb-3">Discover the New Way of Racing</h2>
+                                    <a class="banner-cta-link rounded-5 px-4 py-2" href="#">View More</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="swiper-image d-flex align-items-center justify-content-center">
+                            <img src="assets/images/cover.png" class="desktop-image" alt="Banner Image 1">
+                            <img src="assets/images/Discover Campaign Site.png" class="mobile-image" alt="Banner Image 1">
+                            <div class="swiper-image-overlay">
+                                <div class="overlay-content">
+                                    <h2 class="section-title text-white mb-3">Discover the New Way of Racing</h2>
+                                    <a class="banner-cta-link rounded-5 px-4 py-2" href="#">View More</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="swiper-image d-flex align-items-center justify-content-center">
+                            <img src="assets/images/cover.png" class="desktop-image" alt="Banner Image 2">
+                            <img src="assets/images/Discover Campaign Site.png" class="mobile-image" alt="Banner Image 2">
+                            <div class="swiper-image-overlay">
+                                <div class="overlay-content">
+                                    <h2 class="section-title text-white mb-3">Discover the New Way of Racing</h2>
+                                    <a class="banner-cta-link rounded-5 px-4 py-2" href="#">View More</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="swiper-image d-flex align-items-center justify-content-center">
+                            <img src="assets/images/cover.png" class="desktop-image" alt="Banner Image 3">
+                            <img src="assets/images/Discover Campaign Site.png" class="mobile-image" alt="Banner Image 3">
+                            <div class="swiper-image-overlay">
+                                <div class="overlay-content">
+                                    <h2 class="section-title text-white mb-3">Discover the New Way of Racing</h2>
+                                    <a class="banner-cta-link rounded-5 px-4 py-2" href="#">View More</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="swiper-image d-flex align-items-center justify-content-center">
+                            <img src="assets/images/cover.png" class="desktop-image" alt="Banner Image 4">
+                            <img src="assets/images/Discover Campaign Site.png" class="mobile-image" alt="Banner Image 4">
+                            <div class="swiper-image-overlay">
+                                <div class="overlay-content">
+                                    <h2 class="section-title text-white mb-3">Discover the New Way of Racing</h2>
+                                    <a class="banner-cta-link rounded-5 px-4 py-2" href="#">View More</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="swiper-slide">
-                  <div class="swiper-image d-flex align-items-center justify-content-center">
-                  </div>
-                </div>
-                <div class="swiper-slide">
-                  <div class="swiper-image d-flex align-items-center justify-content-center">
-                  </div>
-                </div>
-                <div class="swiper-slide">
-                  <div class="swiper-image d-flex align-items-center justify-content-center">
-                  </div>
-                </div>
-                <div class="swiper-slide">
-                  <div class="swiper-image d-flex align-items-center justify-content-center">
-                  </div>
-                </div>
-              </div>
-              <!-- Removed pagination and navigation per requirements -->
+                <!-- Removed pagination and navigation per requirements -->
             </div>
-          </div>
         </section>
         
         <!-- Specialists Section -->
@@ -1753,7 +1763,7 @@
           console.warn('Swiper library not loaded');
           return;
         }
-        const bannerSwiper = new Swiper('.main-home-banner', {
+        const bannerSwiper = new Swiper('.home-banner-wrapper', {
           loop: true,
           speed: 600,
           slidesPerView: 1.2,
