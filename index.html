@@ -1753,6 +1753,35 @@
     <script src="assets/js/bootstrap.bundle.min.js"></script>
     <script src="assets/js/swiper-bundle.min.js"></script>
     <script src="assets/js/aos.js"></script>
+	
+	
+	<!--Kata Update -->
+	<link rel="stylesheet" type="text/css" href="assets/css/slick.css"/>
+	<link rel="stylesheet" type="text/css" href="assets/css/slick-theme.css"/>
+	<script type="text/javascript" src="assets/js/slick.min.js"></script>
+	<link rel="stylesheet" href="assets/css/video-popup.css">
+	<script src="assets/js/video-popup.js"></script> 
+	<script> 
+	var videoPop = new VideoPopup(); 
+	videoPop.videoList = [ 
+	{link:'https://www.w3schools.com/html/movie.mp4',thumbnail:'https://placehold.co/100x100',title:'title'},
+	{link:'https://www.w3schools.com/html/movie.mp4',thumbnail:'https://placehold.co/200x200',title:'title'},
+	{link:'https://www.w3schools.com/html/movie.mp4',thumbnail:'https://placehold.co/300x300',title:'title'},
+	{link:'https://www.w3schools.com/html/movie.mp4',thumbnail:'https://placehold.co/400x400',title:'title'},
+	{link:'https://www.w3schools.com/html/movie.mp4',thumbnail:'https://placehold.co/500x500',title:'title'},
+	{link:'https://www.w3schools.com/html/movie.mp4',thumbnail:'https://placehold.co/600x600',title:'title'},
+
+	]; 
+	videoPop.init()
+	function openPopup(){
+		videoPop.open(1);
+		/* 0=第1條片, 1=第2條片,如此類推 */
+		
+	}
+	</script>
+	<button OnClick="openPopup()">Open popup</button>
+	<!--End Of Kata Update -->
+	
     <script> AOS.init(); </script>
     <script src="assets/js/gsap.min.js"></script>
     <script src="assets/js/ScrollTrigger.min.js"></script>
