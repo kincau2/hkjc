@@ -16,11 +16,25 @@
     <style>
 
 
+    html{
+        font-size: min(16px, 1.5vw);
+    }
+
+   
+
      .section-title {
         font-family: "Noto Sans TC", sans-serif;
         color:#022169;
-        font-size: 70px;
+        font-size: 50px;
         font-weight: 600;
+        line-height: 1.1;
+        margin-bottom: 20px;
+    }
+
+    .section-header {
+        max-width: 950px;
+        margin: auto;
+        padding: 20px;
     }
 
     .section-title-description {
@@ -43,18 +57,76 @@
     main.main-content {
         width: 100vw;
         min-height: 100vh;
+        margin-top: 90px;
     }
 
-    @media (max-width: 768px) {
-        .section-title {
-            font-size: 40px;
-        }
+    @media (min-width: 1025px) {
+
     }
-    @media (max-width: 576px) {
+
+    @media (max-width: 1024px) {
+
         .section-title {
-            font-size: 32px;
+            font-size: 5.5vw;
         }
+
     }
+
+    @media (max-width: 991px){
+
+        main.main-content {
+            margin-top: 55px;
+        }
+
+    }   
+
+    @media (max-width: 768px){
+
+        .section-title {
+            font-size: 7vw;
+        }
+        .section-sub-title{
+            font-size: 4.5vw;
+        }
+        
+    }   
+
+    /* ============================= Header  ============================= */
+
+    div#mobileNav {
+        font-size: 12px;
+    }
+
+    .site-logo {
+        width: 90px;
+        height: auto;
+    }
+
+    .header-bar{
+        height: 90px;
+    }
+
+    @media (min-width: 1025px) {
+
+    }
+
+    @media (max-width: 1024px) {
+
+
+    }
+
+    @media (max-width: 991px){
+
+        .site-logo {
+            width: auto;
+            height: 30px;
+        }
+
+        .header-bar{
+            height: 55px;
+        }
+
+    }   
 
     /* ============================= Banner / Swiper Hero Section ============================= */
 
@@ -86,7 +158,7 @@
         width:100%;
         height:100%;
         object-fit:cover;
-        border-radius:24px;
+        border-radius:18px;
     }
 
     .swiper-image-overlay {
@@ -106,35 +178,346 @@
         flex-direction: column;
         width: 100%;
         height: 100%;
-        padding: 70px;
     }
 
     .overlay-content h2.section-title {
-        max-width: 430px;
         text-align: left;
-        line-height: 75px;
+        margin-bottom: 15px;
     }
 
-        a.banner-cta-link {
+    a.banner-cta-link {
         text-decoration: unset;
         color: #022169;
-        font-size: 20px;
         background: #FFF;
+        border-radius: 30px;
     }
 
-    @media (max-width: 768px) {
-        .home-banner-wrapper .swiper-slide .desktop-image {
-            display:none;
-        }
+    /* Banner pagination dots */
+    .banner-pagination {
+        position: absolute;
+        bottom: 20px!important;
+        left: 50%!important;
+        transform: translateX(-50%);
+        z-index: 10;
+        display: flex;
+        gap: 3px;
+        align-items: center;
+        justify-content: center;
     }
-    @media (min-width: 769px) {
+
+    .banner-pagination .swiper-pagination-bullet {
+        width: 9px;
+        height: 9px;
+        background: rgba(255, 255, 255, 0.5);
+        border-radius: 10px;
+        opacity: 1;
+        transition: all 0.3s ease;
+        margin: 0;
+    }
+
+    .banner-pagination .swiper-pagination-bullet-active {
+        width: 58px;
+        background: rgba(255, 255, 255, 0.5);
+        position: relative;
+    }
+
+    .banner-pagination .swiper-pagination-bullet-active:before {
+        content: "";
+        width: 36px;
+        height: 9px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background: rgba(255, 255, 255, 1);
+        border-radius: 10px;
+    }
+
+    @media (min-width: 1025px) {
         .home-banner-wrapper .swiper-slide .mobile-image {
             display:none;
         }
+        .swiper-image-overlay .overlay-content{
+            padding: 50px;
+        }
+        a.banner-cta-link {
+            font-size: 20px;
+            padding: 8px 30px;
+        }
+        .overlay-content h2.section-title {
+            font-size: min(70px, 4.3vw);
+        }
+    }
+
+    @media (max-width: 1024px) and (min-width: 769px) {
+        .home-banner-wrapper .swiper-slide .mobile-image {
+            display:none;
+        }
+        .swiper-image-overlay .overlay-content{
+            padding: 30px;
+        }
+        a.banner-cta-link {
+            font-size: 16px;
+            padding: 7px 20px;
+        }
+        .overlay-content h2.section-title {
+            font-size: 4vw;
+        }
+            
+        }
+    @media (max-width: 768px){
+        .home-banner-wrapper .swiper-slide .desktop-image {
+            display:none;
+        }
+        .swiper-image-overlay .overlay-content{
+            padding: 20px;
+        }
+        a.banner-cta-link {
+            font-size: 16px;
+            padding: 7px 20px;
+            margin-bottom: 15%;
+        }
+        .overlay-content h2.section-title {
+            font-size: 7vw;
+        }
+        .swiper-image-overlay .overlay-content{
+            justify-content: flex-end;
+        }
+        #home-banner {
+            padding: 15px 0;
+        }
+        
+        
     }   
+
+    
 
 
     /* ============================= Specialists styles ============================= */
+
+    @media (min-width: 1240px) {
+
+        .specialist-card{
+            padding: 24px;
+        }
+
+        .specialists-swiper .swiper-slide.swiper-slide-next,
+        .specialists-swiper .swiper-slide.swiper-slide-prev {
+            width: calc( (1200px - 40px) / 5 )!important;
+            opacity:0.4;
+        }
+
+        .specialists-swiper .swiper-slide.swiper-slide-active {
+            width: calc( (1200px - 40px) * (3 / 5) )!important;
+        }
+
+        .specialists-swiper .swiper-slide {
+            height:360px;
+        }
+
+        .swiper-slide-active .portrait {
+            left: 80px;
+        }
+
+        .portrait{
+            left: 10px;
+        }
+
+        .swiper-slide-active .badge-rank{
+            left: 1.5rem;
+        }
+
+        .badge-rank{
+            bottom: 1.5rem;
+            left: 1rem;
+        }
+
+        .badge-rank .rank-number  {
+            font-size: 7rem;
+        }
+
+        .badge-rank .specialist-wrapper .specialist-name  {
+            font-size: 1.9rem;
+        }
+
+        .badge-rank .specialist-wrapper .specialist-title  {
+            font-size: 1.4rem;
+        }
+
+        .stats-box {
+            width: 300px;
+            padding: 24px;
+        }
+
+        .metric .label {
+            font-size: 20px;
+        }
+        .metric .value {
+            font-size: 33px;
+        }
+
+    }
+
+    @media (max-width: 1239px) and (min-width: 769px) {
+
+        .specialist-card{
+            padding: 1rem;
+        }
+
+        .specialists-swiper .swiper-slide.swiper-slide-next,
+        .specialists-swiper .swiper-slide.swiper-slide-prev {
+            width: calc( (100vw - 80px) / 5 )!important;
+            opacity:0.4;
+        }
+
+        .specialists-swiper .swiper-slide.swiper-slide-active {
+            width: calc( (100vw - 80px) * (3 / 5) )!important;
+        }
+
+        .specialists-swiper .swiper-slide{
+            height: calc( (100vw - 80px) * (3 / 5) * ( 360 / 696 ) );
+        }
+
+        .swiper-slide-active .portrait {
+            left: 3rem;
+        }
+
+        .portrait{
+            left: 1.25rem;
+        }
+
+        .badge-rank{
+            bottom: 1rem;
+            left: 1rem;
+        }
+
+        .badge-rank .rank-number  {
+            font-size: 6rem;
+            margin-bottom: 0.2rem;
+        }
+
+        .badge-rank .specialist-wrapper .specialist-name  {
+            font-size: 1.5rem;
+        }
+
+        .badge-rank .specialist-wrapper .specialist-title  {
+            font-size: 1.25rem;
+        }
+
+        .stats-box {
+            width: 17rem;
+            padding: 1rem;
+        }
+
+        .metric .label {
+            font-size: 1.25rem;
+        }
+        .metric .value {
+            font-size: 2rem;
+        }
+
+    }
+
+    @media (max-width: 768px) {
+
+        .specialists-wrap{
+            padding: unset!important;
+        }
+
+        .specialist-card{
+            padding: 1.5rem;
+        }
+
+        .specialists-swiper .swiper-slide{
+            height: calc( (100vw - 30px) * 1.13 * ( 360 / 696 ) );
+        }
+
+        .specialists-swiper .swiper-slide:not(.swiper-slide-active){
+            opacity:0.4;
+        }
+
+        .swiper-slide-active .portrait {
+            left: 4rem;
+        }
+
+        .portrait{
+            left: 1rem;
+        }
+
+        .swiper-slide-prev .portrait {
+            left: 37rem;
+        }
+
+        .badge-rank{
+            bottom: 1.5rem;
+            left: 1.5rem;
+        }
+
+        .badge-rank .rank-number  {
+            font-size: 10rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .badge-rank .specialist-wrapper .specialist-name  {
+            font-size: 3.5rem;
+        }
+
+        .badge-rank .specialist-wrapper .specialist-title  {
+            font-size: 2.5rem;
+        }
+
+        .stats-box {
+            width: 30rem;
+            padding: 1.5rem;
+        }
+
+        .metric .label {
+            font-size: 2rem;
+        }
+        .metric .value {
+            font-size: 3rem;
+        }
+
+        .race-chip{
+            padding: 2px 12px!important;
+        }
+
+        .race-chip .text{
+            font-size: 1.5rem;
+        }
+
+        .race-chip  img{
+            width: 24px;
+            height: auto;
+        }
+
+        .specialist-bg{
+            clip-path: url(#roundedTrap-large)!important;
+            -webkit-clip-path: url(#roundedTrap-large)!important;
+        }
+
+        .specialist-bg::before{
+            clip-path: polygon(
+            0% 0%, 100% 0%, 100% 40%, 0% 72%
+            )!important;
+        }
+
+        .my-pick-wrapper {
+            padding: 15px!important;
+        }
+
+        .pick-card {
+            width: 300px!important;
+            padding: 10px!important;
+        }
+
+        .pick-card .list {
+            font-size: 14px!important;
+        }
+
+        
+
+
+    }
 
     section#specialists {
         overflow-x: hidden;
@@ -143,32 +526,18 @@
 
     .specialists-wrap {
         font-family: "Noto Sans TC", sans-serif;
-        max-width: 1200px;
+        max-width: 1240px;
         margin: 0 auto;
-        
+        padding: 0 20px;
     }
+
+    .specialists-swiper .swiper-wrapper  {
+        align-items: flex-end;
+}
 
     .specialists-swiper .swiper-slide {
         transition: 0.6s!important;
-        height:360px;
         cursor: pointer;
-    }
-
-    .specialists-swiper .swiper-slide.swiper-slide-next,
-    .specialists-swiper .swiper-slide.swiper-slide-prev {
-        width: calc( (1200px - 40px) / 5 )!important;
-        opacity:0.4;
-    }
-    .specialists-swiper .swiper-slide.swiper-slide-active {
-        width: calc( (1200px - 40px) * (3 / 5) )!important;
-    }
- 
-    .specialists-swiper .swiper-slide {
-        width: 320px;
-    }
-
-    .specialists-swiper .swiper-slide-active {
-        width: 640px;
     }
 
     .specialist-bg{
@@ -248,23 +617,12 @@
     }
 
     .badge-rank{
-        bottom: 30px;
-        left: 10px;
         transition: all 0.6s;
-        z-index: 0;
-    }
-
-
-    .swiper-slide-active .badge-rank{
-        bottom: 20px;
-        left: 20px;
-        z-index: 1;
     }
 
     .badge-rank .rank-number  {
         font-family: "Noto Sans", sans-serif;
         font-weight:800;
-        font-size:110px;
         font-style:italic;
         line-height:1;
         transform: scale(1, 1.2);
@@ -282,7 +640,6 @@
     .badge-rank .specialist-wrapper .specialist-name  {
         font-family: "Noto Sans TC", sans-serif;
         font-weight:700;
-        font-size:30px;
         line-height:1.2;
         text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
     }
@@ -290,28 +647,25 @@
     .badge-rank .specialist-wrapper .specialist-title  {
         font-family: "Noto Sans TC", sans-serif;
         font-weight:500;
-        font-size:20px;
         line-height:1.2;
         text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
     }
 
     .swiper-slide-active .portrait {
-        width: 270px;
-        left: 80px;
         z-index: 0;
+        height: 100%;
     }
 
     .portrait {
-        width: 250px;
-        left: 10px;
+        height: 90%;
         bottom:0;
         transition: all 0.6s;
         z-index: 1;
     }
 
     .portrait img {
-        width: 100%;
-        height:auto;
+        width: auto;
+        height: 100%;
         display:block;
         
     }
@@ -319,13 +673,12 @@
     .stats-box {
         background:#fff;
         color:#001b44;
-        width: 300px;
         height: fit-content;
         opacity:0;
         visibility: hidden;
         transition:
-            opacity .3s ease-in 0s,     /* fade out quickly */
-            visibility 0s linear .3s;   /* flip to hidden after fade-out completes */
+        opacity .3s ease-in 0s,     /* fade out quickly */
+        visibility 0s linear .3s;   /* flip to hidden after fade-out completes */
     }
     .specialists-swiper .swiper-slide-active .stats-box {
         opacity:1;
@@ -339,12 +692,8 @@
         color:#003c84;
     }
 
-    .metric .label {
-        font-size: 20px;
-    }
     .metric .value {
         font-weight:800;
-        font-size: 33px;
     }
 
     .race-chip {
@@ -354,28 +703,52 @@
         gap:8px;
         background:#eaf2ff;
         color:#003c84;
-        border-radius:12px;
+        border-radius:50px;
         padding:8px 12px;
         font-weight:600;
     }
 
     .race-chip .text{
         margin-top:-3px;
+        color:#000;
+    }
+
+    .race-chip  img{
+        width: 18px;
+        height: auto;
     }
 
     /* Picks cards */
+
+    .my-pick-wrapper {
+        padding: 20px;
+        max-width: 1240px;
+        margin: auto;
+    }
+
+    .my-pick-wrapper .swiper-slide {
+        width: fit-content;
+    }
+
     .pick-card {
         background:#fff;
-        box-shadow:0 10px 30px rgba(0,0,0,.08);
+        box-shadow: 0 3px 10px rgba(0, 0, 0, .15);
         text-align:left;
+        height: 100%;
+        width: 335px;
+        padding: 24px;
+        border-radius: 15px;
     }
-    .pick-card h6 {
+
+    .pick-card .race-number {
+        font-size: 16px;
         font-weight:700;
         margin:0 0 6px;
     }
+
     .pick-card .meta {
-        font-size:12px;
-        color:#6b7785;
+        font-size:14px;
+        color:#000;
         margin-bottom:12px;
     }
     .pick-card hr {
@@ -385,15 +758,18 @@
         margin:0;
         padding-left: 18px;
         font-weight:800;
+        font-size: 16px;
         color:#003c84;
     }
     .pick-card .cta {
-        padding:6px 18px;
+        padding:6px 0px;
         border-radius:50px;
         background:#ffd303;
         color:#111;
+        font-size: 15px;
         font-weight:400;
         border:0;
+        width: 100px;
     }
     .pick-card .type {
         font-size: 14px;
@@ -402,6 +778,7 @@
     }
 
     /* ============================= Picks Swiper ============================= */
+
     .picks-swiper {
         padding: 8px 4px 24px;
     }
@@ -411,18 +788,68 @@
     .picks-swiper .swiper-slide {
         height: auto;
     }
-    .picks-swiper .pick-card {
-        height: 100%;
-    }
 
     /* ============================= More Specialists (Second) ============================= */
+
+    @media (max-width: 1200px) {
+
+        .more-specialists-swiper .swiper-wrapper {
+            left: calc(50vw - 600px);
+        }
+
+    }
+
+    @media (max-width: 768px) {
+
+        .more-specialists-wrap {
+            width: 870px!important;
+        }
+
+        .more-specialists-swiper .swiper-wrapper {
+            left: calc(50vw - 435px)!important;
+        }
+
+        .more-specialists-swiper {
+            height: 221px!important;
+        }
+
+        .mspec-card {
+            height: 221px!important;
+        }
+
+        .mspec-name { 
+            font-size: 20px!important;
+        }
+        .mspec-title { 
+            font-size: 15px!important;
+        }
+
+        .mspec-quote{
+            font-size: 16px!important;
+            line-height: 24px!important;
+        }
+
+    }
+
+    section#specialists-second {
+        overflow-x: hidden;
+        max-width: 100vw;
+        margin-bottom: 50px;
+    }
+
     .more-specialists-wrap {
         max-width: 1200px;
+        width: 1200px;
         margin: 0 auto;
     }
 
+    .more-specialists-swiper {
+        height: 300px;
+    }
+
     .more-specialists-swiper .swiper-wrapper { 
-        align-items: center; 
+        align-items: center;
+        position: absolute;
     }
 
     .more-specialists-swiper .swiper-slide:not(.swiper-slide-active, .swiper-slide-prev, .swiper-slide-next) {
@@ -457,6 +884,12 @@
         border-radius: 24px;
         z-index: 0;
     }
+
+    .mspec-quote-wrapper {
+        max-width: 100vw;
+        padding: 20px;
+    }
+
     .mspec-quote{
         font-family: "Noto Sans TC", sans-serif;
         color:#000;
@@ -465,6 +898,8 @@
         font-weight: 400;
         margin: 0 auto;
         max-width: 650px;
+        padding-bottom: 20px;
+        height: 100px;
     }
 
     .hkjc-outline-button {
@@ -472,6 +907,8 @@
         font-family: "Noto Sans TC", sans-serif;
         font-size: 18px;
         font-weight: 400;
+        border-radius: 30px;
+        padding: 8px 30px;
     }
 
     .button-blue{
@@ -533,7 +970,37 @@
         text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
     }
 
-    /* ============================= Social Feedback (Sticky Stack) ============================= */
+    /* =============================  Card Animation Section ============================= */
+
+    @media (max-width: 991px) {
+
+        .media-card {
+            height: calc(100vh - 55px - 270px)!important;
+        }
+
+        .animation-stage {
+            height: calc(100vh - 55px)!important; /* full viewport height - header height */
+            width: 100vw;
+        }
+
+        .animation-group-wrapper {
+            height: calc(100vh - 55px)!important; /* full viewport height - header height */
+        }
+
+    }
+
+    @media (max-width: 768px) {
+
+        .animation-image-wrapper img {
+            width: 228px!important;
+            top: 50px!important;
+        }
+
+        .animation-button-wrapper button{
+            bottom: 10px!important;
+        }
+
+    }
     
     #animation {
         position: relative;
@@ -554,7 +1021,7 @@
         top: 80px;
         left: 50%;      
         transform: translate(-50%, -50%);
-        width: 300px;
+        width: min(300px,29vw);
         height: auto;
     }
 
@@ -605,7 +1072,8 @@
         left: 50%;
         top: 50%;
         transform: translate(-50%, -50%);
-        width: 250px;
+        width: auto;
+        height: calc(100vh - 90px - 350px);
         aspect-ratio: 9 / 16; /* portrait like phone */
         border-radius: 24px;
         overflow: hidden;
@@ -690,6 +1158,35 @@
     }
 
     /* ============================= Discover Section ============================= */
+    
+    @media (max-width: 1024px) {
+
+        p.discover-text {
+            font-size: 14px!important;
+        }       
+
+    }
+
+
+    @media (max-width: 991px) {
+
+        .discover-background {
+            height: calc(100vh - 55px)!important;
+        }
+
+        section#discover {
+            height: calc(100vh - 55px)!important;
+        }
+
+    }
+
+    @media (max-width: 768px) {
+
+        img.discover-icon {
+            width: 17vw!important;
+        }
+
+    }
 
     section#discover {
         width: 100vw;
@@ -706,8 +1203,6 @@
         width: 100vw;
         height: calc(100vh - 90px);
         background-color: #2655CC;
-        clip-path: url(#discover-clip);
-        -webkit-clip-path: url(#discover-clip);
         z-index: 0;
         overflow: hidden;
         box-shadow: 0 40px 120px rgba(4, 24, 80, 0.35);
@@ -727,7 +1222,7 @@
     }
 
     img.discover-icon {
-        width: 156px;
+        width: min(156px, 10vw);
         position: absolute;
         left: 50%;
         top: 50%;
@@ -740,6 +1235,7 @@
         left: 50%;
         top: 50%;
         width: 500px;
+        margin: unset;
         text-align: center;
         color: #FFF;
         font-family: "Noto Sans TC", sans-serif;
@@ -751,8 +1247,8 @@
         transform: translate(-50%, -50%);
         left: 50%;
         top: 50%;
-        width: 10px;
-        height: 10px;
+        width: 5px;
+        height: 5px;
         background: #FFF;
         border-radius: 10px;
         z-index: 1;
@@ -848,6 +1344,22 @@
         text-decoration: none;
     }
 
+    img.left-vector {
+        position: absolute;
+        left: 0;
+        top: 7%;
+        width: 17%;
+        height: auto;
+    }
+
+    img.right-vector {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        width: 27%;
+        height: auto;
+    }
+
     /* ============================= Footer ============================= */
 
     p.footer-text, .footer-list {
@@ -875,11 +1387,11 @@
 </head>
 <body class="bg-white">
     <header class="bg-white site-header fixed-top border-top border-bottom">
-        <div class="px-5 py-4 container-fluid d-flex justify-content-between align-items-center header-bar">
+        <div class="px-5 py-4 container-fluid d-flex justify-content-between align-items-center header-bar border-bottom">
             <div class="d-flex align-items-center left-cluster">
                 <div class="logo pe-5 d-flex">
                     <a href="#" class="d-inline-flex align-items-center">
-                        <img src="assets/images/logo.png" width="108" height="40" alt="HKJC Logo">
+                        <img class="site-logo" src="assets/images/logo.png" alt="HKJC Logo">
                     </a>
                 </div>
                 <nav class="main-nav d-none d-lg-flex align-items-center" aria-label="Primary">
@@ -918,8 +1430,8 @@
                 </a>
             </div>
         </div>
-        <div class="collapse mobile-nav-wrapper" id="mobileNav">
-            <div class="container pt-1 pb-5">
+        <div class="collapse mobile-nav-wrapper border-bottom" id="mobileNav">
+            <div class="container px-4 pt-4 pb-5">
                 <nav aria-label="Mobile Primary">
                     <ul class="nav flex-column">
                         <li class="nav-item"><a class="nav-link px-2 text-black" href="#">主頁</a></li>
@@ -933,7 +1445,7 @@
         </div>
     </header>
 
-    <main class="main-content" style="padding-top: 90px;">
+    <main class="main-content">
         <!-- Banner Section -->
         <section class="text-center position-relative z-0 cover-swiper-banner" id="home-banner">
             <div class="swiper home-banner-wrapper">
@@ -944,8 +1456,8 @@
                             <img src="assets/images/Discover Campaign Site.png" class="mobile-image" alt="Banner Image 1">
                             <div class="swiper-image-overlay">
                                 <div class="overlay-content">
-                                    <h2 class="section-title text-white mb-3">Discover the New Way of Racing</h2>
-                                    <a class="banner-cta-link rounded-5 px-4 py-2" href="#">View More</a>
+                                    <h2 class="section-title text-white">Discover the <br>New Way of<br> Racing</h2>
+                                    <a class="banner-cta-link" href="#">View More</a>
                                 </div>
                             </div>
                         </div>
@@ -956,8 +1468,8 @@
                             <img src="assets/images/Discover Campaign Site.png" class="mobile-image" alt="Banner Image 1">
                             <div class="swiper-image-overlay">
                                 <div class="overlay-content">
-                                    <h2 class="section-title text-white mb-3">Discover the New Way of Racing</h2>
-                                    <a class="banner-cta-link rounded-5 px-4 py-2" href="#">View More</a>
+                                    <h2 class="section-title text-white">Discover the <br>New Way of<br> Racing</h2>
+                                    <a class="banner-cta-link" href="#">View More</a>
                                 </div>
                             </div>
                         </div>
@@ -968,8 +1480,8 @@
                             <img src="assets/images/Discover Campaign Site.png" class="mobile-image" alt="Banner Image 1">
                             <div class="swiper-image-overlay">
                                 <div class="overlay-content">
-                                    <h2 class="section-title text-white mb-3">Discover the New Way of Racing</h2>
-                                    <a class="banner-cta-link rounded-5 px-4 py-2" href="#">View More</a>
+                                    <h2 class="section-title text-white">Discover the <br>New Way of<br> Racing</h2>
+                                    <a class="banner-cta-link" href="#">View More</a>
                                 </div>
                             </div>
                         </div>
@@ -980,56 +1492,33 @@
                             <img src="assets/images/Discover Campaign Site.png" class="mobile-image" alt="Banner Image 1">
                             <div class="swiper-image-overlay">
                                 <div class="overlay-content">
-                                    <h2 class="section-title text-white mb-3">Discover the New Way of Racing</h2>
-                                    <a class="banner-cta-link rounded-5 px-4 py-2" href="#">View More</a>
+                                    <h2 class="section-title text-white">Discover the <br>New Way of<br> Racing</h2>
+                                    <a class="banner-cta-link" href="#">View More</a>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="swiper-slide">
                         <div class="swiper-image d-flex align-items-center justify-content-center">
-                            <img src="assets/images/cover.png" class="desktop-image" alt="Banner Image 2">
-                            <img src="assets/images/Discover Campaign Site.png" class="mobile-image" alt="Banner Image 2">
+                            <img src="assets/images/cover.png" class="desktop-image" alt="Banner Image 1">
+                            <img src="assets/images/Discover Campaign Site.png" class="mobile-image" alt="Banner Image 1">
                             <div class="swiper-image-overlay">
                                 <div class="overlay-content">
-                                    <h2 class="section-title text-white mb-3">Discover the New Way of Racing</h2>
-                                    <a class="banner-cta-link rounded-5 px-4 py-2" href="#">View More</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="swiper-image d-flex align-items-center justify-content-center">
-                            <img src="assets/images/cover.png" class="desktop-image" alt="Banner Image 3">
-                            <img src="assets/images/Discover Campaign Site.png" class="mobile-image" alt="Banner Image 3">
-                            <div class="swiper-image-overlay">
-                                <div class="overlay-content">
-                                    <h2 class="section-title text-white mb-3">Discover the New Way of Racing</h2>
-                                    <a class="banner-cta-link rounded-5 px-4 py-2" href="#">View More</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="swiper-image d-flex align-items-center justify-content-center">
-                            <img src="assets/images/cover.png" class="desktop-image" alt="Banner Image 4">
-                            <img src="assets/images/Discover Campaign Site.png" class="mobile-image" alt="Banner Image 4">
-                            <div class="swiper-image-overlay">
-                                <div class="overlay-content">
-                                    <h2 class="section-title text-white mb-3">Discover the New Way of Racing</h2>
-                                    <a class="banner-cta-link rounded-5 px-4 py-2" href="#">View More</a>
+                                    <h2 class="section-title text-white">Discover the <br>New Way of<br> Racing</h2>
+                                    <a class="banner-cta-link" href="#">View More</a>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <!-- Removed pagination and navigation per requirements -->
+                <!-- Custom dot pagination -->
+                <div class="swiper-pagination banner-pagination"></div>
             </div>
         </section>
         
         <!-- Specialists Section -->
-        <section id="specialists" class="py-5">
-            <div class="container">
+        <section id="specialists">
+            <div class="section-header">
                 <div class="text-center mb-4">
                 <h2 class="section-title mb-3">Top 3 Racing Specialist</h2>
                 <p class="section-title-description">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy
@@ -1043,9 +1532,9 @@
                         <!-- Specialist 1 -->
                         <div class="swiper-slide overflow-hidden rounded-4">
                             <div class="specialist-bg tone-blue z-0 rounded-4 position-absolute bottom-0 start-0"></div>   
-                            <article class="specialist-card d-flex flex-row justify-content-end align-items-end w-100 h-100 p-4">
+                            <article class="specialist-card d-flex flex-row justify-content-end align-items-end w-100 h-100 ">
                                 <div class="badge-rank z-1 position-absolute text-white d-flex flex-column justify-content-end gap-3">
-                                    <div class="rank-number mb-2">1</div>
+                                    <div class="rank-number">1</div>
                                     <div class="specialist-wrapper">
                                         <p class="specialist-name mb-1">Elke</p>
                                         <p class="specialist-title mb-0">King of QIN</p>
@@ -1054,7 +1543,7 @@
                                 <div class="portrait position-absolute">
                                     <img src="assets/images/KOL Image.png" alt="Elke" />
                                 </div>
-                                <div class="stats-box rounded-4 p-4 z-1">
+                                <div class="stats-box rounded-4 z-1">
                                 <div class="row g-3 align-items-center">
                                     <div class="col-6">
                                     <div class="metric d-flex flex-column"><span class="label">Strike Rate</span><span class="value">50%</span></div>
@@ -1063,7 +1552,7 @@
                                     <div class="metric d-flex flex-column"><span class="label">Score</span><span class="value">59553</span></div>
                                     </div>
                                     <div class="col-12">
-                                    <div class="race-chip w-100"><img class="icon" src="assets/images/movie-icon.png" alt="video" width="18" height="18"> <span class="text">Race 1</span></div>
+                                    <div class="race-chip w-100"><img class="icon" src="assets/images/movie-icon.png" alt="video"> <span class="text">Race 1</span></div>
                                     </div>
                                 </div>
                                 </div>
@@ -1073,9 +1562,9 @@
                         <!-- Specialist 3 -->
                         <div class="swiper-slide overflow-hidden rounded-4">
                             <div class="specialist-bg tone-pink z-0 rounded-4 position-absolute bottom-0 start-0"></div>
-                            <article class="specialist-card d-flex flex-row justify-content-end align-items-end w-100 h-100 p-4">
+                            <article class="specialist-card d-flex flex-row justify-content-end align-items-end w-100 h-100 ">
                                 <div class="badge-rank z-1 position-absolute text-white d-flex flex-column justify-content-end gap-3">
-                                    <div class="rank-number mb-2">3</div>
+                                    <div class="rank-number">3</div>
                                     <div class="specialist-wrapper">
                                         <p class="specialist-name mb-1">Krystal</p>
                                         <p class="specialist-title mb-0">King of QIN</p>
@@ -1084,7 +1573,7 @@
                                 <div class="portrait position-absolute">
                                     <img src="assets/images/KOL Image-5.png" alt="Krystal" />
                                 </div>
-                                <div class="stats-box rounded-4 p-4 z-1">
+                                <div class="stats-box rounded-4 z-1">
                                     <div class="row g-3 align-items-center">
                                         <div class="col-6">
                                             <div class="metric d-flex flex-column"><span class="label">Strike Rate</span><span class="value">36%</span></div>
@@ -1093,7 +1582,7 @@
                                             <div class="metric d-flex flex-column"><span class="label">Score</span><span class="value">38112</span></div>
                                         </div>
                                         <div class="col-12">
-                                            <div class="race-chip w-100"><img class="icon" src="assets/images/movie-icon.png" alt="video" width="18" height="18"> <span class="text">Race 1</span></div>
+                                            <div class="race-chip w-100"><img class="icon" src="assets/images/movie-icon.png" alt="video"> <span class="text">Race 1</span></div>
                                         </div>
                                     </div>
                                 </div>
@@ -1103,9 +1592,9 @@
                         <!-- Specialist 2 -->
                         <div class="swiper-slide overflow-hidden rounded-4">
                             <div class="specialist-bg tone-amber z-0 rounded-4 position-absolute bottom-0 start-0"></div>
-                            <article class="specialist-card d-flex flex-row justify-content-end align-items-end w-100 h-100 p-4">
+                            <article class="specialist-card d-flex flex-row justify-content-end align-items-end w-100 h-100 ">
                                 <div class="badge-rank z-1 position-absolute text-white d-flex flex-column justify-content-end gap-3">
-                                    <div class="rank-number mb-2">2</div>
+                                    <div class="rank-number">2</div>
                                     <div class="specialist-wrapper">
                                         <p class="specialist-name mb-1">KK</p>
                                         <p class="specialist-title mb-0">King of QIN</p>
@@ -1114,7 +1603,7 @@
                                 <div class="portrait position-absolute">
                                     <img src="assets/images/KOL Image-1.png" alt="KK" />
                                 </div>
-                                <div class="stats-box rounded-4 p-4 z-1">
+                                <div class="stats-box rounded-4 z-1">
                                     <div class="row g-3 align-items-center">
                                         <div class="col-6">
                                             <div class="metric d-flex flex-column"><span class="label">Strike Rate</span><span class="value">41%</span></div>
@@ -1123,7 +1612,7 @@
                                             <div class="metric d-flex flex-column"><span class="label">Score</span><span class="value">42310</span></div>
                                         </div>
                                         <div class="col-12">
-                                            <div class="race-chip w-100"><img class="icon" src="assets/images/movie-icon.png" alt="video" width="18" height="18"> <span class="text">Race 1</span></div>
+                                            <div class="race-chip w-100"><img class="icon" src="assets/images/movie-icon.png" alt="video"> <span class="text">Race 1</span></div>
                                         </div>
                                     </div>
                                 </div>
@@ -1133,9 +1622,9 @@
                         <!-- Specialist 1 -->
                         <div class="swiper-slide overflow-hidden rounded-4">
                             <div class="specialist-bg tone-blue z-0 rounded-4 position-absolute bottom-0 start-0"></div>   
-                            <article class="specialist-card d-flex flex-row justify-content-end align-items-end w-100 h-100 p-4">
+                            <article class="specialist-card d-flex flex-row justify-content-end align-items-end w-100 h-100 ">
                                 <div class="badge-rank z-1 position-absolute text-white d-flex flex-column justify-content-end gap-3">
-                                    <div class="rank-number mb-2">1</div>
+                                    <div class="rank-number">1</div>
                                     <div class="specialist-wrapper">
                                         <p class="specialist-name mb-1">Elke</p>
                                         <p class="specialist-title mb-0">King of QIN</p>
@@ -1144,7 +1633,7 @@
                                 <div class="portrait position-absolute">
                                     <img src="assets/images/KOL Image.png" alt="Elke" />
                                 </div>
-                                <div class="stats-box rounded-4 p-4 z-1">
+                                <div class="stats-box rounded-4 z-1">
                                 <div class="row g-3 align-items-center">
                                     <div class="col-6">
                                     <div class="metric d-flex flex-column"><span class="label">Strike Rate</span><span class="value">50%</span></div>
@@ -1153,7 +1642,7 @@
                                     <div class="metric d-flex flex-column"><span class="label">Score</span><span class="value">59553</span></div>
                                     </div>
                                     <div class="col-12">
-                                    <div class="race-chip w-100"><img class="icon" src="assets/images/movie-icon.png" alt="video" width="18" height="18"> <span class="text">Race 1</span></div>
+                                    <div class="race-chip w-100"><img class="icon" src="assets/images/movie-icon.png" alt="video"> <span class="text">Race 1</span></div>
                                     </div>
                                 </div>
                                 </div>
@@ -1163,9 +1652,9 @@
                         <!-- Specialist 3 -->
                         <div class="swiper-slide overflow-hidden rounded-4">
                             <div class="specialist-bg tone-pink z-0 rounded-4 position-absolute bottom-0 start-0"></div>
-                            <article class="specialist-card d-flex flex-row justify-content-end align-items-end w-100 h-100 p-4">
+                            <article class="specialist-card d-flex flex-row justify-content-end align-items-end w-100 h-100 ">
                                 <div class="badge-rank z-1 position-absolute text-white d-flex flex-column justify-content-end gap-3">
-                                    <div class="rank-number mb-2">3</div>
+                                    <div class="rank-number">3</div>
                                     <div class="specialist-wrapper">
                                         <p class="specialist-name mb-1">Krystal</p>
                                         <p class="specialist-title mb-0">King of QIN</p>
@@ -1174,7 +1663,7 @@
                                 <div class="portrait position-absolute">
                                     <img src="assets/images/KOL Image-5.png" alt="Krystal" />
                                 </div>
-                                <div class="stats-box rounded-4 p-4 z-1">
+                                <div class="stats-box rounded-4 z-1">
                                     <div class="row g-3 align-items-center">
                                         <div class="col-6">
                                             <div class="metric d-flex flex-column"><span class="label">Strike Rate</span><span class="value">36%</span></div>
@@ -1183,7 +1672,7 @@
                                             <div class="metric d-flex flex-column"><span class="label">Score</span><span class="value">38112</span></div>
                                         </div>
                                         <div class="col-12">
-                                            <div class="race-chip w-100"><img class="icon" src="assets/images/movie-icon.png" alt="video" width="18" height="18"> <span class="text">Race 1</span></div>
+                                            <div class="race-chip w-100"><img class="icon" src="assets/images/movie-icon.png" alt="video"> <span class="text">Race 1</span></div>
                                         </div>
                                     </div>
                                 </div>
@@ -1193,9 +1682,9 @@
                         <!-- Specialist 2 -->
                         <div class="swiper-slide overflow-hidden rounded-4">
                             <div class="specialist-bg tone-amber z-0 rounded-4 position-absolute bottom-0 start-0"></div>
-                            <article class="specialist-card d-flex flex-row justify-content-end align-items-end w-100 h-100 p-4">
+                            <article class="specialist-card d-flex flex-row justify-content-end align-items-end w-100 h-100 ">
                                 <div class="badge-rank z-1 position-absolute text-white d-flex flex-column justify-content-end gap-3">
-                                    <div class="rank-number mb-2">2</div>
+                                    <div class="rank-number">2</div>
                                     <div class="specialist-wrapper">
                                         <p class="specialist-name mb-1">KK</p>
                                         <p class="specialist-title mb-0">King of QIN</p>
@@ -1204,7 +1693,7 @@
                                 <div class="portrait position-absolute">
                                     <img src="assets/images/KOL Image-1.png" alt="KK" />
                                 </div>
-                                <div class="stats-box rounded-4 p-4 z-1">
+                                <div class="stats-box rounded-4 z-1">
                                     <div class="row g-3 align-items-center">
                                         <div class="col-6">
                                             <div class="metric d-flex flex-column"><span class="label">Strike Rate</span><span class="value">41%</span></div>
@@ -1213,7 +1702,7 @@
                                             <div class="metric d-flex flex-column"><span class="label">Score</span><span class="value">42310</span></div>
                                         </div>
                                         <div class="col-12">
-                                            <div class="race-chip w-100"><img class="icon" src="assets/images/movie-icon.png" alt="video" width="18" height="18"> <span class="text">Race 1</span></div>
+                                            <div class="race-chip w-100"><img class="icon" src="assets/images/movie-icon.png" alt="video"> <span class="text">Race 1</span></div>
                                         </div>
                                     </div>
                                 </div>
@@ -1224,9 +1713,9 @@
                         <!-- Specialist 1 -->
                         <div class="swiper-slide overflow-hidden rounded-4">
                             <div class="specialist-bg tone-blue z-0 rounded-4 position-absolute bottom-0 start-0"></div>   
-                            <article class="specialist-card d-flex flex-row justify-content-end align-items-end w-100 h-100 p-4">
+                            <article class="specialist-card d-flex flex-row justify-content-end align-items-end w-100 h-100 ">
                                 <div class="badge-rank z-1 position-absolute text-white d-flex flex-column justify-content-end gap-3">
-                                    <div class="rank-number mb-2">1</div>
+                                    <div class="rank-number">1</div>
                                     <div class="specialist-wrapper">
                                         <p class="specialist-name mb-1">Elke</p>
                                         <p class="specialist-title mb-0">King of QIN</p>
@@ -1235,7 +1724,7 @@
                                 <div class="portrait position-absolute">
                                     <img src="assets/images/KOL Image.png" alt="Elke" />
                                 </div>
-                                <div class="stats-box rounded-4 p-4 z-1">
+                                <div class="stats-box rounded-4 z-1">
                                 <div class="row g-3 align-items-center">
                                     <div class="col-6">
                                     <div class="metric d-flex flex-column"><span class="label">Strike Rate</span><span class="value">50%</span></div>
@@ -1244,7 +1733,7 @@
                                     <div class="metric d-flex flex-column"><span class="label">Score</span><span class="value">59553</span></div>
                                     </div>
                                     <div class="col-12">
-                                    <div class="race-chip w-100"><img class="icon" src="assets/images/movie-icon.png" alt="video" width="18" height="18"> <span class="text">Race 1</span></div>
+                                    <div class="race-chip w-100"><img class="icon" src="assets/images/movie-icon.png" alt="video"> <span class="text">Race 1</span></div>
                                     </div>
                                 </div>
                                 </div>
@@ -1254,9 +1743,9 @@
                         <!-- Specialist 3 -->
                         <div class="swiper-slide overflow-hidden rounded-4">
                             <div class="specialist-bg tone-pink z-0 rounded-4 position-absolute bottom-0 start-0"></div>
-                            <article class="specialist-card d-flex flex-row justify-content-end align-items-end w-100 h-100 p-4">
+                            <article class="specialist-card d-flex flex-row justify-content-end align-items-end w-100 h-100 ">
                                 <div class="badge-rank z-1 position-absolute text-white d-flex flex-column justify-content-end gap-3">
-                                    <div class="rank-number mb-2">3</div>
+                                    <div class="rank-number">3</div>
                                     <div class="specialist-wrapper">
                                         <p class="specialist-name mb-1">Krystal</p>
                                         <p class="specialist-title mb-0">King of QIN</p>
@@ -1265,7 +1754,7 @@
                                 <div class="portrait position-absolute">
                                     <img src="assets/images/KOL Image-5.png" alt="Krystal" />
                                 </div>
-                                <div class="stats-box rounded-4 p-4 z-1">
+                                <div class="stats-box rounded-4 z-1">
                                     <div class="row g-3 align-items-center">
                                         <div class="col-6">
                                             <div class="metric d-flex flex-column"><span class="label">Strike Rate</span><span class="value">36%</span></div>
@@ -1274,7 +1763,7 @@
                                             <div class="metric d-flex flex-column"><span class="label">Score</span><span class="value">38112</span></div>
                                         </div>
                                         <div class="col-12">
-                                            <div class="race-chip w-100"><img class="icon" src="assets/images/movie-icon.png" alt="video" width="18" height="18"> <span class="text">Race 1</span></div>
+                                            <div class="race-chip w-100"><img class="icon" src="assets/images/movie-icon.png" alt="video"> <span class="text">Race 1</span></div>
                                         </div>
                                     </div>
                                 </div>
@@ -1284,9 +1773,9 @@
                         <!-- Specialist 2 -->
                         <div class="swiper-slide overflow-hidden rounded-4">
                             <div class="specialist-bg tone-amber z-0 rounded-4 position-absolute bottom-0 start-0"></div>
-                            <article class="specialist-card d-flex flex-row justify-content-end align-items-end w-100 h-100 p-4">
+                            <article class="specialist-card d-flex flex-row justify-content-end align-items-end w-100 h-100 ">
                                 <div class="badge-rank z-1 position-absolute text-white d-flex flex-column justify-content-end gap-3">
-                                    <div class="rank-number mb-2">2</div>
+                                    <div class="rank-number">2</div>
                                     <div class="specialist-wrapper">
                                         <p class="specialist-name mb-1">KK</p>
                                         <p class="specialist-title mb-0">King of QIN</p>
@@ -1295,7 +1784,7 @@
                                 <div class="portrait position-absolute">
                                     <img src="assets/images/KOL Image-1.png" alt="KK" />
                                 </div>
-                                <div class="stats-box rounded-4 p-4 z-1">
+                                <div class="stats-box rounded-4 z-1">
                                     <div class="row g-3 align-items-center">
                                         <div class="col-6">
                                             <div class="metric d-flex flex-column"><span class="label">Strike Rate</span><span class="value">41%</span></div>
@@ -1304,7 +1793,7 @@
                                             <div class="metric d-flex flex-column"><span class="label">Score</span><span class="value">42310</span></div>
                                         </div>
                                         <div class="col-12">
-                                            <div class="race-chip w-100"><img class="icon" src="assets/images/movie-icon.png" alt="video" width="18" height="18"> <span class="text">Race 1</span></div>
+                                            <div class="race-chip w-100"><img class="icon" src="assets/images/movie-icon.png" alt="video"> <span class="text">Race 1</span></div>
                                         </div>
                                     </div>
                                 </div>
@@ -1315,9 +1804,9 @@
                 </div>
             </div>
 
-            <div class="container text-center pt-3">
+            <div class="text-center my-pick-wrapper">
                 <div class="down-icon d-flex flex-column pb-3" style="color: #022169;">
-                    <i class="fa-solid fa-chevron-down"></i>
+                    <i class="fa-solid fa-chevron-down" style=" font-size: 16px; "></i>
                     <i class="fa-solid fa-chevron-down" style="
                         font-size: 20px;
                         margin-top: -9px;
@@ -1331,16 +1820,15 @@
             </div>
         </section>
         
-        <!-- End Specialists Section -->
-
-        <section id="specialists-second" class="pb-5">
-            <div class="container">
+        <!-- More Specialists Section -->
+        <section id="specialists-second">
+            <div class="section-header">
                 <div class="text-center mb-4">
                     <h2 class="section-title mb-3">More Racing Specialist's Pick</h2>
                 </div>
             </div>
             <div class="more-specialists-wrap position-relative">
-                <div class="swiper more-specialists-swiper pb-2 pt-5">
+                <div class="swiper more-specialists-swiper pb-2">
                     <div class="swiper-wrapper">
                         <!-- Sample slides (colors are placeholder tone-*) -->
                         <div class="swiper-slide">
@@ -1525,13 +2013,14 @@
                         </div>
                     </div>
                 </div>
-                <div class="text-center pt-4">
-                    <div class="mspec-quote pb-4">“A novice in horse racing, prioritizes the horses’ strength and their racing records.”</div>
-                    <button class="hkjc-outline-button button-blue rounded-5 px-4 py-2">Explore More</button>
+                <div class="mspec-quote-wrapper text-center">
+                    <div class="mspec-quote">“A novice in horse racing, prioritizes the horses’ strength and their racing records.”</div>
+                    <button class="hkjc-outline-button button-blue ">Explore More</button>
                 </div>
             </div>
         </section>
-        <!-- Social Feedback (Sticky Stack) -->
+
+        <!-- Card Animation Section -->
         <section id="animation" class="p-0">
             <div class="animation-stage container-fluid p-0">
                 <div class="animation-group-wrapper">
@@ -1607,7 +2096,7 @@
                         </figure>
                     </div>
                     <div class="animation-button-wrapper">
-                        <button class="hkjc-outline-button button-blue rounded-5 px-4 py-2">View More</button>
+                        <button class="hkjc-outline-button button-blue">View More</button>
                     </div>
                 </div>
             </div>
@@ -1615,7 +2104,8 @@
         <!-- Discover More Section -->
         <section id="discover" >
             <div class="discover-image-background">
-                <img src="assets/images/discover-bg.png" alt="Discover More Background" />
+                <img src="assets/images/Rectangle 16.png" class="left-vector" alt="Discover More Background" />
+                <img src="assets/images/Vector.png" class="right-vector" alt="Discover More Background" />
             </div>
             <div class="discover-background"></div>
             <div class="discover-content">
@@ -1654,7 +2144,7 @@
                             </a>
                         </div>
                     </div>
-                    <button class="hkjc-outline-button button-white rounded-5 px-4 py-2">View More</button>
+                    <button class="hkjc-outline-button button-white">View More</button>
                 </div>
                 <div class="post-wrapper mt-4">
                     <h2 class="section-title text-white mb-2">Racecourse Experience</h2>
@@ -1687,7 +2177,7 @@
                             </a>
                         </div>
                     </div>
-                    <button class="hkjc-outline-button button-white rounded-5 px-4 py-2">View More</button>
+                    <button class="hkjc-outline-button button-white">View More</button>
                 </div>
             </div>
         </section>
@@ -1711,6 +2201,9 @@
         <defs>
             <clipPath id="discover-clip" clipPathUnits="userSpaceOnUse">
                 <rect id="discoverClipRect" x="0" y="0" width="0" height="0" rx="0" ry="0" />
+            </clipPath>
+            <clipPath id="discover-clip-mobile" clipPathUnits="userSpaceOnUse">
+                <rect id="discoverClipRectMobile" x="0" y="0" width="0" height="0" rx="0" ry="0" />
             </clipPath>
         </defs>
     </svg>
@@ -1753,6 +2246,9 @@
     <script src="assets/js/bootstrap.bundle.min.js"></script>
     <script src="assets/js/swiper-bundle.min.js"></script>
     <script src="assets/js/aos.js"></script>
+    <script> AOS.init(); </script>
+    <script src="assets/js/gsap.min.js"></script>
+    <script src="assets/js/ScrollTrigger.min.js"></script>
 	
 	
 	<!--Kata Update -->
@@ -1781,11 +2277,9 @@
 	</script>
 	<button OnClick="openPopup()">Open popup</button>
 	<!--End Of Kata Update -->
-	
-    <script> AOS.init(); </script>
-    <script src="assets/js/gsap.min.js"></script>
-    <script src="assets/js/ScrollTrigger.min.js"></script>
 
+
+    <!-- Main Banner JS -->
     <script>
       $(document).ready(function() {
         if (typeof Swiper === 'undefined') {
@@ -1799,6 +2293,10 @@
           centeredSlides: true,
           spaceBetween: 0,
           watchSlidesProgress: true,
+          pagination: {
+            el: '.banner-pagination',
+            clickable: true,
+          },
           on: {
             progress(swiper) {
               $(swiper.slides).each(function() {
@@ -1819,23 +2317,48 @@
             }
           }
         });
+        
+        // Store instance globally
+        if (window.hkjcSwipers) {
+          window.hkjcSwipers.banner = bannerSwiper;
+        }
       });
     </script>
 
+    <!-- Specialists Swiper JS -->
     <script>
       // Specialists Swiper + Tab syncing
       $(document).ready(function(){
         if (typeof Swiper === 'undefined') return;
 
+        // Conditional slide presentation base on device screen width
+        var slidesPerView;
+        var spaceBetween;
+        var allowTouchMove
+        if( window.innerWidth <= 768 ){
+            slidesPerView = 1.2;
+            spaceBetween = 15;
+            allowTouchMove = true;
+        } else{
+            slidesPerView = 3;
+            spaceBetween = 20;
+            allowTouchMove = false;
+        }
+
         const specialistsSwiper = new Swiper('.specialists-swiper', {
           loop: true,
-          slidesPerView: 3,
+          slidesPerView: slidesPerView,
           centeredSlides: true,
-          spaceBetween: 20,
+          spaceBetween: spaceBetween,
           speed: 600,
-          allowTouchMove: false,
+          allowTouchMove: allowTouchMove,
           watchSlidesProgress: true,
         });
+        
+        // Store instance globally
+        if (window.hkjcSwipers) {
+          window.hkjcSwipers.specialists = specialistsSwiper;
+        }
 
                 const picksData = [
           {
@@ -1892,8 +2415,8 @@
             const spec = picksData[idx % picksData.length];
             const slidesHtml = spec.picks.map(p => `
                 <div class="swiper-slide">
-                    <div class="pick-card p-4 rounded-4 h-100">
-                        <h6>${p.race}</h6>
+                    <div class="pick-card">
+                        <h6 class="race-number">${p.race}</h6>
                         <div class="meta">${p.meta}</div>
                         <hr/>
                         <div class="type mb-2">${p.type}</div>
@@ -1916,15 +2439,21 @@
                             picksSwiper = null;
                         }
                         picksSwiper = new Swiper('.picks-swiper', {
-                            slidesPerView: 3.5,
+                            slidesPerView: 'auto',
                             spaceBetween: 16,
-                            watchSlidesProgress: true,
-                            breakpoints: {
-                                0: { slidesPerView: 1.2 },
-                                576: { slidesPerView: 2.2 },
-                                992: { slidesPerView: 3.5 }
-                            }
+                            watchSlidesProgress: true
+                            // breakpoints: {
+                            //     0: { slidesPerView: 1.2 },
+                            //     576: { slidesPerView: 2.2 },
+                            //     992: { slidesPerView: 2.8 },
+                            //     1200: { slidesPerView: 3.7 }
+                            // }
                         });
+                        
+                        // Store instance globally
+                        if (window.hkjcSwipers) {
+                          window.hkjcSwipers.picks = picksSwiper;
+                        }
         }
 
         // Initial render - use realIndex which is correct even in loop mode
@@ -1948,15 +2477,34 @@
           specialistsSwiper.update();
         });
 
+      });
+    </script>
+
+    <!-- More Specialists Swiper JS -->
+    <script>
+    // More Specialists Swiper with dynamic scaling and quote updates
+    $(document).ready(function(){
+        
         // rAF handle for ongoing animation updates (hoisted before swiper init)
         var moreAnimRaf = null;
+
+        //Conditional slide presentation base on device screen width
+        var allowTouchMove;
+        var spaceBetween;
+        if( window.innerWidth <= 768 ){
+            spaceBetween = 10;
+            allowTouchMove = true;
+        } else{
+            spaceBetween = 30;
+            allowTouchMove = false;
+        }
 
         const moreSwiper = new Swiper('.more-specialists-swiper', {
             loop: true,
             slidesPerView: 5,
-            spaceBetween: 30,
+            spaceBetween: spaceBetween,
             centeredSlides: true,
-            allowTouchMove: false,
+            allowTouchMove: allowTouchMove,
             watchSlidesProgress: true,
             speed: 1000,
             autoplay: {
@@ -2071,12 +2619,17 @@
                 // fail-safe: do nothing
             }
         }
+        
+        // Store instance globally
+        if (window.hkjcSwipers) {
+          window.hkjcSwipers.moreSpecialists = moreSwiper;
+        }
 
       });
     </script>
 
+    <!-- Card Animation Section JS (GSAP + ScrollTrigger) -->
     <script>
-    // Sticky Social Feedback animations (GSAP + ScrollTrigger)
     $(function() {
         if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
         if (!window.gsap || !window.ScrollTrigger) return;
@@ -2096,9 +2649,9 @@
                 const vh = window.innerHeight;
                 const header = document.querySelector('.site-header');
                 const headerH = header ? header.offsetHeight : 0;
+
                 const dist = Math.max(0, st.end - st.start);
                 const targetHeight = Math.max(0, dist + (window.innerHeight - vh));
-                console.log('Set #animation height to', targetHeight);
                 sectionEl.style.height = Math.round(targetHeight) + 'px';
             } catch (e) {
                 // no-op fail safe
@@ -2108,17 +2661,48 @@
         function layoutRow() {
             const n = cards.length;
             const cw = cards[0].getBoundingClientRect().width;
-            // 30% of the back card is covered by the front → step (visible) = 70% width
-            const step = cw * 0.70;
-            const total = cw + (n - 1) * step;
-            // Center the row around the viewport center; we'll use xPercent:-50 as baseline
-            const centerOffset = -total / 2 + cw / 2; // px offset for i=0
+            const isMobile = window.innerWidth <= 768;
 
-            cards.forEach((el, i) => {
-                const offsetX = centerOffset + i * step;
-                el.dataset.offsetX = String(offsetX);
-                el.style.zIndex = String(100 + i);
-            });
+            if (isMobile) {
+                // Mobile: first card near left edge, rest stacked to the right
+                // Cards use xPercent:-50, so we offset by half width to position near left edge
+                const leftEdgeMargin = 20; // px from left edge
+                const startOffset = -window.innerWidth / 2 + cw / 2 + leftEdgeMargin;
+                // Calculate if all cards can fit with default 70% step
+                let step = cw * 0.70;
+                
+                cards.forEach((el, i) => {
+                    const offsetX = startOffset + i * step;
+                    el.dataset.offsetX = String(offsetX);
+                    el.style.zIndex = String(100 - i);
+                });
+            } else {
+                // Desktop: center the entire row
+                // Check if all cards can fit without overflow
+                const viewportWidth = window.innerWidth;
+                const margin = 40; // Safe margin on each side
+                const availableWidth = viewportWidth - margin * 2;
+                
+                // Calculate if all cards can fit with default 70% step
+                let step = cw * 0.70;
+                let total = cw + (n - 1) * step;
+                
+                // If total width exceeds available width, adjust step to fit all cards
+                if (total > availableWidth) {
+                    // Calculate step needed to fit all cards within viewport
+                    step = (availableWidth - cw) / (n - 1);
+                    total = cw + (n - 1) * step;
+                }
+                
+                // Center the row around the viewport center; we'll use xPercent:-50 as baseline
+                const centerOffset = -total / 2 + cw / 2; // px offset for i=0
+
+                cards.forEach((el, i) => {
+                    const offsetX = centerOffset + i * step;
+                    el.dataset.offsetX = String(offsetX);
+                    el.style.zIndex = String(100 + i);
+                });
+            }
         }
 
         // Initial style for all three groups
@@ -2171,22 +2755,17 @@
             ScrollTrigger.getById('animation-pin')?.kill();
             // Clear previous inline pin styles if any
             gsap.set(sticky, { clearProps: 'all' });
-            // get viewport height
-            const vh = window.innerHeight;
-            const header = document.querySelector('.site-header');
-            const headerH = header ? header.offsetHeight : 0;
-            const sectionTopPosition = document.querySelector('section#animation')?.offsetTop || 0;
-            const triggerPosition = sectionTopPosition - vh;
             const sectionEl = document.querySelector('#animation');
             const tl = gsap.timeline({
                 scrollTrigger: {
                     id: 'animation-pin',
                     trigger: sectionEl,
-                    // Start when the TOP of the section hits the BOTTOM of the header
-                    start: triggerPosition,
-                    end: '+=200%',
+                    // Start when the TOP of the section hits the BOTTOM of the viewport
+                    start: `top bottom`,
+                    end: () => `+=2500px`,
                     scrub: 1,
                     anticipatePin: 1,
+                    markers: false,
                     invalidateOnRefresh: true,
                     onRefresh: () => {
                         gsap.set(sticky, { clearProps: 'all' });
@@ -2279,7 +2858,7 @@
             tl.to(cards, {
                 x: (i, el) => parseFloat(el.dataset.offsetX || '0'),
                 y: '2vh',
-                rotation: (i) => (i % 2 ? -7 : 7),
+                rotation: (i) => (i % 2 ? 7 : -7),
                 scale: 1,
                 opacity: 1,
                 ease: 'power1.out',
@@ -2302,28 +2881,42 @@
                 duration: 0.3
             }, 'text+=2');
 
+            // 5) do nothing for a while to allow lingering view
+            tl.to('#animation .animation-button-wrapper button', {
+            }, 'text+=2.5');
+
         }
 
         layoutRow();
         setStartState();
         buildTimeline();
         // Set initial dynamic height once ScrollTrigger exists
-    updateAnimationSectionHeight();
+        updateAnimationSectionHeight();
 
         // Rebuild on resize
         let resizeTO;
         window.addEventListener('resize', () => {
             clearTimeout(resizeTO);
             resizeTO = setTimeout(() => {
+                // Kill the existing ScrollTrigger and timeline
+                const existingTrigger = ScrollTrigger.getById('animation-pin');
+                if (existingTrigger) {
+                    existingTrigger.kill();
+                }
+                
+                // Recalculate layout and rebuild timeline with fresh values
                 layoutRow();
-                ScrollTrigger.refresh();
-                // Ensure height matches latest scroll distance
+                setStartState();
+                buildTimeline();
+                
+                // Update section height with new calculations
                 setTimeout(updateAnimationSectionHeight, 0);
             }, 150);
         });
     });
     </script>
 
+    <!-- Discover Animation Section JS (GSAP + ScrollTrigger) -->
     <script>
         $(function() {
         if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
@@ -2333,9 +2926,11 @@
         const sticky = document.querySelector('#discover');
         if (!sticky) return;
         const clipRect = document.querySelector('#discoverClipRect');
-        if (!clipRect) return;
+        const clipRectMobile = document.querySelector('#discoverClipRectMobile');
+        if (!clipRect || !clipRectMobile) return;
 
         const DISCOVER_BASE_RATIO = 490 / 928;
+        const DISCOVER_MOBILE_RATIO = 407 / 269;
         let discoverGeom = null;
 
         function calculateDiscoverGeometry() {
@@ -2343,11 +2938,25 @@
             const headerH = header ? header.offsetHeight : 0;
             const sectionWidth = window.innerWidth;
             const sectionHeight = Math.max(0, window.innerHeight - headerH);
+            const isMobile = window.innerWidth <= 768;
 
-            const maxWidthFromViewport = sectionWidth * 0.82;
-            const maxWidthFromHeight = sectionHeight / DISCOVER_BASE_RATIO * 0.92;
-            const baseWidth = Math.max(280, Math.min(928, maxWidthFromViewport, maxWidthFromHeight));
-            const baseHeight = baseWidth * DISCOVER_BASE_RATIO;
+            let baseWidth, baseHeight;
+            
+            if (isMobile) {
+                const maxHeightFromViewport = sectionHeight * 0.82;
+                const maxHeightFromWidth = sectionWidth * DISCOVER_MOBILE_RATIO * 0.92;
+                baseHeight = Math.max(280, Math.min(928, maxHeightFromViewport * 0.9));
+                baseWidth = baseHeight / DISCOVER_MOBILE_RATIO;
+                rx = baseWidth/2;
+                ry = baseWidth/2;
+            } else {
+                const maxWidthFromViewport = sectionWidth * 0.82;
+                const maxWidthFromHeight = sectionHeight / DISCOVER_BASE_RATIO * 0.92;
+                baseWidth = Math.max(280, Math.min(928, maxWidthFromViewport * 0.8));
+                baseHeight = baseWidth * DISCOVER_BASE_RATIO;
+                rx = baseHeight / 2;
+                ry = baseHeight / 2;
+            }
 
             const initialX = (sectionWidth - baseWidth) / 2;
             const initialY = (sectionHeight - baseHeight) / 2;
@@ -2365,8 +2974,8 @@
                     y: initialY,
                     width: baseWidth,
                     height: baseHeight,
-                    rx: baseHeight / 2,
-                    ry: baseHeight / 2
+                    rx: rx,
+                    ry: ry
                 },
                 finalRect: {
                     x: -overshootX,
@@ -2381,10 +2990,21 @@
 
         function applyDiscoverLayout(geom) {
             const background = sticky.querySelector('.discover-background');
+            const imgBackground = sticky.querySelector('.discover-image-background');
+            const isMobile = window.innerWidth <= 768;
+            
             if (background) {
                 background.style.setProperty('--discover-shell-width', `${geom.baseWidth}px`);
                 background.style.setProperty('--discover-shell-height', `${geom.baseHeight}px`);
-                background.style.setProperty('--discover-shell-radius', `${geom.baseHeight / 2}px`);
+                background.style.setProperty('--discover-shell-radius', `${Math.min(geom.baseWidth, geom.baseHeight) / 2}px`);
+                
+                if (isMobile) {
+                    background.style.clipPath = 'url(#discover-clip-mobile)';
+                    background.style.webkitClipPath = 'url(#discover-clip-mobile)';
+                } else {
+                    background.style.clipPath = 'url(#discover-clip)';
+                    background.style.webkitClipPath = 'url(#discover-clip)';
+                }
             }
 
             const wrapper = sticky.querySelector('.discover-image-background');
@@ -2399,7 +3019,8 @@
                 postWrapper.style.maxWidth = `${Math.round(maxWidth)}px`;
             }
 
-            gsap.set(clipRect, {
+            const activeClipRect = isMobile ? clipRectMobile : clipRect;
+            gsap.set(activeClipRect, {
                 attr: {
                     x: geom.initialRect.x,
                     y: geom.initialRect.y,
@@ -2419,7 +3040,7 @@
 
         // Initial style for all three groups
         function setStartState() {
-            refreshDiscoverGeometry();
+            discoverGeom = refreshDiscoverGeometry();
 
             gsap.set('#discover .discover-background', {
                 xPercent: -50,
@@ -2428,19 +3049,44 @@
             });
 
             gsap.set('#discover .discover-content .discover-dot', {
-                yPercent: -100,
+                yPercent: -50,
+                xPercent: -50,
+                x:0,
+                y: -30,
                 opacity: 0,
-                scale: 7,
+                scale: 14,
             });
 
             gsap.set('#discover .discover-content .discover-text', {
                 opacity: 0,
-                yPercent: 110,
+                x:0,
+                xPercent: -50,
+                yPercent: -50,
+                maxWidth: discoverGeom.baseWidth - 80 + 'px',
                 scale:1.1
-            });   
+            });  
+
+            // get initial text position
+            const isMobile = window.innerWidth <= 768;
+            var offsetDifferent;
+            var iconHeight = document.querySelector('#discover .discover-content .discover-icon')?.getBoundingClientRect().height || 0;
+            if( isMobile ){
+                offsetDifferent = 20 ; // account for mobile scaling
+            }else{
+                offsetDifferent = (discoverGeom.baseHeight/2 - iconHeight - 30)/2 ; // account for desktop scaling
+            }
+            var textHeight = document.querySelector('#discover .discover-content .discover-text')?.getBoundingClientRect().height || 0;
+            var textInitialY = 30 + offsetDifferent + textHeight/2 - 6; // 30 is the center offset of dot plus 30 offset difference between text center and dot center
+            console.log('textInitialY', textHeight);
+            gsap.set('#discover .discover-content .discover-text', {
+                y: textInitialY
+            });  
             
             gsap.set('#discover .discover-content .discover-icon', {
-  
+                x:0,
+                y:0,
+                xPercent: -50,
+                yPercent: -50
             });
 
             gsap.set('#discover .discover-image-background img', {
@@ -2456,24 +3102,23 @@
 
         // Build timeline
         function buildTimeline() {
-            ScrollTrigger.getById('discover-pin')?.kill();
-            const vh = window.innerHeight;
-            const header = document.querySelector('.site-header');
-            const headerH = header ? header.offsetHeight : 0;
-            const sectionTopPosition = document.querySelector('section#discover')?.offsetTop || 0;
-            const triggerPosition = sectionTopPosition + vh ;
             const sectionEl = document.querySelector('#discover');
-            refreshDiscoverGeometry();
+            var discoverGeom = refreshDiscoverGeometry();
             const tl = gsap.timeline({
                 scrollTrigger: {
                     id: 'discover-pin',
                     trigger: sectionEl,
                     // Start when the TOP of the section hits the BOTTOM of the header
-                    start: triggerPosition,
+                    start: () => {
+                        const header = document.querySelector('.site-header');
+                        const headerH = header ? header.offsetHeight : 0;
+                        return `top +=${headerH}px`; // Start when section top hits bottom of header
+                    },
                     end: '+=400%',
                     scrub: 1,
                     pin: sticky,
                     anticipatePin: 1,
+                    markers: false,
                     invalidateOnRefresh: true,
                     onRefresh: refreshDiscoverGeometry,
                 }
@@ -2482,8 +3127,19 @@
             tl.add('timeline');
 
             //1 icon move up
+            //Calculate final y to align center of icon with center of discover section
+            const isMobile = window.innerWidth <= 768;
+            var offsetDifferent;
+            var iconHeight = document.querySelector('#discover .discover-content .discover-icon')?.getBoundingClientRect().height || 0;
+            if( isMobile ){
+                offsetDifferent = 20 ; // account for mobile scaling
+            }else{
+                offsetDifferent = (discoverGeom.baseHeight/2 - iconHeight - 30)/2;
+            }
+            var iconFinalY = 30 + offsetDifferent + iconHeight/2; // 30 is the center offset of dot plus 30 offset difference between icon center and dot center
+
             tl.to('#discover .discover-content .discover-icon', {
-                yPercent: -80,
+                y: -iconFinalY,
                 opacity: 1,
                 ease: 'power1.out',
                 duration: 1,
@@ -2505,7 +3161,7 @@
             }, 'timeline+=2');
 
             tl.to('#discover .discover-content .discover-dot', {
-                yPercent: -32,
+                y: 0,
                 ease: 'power1.out',
                 duration: 1.5,
             }, 'timeline+=2');
@@ -2519,7 +3175,9 @@
             }, 'timeline+=3.5');
 
             //5 reveal background image via clip-path expansion
-            tl.to(clipRect, {
+            const activeClipRect = isMobile ? clipRectMobile : clipRect;
+            
+            tl.to(activeClipRect, {
                 attr: {
                     x: () => discoverGeom.finalRect.x,
                     y: () => discoverGeom.finalRect.y,
@@ -2562,6 +3220,94 @@
         }
         setStartState();
         buildTimeline();
+        
+        // Rebuild on resize
+        let discoverResizeTO;
+        window.addEventListener('resize', () => {
+            clearTimeout(discoverResizeTO);
+            discoverResizeTO = setTimeout(() => {
+                // Kill the existing ScrollTrigger and timeline
+                const existingTrigger = ScrollTrigger.getById('discover-pin');
+                if (existingTrigger) {
+                    existingTrigger.kill();
+                }
+                
+                // Recalculate geometry and rebuild timeline with fresh values
+                setStartState();
+                buildTimeline();
+            }, 150);
+        });
+    });
+    </script>
+
+    <!-- Global Resize Handler for Swiper and GSAP -->
+    <script>
+    $(function() {
+        // Store all swiper instances globally
+        window.hkjcSwipers = {
+            banner: null,
+            specialists: null,
+            picks: null,
+            moreSpecialists: null
+        };
+
+        let resizeTimeout;
+        let previousWidth = window.innerWidth;
+        
+        // Comprehensive resize handler
+        window.addEventListener('resize', function() {
+            clearTimeout(resizeTimeout);
+            
+            resizeTimeout = setTimeout(function() {
+                const currentWidth = window.innerWidth;
+                const hasBreakpointChanged = (previousWidth <= 768 && currentWidth > 768) || 
+                                            (previousWidth > 768 && currentWidth <= 768);
+                
+                // If breakpoint changed (mobile <-> desktop), do full reinitialization
+                if (hasBreakpointChanged) {
+                    console.log('Breakpoint changed - reinitializing all components');
+                    
+                    // Kill all GSAP ScrollTriggers
+                    if (window.ScrollTrigger) {
+                        ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+                    }
+                    
+                    // Destroy and reinitialize all Swipers
+                    Object.keys(window.hkjcSwipers).forEach(key => {
+                        if (window.hkjcSwipers[key]) {
+                            try {
+                                window.hkjcSwipers[key].destroy(true, true);
+                                window.hkjcSwipers[key] = null;
+                            } catch (e) {
+                                console.warn('Error destroying swiper:', key, e);
+                            }
+                        }
+                    });
+                    
+                    // Force page reload to reinitialize everything cleanly
+                    setTimeout(() => {
+                        location.reload();
+                    }, 100);
+                } else {
+                    // Just refresh ScrollTrigger for minor size changes
+                    if (window.ScrollTrigger) {
+                        ScrollTrigger.refresh();
+                    }
+                }
+                
+                previousWidth = currentWidth;
+            }, 300); // Debounce 300ms
+        });
+        
+        // Handle orientation change on mobile devices
+        window.addEventListener('resize', function() {
+            console.log('Orientation changed - refreshing ScrollTrigger');
+            setTimeout(function() {
+                if (window.ScrollTrigger) {
+                    ScrollTrigger.refresh();
+                }
+            }, 500);
+        });
     });
     </script>
     
