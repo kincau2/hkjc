@@ -157,6 +157,9 @@
           <div class="vp-media">
             <img class="vp-thumb" src="${this._escape(v.thumbnail)}" alt="${this._escape(v.title || ('thumb '+i))}">
             <video class="vp-video" preload="metadata" playsinline muted></video>
+            <button class="vp-volume-toggle" aria-label="Toggle mute">
+              <i class="fa-solid fa-volume-xmark"></i>
+            </button>
           </div>
           <div class="vp-caption">
             <div class="vp-title">${this._escape(v.title || '')}</div>
@@ -192,10 +195,16 @@
         const toEl   = (slick, internalIndex) => jQuery(slick.$slides[internalIndex]); // 真正顯示中的 DOM slide（可能是 clone）
         const toReal = (slick, internalIndex) => Number(toEl(slick, internalIndex).data("index")); // 0..N-1
 
-        // 切換前：暫停當前顯示中的 DOM slide
+        // 切換前：暫停當前顯示中的 DOM slide，並立即更新 side classes
         $wrap.on("beforeChange.vp", (e, slick, curr, next) => {
           const $currEl = toEl(slick, curr);
           this._pauseSlideEl($currEl);
+          
+          // 立即更新下一個 slide 的 is-active 和 side classes
+          const $nextEl = toEl(slick, next);
+          this._getWrap().find(".vp-slide").removeClass("is-active");
+          $nextEl.addClass("is-active");
+          this._updateSideClasses();
         });
 
         // 切換後：啟動當前顯示中的 DOM slide，並從 0 秒開始
@@ -213,6 +222,34 @@
       }
     }
 
+    /** 更新左右側 slide 的 class */
+    _updateSideClasses() {
+      const $wrap = this._getWrap();
+      if (!$wrap.length) return;
+
+      // 找到所有在 slick-track 下的 vp-slide
+      const $track = $wrap.find(".slick-track");
+      const $slides = $track.find(".vp-slide");
+      const $activeSlide = $slides.filter(".is-active").first();
+
+      if (!$activeSlide.length) return;
+
+      // 移除所有 left-slide 和 right-slide class
+      $slides.removeClass("left-slide right-slide");
+
+      // 找到 active slide 在所有 slides 中的索引
+      const activeIndex = $slides.index($activeSlide);
+
+      // 為左側的 slides 加上 left-slide class
+      $slides.each(function(index) {
+        if (index < activeIndex) {
+          jQuery(this).addClass("left-slide");
+        } else if (index > activeIndex) {
+          jQuery(this).addClass("right-slide");
+        }
+      });
+    }
+
     /** 以「DOM 元素」為主體啟動（修正 clone 問題）；可選是否歸零開始 */
     _activateSlideEl($slideEl, realIndex, resetToZero) {
       if (!$slideEl || !$slideEl.length) return;
@@ -221,6 +258,9 @@
       // 樣式狀態：只把當前 element 標記為 is-active；其他移除
       $wrap.find(".vp-slide").removeClass("is-active");
       $slideEl.addClass("is-active");
+
+      // 更新左右側 class
+      this._updateSideClasses();
 
       // 取得該 element 裡的 video
       const video = $slideEl.find(".vp-video")[0];
@@ -239,6 +279,25 @@
           this._updateProgress($slideEl, video, true);
           this._autoNext(); // 自動循環下一段
         });
+        
+        // 點擊影片切換播放/暫停
+        video.addEventListener("click", (e) => {
+          e.stopPropagation(); // 防止冒泡觸發其他點擊事件
+          if (video.paused) {
+            video.play().catch(() => {});
+          } else {
+            video.pause();
+          }
+        });
+        
+        // 點擊音量按鈕切換靜音/取消靜音
+        const $volumeBtn = $slideEl.find(".vp-volume-toggle");
+        $volumeBtn.on("click", (e) => {
+          e.stopPropagation(); // 防止冒泡觸發其他點擊事件
+          video.muted = !video.muted;
+          this._updateVolumeIcon($slideEl, video.muted);
+        });
+        
         $slideEl.data("vpBound", true);
       }
 
@@ -263,6 +322,9 @@
       if (this._audioUnlocked) {
         try { video.muted = false; video.volume = 1; } catch (_) {}
       }
+      
+      // 更新音量圖示
+      this._updateVolumeIcon($slideEl, video.muted);
     }
 
     /** 以「原始索引」啟動（for 舊接口相容，會轉成以元素為主） */
@@ -315,25 +377,32 @@
     _enableAudioOnFirstInteraction() {
       if (this._audioUnlocked) return;
 
-      const unlock = () => {
-        const $wrap = this._getWrap();
-        if ($wrap.length && $wrap.hasClass("slick-initialized")) {
-          const api = $wrap.slick("getSlick");
-          const $el = jQuery(api.$slides[api.currentSlide]);
-          const vid = $el.find(".vp-video")[0];
-          if (vid) {
-            try { vid.muted = false; vid.volume = 1; vid.play().catch(()=>{}); } catch (_){}
-          }
+      // Immediately unlock audio since opening the popup is already a user interaction
+      const $wrap = this._getWrap();
+      if ($wrap.length && $wrap.hasClass("slick-initialized")) {
+        const api = $wrap.slick("getSlick");
+        const $el = jQuery(api.$slides[api.currentSlide]);
+        const vid = $el.find(".vp-video")[0];
+        if (vid) {
+          try { vid.muted = false; vid.volume = 1; } catch (_){}
+          // 更新音量圖示以反映取消靜音狀態
+          this._updateVolumeIcon($el, false);
         }
-        this._audioUnlocked = true;
-        document.removeEventListener("click", unlock, true);
-        document.removeEventListener("touchstart", unlock, true);
-        document.removeEventListener("keydown", unlock, true);
-      };
+      }
+      this._audioUnlocked = true;
+    }
 
-      document.addEventListener("click", unlock, true);
-      document.addEventListener("touchstart", unlock, true);
-      document.addEventListener("keydown", unlock, true);
+    /** 更新音量圖示 */
+    _updateVolumeIcon($slideEl, isMuted) {
+      if (!$slideEl || !$slideEl.length) return;
+      const $icon = $slideEl.find(".vp-volume-toggle i");
+      if ($icon.length) {
+        if (isMuted) {
+          $icon.removeClass("fa-volume-high").addClass("fa-volume-xmark");
+        } else {
+          $icon.removeClass("fa-volume-xmark").addClass("fa-volume-high");
+        }
+      }
     }
 
     /**

@@ -104,7 +104,7 @@ ease;
 .videoPopContainer .slick-slide {
   opacity: .5;
   transform: scale(.7);
-  transition: opacity .25s ease, transform .25s ease;
+  transition: all 0.25s ease;
   filter: none;
 }
 .videoPopContainer .slick-center {
@@ -200,3 +200,65 @@ ease;
 .videoPopContainer .slick-center       .vp-video { display: block; }
 .videoPopContainer .vp-slide.is-active .vp-thumb,
 .videoPopContainer .slick-center       .vp-thumb { display: none; }
+
+/* ============ Enhance slide smooth movement and spacing ============ */
+
+.vp-slide.slick-slide.left-slide {
+    transform-origin: 0% 50%;
+}
+.vp-slide.slick-slide.right-slide {
+    transform-origin: 100% 50%;
+}
+.vp-slide.slick-slide.is-active {
+    transform-origin: 50% 50%;
+}
+
+/* ============ Volume Toggle Button ============ */
+.videoPopContainer .vp-volume-toggle {
+  position: absolute;
+  top: calc(var(--vh, 1vh) * 2);
+  right: calc(var(--vh, 1vh) * 2);
+  width: calc(var(--vh, 1vh) * 5);
+  height: calc(var(--vh, 1vh) * 5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.6);
+  border: none;
+  border-radius: 50%;
+  color: #fff;
+  font-size: calc(var(--vh, 1vh) * 2.2);
+  cursor: pointer;
+  pointer-events: auto;
+  z-index: 10;
+  transition: background 0.2s ease, transform 0.1s ease;
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+
+.videoPopContainer .vp-volume-toggle:hover {
+  background: rgba(0, 0, 0, 0.8);
+}
+
+.videoPopContainer .vp-volume-toggle:active {
+  transform: scale(0.95);
+}
+
+.videoPopContainer .vp-volume-toggle i {
+  pointer-events: none;
+}
+
+.vp-volume-toggle i{
+    margin-top: 2px;
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+  .videoPopContainer .vp-volume-toggle {
+    width: calc(var(--vh, 1vh) * 4.5);
+    height: calc(var(--vh, 1vh) * 4.5);
+    font-size: calc(var(--vh, 1vh) * 2);
+    top: calc(var(--vh, 1vh) * 1.5);
+    right: calc(var(--vh, 1vh) * 1.5);
+  }
+}

@@ -10,6 +10,18 @@
     <link rel="stylesheet" href="assets/css/fonts.css">
     <link rel="stylesheet" href="assets/css/swiper-bundle.min.css">
     <link rel="stylesheet" href="assets/css/aos.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/slick.css"/>
+	<link rel="stylesheet" type="text/css" href="assets/css/slick-theme.css"/>
+    <link rel="stylesheet" href="assets/css/video-popup.css">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="assets/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/swiper-bundle.min.js"></script>
+    <script src="assets/js/aos.js"></script>
+    <script> AOS.init(); </script>
+    <script src="assets/js/gsap.min.js"></script>
+    <script src="assets/js/ScrollTrigger.min.js"></script>
+	<script type="text/javascript" src="assets/js/slick.min.js"></script>
+	<script src="assets/js/video-popup.js"></script> 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Noto+Sans+SC:wght@100..900&family=Noto+Sans+TC:wght@100..900&family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
@@ -1164,6 +1176,12 @@
         p.discover-text {
             font-size: 14px!important;
         }       
+        .post-wrapper{
+            gap: 10px!important;
+        }
+        .post-wrapper .section-title {
+            font-size: 3.5vw;
+        }
 
     }
 
@@ -1180,11 +1198,60 @@
 
     }
 
+    @media (min-width: 769px) {
+
+        .post-wrapper .swiper-wrapper {
+            display: flex;
+            gap: 20px;
+            flex-direction: row;
+            flex-wrap: nowrap;
+        }
+
+        .post {
+            box-shadow: 0 3px 20px rgb(0 0 0 / 20%);
+            border-radius: 16px;
+            overflow: hidden;
+            flex: 1;
+        }
+
+        .post-wrapper {
+            display: flex;
+            flex-direction: column;
+            flex-wrap: nowrap;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .post-wrapper .section-title {
+            margin-bottom: unset;
+        }
+
+    }
+
     @media (max-width: 768px) {
+
+        .post-wrapper .swiper{
+            padding: 0 20px;
+        }
 
         img.discover-icon {
             width: 17vw!important;
         }
+
+        .post{
+            width: 250px!important;
+        }
+
+        .discover-post {
+            padding: unset!important;
+        }
+
+        .post-wrapper .section-title {
+            margin-bottom: 15px;
+        }
+
+        
+
 
     }
 
@@ -1264,15 +1331,11 @@
         transform: translate(-50%, -50%);
         padding: 0 20px;
         max-width: 900px;
+        width: 100%;
         opacity: 0;
         z-index: 2;
     }
-    .post-row {
-        display: flex;
-        gap: 30px;
-        flex-direction: row;
-        flex-wrap: nowrap;
-    }
+    
     .feature-img img {
         width: 100%;
         height: auto;
@@ -1281,24 +1344,17 @@
     }
 
     .post {
-        flex: 1;
         box-shadow: 0 3px 20px rgb(0 0 0 / 20%);
         border-radius: 16px;
         overflow: hidden;
     }
 
-    .post-wrapper {
-        display: flex;
-        flex-direction: column;
-        flex-wrap: nowrap;
-        align-items: center;
-        gap: 30px;
-    }
+    
 
     p.post-excerpt {
         font-family: "Noto Sans TC", sans-serif;
         font-size: 12px;
-        font-weight: 300;
+        font-weight: 300;  
     }
 
     p.post-title {
@@ -1359,6 +1415,24 @@
         width: 27%;
         height: auto;
     }
+
+    .post-wrapper .hkjc-outline-button {
+        padding: 6px 20px;
+        font-size: 16px;
+        margin: 15px 0;
+    }
+
+    .button-wrapper {
+        display: flex;
+        justify-content: center;
+    }
+
+    .post-wrapper .section-title {
+        margin-bottom: 15px;
+        text-align: center;
+    }
+
+    
 
     /* ============================= Footer ============================= */
 
@@ -1899,7 +1973,7 @@
                                         <div class="mspec-name">Ling Ling</div>
                                         <div class="mspec-title">King of QIN</div>
                                     </div>
-                                    <div class="mspec-avatar"><img src="assets/images/KOL Image-6.png" alt="Ling Ling"></div>
+                                    <div class="mspec-avatar"><img src="assets/images/KOL Image-4.png" alt="Ling Ling"></div>
                                 </article>
                             </a>
                         </div>
@@ -1959,7 +2033,7 @@
                                         <div class="mspec-name">Ling Ling</div>
                                         <div class="mspec-title">King of QIN</div>
                                     </div>
-                                    <div class="mspec-avatar"><img src="assets/images/KOL Image-6.png" alt="Ling Ling"></div>
+                                    <div class="mspec-avatar"><img src="assets/images/KOL Image-4.png" alt="Ling Ling"></div>
                                 </article>
                             </a>
                         </div>
@@ -2033,8 +2107,7 @@
                         <div class="animation-text bottom">FOR YOU</div>
                     </div>
                     <div class="animation-cards-layer">
-                        <!-- Use existing images as demo cards -->
-                        <figure class="media-card _1">
+                        <figure class="media-card" onclick="openPopup(0)">
                             <img src="assets/images/edu_area_video1.jpg" class="video-thumbnail" alt="Race replay highlight 1">
                             <img src="assets/images/video-play-icon.png" class="play-icon" alt="Play Icon">
                             <div class="img-overlay"></div>
@@ -2046,7 +2119,7 @@
                                 <p class="video-title">3 minutes Guide to Horse Racing!</p>
                             </div>
                         </figure>
-                        <figure class="media-card _2">
+                        <figure class="media-card" onclick="openPopup(1)">
                             <img src="assets/images/edu_area_video2.jpg" class="video-thumbnail" alt="Race replay highlight 2">
                             <img src="assets/images/video-play-icon.png" class="play-icon" alt="Play Icon">
                             <div class="img-overlay"></div>
@@ -2058,7 +2131,7 @@
                                 <p class="video-title">3 minutes Guide to Horse Racing!</p>
                             </div>
                         </figure>
-                        <figure class="media-card _3">
+                        <figure class="media-card" onclick="openPopup(2)">
                             <img src="assets/images/edu_area_video3.jpg" class="video-thumbnail" alt="Race replay highlight 3">
                             <img src="assets/images/video-play-icon.png" class="play-icon" alt="Play Icon">
                             <div class="img-overlay"></div>
@@ -2070,7 +2143,7 @@
                                 <p class="video-title">3 minutes Guide to Horse Racing!</p>
                             </div>
                         </figure>
-                        <figure class="media-card _4">
+                        <figure class="media-card" onclick="openPopup(3)">
                             <img src="assets/images/edu_area_video4.jpg" class="video-thumbnail" alt="Race replay highlight 4">
                             <img src="assets/images/video-play-icon.png" class="play-icon" alt="Play Icon">
                             <div class="img-overlay"></div>
@@ -2082,7 +2155,7 @@
                                 <p class="video-title">3 minutes Guide to Horse Racing!</p>
                             </div>
                         </figure>
-                        <figure class="media-card _5">
+                        <figure class="media-card" onclick="openPopup(4)">
                             <img src="assets/images/edu_area_video5.jpg" class="video-thumbnail" alt="Race replay highlight 5">
                             <img src="assets/images/video-play-icon.png" class="play-icon" alt="Play Icon">
                             <div class="img-overlay"></div>
@@ -2114,70 +2187,80 @@
                 <p class="discover-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</p>
             </div>
             <div class="discover-post">
+                
                 <div class="post-wrapper">
-                    <div class="post-row">
-                        <div class="post">
-                            <a class="post-link" href="#">
-                                <div class="feature-img"><img src="assets/images/KOL_video_1.png" alt="Race replay highlight 1"></div>
-                                <div class="post-text-wrapper">
-                                    <p class="post-title">Meet Apprentice Jockey Bonnie Wong</p>
-                                    <p class="post-excerpt">Lorem Ipsum is simply dummy text of the printing and Lorem Ipsum is simply dummy text of the printing and Lorem Ipsum is simply dummy text of the printing and Lorem Ipsum is simply dummy text of the printing and</p>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="post">
-                            <a class="post-link" href="#">
-                                <div class="feature-img"><img src="assets/images/KOL_video_2.png" alt="Race replay highlight 2"></div>
-                                <div class="post-text-wrapper">
-                                    <p class="post-title">Meet Apprentice Jockey John Doe</p>
-                                    <p class="post-excerpt">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</p>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="post">
-                            <a class="post-link" href="#">
-                                <div class="feature-img"><img src="assets/images/KOL_video_3.png" alt="Race replay highlight 3"></div>
-                                <div class="post-text-wrapper">
-                                    <p class="post-title">Meet Apprentice Jockey Jane Smith</p>
-                                    <p class="post-excerpt">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</p>
-                                </div>
-                            </a>
+                    <div class="swiper discover-posts-swiper-1">
+                        <div class="swiper-wrapper">
+                            <div class="post swiper-slide">
+                                <a class="post-link" href="#">
+                                    <div class="feature-img"><img src="assets/images/KOL_video_1.png" alt="Race replay highlight 1"></div>
+                                    <div class="post-text-wrapper">
+                                        <p class="post-title">Meet Apprentice Jockey Bonnie Wong</p>
+                                        <p class="post-excerpt">Lorem Ipsum is simply dummy text of the printing and Lorem Ipsum is simply dummy text of the printing and Lorem Ipsum is simply dummy text of the printing and Lorem Ipsum is simply dummy text of the printing and</p>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="post swiper-slide">
+                                <a class="post-link" href="#">
+                                    <div class="feature-img"><img src="assets/images/KOL_video_2.png" alt="Race replay highlight 2"></div>
+                                    <div class="post-text-wrapper">
+                                        <p class="post-title">Meet Apprentice Jockey John Doe</p>
+                                        <p class="post-excerpt">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</p>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="post swiper-slide">
+                                <a class="post-link" href="#">
+                                    <div class="feature-img"><img src="assets/images/KOL_video_3.png" alt="Race replay highlight 3"></div>
+                                    <div class="post-text-wrapper">
+                                        <p class="post-title">Meet Apprentice Jockey Jane Smith</p>
+                                        <p class="post-excerpt">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</p>
+                                    </div>
+                                </a>
+                            </div>
                         </div>
                     </div>
-                    <button class="hkjc-outline-button button-white">View More</button>
+                        
+                    <div class="button-wrapper">
+                        <button class="hkjc-outline-button button-white">View More</button>
+                    </div>
                 </div>
-                <div class="post-wrapper mt-4">
-                    <h2 class="section-title text-white mb-2">Racecourse Experience</h2>
-                    <div class="post-row">
-                        <div class="post">
-                            <a class="post-link" href="#">
-                                <div class="feature-img"><img src="assets/images/KOL_video_4.png" alt="Race replay highlight 4"></div>
-                                <div class="post-text-wrapper">
-                                    <p class="post-title">Meet Apprentice Jockey Alex Brown</p>
-                                    <p class="post-excerpt">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</p>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="post">
-                            <a class="post-link" href="#">
-                                <div class="feature-img"><img src="assets/images/KOL_video_5.png" alt="Race replay highlight 5"></div>
-                                <div class="post-text-wrapper">
-                                    <p class="post-title">Meet Apprentice Jockey Chris Green</p>
-                                    <p class="post-excerpt">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</p>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="post">
-                            <a class="post-link" href="#">
-                                <div class="feature-img"><img src="assets/images/KOL_video_6.png" alt="Race replay highlight 6"></div>
-                                <div class="post-text-wrapper">
-                                    <p class="post-title">Meet Apprentice Jockey David Lee</p>
-                                    <p class="post-excerpt">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</p>
-                                </div>
-                            </a>
+                <div class="post-wrapper">
+                    <h2 class="section-title text-white">Racecourse Experience</h2>
+                    <div class="swiper discover-posts-swiper-2">
+                        <div class="post-row swiper-wrapper">
+                            <div class="post swiper-slide">
+                                <a class="post-link" href="#">
+                                    <div class="feature-img"><img src="assets/images/KOL_video_4.png" alt="Race replay highlight 4"></div>
+                                    <div class="post-text-wrapper">
+                                        <p class="post-title">Meet Apprentice Jockey Alex Brown</p>
+                                        <p class="post-excerpt">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</p>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="post swiper-slide">
+                                <a class="post-link" href="#">
+                                    <div class="feature-img"><img src="assets/images/KOL_video_5.png" alt="Race replay highlight 5"></div>
+                                    <div class="post-text-wrapper">
+                                        <p class="post-title">Meet Apprentice Jockey Chris Green</p>
+                                        <p class="post-excerpt">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</p>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="post swiper-slide">
+                                <a class="post-link" href="#">
+                                    <div class="feature-img"><img src="assets/images/KOL_video_6.png" alt="Race replay highlight 6"></div>
+                                    <div class="post-text-wrapper">
+                                        <p class="post-title">Meet Apprentice Jockey David Lee</p>
+                                        <p class="post-excerpt">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</p>
+                                    </div>
+                                </a>
+                            </div>
                         </div>
                     </div>
-                    <button class="hkjc-outline-button button-white">View More</button>
+                    <div class="button-wrapper">
+                        <button class="hkjc-outline-button button-white">View More</button>
+                    </div>
                 </div>
             </div>
         </section>
@@ -2195,7 +2278,7 @@
         </section>
     </main>
 
-
+    
     <!-- SVG defs for reusable clip paths/masks -->
     <svg width="0" height="0" style="position:absolute">
         <defs>
@@ -2242,42 +2325,7 @@
         </defs>
     </svg>
 
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-    <script src="assets/js/bootstrap.bundle.min.js"></script>
-    <script src="assets/js/swiper-bundle.min.js"></script>
-    <script src="assets/js/aos.js"></script>
-    <script> AOS.init(); </script>
-    <script src="assets/js/gsap.min.js"></script>
-    <script src="assets/js/ScrollTrigger.min.js"></script>
-	
-	
-	<!--Kata Update -->
-	<link rel="stylesheet" type="text/css" href="assets/css/slick.css"/>
-	<link rel="stylesheet" type="text/css" href="assets/css/slick-theme.css"/>
-	<script type="text/javascript" src="assets/js/slick.min.js"></script>
-	<link rel="stylesheet" href="assets/css/video-popup.css">
-	<script src="assets/js/video-popup.js"></script> 
-	<script> 
-	var videoPop = new VideoPopup(); 
-	videoPop.videoList = [ 
-	{link:'https://www.w3schools.com/html/movie.mp4',thumbnail:'https://placehold.co/100x100',title:'title'},
-	{link:'https://www.w3schools.com/html/movie.mp4',thumbnail:'https://placehold.co/200x200',title:'title'},
-	{link:'https://www.w3schools.com/html/movie.mp4',thumbnail:'https://placehold.co/300x300',title:'title'},
-	{link:'https://www.w3schools.com/html/movie.mp4',thumbnail:'https://placehold.co/400x400',title:'title'},
-	{link:'https://www.w3schools.com/html/movie.mp4',thumbnail:'https://placehold.co/500x500',title:'title'},
-	{link:'https://www.w3schools.com/html/movie.mp4',thumbnail:'https://placehold.co/600x600',title:'title'},
-
-	]; 
-	videoPop.init()
-	function openPopup(){
-		videoPop.open(1);
-		/* 0=第1條片, 1=第2條片,如此類推 */
-		
-	}
-	</script>
-	<button OnClick="openPopup()">Open popup</button>
-	<!--End Of Kata Update -->
-
+    
 
     <!-- Main Banner JS -->
     <script>
@@ -2628,6 +2676,85 @@
       });
     </script>
 
+    <!-- Discover Posts Swiper JS (Mobile Only) -->
+    <script>
+    $(document).ready(function() {
+        if (typeof Swiper === 'undefined') return;
+
+        var swiper = new Swiper(".mySwiper", {
+        slidesPerView: 1,
+        spaceBetween: 30
+        });
+        
+        // Initialize discover posts swipers only on mobile
+        let discoverSwiper1 = null;
+        let discoverSwiper2 = null;
+        
+        function initDiscoverSwipers() {
+            const isMobile = window.innerWidth <= 768;
+            
+            if (isMobile) {
+                // Initialize first post-row swiper if not already initialized
+                if (!discoverSwiper1) {
+                    discoverSwiper1 = new Swiper('.discover-posts-swiper-1', {
+                        slidesPerView: 'auto',
+                        spaceBetween: 15,
+                        watchSlidesProgress: true,
+                        allowTouchMove: true,
+                        watchSlidesProgress: true,
+                        speed: 600,
+                    });
+                    
+                    // Store instance globally
+                    if (window.hkjcSwipers) {
+                        window.hkjcSwipers.discoverPosts1 = discoverSwiper1;
+                    }
+                }
+                
+                // Initialize second post-row swiper if not already initialized
+                if (!discoverSwiper2) {
+                    discoverSwiper2 = new Swiper('.discover-posts-swiper-2', {
+                        slidesPerView: 'auto',
+                        spaceBetween: 15,
+                        watchSlidesProgress: true
+                    });
+                    
+                    // Store instance globally
+                    if (window.hkjcSwipers) {
+                        window.hkjcSwipers.discoverPosts2 = discoverSwiper2;
+                    }
+                }
+            } else {
+                // Destroy swipers on desktop
+                if (discoverSwiper1) {
+                    discoverSwiper1.destroy(true, true);
+                    discoverSwiper1 = null;
+                    if (window.hkjcSwipers) {
+                        window.hkjcSwipers.discoverPosts1 = null;
+                    }
+                }
+                if (discoverSwiper2) {
+                    discoverSwiper2.destroy(true, true);
+                    discoverSwiper2 = null;
+                    if (window.hkjcSwipers) {
+                        window.hkjcSwipers.discoverPosts2 = null;
+                    }
+                }
+            }
+        }
+        
+        // Initialize on page load
+        initDiscoverSwipers();
+        
+        // Reinitialize on window resize with debounce
+        let discoverResizeTimeout;
+        $(window).on('resize', function() {
+            clearTimeout(discoverResizeTimeout);
+            discoverResizeTimeout = setTimeout(initDiscoverSwipers, 300);
+        });
+    });
+    </script>
+
     <!-- Card Animation Section JS (GSAP + ScrollTrigger) -->
     <script>
     $(function() {
@@ -2914,6 +3041,26 @@
             }, 150);
         });
     });
+
+    // Video instagram like swiper
+
+    var videoPop = new VideoPopup(); 
+
+	videoPop.videoList = [ 
+	{link:'assets/video/dei-content002_0928 _lingling_chi_2500kbps.mp4',thumbnail:'assets/images/edu_area_video1.jpg',title:'3 minutes Guide to Horse Racing!'},
+	{link:'assets/video/dei-content002_0928 _lingling_chi_2500kbps.mp4',thumbnail:'assets/images/edu_area_video2.jpg',title:'3 minutes Guide to Horse Racing!'},
+	{link:'assets/video/dei-content002_0928 _lingling_chi_2500kbps.mp4',thumbnail:'assets/images/edu_area_video3.jpg',title:'3 minutes Guide to Horse Racing!'},
+	{link:'assets/video/dei-content002_0928 _lingling_chi_2500kbps.mp4',thumbnail:'assets/images/edu_area_video4.jpg',title:'3 minutes Guide to Horse Racing!'},
+	{link:'assets/video/dei-content002_0928 _lingling_chi_2500kbps.mp4',thumbnail:'assets/images/edu_area_video5.jpg',title:'3 minutes Guide to Horse Racing!'}
+	]; 
+
+	// videoPop.init()
+
+	function openPopup(i){
+		videoPop.open(i);
+	}
+
+
     </script>
 
     <!-- Discover Animation Section JS (GSAP + ScrollTrigger) -->
@@ -3001,22 +3148,14 @@
                 if (isMobile) {
                     background.style.clipPath = 'url(#discover-clip-mobile)';
                     background.style.webkitClipPath = 'url(#discover-clip-mobile)';
+                    imgBackground.style.clipPath = 'url(#discover-clip-mobile)';
+                    imgBackground.style.webkitClipPath = 'url(#discover-clip-mobile)';
                 } else {
                     background.style.clipPath = 'url(#discover-clip)';
                     background.style.webkitClipPath = 'url(#discover-clip)';
+                    imgBackground.style.clipPath = 'url(#discover-clip)';
+                    imgBackground.style.webkitClipPath = 'url(#discover-clip)';
                 }
-            }
-
-            const wrapper = sticky.querySelector('.discover-image-background');
-            if (wrapper) {
-                wrapper.style.width = `${geom.sectionWidth}px`;
-                wrapper.style.height = `${geom.sectionHeight}px`;
-            }
-
-            const postWrapper = sticky.querySelector('.discover-post');
-            if (postWrapper) {
-                const maxWidth = Math.min(geom.sectionWidth * 0.9, Math.max(geom.baseWidth, 640));
-                postWrapper.style.maxWidth = `${Math.round(maxWidth)}px`;
             }
 
             const activeClipRect = isMobile ? clipRectMobile : clipRect;
