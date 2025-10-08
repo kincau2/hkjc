@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Racing Academy - The Hong Kong Jockey Club</title>
+    <link rel="shortcut icon" href="assets/images/favicon.ico">
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/fontawesome.min.css">
+    <link rel="stylesheet" href="assets/css/fonts.css">
+    <link rel="stylesheet" href="assets/css/swiper-bundle.min.css">
+    <link rel="stylesheet" href="assets/css/aos.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/slick.css"/>
+	<link rel="stylesheet" type="text/css" href="assets/css/slick-theme.css"/>
+    <link rel="stylesheet" href="assets/css/video-popup.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/racing-academy.css">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="assets/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/swiper-bundle.min.js"></script>
+    <script src="assets/js/aos.js"></script>
+    <script> AOS.init(); </script>
+    <script src="assets/js/gsap.min.js"></script>
+    <script src="assets/js/ScrollTrigger.min.js"></script>
+	<script type="text/javascript" src="assets/js/slick.min.js"></script>
+	<script src="assets/js/video-popup.js"></script> 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Noto+Sans+SC:wght@100..900&family=Noto+Sans+TC:wght@100..900&family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+</head>
+<body class="bg-white">
+    <!-- Header - Duplicated from index.html -->
+    <header class="bg-white site-header fixed-top border-top border-bottom">
+        <div class="px-5 py-4 container-fluid d-flex justify-content-between align-items-center header-bar border-bottom">
+            <div class="d-flex align-items-center left-cluster">
+                <div class="logo pe-5 d-flex">
+                    <a href="index.html" class="d-inline-flex align-items-center">
+                        <img class="site-logo" src="assets/images/logo.png" alt="HKJC Logo">
+                    </a>
+                </div>
+                <nav class="main-nav d-none d-lg-flex align-items-center" aria-label="Primary">
+                    <ul class="nav mb-0">
+                        <li class="nav-item first-item-wrapper">
+                            <div class="border-start border-end px-3 me-2">
+                                <a class="nav-link px-2 fw-bold text-black" href="index.html">主頁</a>
+                            </div>
+                        </li>
+                        <li class="nav-item"><a class="nav-link px-3 fw-normal text-body" href="index.html#tipping">揀馬世一</a></li>
+                        <li class="nav-item"><a class="nav-link px-3 fw-normal text-body" href="racing-academy.html">馬上研究所</a></li>
+                        <li class="nav-item"><a class="nav-link px-3 fw-normal text-body" href="index.html#discover">馬上發現精選</a></li>
+                        <li class="nav-item"><a class="nav-link px-3 fw-normal text-body" href="index.html#experience">馬場精彩活動</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <!-- Mobile cluster: language + hamburger -->
+            <div class="d-lg-none d-flex align-items-center justify-content-end mobile-controls">
+                <div class="lang me-3">
+                    <a href="#en" class="text-black text-decoration-none d-flex align-items-center lang-switch-link">
+                        <span class="lang-icon" aria-hidden="true">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                        </span>
+                        <span class="ms-1">English</span>
+                    </a>
+                </div>
+                <button class="navbar-toggler p-0 border-0 bg-transparent" type="button" data-bs-toggle="collapse" data-bs-target="#mobileNav" aria-controls="mobileNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <svg width="26" height="26" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 6H21" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M3 12H21" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M3 18H21" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </button>
+            </div>
+            <!-- Desktop language switcher -->
+            <div class="lang d-none d-lg-flex align-items-center desktop-lang">
+                <a href="#en" class="text-black text-decoration-none d-flex align-items-center lang-switch-link">
+                    <img src="assets/images/icon_lang.svg">
+                    <span class="ms-1 fw-normal text-body">English</span>
+                </a>
+            </div>
+        </div>
+        <div class="collapse mobile-nav-wrapper border-bottom" id="mobileNav">
+            <div class="container px-4 pt-4 pb-5">
+                <nav aria-label="Mobile Primary">
+                    <ul class="nav flex-column">
+                        <li class="nav-item"><a class="nav-link px-2 text-black" href="index.html">主頁</a></li>
+                        <li class="nav-item"><a class="nav-link px-2 text-black" href="index.html#tipping">揀馬世一</a></li>
+                        <li class="nav-item"><a class="nav-link px-2 text-black" href="racing-academy.html">馬上研究所</a></li>
+                        <li class="nav-item"><a class="nav-link px-2 text-black" href="index.html#discover">馬上發現精選</a></li>
+                        <li class="nav-item"><a class="nav-link px-2 text-black" href="index.html#experience">馬場精彩活動</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main class="main-content racing-academy-page">
+        <!-- Page Title Section -->
+        <section class="page-header-section">
+            <div class="container">
+                <h1 class="section-title">Racing Academy</h1>
+            </div>
+        </section>
+
+        <!-- Filter Controls Section -->
+        <section class="filter-controls-section">
+            <div class="container">
+                <div class="filter-controls-wrapper" style="position: relative;">
+                    <!-- Tag Filter Buttons -->
+                    <div class="tag-filters">
+                        <button class="tag-filter-btn active" data-tag="all">
+                            <span class="tag-icon"><i class="fa-solid fa-star"></i></span>
+                            <span class="tag-label">All</span>
+                        </button>
+                        <button class="tag-filter-btn" data-tag="racing-kickstarter">
+                            <span class="tag-icon"><i class="fa-solid fa-book"></i></span>
+                            <span class="tag-label">Racing Kickstarter</span>
+                        </button>
+                        <button class="tag-filter-btn" data-tag="basics-to-racing">
+                            <span class="tag-icon"><i class="fa-solid fa-graduation-cap"></i></span>
+                            <span class="tag-label">Basics to Racing</span>
+                        </button>
+                        <button class="tag-filter-btn" data-tag="bet-type">
+                            <span class="tag-icon"><i class="fa-solid fa-ticket"></i></span>
+                            <span class="tag-label">Bet Type</span>
+                        </button>
+                        <button class="tag-filter-btn" data-tag="betting-strategy">
+                            <span class="tag-icon"><i class="fa-solid fa-chart-line"></i></span>
+                            <span class="tag-label">Betting Strategy</span>
+                        </button>
+                        <button class="tag-filter-btn" data-tag="horse-jockey-trainer">
+                            <span class="tag-icon"><i class="fa-solid fa-horse"></i></span>
+                            <span class="tag-label">Horse, Jockey & Trainer</span>
+                        </button>
+                        <button class="tag-filter-btn" data-tag="simulcast-racing">
+                            <span class="tag-icon"><i class="fa-solid fa-tv"></i></span>
+                            <span class="tag-label">Simulcast Racing</span>
+                        </button>
+                    </div>
+
+                    <!-- Sort/Filter Button -->
+                    <button class="sort-filter-btn" id="sortFilterBtn">
+                        <i class="fa-solid fa-sliders"></i>
+                    </button>
+
+                    <!-- Sort/Filter Popup Modal - Positioned here -->
+                    <div class="sort-filter-modal" id="sortFilterModal">
+                        <div class="sort-filter-content">
+                            <div class="sort-section">
+                                <h3 class="option-title">Sort</h3>
+                                <button class="option-btn sort-option active" data-sort="level-low-high">
+                                    <i class="fa-solid fa-check check-icon"></i>
+                                    <span class="option-label">Level: Low - High</span>
+                                </button>
+                                <button class="option-btn sort-option" data-sort="level-high-low">
+                                    <i class="fa-solid fa-check check-icon"></i>
+                                    <span class="option-label">Level: High - Low</span>
+                                </button>
+                                <button class="option-btn sort-option" data-sort="newest">
+                                    <i class="fa-solid fa-check check-icon"></i>
+                                    <span class="option-label">Newest</span>
+                                </button>
+                                <button class="option-btn sort-option" data-sort="most-view">
+                                    <i class="fa-solid fa-check check-icon"></i>
+                                    <span class="option-label">Most View</span>
+                                </button>
+                            </div>
+
+                            <div class="filter-section">
+                                <h3 class="option-title">Filter</h3>
+                                <button class="option-btn filter-option active" data-filter="all">
+                                    <i class="fa-solid fa-check check-icon"></i>
+                                    <span class="option-label">All</span>
+                                </button>
+                                <button class="option-btn filter-option" data-filter="beginner">
+                                    <i class="fa-solid fa-check check-icon"></i>
+                                    <span class="option-label">Beginner</span>
+                                </button>
+                                <button class="option-btn filter-option" data-filter="intermediate">
+                                    <i class="fa-solid fa-check check-icon"></i>
+                                    <span class="option-label">Intermediate</span>
+                                </button>
+                                <button class="option-btn filter-option" data-filter="advanced">
+                                    <i class="fa-solid fa-check check-icon"></i>
+                                    <span class="option-label">Advanced</span>
+                                </button>
+                                <button class="option-btn filter-option" data-filter="expert">
+                                    <i class="fa-solid fa-check check-icon"></i>
+                                    <span class="option-label">Expert</span>
+                                </button>
+                                <button class="option-btn filter-option" data-filter="master">
+                                    <i class="fa-solid fa-check check-icon"></i>
+                                    <span class="option-label">Master</span>
+                                </button>
+                            </div>
+
+                            <div class="modal-actions">
+                                <button class="action-btn reset-btn" id="resetBtn">Reset</button>
+                                <button class="action-btn show-result-btn" id="showResultBtn">Show Result</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Posts Grid Section -->
+        <section class="posts-grid-section">
+            <div class="container">
+                <div class="posts-grid" id="postsGrid">
+                    <!-- Posts will be generated here -->
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="assets/js/racing-academy.js"></script>
+</body>
+</html>
