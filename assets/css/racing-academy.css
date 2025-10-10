@@ -4,28 +4,25 @@
 
 /* Page Header Section */
 
+.racing-academy-page {
+    padding: 0 15px;
+}
+
 .page-header-section {
     padding: 30px 0 0px;
 }
 
-.page-title {
-    font-size: 48px;
-    font-weight: 700;
-    color: #022169;
-    margin: 0;
-    text-align: center;
-}
-
 /* Filter Controls Section */
 .filter-controls-section {
-    padding: 20px 0 40px;
-    border-bottom: 1px solid #e5e7eb;
+    padding: 20px 0 20px;
 }
 
 .filter-controls-wrapper {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    align-items: flex-start;
+    position: relative;
     gap: 20px;
 }
 
@@ -33,7 +30,6 @@
 .tag-filters {
     display: flex;
     flex-wrap: wrap;
-    gap: 5px;
     flex: 1;
 }
 
@@ -44,6 +40,7 @@
     padding: 5px 10px 5px 5px;
     border: 3px solid #FFF;
     outline: 3px solid #FFF;
+    margin: 3px;
     color: #fff;
     border-radius: 30px;
     font-size: 15px;
@@ -60,87 +57,87 @@
 
 /* Individual tag button colors when active */
 .tag-filter-btn[data-tag="all"] {
-    background: #022169;
+    background: #2655CC;
 }
 
 .tag-filter-btn[data-tag="all"] i{
-    color: #022169;
+    color: #FEC655;
 }
 
 .tag-filter-btn[data-tag="all"].active {
-    outline: 3px solid #022169;
+    outline: 3px solid #2655CC;
 }
 
 .tag-filter-btn[data-tag="racing-kickstarter"] {
-    background: #8b5cf6;
+    background: #804CFF;
 }
 
 .tag-filter-btn[data-tag="racing-kickstarter"] i{
-    color: #8b5cf6;
+    color: #804CFF;
 }
 
 .tag-filter-btn[data-tag="racing-kickstarter"].active {
-    outline: 3px solid #8b5cf6;
+    outline: 3px solid #804CFF;
 }
 
 .tag-filter-btn[data-tag="basics-to-racing"] {
-    background: #10b981;
+    background: #5CAD2D;
 }
 
 .tag-filter-btn[data-tag="basics-to-racing"] i{
-    color: #10b981;
+    color: #5CAD2D;
 }
 
 .tag-filter-btn[data-tag="basics-to-racing"].active {
-    outline: 3px solid #10b981;
+    outline: 3px solid #5CAD2D;
 }
 
 .tag-filter-btn[data-tag="bet-type"] {
-    background: #ec4899;
+    background: #D54B8D;
 }
 
 .tag-filter-btn[data-tag="bet-type"] i{
-    color: #ec4899;
+    color: #D54B8D;
 }
 
 .tag-filter-btn[data-tag="bet-type"].active {
-    outline: 3px solid #ec4899;
+    outline: 3px solid #D54B8D;
 }
 
 .tag-filter-btn[data-tag="betting-strategy"] {
-    background: #f97316;
+    background: #EC9223;
 }
 
 .tag-filter-btn[data-tag="betting-strategy"] i{
-    color: #f97316;
+    color: #EC9223;
 }
 
 .tag-filter-btn[data-tag="betting-strategy"].active {
-    outline: 3px solid #f97316;
+    outline: 3px solid #EC9223;
 }
 
 .tag-filter-btn[data-tag="horse-jockey-trainer"] {
-    background: #3b82f6;
+    background: #2F94CD;
 }
 
 .tag-filter-btn[data-tag="horse-jockey-trainer"] i{
-    color: #3b82f6;
+    color: #2F94CD;
 }
 
 .tag-filter-btn[data-tag="horse-jockey-trainer"].active {
-    outline: 3px solid #3b82f6;
+    outline: 3px solid #2F94CD;
 }
 
 .tag-filter-btn[data-tag="simulcast-racing"] {
-    background: #eab308;
+    background: #BCA12A;
 }
 
 .tag-filter-btn[data-tag="simulcast-racing"] i{
-    color: #eab308;
+    color: #BCA12A;
 }
 
 .tag-filter-btn[data-tag="simulcast-racing"].active {
-    outline: 3px solid #eab308;
+    outline: 3px solid #BCA12A;
 }
 
 .tag-filter-btn .tag-icon {
@@ -170,7 +167,7 @@
 
 /* Posts Grid Section */
 .posts-grid-section {
-    padding: 40px 0 80px;
+    padding: 0 0 80px;
 }
 
 .posts-grid {
@@ -183,7 +180,7 @@
 .level-group {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 30px;
 }
 
 .level-group-title {
@@ -196,24 +193,22 @@
 .level-group-posts {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 24px;
+    gap: 30px;
 }
 
 /* Post Card */
 .post-card {
     display: flex;
     flex-direction: column;
-    border-radius: 16px;
+    border-radius: 18px;
     overflow: hidden;
     background: #ffffff;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
     transition: all 0.3s ease;
     cursor: pointer;
 }
 
 .post-card:hover {
     transform: translateY(-4px);
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
 }
 
 .post-card.hidden {
@@ -222,6 +217,7 @@
 
 .post-thumbnail {
     position: relative;
+    border-radius: 18px;
     width: 100%;
     aspect-ratio: 9 / 16;
     overflow: hidden;
@@ -241,26 +237,19 @@
     transform: translate(-50%, -50%);
     width: 60px;
     height: 60px;
-    background: rgba(255, 255, 255, 0.95);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 24px;
-    color: #022169;
     transition: all 0.2s ease;
 }
 
 .post-card:hover .post-play-icon {
     transform: translate(-50%, -50%) scale(1.1);
-    background: #ffffff;
 }
 
 .post-content {
     padding: 20px;
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: 7px;
+    padding: 10px 0px;
 }
 
 .post-tags {
@@ -274,32 +263,43 @@
     border-radius: 12px;
     font-size: 12px;
     font-weight: 500;
-    color: #ffffff;
     white-space: nowrap;
 }
 
-.post-tag.level-beginner {
-    background: #10b981;
+.post-tag.level {
+    background: #FFF;
+    color: #2655CC;
+    border: 1px solid #2655CC;
 }
 
-.post-tag.level-intermediate {
-    background: #3b82f6;
+.post-tag.racing-kickstarter {
+    color: #804CFF;
+    border: 1px solid #804CFF;
 }
 
-.post-tag.level-advanced {
-    background: #f59e0b;
+.post-tag.basics-to-racing {
+    color: #5CAD2D;
+    border: 1px solid #5CAD2D;
 }
 
-.post-tag.level-expert {
-    background: #ef4444;
+.post-tag.bet-type {
+    color: #D54B8D;
+    border: 1px solid #D54B8D;
 }
 
-.post-tag.level-master {
-    background: #8b5cf6;
+.post-tag.betting-strategy {
+    color: #EC9223;
+    border: 1px solid #EC9223;
 }
 
-.post-tag.category {
-    background: #6b7280;
+.post-tag.horse-jockey-trainer {
+    color: #2F94CD;
+    border: 1px solid #2F94CD;
+}
+
+.post-tag.simulcast-racing {
+    color: #BCA12A;
+    border: 1px solid #BCA12A;
 }
 
 .post-title {
@@ -315,12 +315,12 @@
 }
 
 .post-excerpt {
-    font-size: 14px;
-    color: #6b7280;
+    font-size: 15px;
+    color: #1f2937;
     line-height: 1.5;
     margin: 0;
     display: -webkit-box;
-    -webkit-line-clamp: 2;
+    -webkit-line-clamp: 1;
     -webkit-box-orient: vertical;
     overflow: hidden;
 }
@@ -506,13 +506,14 @@
 }
 
 @media (max-width: 768px) {
-    
+
+    .sort-filter-modal {
+        top: 80px;
+        right: 20px;
+    }   q
+
     .page-header-section {
-        padding: 40px 0 30px;
-    }
-    
-    .page-title {
-        font-size: 32px;
+        padding: 20px 0 0px;
     }
     
     .level-group-title {
@@ -522,13 +523,7 @@
     .filter-controls-wrapper {
         flex-direction: column;
         align-items: stretch;
-    }
-    
-    .tag-filters {
-        overflow-x: auto;
-        flex-wrap: nowrap;
-        padding-bottom: 8px;
-        scrollbar-width: thin;
+        position: static;
     }
     
     .tag-filters::-webkit-scrollbar {
@@ -545,7 +540,9 @@
     }
     
     .sort-filter-btn {
-        align-self: flex-end;
+        top: 30px;
+        right: 20px;
+        position: absolute;
     }
     
     .level-group-posts {
@@ -555,7 +552,7 @@
     
     .sort-filter-content {
         padding: 20px;
-        width: 320px;
+        width: 340px;
         right: 0;
     }
     

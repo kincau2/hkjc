@@ -1221,7 +1221,7 @@ section#specialists-second {
         width: 17vw!important;
     }
 
-    .post{
+    #discover .post{
         width: 250px!important;
     }
 
@@ -1434,5 +1434,6 @@ p.footer-text a{
 }
 
 section#footer {
-    background: #fcfcfc;
+    background: #FFF;
+    border-top: 1px solid #D9D9D9
 }
