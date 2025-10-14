@@ -9,13 +9,13 @@ html{
     font-size: 50px;
     font-weight: 600;
     line-height: 1.1;
-    margin-bottom: 20px;
+    margin-bottom: 12px;
 }
 
 .section-header {
     max-width: 950px;
     margin: auto;
-    padding: 20px;
+    padding: 0 20px;
 }
 
 .section-title-description {
@@ -33,11 +33,13 @@ html{
     color:#022169;
     font-size: 30px;
     font-weight: 600;
+    margin-bottom: 32px;
 }
 
 main.main-content {
     width: 100vw;
     min-height: 100vh;
+    min-height: calc(var(--vh, 1vh) * 100); /* Use actual viewport height on mobile */
     margin-top: 90px;
 }
 
@@ -121,6 +123,10 @@ div#mobileNav {
         height: 55px;
     }
 
+    .lang{
+        display: none;
+    }
+
 }   
 
 /* ============================= Banner / Swiper Hero Section ============================= */
@@ -130,7 +136,7 @@ div#mobileNav {
     width:100vw;
     height:auto;
     overflow:hidden;
-    padding: 24px 0;
+    padding: 16px 0 46px 0;
 }
 
 .home-banner-wrapper {
@@ -148,12 +154,22 @@ div#mobileNav {
     transition:transform .6s ease, opacity .6s ease;
 }
 
+.home-banner-wrapper .swiper-slide-prev{
+    transform-origin: 100% 50%;
+}
+.home-banner-wrapper .swiper-slide-next{
+    transform-origin: 0% 50%;
+}
+.home-banner-wrapper .swiper-slide-active{
+    transform-origin: 50% 50%;
+}
+
 .home-banner-wrapper .swiper-slide .desktop-image,
 .home-banner-wrapper .swiper-slide .mobile-image {
     width:100%;
     height:100%;
     object-fit:cover;
-    border-radius:18px;
+    border-radius:24px;
 }
 
 .swiper-image-overlay {
@@ -177,14 +193,18 @@ div#mobileNav {
 
 .overlay-content h2.section-title {
     text-align: left;
-    margin-bottom: 15px;
+    margin-bottom: 24px;
 }
 
 a.banner-cta-link {
     text-decoration: unset;
     color: #022169;
     background: #FFF;
-    border-radius: 30px;
+    border-radius: 18px;
+    width: 129px;
+    height: 40px;
+    font-size: 18px;
+    line-height: 40px;
 }
 
 /* Banner pagination dots */
@@ -218,7 +238,7 @@ a.banner-cta-link {
 
 .banner-pagination .swiper-pagination-bullet-active:before {
     content: "";
-    width: 36px;
+    width: 100%;
     height: 9px;
     position: absolute;
     top: 0;
@@ -234,10 +254,6 @@ a.banner-cta-link {
     .swiper-image-overlay .overlay-content{
         padding: 50px;
     }
-    a.banner-cta-link {
-        font-size: 20px;
-        padding: 8px 30px;
-    }
     .overlay-content h2.section-title {
         font-size: min(70px, 4.3vw);
     }
@@ -249,10 +265,6 @@ a.banner-cta-link {
     }
     .swiper-image-overlay .overlay-content{
         padding: 30px;
-    }
-    a.banner-cta-link {
-        font-size: 16px;
-        padding: 7px 20px;
     }
     .overlay-content h2.section-title {
         font-size: 4vw;
@@ -267,8 +279,6 @@ a.banner-cta-link {
         padding: 20px;
     }
     a.banner-cta-link {
-        font-size: 16px;
-        padding: 7px 20px;
         margin-bottom: 15%;
     }
     .overlay-content h2.section-title {
@@ -277,10 +287,6 @@ a.banner-cta-link {
     .swiper-image-overlay .overlay-content{
         justify-content: flex-end;
     }
-    #home-banner {
-        padding: 15px 0;
-    }
-    
     
 }   
 
@@ -340,7 +346,7 @@ a.banner-cta-link {
 
     .stats-box {
         width: 300px;
-        padding: 24px;
+        padding: 12px;
     }
 
     .metric .label {
@@ -400,7 +406,6 @@ a.banner-cta-link {
 
     .stats-box {
         width: 17rem;
-        padding: 1rem;
     }
 
     .metric .label {
@@ -439,7 +444,7 @@ a.banner-cta-link {
     }
 
     .swiper-slide-prev .portrait {
-        left: 37rem;
+        left: 32rem;
     }
 
     .badge-rank{
@@ -462,7 +467,6 @@ a.banner-cta-link {
 
     .stats-box {
         width: 30rem;
-        padding: 1.5rem;
     }
 
     .metric .label {
@@ -486,8 +490,8 @@ a.banner-cta-link {
     }
 
     .specialist-bg{
-        clip-path: url(#roundedTrap-large)!important;
-        -webkit-clip-path: url(#roundedTrap-large)!important;
+        clip-path: url(#roundedTrap-large-mobile)!important;
+        -webkit-clip-path: url(#roundedTrap-large-mobile)!important;
     }
 
     .specialist-bg::before{
@@ -496,13 +500,8 @@ a.banner-cta-link {
         )!important;
     }
 
-    .my-pick-wrapper {
-        padding: 15px!important;
-    }
-
     .pick-card {
         width: 300px!important;
-        padding: 10px!important;
     }
 
     .pick-card .list {
@@ -667,6 +666,7 @@ section#specialists {
 
 .stats-box {
     background:#fff;
+    padding: 12px;
     color:#001b44;
     height: fit-content;
     opacity:0;
@@ -684,7 +684,7 @@ section#specialists {
 }
 
 .metric{
-    color:#003c84;
+    color:#022169;
 }
 
 .metric .value {
@@ -716,7 +716,7 @@ section#specialists {
 /* Picks cards */
 
 .my-pick-wrapper {
-    padding: 20px;
+    padding: 20px 24px 48px 24px;
     max-width: 1240px;
     margin: auto;
 }
@@ -731,40 +731,41 @@ section#specialists {
     text-align:left;
     height: 100%;
     width: 335px;
-    padding: 24px;
+    padding: 12px;
     border-radius: 15px;
 }
 
 .pick-card .race-number {
     font-size: 16px;
     font-weight:700;
-    margin:0 0 6px;
+    margin:0 0 4px;
 }
 
 .pick-card .meta {
     font-size:14px;
     color:#000;
-    margin-bottom:12px;
 }
+
 .pick-card hr {
-    margin:10px 0 12px;
+    margin: 8px 0;
 }
 .pick-card .list {
     margin:0;
     padding-left: 18px;
     font-weight:800;
     font-size: 16px;
-    color:#003c84;
+    color:#022169;
 }
 .pick-card .cta {
     padding:6px 0px;
     border-radius:50px;
-    background:#ffd303;
+    background:#fecf13;
     color:#111;
     font-size: 15px;
     font-weight:400;
     border:0;
     width: 100px;
+    height: 40px;
 }
 .pick-card .type {
     font-size: 14px;
@@ -774,9 +775,7 @@ section#specialists {
 
 /* ============================= Picks Swiper ============================= */
 
-.picks-swiper {
-    padding: 8px 4px 24px;
-}
+
 .picks-swiper .swiper-wrapper {
     align-items: stretch;
 }
@@ -829,7 +828,7 @@ section#specialists {
 section#specialists-second {
     overflow-x: hidden;
     max-width: 100vw;
-    margin-bottom: 50px;
+    margin-bottom: 46px;
 }
 
 .more-specialists-wrap {
@@ -863,7 +862,6 @@ section#specialists-second {
 .mspec-card {
     position: relative;
     height: 300px;
-    border-radius: 24px;
     display: flex;
     align-items: flex-end;
     justify-content: flex-start;
@@ -874,15 +872,14 @@ section#specialists-second {
 .mspec-bg {
     position: absolute;
     inset: 0;
-    clip-path: url(#roundedTrap-small);
-    -webkit-clip-path: url(#roundedTrap-small);
-    border-radius: 24px;
+    clip-path: url(#roundedTrap-small-style-2);
+    -webkit-clip-path: url(#roundedTrap-small-style-2);
     z-index: 0;
 }
 
 .mspec-quote-wrapper {
     max-width: 100vw;
-    padding: 20px;
+    padding: 20px 20px 0 20px;
 }
 
 .mspec-quote{
@@ -901,14 +898,16 @@ section#specialists-second {
     background: transparent;
     font-family: "Noto Sans TC", sans-serif;
     font-size: 18px;
+    width: 150px;
+    height: 40px;
     font-weight: 400;
     border-radius: 30px;
-    padding: 8px 30px;
+    padding: unset;
 }
 
 .button-blue{
-    border: 1px solid #003C84;
-    color: #003C84;
+    border: 1px solid #022169;
+    color: #022169;
 }
 
 .button-white{
@@ -940,6 +939,8 @@ section#specialists-second {
     width: 100%; 
     height: auto; 
     display: block; 
+    clip-path: url(#roundedTrap-small-style-2-img);
+    -webkit-clip-path: url(#roundedTrap-small-style-2-img);
 }
 .mspec-text {
     position: relative;
@@ -971,15 +972,23 @@ section#specialists-second {
 
     .media-card {
         height: calc(100vh - 55px - 270px)!important;
+        height: calc(var(--vh, 1vh) * 100 - 55px - 270px)!important;
     }
 
     .animation-stage {
         height: calc(100vh - 55px)!important; /* full viewport height - header height */
+        height: calc(var(--vh, 1vh) * 100 - 55px)!important;
         width: 100vw;
     }
 
     .animation-group-wrapper {
         height: calc(100vh - 55px)!important; /* full viewport height - header height */
+        height: calc(var(--vh, 1vh) * 100 - 55px)!important;
+    }
+
+    .animation-text-wrapper .animation-text {
+        font-size: calc( (100vh - 55px)/3 )!important;
+        line-height: calc( (100vh - 55px)/3 )!important;
     }
 
 }
@@ -988,7 +997,7 @@ section#specialists-second {
 
     .animation-image-wrapper img {
         width: 228px!important;
-        top: 50px!important;
+        top: 48.72px!important;
     }
 
     .animation-button-wrapper button{
@@ -1004,6 +1013,7 @@ section#specialists-second {
 }
 .animation-stage {
     height: calc(100vh - 90px); /* full viewport height - header height */
+    height: calc(var(--vh, 1vh) * 100 - 90px);
     width: 100vw;
 }
 .animation-image-wrapper {
@@ -1024,6 +1034,7 @@ section#specialists-second {
     position: absolute;
     bottom: 0;
     height: calc(100vh - 90px); /* full viewport height - header height */
+    height: calc(var(--vh, 1vh) * 100 - 90px);
     width: 100vw;
     overflow: hidden;
     isolation: isolate;
@@ -1039,9 +1050,9 @@ section#specialists-second {
 .animation-text-wrapper .animation-text {
     font-family: "Chromatica", sans-serif;
     font-weight: 900;
-    font-size: 300px;
+    font-size: calc( (100vh - 90px)/3 );
     letter-spacing: 3px;
-    line-height: 250px;
+    line-height: calc( (100vh - 90px)/3 );
     opacity: 0.08;
     text-align: center;
     user-select: none;
@@ -1069,11 +1080,13 @@ section#specialists-second {
     transform: translate(-50%, -50%);
     width: auto;
     height: calc(100vh - 90px - 350px);
+    height: calc(var(--vh, 1vh) * 100 - 90px - 350px);
+    max-height: 500px;
     aspect-ratio: 9 / 16; /* portrait like phone */
     border-radius: 24px;
     overflow: hidden;
     /* white frame + shadow */
-    box-shadow: 0 0 0 8px #fff, 0 20px 60px rgba(0,0,0,0.18);
+    border: 8px solid #EDEDED;
     background: #000;
     will-change: transform, opacity;
     transform-style: preserve-3d;
@@ -1173,10 +1186,12 @@ section#specialists-second {
 
     .discover-background {
         height: calc(100vh - 55px)!important;
+        height: calc(var(--vh, 1vh) * 100 - 55px)!important;
     }
 
     section#discover {
         height: calc(100vh - 55px)!important;
+        height: calc(var(--vh, 1vh) * 100 - 55px)!important;
     }
 
 }
@@ -1241,6 +1256,7 @@ section#specialists-second {
 section#discover {
     width: 100vw;
     height: calc(100vh - 90px);
+    height: calc(var(--vh, 1vh) * 100 - 90px);
     position: relative;
     overflow: hidden;
 }
@@ -1252,6 +1268,7 @@ section#discover {
     left: 50%;
     width: 100vw;
     height: calc(100vh - 90px);
+    height: calc(var(--vh, 1vh) * 100 - 90px);
     background-color: #2655CC;
     z-index: 0;
     overflow: hidden;
@@ -1294,17 +1311,13 @@ p.discover-text {
 
 p.discover-dot {
     position: absolute;
-    transform: translate(-50%, -50%);
-    left: 50%;
-    top: 50%;
-    width: 5px;
-    height: 5px;
+    top: -30px;
+    width: 2.5px;
+    height: 2.5px;
     background: #FFF;
     border-radius: 10px;
     z-index: 1;
     position: absolute;
-    left: 50%;
-    top: 50%;
 }
 
 .discover-post {

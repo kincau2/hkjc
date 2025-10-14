@@ -26,12 +26,29 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Noto+Sans+SC:wght@100..900&family=Noto+Sans+TC:wght@100..900&family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    
+    <!-- Fix for iOS viewport height issue with browser UI -->
+    <script>
+        // Calculate and set actual viewport height as CSS custom property
+        function setViewportHeight() {
+            const vh = window.innerHeight * 0.01;
+            document.documentElement.style.setProperty('--vh', `${vh}px`);
+        }
+        
+        // Set on load
+        setViewportHeight();
+        
+        // Update on resize and orientation change
+        window.addEventListener('resize', setViewportHeight);
+        window.addEventListener('orientationchange', setViewportHeight);
+
+    </script>
 
 </head>
 
 <body class="bg-white">
-    <header class="bg-white site-header border-top border-bottom">
-        <div class="px-5 py-4 container-fluid d-flex justify-content-between align-items-center header-bar border-bottom">
+    <header class="bg-white site-header border-bottom">
+        <div class="px-5 py-4 container-fluid d-flex justify-content-between align-items-center header-bar">
             <div class="d-flex align-items-center left-cluster">
                 <div class="logo pe-5 d-flex">
                     <a href="#" class="d-inline-flex align-items-center">
@@ -164,7 +181,7 @@
         <section id="specialists">
             <div class="section-header">
                 <div class="text-center mb-4">
-                <h2 class="section-title mb-3">Top 3 Racing Specialist</h2>
+                <h2 class="section-title">Top 3 Racing Specialist</h2>
                 <p class="section-title-description">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy
                 text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
                 </div>
@@ -455,7 +472,7 @@
                         font-size: 20px;
                         margin-top: -9px;
                         "></i></div>
-                <h4 class="section-sub-title pb-3">See My Picks</h4>
+                <h4 class="section-sub-title">See My Picks</h4>
                 <div class="swiper picks-swiper overflow-visible">
                     <div class="swiper-wrapper" id="picksWrapper">
                         <!-- dynamic pick slides -->
@@ -881,6 +898,23 @@
     <svg width="0" height="0" style="position:absolute">
         <defs>
             <!-- Rounded trapezium: narrower top, rounded corners; normalized to 0..1 -->
+            <clipPath id="roundedTrap-large-mobile" clipPathUnits="objectBoundingBox">
+                <path d="M0.05,1 
+               L0.97,1 
+               Q1,1,1,0.92 
+               L1,0.2 
+               Q1,0.1,0.945,0.12 
+               L0.04,0.294 
+               Q0,0.3,0,0.39 
+               L0,0.92 
+               Q0,1,0.03,1 Z"></path>
+            </clipPath>
+        </defs>
+    </svg>
+
+    <svg width="0" height="0" style="position:absolute">
+        <defs>
+            <!-- Rounded trapezium: narrower top, rounded corners; normalized to 0..1 -->
             <clipPath id="roundedTrap-small" clipPathUnits="objectBoundingBox">
                 <path d="M0.05,1 
                L0.92,1 
@@ -895,7 +929,51 @@
         </defs>
     </svg>
 
+    <svg width="0" height="0" style="position:absolute">
+        <defs>
+            <!-- Rounded trapezium: narrower top, rounded corners; normalized to 0..1 -->
+            <clipPath id="roundedTrap-small-style-2" clipPathUnits="objectBoundingBox">
+                <path d="M0.05,1 
+               L0.92,1 
+               Q1,1,1,0.92 
+               L1,0.2 
+               Q1,0.1,0.865,0.12 
+               L0.1,0.3 
+               Q0,0.32,0,0.4 
+               L0,0.92 
+               Q0,1,0.08,1 Z"></path>
+            </clipPath>
+        </defs>
+    </svg>
+
+    <svg width="0" height="0" style="position:absolute">
+        <defs>
+            <!-- Rounded trapezium: narrower top, rounded corners; normalized to 0..1 -->
+            <clipPath id="roundedTrap-small-style-2-img" clipPathUnits="objectBoundingBox">
+                <path d="M 0.05 1 
+                L 0.92 1 
+                Q 1 1 1 0.92 
+                Q 1 0 1 0 
+                Q 0 0 0 0 
+                L 0 0.92 
+                Q 0 1 0.08 1 
+                Z"></path>
+            </clipPath>
+        </defs>
+    </svg>
+
     
+    
+    <!-- Scroll to Top on Page Load/Refresh -->
+    <script>
+    $(function() {
+        // Scroll to top on page load/refresh
+        if ('scrollRestoration' in history) {
+            history.scrollRestoration = 'manual';
+        }
+        window.scrollTo(0, 0);
+    });
+    </script>
 
     <!-- Main Banner JS -->
     <script>
@@ -909,7 +987,7 @@
           speed: 600,
           slidesPerView: 1.2,
           centeredSlides: true,
-          spaceBetween: 0,
+          spaceBetween: 16,
           watchSlidesProgress: true,
           pagination: {
             el: '.banner-pagination',
@@ -955,7 +1033,7 @@
         var allowTouchMove
         if( window.innerWidth <= 768 ){
             slidesPerView = 1.2;
-            spaceBetween = 15;
+            spaceBetween = 10;
             allowTouchMove = true;
         } else{
             slidesPerView = 3;
@@ -1248,43 +1326,43 @@
 
     <!-- Card Animation Section JS (GSAP + ScrollTrigger) -->
     <script>
+    // Global references for discover animation functions
+    window.discoverAnimationFunctions = {
+        setStartState: null,
+        buildTimeline: null
+    };
+    
     $(function() {
         if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
         if (!window.gsap || !window.ScrollTrigger) return;
         gsap.registerPlugin(ScrollTrigger);
 
-        const sticky = document.querySelector('#animation');
-        if (!sticky) return;
+        const animationSticky = document.querySelector('#animation');
+        if (!animationSticky) return;
 
         const cards = gsap.utils.toArray('#animation .media-card');
-
-        // Dynamically set #animation height to (scroll distance in Y) + 100vh
-        // function updateAnimationSectionHeight() {
-        //     try {
-        //         const st = ScrollTrigger.getById('animation-pin');
-        //         const sectionEl = document.querySelector('#animation');
-        //         if (!st || !sectionEl) return;
-        //         const vh = window.innerHeight;
-        //         const header = document.querySelector('.site-header');
-        //         const headerH = header ? header.offsetHeight : 0;
-
-        //         const dist = Math.max(0, st.end - st.start);
-        //         const targetHeight = Math.max(0, dist + (window.innerHeight - vh));
-        //         sectionEl.style.height = Math.round(targetHeight) + 'px';
-        //     } catch (e) {
-        //         // no-op fail safe
-        //     }
-        // }
+        
+        // Mobile swipe state
+        let currentCardIndex = 0;
+        let swipeEnabled = false;
+        let touchStartX = 0;
+        let touchEndX = 0;
+        let isDragging = false;
+        let initialCardPositions = [];
+        let dragOffset = 0;
 
         function layoutRow() {
             const n = cards.length;
             const cw = cards[0].offsetWidth;
+            const ch = cards[0].offsetHeight;
+            const marginLeft = 24; // px margin from left edge on mobile
+            const offSetWidthLeft = ( cw * Math.cos(7*Math.PI / 180) + ch * Math.sin(7*Math.PI / 180) - cw ) / 2; // find the exceeded width due to rotation on one side
             const isMobile = window.innerWidth <= 768;
 
             if (isMobile) {
                 // Mobile: first card near left edge, rest stacked to the right
                 // Cards use xPercent:-50, so we offset by half width to position near left edge
-                const leftEdgeMargin = 20; // px from left edge
+                const leftEdgeMargin = offSetWidthLeft + marginLeft;
                 const startOffset = -window.innerWidth / 2 + cw / 2 + leftEdgeMargin;
                 // Calculate if all cards can fit with default 70% step
                 let step = cw * 0.70;
@@ -1292,6 +1370,7 @@
                 cards.forEach((el, i) => {
                     const offsetX = startOffset + i * step;
                     el.dataset.offsetX = String(offsetX);
+                    el.dataset.baseOffsetX = String(offsetX); // Store base offset for swipe calculations
                     el.style.zIndex = String(100 - i);
                 });
             } else {
@@ -1324,7 +1403,7 @@
         }
 
         // Initial style for all three groups
-        function setStartState() {
+        function setCardAnimationStartState() {
             // Text: start lower on screen and visible
             gsap.set('#animation .animation-text-wrapper .animation-text', {
                 yPercent: 15,
@@ -1332,19 +1411,24 @@
             });
 
             gsap.set('#animation .animation-text-wrapper .animation-text.top', {
+                yPercent: 0,
                 xPercent: -30
             });
 
             gsap.set('#animation .animation-text-wrapper .animation-text.center', {
+                yPercent: 0,
                 xPercent: 20
             });
 
             gsap.set('#animation .animation-text-wrapper .animation-text.bottom', {
+                yPercent: 0,
                 xPercent: -20
             });
 
             // Image: start hidden, slight downscale
             gsap.set('#animation .animation-image-wrapper img', {
+                xPercent: -50,
+                yPercent: -50,
                 opacity: 0,
                 scale: 0.9
             });
@@ -1369,13 +1453,13 @@
         }
 
         // Build timeline
-        function buildTimeline() {
+        function buildCardAnimationTimeline() {
             // Kill existing ScrollTriggers
             ScrollTrigger.getById('animation-timeline')?.kill();
             ScrollTrigger.getById('animation-pin')?.kill();
             
             // Clear previous inline pin styles if any
-            gsap.set(sticky, { clearProps: 'all' });
+            gsap.set(animationSticky, { clearProps: 'all' });
             const sectionEl = document.querySelector('#animation');
             
             // Get header height for pin start position
@@ -1397,6 +1481,9 @@
                     invalidateOnRefresh: true,
                     onRefresh: () => {
                         layoutRow();
+                    },
+                    onLeave: () => {
+                        tl.scrollTrigger.disable(false);
                     }
                 }
             });
@@ -1407,12 +1494,16 @@
                 scrollTrigger: {
                     id: 'animation-pin',
                     trigger: sectionEl,
-                    start: 'bottom bottom',  // Animation starts when entering viewport
+                    start: () => {
+                        const header = document.querySelector('.site-header');
+                        const headerH = header ? header.offsetHeight : 0;
+                        return `top +=${headerH}px`; // Start when section top hits bottom of header
+                    },
                     end: () => {
                         return `+=${2500 - stageHeight}`;
                     },
                     scrub: 1,
-                    pin: sticky,
+                    pin: animationSticky,
                     markers: false,
                     invalidateOnRefresh: true,
                     onToggle: (self) => {
@@ -1421,6 +1512,52 @@
                         } else {
                             // Clear styles when leaving active state
                             $('.animation-stage').css('position', '');
+                        }
+                    },
+                    onLeave: () => {
+                        // Get current scroll position and pin-spacer info
+                        const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+                        const pinSpacer = document.querySelector('.pin-spacer-animation-pin');
+                        const animSection = document.querySelector('#animation');
+                        
+                        if (pinSpacer && animSection) {
+                            // Get the old height before changes
+
+                            tl.progress(1); // Ensure timeline is at end state
+
+                            const oldHeight = pinSpacer.offsetHeight;
+                            
+                            // Disable the pin ScrollTrigger
+                            pin.scrollTrigger.disable(false);
+                            
+                            // Get the natural height of the animation section
+                            const naturalHeight = animSection.offsetHeight;
+                            
+                            // Calculate height difference
+                            const heightDiff = oldHeight - naturalHeight;
+                            
+                            // Adjust pin-spacer to natural height
+                            pinSpacer.style.height = naturalHeight + 'px';
+                            pinSpacer.style.padding = '0px';
+                            
+                            // Adjust scroll position to compensate for height change
+                            // This prevents the visual jump
+                            const newScroll = currentScroll - heightDiff;
+                            window.scrollTo(0, Math.max(0, newScroll));
+
+                            // Fight mobile momentum scroll
+                            if( window.innerWidth <= 768 ){
+                                fightCardMomentumScroll();
+                            }else{
+                                // For non-mobile, init discover animation
+                                ScrollTrigger.getById('discover-pin')?.kill();
+                                window.discoverAnimationFunctions.setStartState();
+                                window.discoverAnimationFunctions.buildTimeline();
+                            }
+                            
+                            // Clear any transform properties on the sticky element
+                            gsap.set(animationSticky, { clearProps: 'transform' });
+                            
                         }
                     }
                 }
@@ -1459,7 +1596,7 @@
             // 2) CARDS: after text completes, stack into place sequentially
             tl.to(cards, {
                 x: (i, el) => parseFloat(el.dataset.offsetX || '0'),
-                y: '2vh',
+                y: 0,
                 rotation: (i) => (i % 2 ? 7 : -7),
                 scale: 1,
                 opacity: 1,
@@ -1486,12 +1623,225 @@
             // 5) do nothing for a while to allow lingering view
             tl.to('#animation .animation-button-wrapper button', {
             }, 'text+=2.5');
+            
+            // Enable swipe on mobile after animation completes
+            const isMobile = window.innerWidth <= 768;
+            if (isMobile) {
+                tl.call(() => {
+                    swipeEnabled = true;
+                }, null, 'text+=2.5');
+            }
 
         }
 
+        function fightCardMomentumScroll() {
+            let lastScrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            let momentumTimeout = null;
+            let isLocked = true;
+            let touchEndReceived = false;
+            
+            // Check if user is currently touching after a short delay
+            // If no touchend after 50ms, assume momentum scroll (finger already gone)
+            const initialTouchCheck = setTimeout(() => {
+                if (!touchEndReceived) {
+                    // Enable timeout-based release for momentum
+                }
+            }, 50);
+            
+            // Store reference to scroll handler so we can remove it later
+            const scrollLockHandler = () => {
+                window.scrollTo(0, lastScrollTop);
+                $('.animation-stage').css('position', 'fixed');
+                $('.animation-stage').css('bottom', '0');
+                $('.animation-stage').css('z-index', '9');
+                
+                // Always reset timeout - will auto-release when momentum stops
+                // But only if touchend hasn't been received yet (pure momentum case)
+                if (!touchEndReceived) {
+                    clearTimeout(momentumTimeout);
+                    momentumTimeout = setTimeout(() => {
+                        if (isLocked) {
+                            releaseLock();
+                        }
+                    }, 150);
+                }
+            };
+            
+            // Release lock when user lifts finger or momentum stops
+            const releaseLock = () => {
+                if (!isLocked) return; // Prevent multiple calls
+                isLocked = false;
+                
+                clearTimeout(initialTouchCheck);
+                clearTimeout(momentumTimeout);
+                window.removeEventListener('scroll', scrollLockHandler);
+                document.removeEventListener('touchend', onTouchEnd);
+                document.removeEventListener('touchcancel', onTouchEnd);
+                
+                $('.animation-stage').css('position', '');
+                $('.animation-stage').css('bottom', '');
+                $('.animation-stage').css('z-index', '');
+                
+                ScrollTrigger.getById('discover-pin')?.kill();
+                window.discoverAnimationFunctions.setStartState();
+                window.discoverAnimationFunctions.buildTimeline();
+                
+            };
+            
+            // Called when user lifts finger
+            const onTouchEnd = () => {
+                touchEndReceived = true;
+                clearTimeout(initialTouchCheck);
+                releaseLock();
+            };
+            
+            // Activate scroll lock
+            window.addEventListener('scroll', scrollLockHandler);
+            
+            // Release on touch end (user lifts finger)
+            document.addEventListener('touchend', onTouchEnd, { once: true });
+            document.addEventListener('touchcancel', onTouchEnd, { once: true });
+        }
+        
+        // Mobile swipe functionality
+        function handleDragMove(currentX) {
+            const isMobile = window.innerWidth <= 768;
+            if (!isMobile || !swipeEnabled || !isDragging) return;
+            
+            // Calculate drag offset from start position
+            dragOffset = currentX - touchStartX;
+            
+            // Apply real-time position updates
+            cards.forEach((el, i) => {
+                const baseOffset = parseFloat(el.dataset.baseOffsetX || '0');
+                const cw = cards[0].offsetWidth;
+                const step = cw * 0.70;
+                const currentSwipeOffset = -currentCardIndex * step;
+                const newX = baseOffset + currentSwipeOffset + dragOffset;
+                
+                // Update position immediately without animation for smooth dragging
+                gsap.set(el, {
+                    x: newX
+                });
+            });
+        }
+        
+        function findNearestCard() {
+            const isMobile = window.innerWidth <= 768;
+            if (!isMobile) return currentCardIndex;
+            
+            const cw = cards[0].offsetWidth;
+            const step = cw * 0.70;
+            const screenCenter = 0; // Center is at x=0 due to xPercent:-50
+            
+            // Calculate which card is closest to center based on total movement
+            const totalOffset = -currentCardIndex * step + dragOffset;
+            const estimatedIndex = Math.round(-totalOffset / step);
+            
+            // Clamp to valid range
+            return Math.max(0, Math.min(cards.length - 1, estimatedIndex));
+        }
+        
+        function handleSwipeEnd() {
+            const isMobile = window.innerWidth <= 768;
+            if (!isMobile || !swipeEnabled) return;
+            
+            // Find the nearest card to center and snap to it
+            const nearestIndex = findNearestCard();
+            currentCardIndex = nearestIndex;
+            
+            // Reset drag offset
+            dragOffset = 0;
+            
+            // Animate to the centered position
+            updateCardPositions(true);
+        }
+        
+        function updateCardPositions(animate = true) {
+            const isMobile = window.innerWidth <= 768;
+            if (!isMobile) return;
+            
+            const cw = cards[0].offsetWidth;
+            const step = cw * 0.70;
+            const swipeOffset = -currentCardIndex * step;
+            
+            cards.forEach((el, i) => {
+                const baseOffset = parseFloat(el.dataset.baseOffsetX || '0');
+                const newX = baseOffset + swipeOffset;
+                
+                if (animate) {
+                    // Animate card positions with GSAP for smooth transition
+                    gsap.to(el, {
+                        x: newX,
+                        duration: 0.4,
+                        ease: 'power2.out'
+                    });
+                } else {
+                    // Set immediately without animation
+                    gsap.set(el, {
+                        x: newX
+                    });
+                }
+                
+                // Update z-index to bring current card forward
+                const zIndex = i === currentCardIndex ? 200 : (100 - i);
+                el.style.zIndex = String(zIndex);
+            });
+        }
+        
+        // Touch event listeners for mobile swipe
+        function initSwipeListeners() {
+            const cardsLayer = document.querySelector('#animation .animation-cards-layer');
+            if (!cardsLayer) return;
+            
+            cardsLayer.addEventListener('touchstart', (e) => {
+                const isMobile = window.innerWidth <= 768;
+                if (!isMobile || !swipeEnabled) return;
+                
+                touchStartX = e.touches[0].clientX;
+                touchEndX = touchStartX;
+                isDragging = true;
+                dragOffset = 0;
+                
+                // Store initial positions
+                cards.forEach((el, i) => {
+                    const baseOffset = parseFloat(el.dataset.baseOffsetX || '0');
+                    const cw = cards[0].offsetWidth;
+                    const step = cw * 0.70;
+                    const currentSwipeOffset = -currentCardIndex * step;
+                    initialCardPositions[i] = baseOffset + currentSwipeOffset;
+                });
+            }, { passive: true });
+            
+            cardsLayer.addEventListener('touchmove', (e) => {
+                const isMobile = window.innerWidth <= 768;
+                if (!isMobile || !swipeEnabled || !isDragging) return;
+                
+                touchEndX = e.touches[0].clientX;
+                handleDragMove(touchEndX);
+            }, { passive: true });
+            
+            cardsLayer.addEventListener('touchend', (e) => {
+                const isMobile = window.innerWidth <= 768;
+                if (!isMobile || !swipeEnabled || !isDragging) return;
+                
+                isDragging = false;
+                handleSwipeEnd();
+            }, { passive: true });
+            
+            cardsLayer.addEventListener('touchcancel', (e) => {
+                const isMobile = window.innerWidth <= 768;
+                if (!isMobile || !swipeEnabled || !isDragging) return;
+                
+                isDragging = false;
+                handleSwipeEnd();
+            }, { passive: true });
+        }
+
         layoutRow();
-        setStartState();
-        buildTimeline();
+        setCardAnimationStartState();
+        buildCardAnimationTimeline();
+        initSwipeListeners();
         // Set initial dynamic height once ScrollTrigger exists
         // updateAnimationSectionHeight();
 
@@ -1504,10 +1854,14 @@
                 ScrollTrigger.getById('animation-timeline')?.kill();
                 ScrollTrigger.getById('animation-pin')?.kill();
                 
+                // Reset swipe state on resize
+                currentCardIndex = 0;
+                swipeEnabled = false;
+                
                 // Recalculate layout and rebuild both timeline and pin
                 layoutRow();
-                setStartState();
-                buildTimeline();
+                setCardAnimationStartState();
+                buildCardAnimationTimeline();
             }, 150);
         });
     });
@@ -1542,8 +1896,8 @@
         ScrollTrigger.normalizeScroll(true);
         ScrollTrigger.config({ ignoreMobileResize: true });
 
-        const sticky = document.querySelector('#discover');
-        if (!sticky) return;
+        const discoverSticky = document.querySelector('#discover');
+        if (!discoverSticky) return;
         const clipRect = document.querySelector('#discoverClipRect');
         const clipRectMobile = document.querySelector('#discoverClipRectMobile');
         if (!clipRect || !clipRectMobile) return;
@@ -1608,8 +1962,8 @@
         }
 
         function applyDiscoverLayout(geom) {
-            const background = sticky.querySelector('.discover-background');
-            const imgBackground = sticky.querySelector('.discover-image-background');
+            const background = discoverSticky.querySelector('.discover-background');
+            const imgBackground = discoverSticky.querySelector('.discover-image-background');
             const isMobile = window.innerWidth <= 768;
             
             if (background) {
@@ -1650,7 +2004,7 @@
         }
 
         // Initial style for all three groups
-        function setStartState() {
+        function setDiscoverStartState() {
             discoverGeom = refreshDiscoverGeometry();
 
             gsap.set('#discover .discover-background', {
@@ -1660,12 +2014,7 @@
             });
 
             gsap.set('#discover .discover-content .discover-dot', {
-                yPercent: -50,
-                xPercent: -50,
-                x:0,
-                y: -30,
-                opacity: 0,
-                scale: 14,
+                opacity: 0
             });
 
             gsap.set('#discover .discover-content .discover-text', {
@@ -1711,7 +2060,7 @@
         }
 
         // Build timeline
-        function buildTimeline() {
+        function buildDiscoverTimeline() {
             const sectionEl = document.querySelector('#discover');
             var discoverGeom = refreshDiscoverGeometry();
             const tl = gsap.timeline({
@@ -1726,11 +2075,52 @@
                     },
                     end: '+=400%',
                     scrub: 1,
-                    pin: sticky,
+                    pin: discoverSticky,
                     anticipatePin: 1,
                     markers: false,
                     invalidateOnRefresh: true,
                     onRefresh: refreshDiscoverGeometry,
+                    onLeave: () => {
+                        // Force timeline to complete to end position (progress = 1)
+                        // This ensures animation finishes even if scrolled quickly
+                        tl.progress(1);
+                        
+                        // Get current scroll position and pin-spacer info
+                        const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+                        const pinSpacer = document.querySelector('.pin-spacer-discover-pin');
+                        const discoverSection = document.querySelector('#discover');
+                        
+                        if (pinSpacer && discoverSection) {
+                            // Get the old height before changes
+                            const oldHeight = pinSpacer.offsetHeight;
+                            
+                            // Disable the pin ScrollTrigger
+                            tl.scrollTrigger.disable(false);
+                            
+                            // Get the natural height of the discover section
+                            const naturalHeight = discoverSection.offsetHeight;
+                            
+                            // Calculate height difference
+                            const heightDiff = oldHeight - naturalHeight;
+                            
+                            // Adjust pin-spacer to natural height
+                            pinSpacer.style.height = naturalHeight + 'px';
+                            pinSpacer.style.padding = '0px';
+                            
+                            // Adjust scroll position to compensate for height change
+                            // This prevents the visual jump
+                            const newScroll = currentScroll - heightDiff;
+                            window.scrollTo(0, Math.max(0, newScroll));
+                            
+                            // Fight mobile momentum scroll
+                            if( window.innerWidth <= 768 ){
+                                fightDiscoverMomentumScroll();
+                            }
+                            
+                            // Clear any transform properties on the sticky element
+                            gsap.set(discoverSticky, { clearProps: 'transform' });
+                        }
+                    }
                 }
             });
             // Sequence label
@@ -1755,17 +2145,16 @@
                 duration: 1,
             }, 'timeline');
 
-            //2 dot appear
+            // 2 dot appear
             tl.to('#discover .discover-content .discover-dot', {
                 opacity: 1,
-                scale: 0.5,
                 ease: 'power4.in',
                 duration: 1.5,
             }, 'timeline+=0.5');
 
             //3 dot grow
             tl.to('#discover .discover-content .discover-dot', {
-                height: '120px',
+                height: '60px',
                 ease: 'power1.in',
                 duration: 1.5,
             }, 'timeline+=2');
@@ -1828,25 +2217,68 @@
 
 
         }
-        setStartState();
-        buildTimeline();
-        
-        // Rebuild on resize
-        let discoverResizeTO;
-        window.addEventListener('resize', () => {
-            clearTimeout(discoverResizeTO);
-            discoverResizeTO = setTimeout(() => {
-                // Kill the existing ScrollTrigger and timeline
-                const existingTrigger = ScrollTrigger.getById('discover-pin');
-                if (existingTrigger) {
-                    existingTrigger.kill();
+
+        function fightDiscoverMomentumScroll() {
+            let lastScrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            let momentumTimeout = null;
+            let isLocked = true;
+            let touchEndReceived = false;
+            
+            // Check if user is currently touching after a short delay
+            // If no touchend after 50ms, assume momentum scroll (finger already gone)
+            const initialTouchCheck = setTimeout(() => {
+                if (!touchEndReceived) {
+                    // Enable timeout-based release for momentum
                 }
+            }, 50);
+            
+            // Store reference to scroll handler so we can remove it later
+            const scrollLockHandler = () => {
+                window.scrollTo(0, lastScrollTop);
                 
-                // Recalculate geometry and rebuild timeline with fresh values
-                setStartState();
-                buildTimeline();
-            }, 150);
-        });
+                // Always reset timeout - will auto-release when momentum stops
+                // But only if touchend hasn't been received yet (pure momentum case)
+                if (!touchEndReceived) {
+                    clearTimeout(momentumTimeout);
+                    momentumTimeout = setTimeout(() => {
+                        if (isLocked) {
+                            releaseLock();
+                        }
+                    }, 150);
+                }
+            };
+            
+            // Release lock when user lifts finger or momentum stops
+            const releaseLock = () => {
+                if (!isLocked) return; // Prevent multiple calls
+                isLocked = false;
+                
+                clearTimeout(initialTouchCheck);
+                clearTimeout(momentumTimeout);
+                window.removeEventListener('scroll', scrollLockHandler);
+                document.removeEventListener('touchend', onTouchEnd);
+                document.removeEventListener('touchcancel', onTouchEnd);
+            };
+            
+            // Called when user lifts finger
+            const onTouchEnd = () => {
+                touchEndReceived = true;
+                clearTimeout(initialTouchCheck);
+                releaseLock();
+            };
+            
+            // Activate scroll lock
+            window.addEventListener('scroll', scrollLockHandler);
+            
+            // Release on touch end (user lifts finger)
+            document.addEventListener('touchend', onTouchEnd, { once: true });
+            document.addEventListener('touchcancel', onTouchEnd, { once: true });
+        }
+        
+        // Expose functions globally for card animation to call
+        window.discoverAnimationFunctions.setStartState = setDiscoverStartState;
+        window.discoverAnimationFunctions.buildTimeline = buildDiscoverTimeline;
+        
     });
     </script>
 
