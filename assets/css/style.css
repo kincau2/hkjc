@@ -3,25 +3,29 @@ html{
     font-size: min(16px, 1.5vw);
 }
 
-    .section-title {
-    font-family: "Noto Sans TC", sans-serif;
+body {
+    font-family: "Noto Sans", "Noto Sans TC", sans-serif;
+}
+
+.section-title {
+    font-family: "Noto Sans", "Noto Sans TC", sans-serif;
     color:#022169;
-    font-size: 50px;
+    font-size: 70px;
     font-weight: 600;
-    line-height: 1.1;
-    margin-bottom: 12px;
+    line-height: 1.2;
+    margin-bottom: 24px;
 }
 
 .section-header {
-    max-width: 950px;
     margin: auto;
     padding: 0 20px;
 }
 
 .section-title-description {
-    font-family: "Noto Sans TC", sans-serif;
+    font-family: "Noto Sans", "Noto Sans TC", sans-serif;
     color:#000;
     font-size: 16px;
+    line-height: 21px;
     font-weight: 300;
     max-width: 600px;
     margin: 0 auto;
@@ -29,9 +33,10 @@ html{
 }
 
 .section-sub-title{
-    font-family: "Noto Sans TC", sans-serif;
+    font-family: "Noto Sans", "Noto Sans TC", sans-serif;
     color:#022169;
-    font-size: 30px;
+    font-size: 34px;
+    line-height: 1.14;
     font-weight: 600;
     margin-bottom: 32px;
 }
@@ -67,6 +72,8 @@ main.main-content {
 
     .section-title {
         font-size: 7vw;
+        margin-bottom: 12px!important;
+
     }
     .section-sub-title{
         font-size: 4.5vw;
@@ -131,12 +138,18 @@ div#mobileNav {
 
 /* ============================= Banner / Swiper Hero Section ============================= */
 
+@media (max-width: 768px){
+    #home-banner {
+        padding: 16px 0 46px 0!important;
+    }
+}
+
 #home-banner {
     position:relative;
     width:100vw;
     height:auto;
     overflow:hidden;
-    padding: 16px 0 46px 0;
+    padding: 24px 0 64px 0;
 }
 
 .home-banner-wrapper {
@@ -178,8 +191,8 @@ div#mobileNav {
     height: 100%;
     left: 0;
     top: 0;
-    border-radius: 24px;
-    background: #1212124d;
+    border-radius: 32px;
+    background: rgb(18 18 18 / 10%);
 }
 
 .swiper-image-overlay .overlay-content {
@@ -200,7 +213,7 @@ a.banner-cta-link {
     text-decoration: unset;
     color: #022169;
     background: #FFF;
-    border-radius: 18px;
+    border-radius: 100px;
     width: 129px;
     height: 40px;
     font-size: 18px;
@@ -255,7 +268,8 @@ a.banner-cta-link {
         padding: 50px;
     }
     .overlay-content h2.section-title {
-        font-size: min(70px, 4.3vw);
+        font-size: 70px;
+        line-height: 1.1;
     }
 }
 
@@ -333,7 +347,7 @@ a.banner-cta-link {
     }
 
     .badge-rank .rank-number  {
-        font-size: 7rem;
+        font-size: 130px;
     }
 
     .badge-rank .specialist-wrapper .specialist-name  {
@@ -345,15 +359,19 @@ a.banner-cta-link {
     }
 
     .stats-box {
-        width: 300px;
-        padding: 12px;
+        width: 318px;
+        padding: 24px;
     }
 
     .metric .label {
-        font-size: 20px;
+        font-size: 21px;
     }
     .metric .value {
-        font-size: 33px;
+        font-size: 42px;
+    }
+    
+    .pick-card {
+        padding: 24px;
     }
 
 }
@@ -406,14 +424,21 @@ a.banner-cta-link {
 
     .stats-box {
         width: 17rem;
+        padding: 24px;
     }
 
     .metric .label {
         font-size: 1.25rem;
     }
+
     .metric .value {
         font-size: 2rem;
     }
+
+    .pick-card {
+        padding: 24px;
+    }
+
 
 }
 
@@ -467,6 +492,7 @@ a.banner-cta-link {
 
     .stats-box {
         width: 30rem;
+        padding: 12px;
     }
 
     .metric .label {
@@ -502,12 +528,26 @@ a.banner-cta-link {
 
     .pick-card {
         width: 300px!important;
+        padding: 12px;
     }
 
     .pick-card .list {
-        font-size: 14px!important;
+        font-size: 16px!important;
+        line-height: 21px!important;
     }
 
+    .pick-card .race-number {
+        font-size: 16px!important;
+        line-height: 21px!important;
+    }
+
+    .pick-card .cta {
+        font-size: 16px!important;
+        line-height: 1.2!important;
+        width: 100px!important;
+        height: 40px!important;
+        margin-left: 10px!important;
+    }
     
 
 
@@ -519,7 +559,7 @@ section#specialists {
 }
 
 .specialists-wrap {
-    font-family: "Noto Sans TC", sans-serif;
+    font-family: "Noto Sans", "Noto Sans TC", sans-serif;
     max-width: 1240px;
     margin: 0 auto;
     padding: 0 20px;
@@ -619,7 +659,6 @@ section#specialists {
     font-weight:800;
     font-style:italic;
     line-height:1;
-    transform: scale(1, 1.2);
 }
 
 .specialist-wrapper{
@@ -632,14 +671,14 @@ section#specialists {
 }
 
 .badge-rank .specialist-wrapper .specialist-name  {
-    font-family: "Noto Sans TC", sans-serif;
+    font-family: "Noto Sans", "Noto Sans TC", sans-serif;
     font-weight:700;
     line-height:1.2;
     text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 .badge-rank .specialist-wrapper .specialist-title  {
-    font-family: "Noto Sans TC", sans-serif;
+    font-family: "Noto Sans", "Noto Sans TC", sans-serif;
     font-weight:500;
     line-height:1.2;
     text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
@@ -666,7 +705,6 @@ section#specialists {
 
 .stats-box {
     background:#fff;
-    padding: 12px;
     color:#001b44;
     height: fit-content;
     opacity:0;
@@ -685,31 +723,41 @@ section#specialists {
 
 .metric{
     color:#022169;
+    gap: 4px;
+}
+
+.metric .label {
+    font-weight:medium;
+    line-height: 1.23;
 }
 
 .metric .value {
-    font-weight:800;
+    font-weight:bold;
+    line-height: 1.2;
 }
 
 .race-chip {
+    margin-top: 12px;
+    height: 48px;
     display: flex;
     justify-content: center;
     align-items: center;
-    gap:8px;
-    background:#eaf2ff;
-    color:#003c84;
-    border-radius:50px;
-    padding:8px 12px;
-    font-weight:600;
+    gap: 8px;
+    background: #eaf2ff;
+    color: #003c84;
+    border-radius: 50px;
+    font-weight: 600;
 }
 
 .race-chip .text{
-    margin-top:-3px;
-    color:#000;
+    margin-top: -3px;
+    color: #000;
+    font-size: 21px;
+    line-height: 26px;
 }
 
-.race-chip  img{
-    width: 18px;
+.race-chip img{
+    width: 32px;
     height: auto;
 }
 
@@ -730,19 +778,20 @@ section#specialists {
     box-shadow: 0 3px 10px rgba(0, 0, 0, .15);
     text-align:left;
     height: 100%;
-    width: 335px;
-    padding: 12px;
+    width: 457px;
     border-radius: 15px;
 }
 
 .pick-card .race-number {
-    font-size: 16px;
-    font-weight:700;
+    font-size: 21px;
+    line-height: 26px;
+    font-weight:bold;
     margin:0 0 4px;
 }
 
 .pick-card .meta {
-    font-size:14px;
+    font-size: 16px;
+    line-height: 21px;
     color:#000;
 }
 
@@ -751,26 +800,34 @@ section#specialists {
 }
 .pick-card .list {
     margin:0;
-    padding-left: 18px;
-    font-weight:800;
-    font-size: 16px;
+    font-size: 21px;
+    line-height: 26px;
+    font-weight:bold;
     color:#022169;
 }
+
 .pick-card .cta {
-    padding:6px 0px;
+    height:50px;
+    width:133px;
     border-radius:50px;
     background:#fecf13;
-    color:#111;
-    font-size: 15px;
+    color:#000000;
+    font-size: 21px;
+    line-height: 26px;
     font-weight:400;
+    margin-left:24px;
     border:0;
-    width: 100px;
-    height: 40px;
 }
+
 .pick-card .type {
-    font-size: 14px;
-    font-weight: 800;
+    font-size: 16px;
+    line-height: 21px;
+    font-weight: bold;
     color: #000;
+}
+
+.pick-card .list p {
+    margin: unset;
 }
 
 /* ============================= Picks Swiper ============================= */
@@ -820,15 +877,28 @@ section#specialists {
 
     .mspec-quote{
         font-size: 16px!important;
-        line-height: 24px!important;
+        line-height: 21px!important;
+    }
+
+    .mspec-quote-wrapper {
+        max-width: 100vw!important;
+        padding: 20px 20px 0 20px!important;
+    }
+    section#specialists-second {
+        margin-bottom: 46px!important;
+    }
+
+    .hkjc-outline-button {
+        font-size: 16px!important;
+        line-height: 1.2!important;
+        padding: 12px 24px;
     }
 
 }
 
 section#specialists-second {
+    margin-bottom: 64px;
     overflow-x: hidden;
-    max-width: 100vw;
-    margin-bottom: 46px;
 }
 
 .more-specialists-wrap {
@@ -879,14 +949,14 @@ section#specialists-second {
 
 .mspec-quote-wrapper {
     max-width: 100vw;
-    padding: 20px 20px 0 20px;
+    padding: 32px 32px 0 32px;
 }
 
 .mspec-quote{
-    font-family: "Noto Sans TC", sans-serif;
+    font-family: "Noto Sans", "Noto Sans TC", sans-serif;
     color:#000;
-    font-size: 20px;
-    line-height: 30px;
+    font-size: 24px;
+    line-height: 28px;
     font-weight: 400;
     margin: 0 auto;
     max-width: 650px;
@@ -896,13 +966,17 @@ section#specialists-second {
 
 .hkjc-outline-button {
     background: transparent;
-    font-family: "Noto Sans TC", sans-serif;
-    font-size: 18px;
-    width: 150px;
-    height: 40px;
+    font-family: "Noto Sans", "Noto Sans TC", sans-serif;
+    font-size: 21px;
+    line-height: 26px;
     font-weight: 400;
-    border-radius: 30px;
-    padding: unset;
+    padding: 12px 24px;
+    border-radius: 50px;
+}
+
+.hkjc-outline-button a{
+    text-decoration: none;
+    color: inherit;
 }
 
 .button-blue{
@@ -952,14 +1026,14 @@ section#specialists-second {
     transition: all 0.6s;
 }
 .mspec-name { 
-    font-family: "Noto Sans TC", sans-serif;
+    font-family: "Noto Sans", "Noto Sans TC", sans-serif;
     font-weight: 700;
     font-size: 30px;
     line-height: 1.2;
     text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
 }
 .mspec-title { 
-    font-family: "Noto Sans TC", sans-serif;
+    font-family: "Noto Sans", "Noto Sans TC", sans-serif;
     font-weight: 500;
     font-size: 20px;
     line-height: 1.2;
@@ -987,8 +1061,7 @@ section#specialists-second {
     }
 
     .animation-text-wrapper .animation-text {
-        font-size: calc( (100vh - 55px)/3 )!important;
-        line-height: calc( (100vh - 55px)/3 )!important;
+        font-size: calc( (100vh - 95px)/3 )!important;
     }
 
 }
@@ -1023,10 +1096,10 @@ section#specialists-second {
 
 .animation-image-wrapper img {
     position: absolute;
-    top: 80px;
+    top: 50px;
     left: 50%;      
     transform: translate(-50%, -50%);
-    width: min(300px,29vw);
+    width: min(200px,29vw);
     height: auto;
 }
 
@@ -1042,22 +1115,25 @@ section#specialists-second {
 }
 .animation-text-wrapper {
     inset: 0;
-    display: grid;
-    place-items: center;
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+    justify-content: center;
     pointer-events: none;
     z-index: 0;
 }
 .animation-text-wrapper .animation-text {
     font-family: "Chromatica", sans-serif;
     font-weight: 900;
-    font-size: calc( (100vh - 90px)/3 );
+    font-size: calc( (100vh - 130px)/3 );
     letter-spacing: 3px;
-    line-height: calc( (100vh - 90px)/3 );
+    line-height: 1;
     opacity: 0.08;
     text-align: center;
     user-select: none;
     transform: translateZ(0);
     will-change: transform, opacity;
+    white-space: nowrap;
 }
 .animation-text-wrapper .animation-text.top{
     color: #022169;
@@ -1080,7 +1156,7 @@ section#specialists-second {
     transform: translate(-50%, -50%);
     width: auto;
     height: calc(100vh - 90px - 350px);
-    height: calc(var(--vh, 1vh) * 100 - 90px - 350px);
+    height: calc(var(--vh, 1vh) * 100 - 90px - 230px);
     max-height: 500px;
     aspect-ratio: 9 / 16; /* portrait like phone */
     border-radius: 24px;
@@ -1139,7 +1215,7 @@ section#specialists-second {
 }
 
 .media-card .info-box .video-tag-wrapper span.video-tag {
-    font-family: "Noto Sans TC", sans-serif;
+    font-family: "Noto Sans", "Noto Sans TC", sans-serif;
     color: #FFF;
     font-size: 13px;
     font-weight: 600;
@@ -1150,7 +1226,7 @@ section#specialists-second {
 }
 
 .media-card p.video-title {
-    font-family: "Noto Sans TC", sans-serif;
+    font-family: "Noto Sans", "Noto Sans TC", sans-serif;
     color: #FFF;
     font-size: 16px;
     font-weight: 600;
@@ -1159,7 +1235,7 @@ section#specialists-second {
 
 .animation-button-wrapper button{
     position: absolute;
-    bottom: 30px;
+    bottom: 15px;
     left: 50%;
     transform: translate(-50%, -50%);
     opacity: 0;
@@ -1313,7 +1389,7 @@ p.discover-text {
     margin: unset;
     text-align: center;
     color: #FFF;
-    font-family: "Noto Sans TC", sans-serif;
+    font-family: "Noto Sans", "Noto Sans TC", sans-serif;
     font-size: 16px;
 }
 
@@ -1360,7 +1436,7 @@ p.discover-dot {
 }
 
 p.post-excerpt {
-    font-family: "Noto Sans TC", sans-serif;
+    font-family: "Noto Sans", "Noto Sans TC", sans-serif;
     font-size: 12px;
     font-weight: 300;  
 }
@@ -1432,6 +1508,13 @@ img.right-vector {
     flex:1;
 }
 
+.post-wrapper.first {
+    justify-content: flex-end;
+}
+.post-wrapper.second {
+    justify-content: flex-start;
+}
+
 .post-wrapper .hkjc-outline-button {
     padding: 6px 20px;
     font-size: 16px;
@@ -1453,7 +1536,7 @@ img.right-vector {
 /* ============================= Footer ============================= */
 
 p.footer-text, .footer-list {
-    font-family: "Noto Sans TC", sans-serif;
+    font-family: "Noto Sans", "Noto Sans TC", sans-serif;
     margin: unset;
     font-size: 13px;
     color: #000;
