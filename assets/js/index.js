@@ -237,7 +237,7 @@ $(document).ready(function() {
             const slide = this;
             const raw = slide.progress || 0;
             const p = Math.abs(raw);
-            const reduce = Math.min(0.30, 0.15 * p);
+            const reduce = Math.min(0.40, 0.25 * p);
             const scale = 1 - reduce;
             const $slide = $(slide);
             
@@ -765,18 +765,6 @@ $(function() {
         }, 150);
     });
 });
-
-// =============================================================================
-// VIDEO POPUP
-// =============================================================================
-
-// Initialize video popup
-var videoPop = new VideoPopup();
-
-// Function to open video popup
-function openPopup(i) {
-    videoPop.open(i);
-}
 
 // =============================================================================
 // DISCOVER ANIMATION SECTION (GSAP + ScrollTrigger)

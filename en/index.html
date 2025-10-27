@@ -1089,15 +1089,45 @@
         };
         
 
-    var videoPop = new VideoPopup(); 
+        // Video list for educational content (Traditional Chinese)
+        var videoPop = new VideoPopup(); 
+        videoPop.videoList = [ 
+            {
+                link:'https://streaminghkjc-a.akamaihd.net/hdflash/dei-content007/2025/20250905/racingacademyep1/chi/dei-content007_20250905_racingacademyep1_chi_2500kbps.mp4',
+                thumbnail:'../assets/images/edu_area_video1.jpg',
+                title:'由零開始新手上路！2分鐘學識四大基本彩池',
+                description:'由香港體育評述員鍾志光淺淡香港賽馬「平分彩金」制度，以及賠率變化的啟示；然後介紹四大基本彩池，並提供新手兩大揀馬貼士。'
+            },
+            {
+                link:'https://streaminghkjc-a.akamaihd.net/hdflash/dei-content007/2025/20250912/racingacademyep2/chi/dei-content007_20250912_racingacademyep2_chi_2500kbps.mp4',
+                thumbnail:'../assets/images/edu_area_video2.jpg',
+                title:'揀馬毋須左度右度！排位表兩大因素篩選機會馬',
+                description:'由香港體育評述員鍾志光，教你如何使用排位表自己度馬。影片將介紹兩大最入門因素，包括「6次近績」及「騎師」，對新手揀馬有何啟示。'
+            },
+            {
+                link:'https://streaminghkjc-a.akamaihd.net/hdflash/dei-content007/2025/20250919/racingacademyep4/chi/dei-content007_20250919_racingacademyep4_chi_2500kbps.mp4',
+                thumbnail:'../assets/images/edu_area_video3.jpg',
+                title:'排位表度馬攻略！一眼睇晒重點賽事資訊',
+                description:'由香港體育評述員鍾志光教你學識睇負磅及評分。'
+            },
+            {
+                link:'https://streaminghkjc-a.akamaihd.net/hdflash/dei-content003/2025/20250623/education-14-stevan/dei-content003_20250623_education-14-stevan_2500kbps.mp4',
+                thumbnail:'../assets/images/edu_area_video4.jpg',
+                title:'Stevan 教你三大揀頭馬法則！天時 x 地利 x 人和',
+                description:'世一分析師 Stevan 教你揀頭馬三大黃金法則——「查天氣、看場地、計騎練」。天時、地利、人和皆有數據可尋！'
+            },
+            {
+                link:'https://streaminghkjc-a.akamaihd.net/hdflash/dei-content003/2025/20250310/education-10-lingling/dei-content003_20250310_education-10-lingling_2500kbps.mp4',
+                thumbnail:'../assets/images/edu_area_video5.jpg',
+                title:'Ling Ling 教你季初、中、尾三個揀馬關鍵字！',
+                description:'馬季不同階段均有不同的度馬指南，緊記「經驗」、「實力」、「體力」三大關鍵字。'
+            }
+        ]; 
 
-	videoPop.videoList = [ 
-	{link:'https://streaminghkjc-a.akamaihd.net/hdflash/dei-content007/2025/20250905/racingacademyep1/chi/dei-content007_20250905_racingacademyep1_chi_2500kbps.mp4',thumbnail:'../assets/images/edu_area_video1.jpg',title:'<p class="video-title">由零開始新手上路！2分鐘學識四大基本彩池</p>由香港體育評述員鍾志光淺淡香港賽馬「平分彩金」制度，以及賠率變化的啟示；然後介紹四大基本彩池，並提供新手兩大揀馬貼士。'},
-	{link:'https://streaminghkjc-a.akamaihd.net/hdflash/dei-content007/2025/20250912/racingacademyep2/chi/dei-content007_20250912_racingacademyep2_chi_2500kbps.mp4',thumbnail:'../assets/images/edu_area_video2.jpg',title:'<p class="video-title">揀馬毋須左度右度！排位表兩大因素篩選機會馬</p>由香港體育評述員鍾志光，教你如何使用排位表自己度馬。影片將介紹兩大最入門因素，包括「6次近績」及「騎師」，對新手揀馬有何啟示。'},
-	{link:'https://streaminghkjc-a.akamaihd.net/hdflash/dei-content007/2025/20250919/racingacademyep4/chi/dei-content007_20250919_racingacademyep4_chi_2500kbps.mp4',thumbnail:'../assets/images/edu_area_video3.jpg',title:'<p class="video-title">排位表度馬攻略！一眼睇晒重點賽事資訊</p>由香港體育評述員鍾志光教你學識睇負磅及評分。'},
-	{link:'https://streaminghkjc-a.akamaihd.net/hdflash/dei-content003/2025/20250623/education-14-stevan/dei-content003_20250623_education-14-stevan_2500kbps.mp4',thumbnail:'../assets/images/edu_area_video4.jpg',title:'<p class="video-title">Stevan 教你三大揀頭馬法則！天時 x 地利 x 人和</p>世一分析師 Stevan 教你揀頭馬三大黃金法則——「查天氣、看場地、計騎練」。天時、地利、人和皆有數據可尋！'},
-	{link:'https://streaminghkjc-a.akamaihd.net/hdflash/dei-content003/2025/20250310/education-10-lingling/dei-content003_20250310_education-10-lingling_2500kbps.mp4',thumbnail:'../assets/images/edu_area_video5.jpg',title:'<p class="video-title">Ling Ling 教你季初、中、尾三個揀馬關鍵字！</p>馬季不同階段均有不同的度馬指南，緊記「經驗」、「實力」、「體力」三大關鍵字。'}
-	]; 
+        // Function to open video popup
+        function openPopup(i) {
+            videoPop.open(i);
+        }
     </script>
 
     <!-- Main JavaScript (All interactive functionality) -->
