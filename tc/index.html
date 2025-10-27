@@ -1,0 +1,2718 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>香港賽馬會</title>
+    <link rel="shortcut icon" href="../assets/images/favicon.ico">
+    <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../assets/css/fontawesome.min.css">
+    <link rel="stylesheet" href="../assets/css/fonts.css">
+    <link rel="stylesheet" href="../assets/css/swiper-bundle.min.css">
+    <!-- <link rel="stylesheet" href="assets/css/aos.css"> -->
+    <link rel="stylesheet" type="text/css" href="../assets/css/slick.css"/>
+	<link rel="stylesheet" type="text/css" href="../assets/css/slick-theme.css"/>
+    <link rel="stylesheet" href="../assets/css/video-popup.css">
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="../assets/js/bootstrap.bundle.min.js"></script>
+    <script src="../assets/js/swiper-bundle.min.js"></script>
+    <!-- <script src="assets/js/aos.js"></script>
+    <script> AOS.init(); </script> -->
+    <script src="../assets/js/gsap.min.js"></script>
+    <script src="../assets/js/ScrollTrigger.min.js"></script>
+	<script type="text/javascript" src="../assets/js/slick.min.js"></script>
+	<script src="../assets/js/video-popup.js"></script> 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100..900&family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+            
+    <!-- Fix for iOS viewport height issue with browser UI -->
+    <script>
+        // Calculate and set actual viewport height as CSS custom property
+        function setViewportHeight() {
+            const vh = window.innerHeight * 0.01;
+            document.documentElement.style.setProperty('--vh', `${vh}px`);
+        }
+        
+        // Set on load
+        setViewportHeight();
+        
+        // Update on resize and orientation change
+        window.addEventListener('resize', setViewportHeight);
+        window.addEventListener('orientationchange', setViewportHeight);
+    </script>
+
+</head>
+
+<body class="bg-white overflow-x-hidden">
+    <header class="bg-white site-header fixed-top border-bottom">
+        <div class="px-5 py-4 container-fluid d-flex justify-content-between align-items-center header-bar">
+            <div class="d-flex align-items-center left-cluster">
+                <div class="logo pe-5 d-flex">
+                    <a href="index.html" class="d-inline-flex align-items-center">
+                        <img class="site-logo d-none d-lg-block" src="../assets/images/logo.png" alt="HKJC Logo">
+                        <img class="site-logo d-block d-lg-none" src="../assets/images/logo-mobile.png" alt="HKJC Logo">
+                    </a>
+                </div>
+                <nav class="main-nav d-none d-lg-flex align-items-center" aria-label="Primary">
+                    <ul class="nav mb-0">
+                        <li class="nav-item first-item-wrapper">
+                            <div class="border-start border-end px-3 me-2">
+                              <a class="nav-link px-2 fw-bold" href="index.html">主頁</a>
+                            </div>
+                        </li>
+                        <li class="nav-item"><a class="nav-link px-3 fw-normal" href="../tc#tipping">揀馬世一</a></li>
+                        <li class="nav-item"><a class="nav-link px-3 fw-normal" href="racing-academy.html">馬上研究所</a></li>
+                        <li class="nav-item"><a class="nav-link px-3 fw-normal" href="discover-highlight.html">馬上發現精選</a></li>
+                        <li class="nav-item"><a class="nav-link px-3 fw-normal" href="index.html#discover">馬場精彩活動</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="d-flex align-items-center">
+                <!-- Desktop language switcher -->
+                <div class="lang d-none d-lg-flex align-items-center desktop-lang dropdown">
+                    <a href="#" class="text-black text-decoration-none d-flex align-items-center lang-switch-link dropdown-toggle" id="langDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                        <img src="../assets/images/icon_lang.svg">
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="langDropdown">
+                        <li><a class="dropdown-item" href="../tc">中文</a></li>
+                        <li><a class="dropdown-item" href="../en">English</a></li>
+                    </ul>
+                </div>
+                <!-- Mobile cluster: language + hamburger -->
+                <div class="d-lg-none d-flex align-items-center justify-content-end mobile-controls ms-3">
+                    <button class="navbar-toggler p-0 border-0 bg-transparent" type="button" data-bs-toggle="collapse" data-bs-target="#mobileNav" aria-controls="mobileNav" aria-expanded="false" aria-label="Toggle navigation" id="mobileNavToggle">
+                        <svg class="hamburger-icon" width="26" height="26" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 6H21" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M3 12H21" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M3 18H21" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        <svg class="close-icon d-none" width="26" height="26" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M6 6L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </button>
+              </div>
+          </div>    
+        </div>
+        <div class="collapse mobile-nav-wrapper border-bottom" id="mobileNav">
+            <div class="lang d-flex d-lg-none align-items-center mobile-lang dropdown">
+                <a href="#" class="text-black text-decoration-none d-flex align-items-center lang-switch-link dropdown-toggle" id="langDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                    <img src="../assets/images/icon_lang.svg">
+                </a>
+                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="langDropdown">
+                    <li><a class="dropdown-item" href="../tc">中文</a></li>
+                    <li><a class="dropdown-item" href="../en">English</a></li>
+                </ul>
+            </div>
+            <div class="container-fiuld p-5 border-top">
+                <nav aria-label="Mobile Primary">
+                    <ul class="nav flex-column">
+                        <li class="nav-item"><a class="nav-link px-2" href="index.html">主頁</a></li>
+                        <li class="nav-item"><a class="nav-link px-2" href="../tc#tipping">揀馬世一</a></li>
+                        <li class="nav-item"><a class="nav-link px-2" href="racing-academy.html">馬上研究所</a></li>
+                        <li class="nav-item"><a class="nav-link px-2" href="discover-highlight.html">馬上發現精選</a></li>
+                        <li class="nav-item"><a class="nav-link px-2" href="index.html#discover">馬場精彩活動</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <!-- Banner Section -->
+        <section class="text-center position-relative z-0 cover-swiper-banner" id="home-banner">
+            <div class="swiper home-banner-wrapper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <div class="swiper-image d-flex align-items-center justify-content-center">
+                            <img src="../assets/images/cover.png" class="desktop-image" alt="Banner Image 1">
+                            <img src="../assets/images/Discover Campaign Site.png" class="mobile-image" alt="Banner Image 1">
+                            <div class="swiper-image-overlay">
+                                <div class="overlay-content">
+                                    <h2 class="section-title text-white">Discover the <br>New Way of<br> Racing</h2>
+                                    <a class="banner-cta-link" href="#">查看更多</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="swiper-image d-flex align-items-center justify-content-center">
+                            <img src="../assets/images/cover.png" class="desktop-image" alt="Banner Image 1">
+                            <img src="../assets/images/Discover Campaign Site.png" class="mobile-image" alt="Banner Image 1">
+                            <div class="swiper-image-overlay">
+                                <div class="overlay-content">
+                                    <h2 class="section-title text-white">Discover the <br>New Way of<br> Racing</h2>
+                                    <a class="banner-cta-link" href="#">查看更多</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="swiper-image d-flex align-items-center justify-content-center">
+                            <img src="../assets/images/cover.png" class="desktop-image" alt="Banner Image 1">
+                            <img src="../assets/images/Discover Campaign Site.png" class="mobile-image" alt="Banner Image 1">
+                            <div class="swiper-image-overlay">
+                                <div class="overlay-content">
+                                    <h2 class="section-title text-white">Discover the <br>New Way of<br> Racing</h2>
+                                    <a class="banner-cta-link" href="#">查看更多</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="swiper-image d-flex align-items-center justify-content-center">
+                            <img src="../assets/images/cover.png" class="desktop-image" alt="Banner Image 1">
+                            <img src="../assets/images/Discover Campaign Site.png" class="mobile-image" alt="Banner Image 1">
+                            <div class="swiper-image-overlay">
+                                <div class="overlay-content">
+                                    <h2 class="section-title text-white">Discover the <br>New Way of<br> Racing</h2>
+                                    <a class="banner-cta-link" href="#">查看更多</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="swiper-image d-flex align-items-center justify-content-center">
+                            <img src="../assets/images/cover.png" class="desktop-image" alt="Banner Image 1">
+                            <img src="../assets/images/Discover Campaign Site.png" class="mobile-image" alt="Banner Image 1">
+                            <div class="swiper-image-overlay">
+                                <div class="overlay-content">
+                                    <h2 class="section-title text-white">Discover the <br>New Way of<br> Racing</h2>
+                                    <a class="banner-cta-link" href="#">查看更多</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Custom dot pagination -->
+                <div class="swiper-pagination banner-pagination"></div>
+            </div>
+        </section>
+        
+        <!-- Specialists Section -->
+        <section id="specialists">
+           <a id="tipping"></a>  
+          <div class="section-header">
+                <div class="text-center mb-4">
+                <h2 class="section-title">前三名「揀馬世一」分析師</h2>
+                <p class="section-title-description">「揀馬世一」分析師提供各場心水選擇*，附有短片分及簡評享揀馬攻略，讓你多角度掌握賽事形勢，一按快速投注^。排行榜記錄「揀馬世一」分析師每月累積命中率、分數及走勢排名，協助你全面分析。</p>
+                </div>
+            </div>
+
+            <div class="position-relative specialists-wrap">
+                <div class="swiper specialists-swiper">
+                    <div class="swiper-wrapper ">
+                        <!-- Specialist 1 -->
+                        <div class="swiper-slide overflow-hidden rounded-4">
+                            <div class="specialist-bg tone-blue z-0 rounded-4 position-absolute bottom-0 start-0"></div>   
+                            <article class="specialist-card d-flex flex-row justify-content-end align-items-end w-100 h-100 ">
+                                <div class="badge-rank z-1 position-absolute text-white d-flex flex-column justify-content-end gap-3">
+                                    <div class="rank-number">1</div>
+                                    <div class="specialist-wrapper">
+                                        <p class="specialist-name mb-1">Elke</p>
+                                        <p class="specialist-title mb-0">命中魔法師</p>
+                                    </div>
+                                </div>
+                                <div class="portrait position-absolute">
+                                  <img src="../assets/images/KOL Image.png" alt="Elke" />
+                                </div>
+                                <div class="stats-box rounded-4 z-1">
+                                    <div class="row g-3 align-items-center p-0 m-0">
+                                        <div class="col-6 p-0 m-0">
+                                            <div class="metric d-flex flex-column"><span class="label">命中率</span><span class="value">50%</span></div>
+                                      </div>
+                                        <div class="col-6 p-0 m-0">
+                                            <div class="metric d-flex flex-column"><span class="label">分數</span><span class="value">59553</span></div>
+                                      </div>
+                                        <div class="col-12 p-0 m-0">
+                                            <div class="race-chip w-100"><img class="icon" src="../assets/images/movie-icon.png" alt="video"> <span class="text">賽日分析影片</span></div>
+                                      </div>
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+                        
+                        <!-- Specialist 3 -->
+                        <div class="swiper-slide overflow-hidden rounded-4">
+                            <div class="specialist-bg tone-pink z-0 rounded-4 position-absolute bottom-0 start-0"></div>
+                            <article class="specialist-card d-flex flex-row justify-content-end align-items-end w-100 h-100 ">
+                                <div class="badge-rank z-1 position-absolute text-white d-flex flex-column justify-content-end gap-3">
+                                    <div class="rank-number">3</div>
+                                    <div class="specialist-wrapper">
+                                        <p class="specialist-name mb-1">Krystal</p>
+                                        <p class="specialist-title mb-0">睇績穩陣姐</p>
+                                    </div>
+                                </div>
+                                <div class="portrait position-absolute">
+                                  <img src="../assets/images/KOL Image-5.png" alt="Krystal" />
+                                </div>
+                                <div class="stats-box rounded-4 z-1">
+                                    <div class="row g-3 align-items-center p-0 m-0">
+                                        <div class="col-6 p-0 m-0">
+                                            <div class="metric d-flex flex-column"><span class="label">命中率</span><span class="value">50%</span></div>
+                                      </div>
+                                        <div class="col-6 p-0 m-0">
+                                            <div class="metric d-flex flex-column"><span class="label">分數</span><span class="value">59553</span></div>
+                                      </div>
+                                        <div class="col-12 p-0 m-0">
+                                            <div class="race-chip w-100"><img class="icon" src="../assets/images/movie-icon.png" alt="video"> <span class="text">賽日分析影片</span></div>
+                                      </div>
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+
+                        <!-- Specialist 2 -->
+                        <div class="swiper-slide overflow-hidden rounded-4">
+                            <div class="specialist-bg tone-amber z-0 rounded-4 position-absolute bottom-0 start-0"></div>
+                            <article class="specialist-card d-flex flex-row justify-content-end align-items-end w-100 h-100 ">
+                                <div class="badge-rank z-1 position-absolute text-white d-flex flex-column justify-content-end gap-3">
+                                    <div class="rank-number">2</div>
+                                    <div class="specialist-wrapper">
+                                        <p class="specialist-name mb-1">KK</p>
+                                        <p class="specialist-title mb-0">連贏少女</p>
+                                    </div>
+                                </div>
+                                <div class="portrait position-absolute">
+                                  <img src="../assets/images/KOL Image-1.png" alt="KK" />
+                                </div>
+                                <div class="stats-box rounded-4 z-1">
+                                    <div class="row g-3 align-items-center p-0 m-0">
+                                        <div class="col-6 p-0 m-0">
+                                            <div class="metric d-flex flex-column"><span class="label">命中率</span><span class="value">50%</span></div>
+                                      </div>
+                                        <div class="col-6 p-0 m-0">
+                                            <div class="metric d-flex flex-column"><span class="label">分數</span><span class="value">59553</span></div>
+                                      </div>
+                                        <div class="col-12 p-0 m-0">
+                                            <div class="race-chip w-100"><img class="icon" src="../assets/images/movie-icon.png" alt="video"> <span class="text">賽日分析影片</span></div>
+                                      </div>
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+
+                        <!-- Specialist 1 -->
+                        <div class="swiper-slide overflow-hidden rounded-4">
+                            <div class="specialist-bg tone-blue z-0 rounded-4 position-absolute bottom-0 start-0"></div>   
+                            <article class="specialist-card d-flex flex-row justify-content-end align-items-end w-100 h-100 ">
+                                <div class="badge-rank z-1 position-absolute text-white d-flex flex-column justify-content-end gap-3">
+                                    <div class="rank-number">1</div>
+                                    <div class="specialist-wrapper">
+                                        <p class="specialist-name mb-1">Elke</p>
+                                        <p class="specialist-title mb-0">命中魔法師</p>
+                                    </div>
+                                </div>
+                                <div class="portrait position-absolute">
+                                  <img src="../assets/images/KOL Image.png" alt="Elke" />
+                                </div>
+                                <div class="stats-box rounded-4 z-1">
+                                    <div class="row g-3 align-items-center p-0 m-0">
+                                        <div class="col-6 p-0 m-0">
+                                            <div class="metric d-flex flex-column"><span class="label">命中率</span><span class="value">50%</span></div>
+                                      </div>
+                                        <div class="col-6 p-0 m-0">
+                                            <div class="metric d-flex flex-column"><span class="label">分數</span><span class="value">59553</span></div>
+                                      </div>
+                                        <div class="col-12 p-0 m-0">
+                                            <div class="race-chip w-100"><img class="icon" src="../assets/images/movie-icon.png" alt="video"> <span class="text">賽日分析影片</span></div>
+                                      </div>
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+                        
+                        <!-- Specialist 3 -->
+                        <div class="swiper-slide overflow-hidden rounded-4">
+                            <div class="specialist-bg tone-pink z-0 rounded-4 position-absolute bottom-0 start-0"></div>
+                            <article class="specialist-card d-flex flex-row justify-content-end align-items-end w-100 h-100 ">
+                                <div class="badge-rank z-1 position-absolute text-white d-flex flex-column justify-content-end gap-3">
+                                    <div class="rank-number">3</div>
+                                    <div class="specialist-wrapper">
+                                        <p class="specialist-name mb-1">Krystal</p>
+                                        <p class="specialist-title mb-0">睇績穩陣姐</p>
+                                    </div>
+                                </div>
+                                <div class="portrait position-absolute">
+                                  <img src="../assets/images/KOL Image-5.png" alt="Krystal" />
+                                </div>
+                                <div class="stats-box rounded-4 z-1">
+                                    <div class="row g-3 align-items-center p-0 m-0">
+                                        <div class="col-6 p-0 m-0">
+                                            <div class="metric d-flex flex-column"><span class="label">命中率</span><span class="value">50%</span></div>
+                                      </div>
+                                        <div class="col-6 p-0 m-0">
+                                            <div class="metric d-flex flex-column"><span class="label">分數</span><span class="value">59553</span></div>
+                                      </div>
+                                        <div class="col-12 p-0 m-0">
+                                            <div class="race-chip w-100"><img class="icon" src="../assets/images/movie-icon.png" alt="video"> <span class="text">賽日分析影片</span></div>
+                                      </div>
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+
+                        <!-- Specialist 2 -->
+                        <div class="swiper-slide overflow-hidden rounded-4">
+                            <div class="specialist-bg tone-amber z-0 rounded-4 position-absolute bottom-0 start-0"></div>
+                            <article class="specialist-card d-flex flex-row justify-content-end align-items-end w-100 h-100 ">
+                                <div class="badge-rank z-1 position-absolute text-white d-flex flex-column justify-content-end gap-3">
+                                    <div class="rank-number">2</div>
+                                    <div class="specialist-wrapper">
+                                        <p class="specialist-name mb-1">KK</p>
+                                        <p class="specialist-title mb-0">連贏少女</p>
+                                    </div>
+                                </div>
+                                <div class="portrait position-absolute">
+                                  <img src="../assets/images/KOL Image-1.png" alt="KK" />
+                                </div>
+                                <div class="stats-box rounded-4 z-1">
+                                    <div class="row g-3 align-items-center p-0 m-0">
+                                        <div class="col-6 p-0 m-0">
+                                            <div class="metric d-flex flex-column"><span class="label">命中率</span><span class="value">50%</span></div>
+                                      </div>
+                                        <div class="col-6 p-0 m-0">
+                                            <div class="metric d-flex flex-column"><span class="label">分數</span><span class="value">59553</span></div>
+                                      </div>
+                                        <div class="col-12 p-0 m-0">
+                                            <div class="race-chip w-100"><img class="icon" src="../assets/images/movie-icon.png" alt="video"> <span class="text">賽日分析影片</span></div>
+                                      </div>
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+
+                        <!-- Specialist 1 -->
+                        <div class="swiper-slide overflow-hidden rounded-4">
+                            <div class="specialist-bg tone-blue z-0 rounded-4 position-absolute bottom-0 start-0"></div>   
+                            <article class="specialist-card d-flex flex-row justify-content-end align-items-end w-100 h-100 ">
+                                <div class="badge-rank z-1 position-absolute text-white d-flex flex-column justify-content-end gap-3">
+                                    <div class="rank-number">1</div>
+                                    <div class="specialist-wrapper">
+                                        <p class="specialist-name mb-1">Elke</p>
+                                        <p class="specialist-title mb-0">命中魔法師</p>
+                                    </div>
+                                </div>
+                                <div class="portrait position-absolute">
+                                  <img src="../assets/images/KOL Image.png" alt="Elke" />
+                                </div>
+                                <div class="stats-box rounded-4 z-1">
+                                    <div class="row g-3 align-items-center p-0 m-0">
+                                        <div class="col-6 p-0 m-0">
+                                            <div class="metric d-flex flex-column"><span class="label">命中率</span><span class="value">50%</span></div>
+                                      </div>
+                                        <div class="col-6 p-0 m-0">
+                                            <div class="metric d-flex flex-column"><span class="label">分數</span><span class="value">59553</span></div>
+                                      </div>
+                                        <div class="col-12 p-0 m-0">
+                                            <div class="race-chip w-100"><img class="icon" src="../assets/images/movie-icon.png" alt="video"> <span class="text">賽日分析影片</span></div>
+                                      </div>
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+                        
+                        <!-- Specialist 3 -->
+                        <div class="swiper-slide overflow-hidden rounded-4">
+                            <div class="specialist-bg tone-pink z-0 rounded-4 position-absolute bottom-0 start-0"></div>
+                            <article class="specialist-card d-flex flex-row justify-content-end align-items-end w-100 h-100 ">
+                                <div class="badge-rank z-1 position-absolute text-white d-flex flex-column justify-content-end gap-3">
+                                    <div class="rank-number">3</div>
+                                    <div class="specialist-wrapper">
+                                        <p class="specialist-name mb-1">Krystal</p>
+                                        <p class="specialist-title mb-0">睇績穩陣姐</p>
+                                    </div>
+                                </div>
+                                <div class="portrait position-absolute">
+                                  <img src="../assets/images/KOL Image-5.png" alt="Krystal" />
+                                </div>
+                                <div class="stats-box rounded-4 z-1">
+                                    <div class="row g-3 align-items-center p-0 m-0">
+                                        <div class="col-6 p-0 m-0">
+                                            <div class="metric d-flex flex-column"><span class="label">命中率</span><span class="value">50%</span></div>
+                                      </div>
+                                        <div class="col-6 p-0 m-0">
+                                            <div class="metric d-flex flex-column"><span class="label">分數</span><span class="value">59553</span></div>
+                                      </div>
+                                        <div class="col-12 p-0 m-0">
+                                            <div class="race-chip w-100"><img class="icon" src="../assets/images/movie-icon.png" alt="video"> <span class="text">賽日分析影片</span></div>
+                                      </div>
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+
+                        <!-- Specialist 2 -->
+                        <div class="swiper-slide overflow-hidden rounded-4">
+                            <div class="specialist-bg tone-amber z-0 rounded-4 position-absolute bottom-0 start-0"></div>
+                            <article class="specialist-card d-flex flex-row justify-content-end align-items-end w-100 h-100 ">
+                                <div class="badge-rank z-1 position-absolute text-white d-flex flex-column justify-content-end gap-3">
+                                    <div class="rank-number">2</div>
+                                    <div class="specialist-wrapper">
+                                        <p class="specialist-name mb-1">KK</p>
+                                        <p class="specialist-title mb-0">連贏少女</p>
+                                    </div>
+                                </div>
+                                <div class="portrait position-absolute">
+                                  <img src="../assets/images/KOL Image-1.png" alt="KK" />
+                                </div>
+                                <div class="stats-box rounded-4 z-1">
+                                    <div class="row g-3 align-items-center p-0 m-0">
+                                        <div class="col-6 p-0 m-0">
+                                            <div class="metric d-flex flex-column"><span class="label">命中率</span><span class="value">50%</span></div>
+                                      </div>
+                                        <div class="col-6 p-0 m-0">
+                                            <div class="metric d-flex flex-column"><span class="label">分數</span><span class="value">59553</span></div>
+                                      </div>
+                                        <div class="col-12 p-0 m-0">
+                                            <div class="race-chip w-100"><img class="icon" src="../assets/images/movie-icon.png" alt="video"> <span class="text">賽日分析影片</span></div>
+                                      </div>
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center my-pick-wrapper">
+                <!--div class="down-icon d-flex flex-column pb-3" style="color: #022169;">
+                    <i class="fa-solid fa-chevron-down" style="font-size: 16px;"></i>
+                    <i class="fa-solid fa-chevron-down" style="font-size: 20px; margin-top: -9px;"></i>
+                </div-->
+                <div class="arrow">
+                    <div class="l-wrapper">
+                      <div class="c-arrow"></div>
+                      <div class="c-arrow"></div>
+                    </div>
+                </div>
+              <h4 class="section-sub-title">我的心水選擇</h4>
+                <div class="swiper picks-swiper overflow-visible">
+                    <div class="swiper-wrapper" id="picksWrapper">
+                        <!-- dynamic pick slides -->
+                    </div>
+                </div>
+          </div>
+      </section>
+        
+        <!-- More Specialists Section -->
+      <section id="specialists-second">
+        <div class="section-header">
+                <div class="text-center mb-4">
+                    <h2 class="section-title mb-3">更多心水選擇</h2>
+                </div>
+          </div>
+          <div class="more-specialists-wrap position-relative">
+                <div class="swiper more-specialists-swiper pb-2">
+                    <div class="swiper-wrapper">
+                        <!-- Sample slides (colors are placeholder tone-*) -->
+                        <div class="swiper-slide">
+                            <a href="https://sh.hkjc.com/d/zh-HK/share/kol-profile/lingling/?cid=OSXXIOA_O2ODiscover_discover-campaignsite_website_image">
+                            <article class="mspec-card">
+                                <div class="mspec-bg tone-purple"></div>
+                                <div class="mspec-text">
+                                    <div class="mspec-name">Ling Ling</div>
+                                    <div class="mspec-title">鐵角公主</div>
+                                </div>
+                                <div class="mspec-avatar"><img src="../assets/images/KOL Image-4.png" alt="Ling Ling"></div>
+                            </article>
+                            </a>
+                        </div>
+                        <div class="swiper-slide">
+                            <a href="https://sh.hkjc.com/d/zh-HK/share/kol-profile/fujai/?cid=OSXXIOA_O2ODiscover_discover-campaignsite_website_image">
+                            <article class="mspec-card">
+                                <div class="mspec-bg tone-green"></div>
+                                <div class="mspec-text">
+                                    <div class="mspec-name">富仔</div>
+                                    <div class="mspec-title">晨操達人</div>
+                                </div>
+                                <div class="mspec-avatar"><img src="../assets/images/KOL Image-2.png" alt="富仔"></div>
+                            </article>
+                            </a>
+                        </div>
+                        <div class="swiper-slide">
+                            <a href="https://sh.hkjc.com/d/zh-HK/share/kol-profile/colette/?cid=OSXXIOA_O2ODiscover_discover-campaignsite_website_image">
+                            <article class="mspec-card">
+                                <div class="mspec-bg tone-gold"></div>
+                                <div class="mspec-text">
+                                    <div class="mspec-name">Colette</div>
+                                    <div class="mspec-title">冷馬獵人</div>
+                                </div>
+                                <div class="mspec-avatar"><img src="../assets/images/KOL Image-3.png" alt="Colette"></div>
+                            </article>
+                            </a>
+                        </div>
+                        <div class="swiper-slide">
+                            <a href="https://sh.hkjc.com/d/zh-HK/share/kol-profile/stevensbros/?cid=OSXXIOA_O2ODiscover_discover-campaignsite_website_image">
+                            <article class="mspec-card">
+                                <div class="mspec-bg tone-slate"></div>
+                                <div class="mspec-text">
+                                    <div class="mspec-name">阿粉知心友</div>
+                                    <div class="mspec-title">評分拆解王</div>
+                                </div>
+                                <div class="mspec-avatar"><img src="../assets/images/KOL Image-6.png" alt="Homan"></div>
+                            </article>
+                            </a>
+                        </div>
+                        <div class="swiper-slide">
+                            <a href="https://sh.hkjc.com/d/zh-HK/share/kol-profile/alex/?cid=OSXXIOA_O2ODiscover_discover-campaignsite_website_image">
+                            <article class="mspec-card">
+                                <div class="mspec-bg tone-teal"></div>
+                                <div class="mspec-text">
+                                    <div class="mspec-name">伍兆銓</div>
+                                    <div class="mspec-title">試閘密探</div>
+                                </div>
+                                <div class="mspec-avatar"><img src="../assets/images/KOL Image-7.png" alt="Kenson"></div>
+                            </article>
+                            </a>
+                        </div>
+                        <div class="swiper-slide">
+                            <a href="https://sh.hkjc.com/d/zh-HK/share/kol-profile/lingling/?cid=OSXXIOA_O2ODiscover_discover-campaignsite_website_image">
+                            <article class="mspec-card">
+                                <div class="mspec-bg tone-purple rounded-4 position-absolute bottom-0 start-0"></div>
+                                <div class="mspec-text">
+                                    <div class="mspec-name">Ling Ling</div>
+                                    <div class="mspec-title">鐵角公主</div>
+                                </div>
+                                <div class="mspec-avatar"><img src="../assets/images/KOL Image-4.png" alt="Ling Ling"></div>
+                            </article>
+                            </a>
+                        </div>
+                        <div class="swiper-slide">
+                            <a href="https://sh.hkjc.com/d/zh-HK/share/kol-profile/fujai/?cid=OSXXIOA_O2ODiscover_discover-campaignsite_website_image">
+                            <article class="mspec-card">
+                                <div class="mspec-bg tone-green"></div>
+                                <div class="mspec-text">
+                                    <div class="mspec-name">富仔</div>
+                                    <div class="mspec-title">晨操達人</div>
+                                </div>
+                                <div class="mspec-avatar"><img src="../assets/images/KOL Image-2.png" alt="富仔"></div>
+                            </article>
+                            </a>
+                        </div>
+                        <div class="swiper-slide">
+                            <a href="https://sh.hkjc.com/d/zh-HK/share/kol-profile/colette/?cid=OSXXIOA_O2ODiscover_discover-campaignsite_website_image">
+                            <article class="mspec-card">
+                                <div class="mspec-bg tone-gold"></div>
+                                <div class="mspec-text">
+                                    <div class="mspec-name">Colette</div>
+                                    <div class="mspec-title">冷馬獵人</div>
+                                </div>
+                                <div class="mspec-avatar"><img src="../assets/images/KOL Image-3.png" alt="Colette"></div>
+                            </article>
+                            </a>
+                        </div>
+                        <div class="swiper-slide">
+                            <a href="https://sh.hkjc.com/d/zh-HK/share/kol-profile/stevensbros/?cid=OSXXIOA_O2ODiscover_discover-campaignsite_website_image">
+                            <article class="mspec-card">
+                                <div class="mspec-bg tone-slate"></div>
+                                <div class="mspec-text">
+                                    <div class="mspec-name">阿粉知心友</div>
+                                    <div class="mspec-title">評分拆解王</div>
+                                </div>
+                                <div class="mspec-avatar"><img src="../assets/images/KOL Image-6.png" alt="Homan"></div>
+                            </article>
+                            </a>
+                        </div>
+                        <div class="swiper-slide">
+                            <a href="https://sh.hkjc.com/d/zh-HK/share/kol-profile/alex/?cid=OSXXIOA_O2ODiscover_discover-campaignsite_website_image">
+                            <article class="mspec-card">
+                                <div class="mspec-bg tone-teal"></div>
+                                <div class="mspec-text">
+                                    <div class="mspec-name">伍兆銓</div>
+                                    <div class="mspec-title">試閘密探</div>
+                                </div>
+                                <div class="mspec-avatar"><img src="../assets/images/KOL Image-7.png" alt="Kenson"></div>
+                            </article>
+                            </a>
+                        </div>
+                        <div class="swiper-slide">
+                            <a href="https://sh.hkjc.com/d/zh-HK/share/kol-profile/lingling/?cid=OSXXIOA_O2ODiscover_discover-campaignsite_website_image">
+                            <article class="mspec-card">
+                                <div class="mspec-bg tone-purple rounded-4 position-absolute bottom-0 start-0"></div>
+                                <div class="mspec-text">
+                                    <div class="mspec-name">Ling Ling</div>
+                                    <div class="mspec-title">鐵角公主</div>
+                                </div>
+                                <div class="mspec-avatar"><img src="../assets/images/KOL Image-4.png" alt="Ling Ling"></div>
+                            </article>
+                            </a>
+                        </div>
+                        <div class="swiper-slide">
+                            <a href="https://sh.hkjc.com/d/zh-HK/share/kol-profile/fujai/?cid=OSXXIOA_O2ODiscover_discover-campaignsite_website_image">
+                            <article class="mspec-card">
+                                <div class="mspec-bg tone-green"></div>
+                                <div class="mspec-text">
+                                    <div class="mspec-name">富仔</div>
+                                    <div class="mspec-title">晨操達人</div>
+                                </div>
+                                <div class="mspec-avatar"><img src="../assets/images/KOL Image-2.png" alt="富仔"></div>
+                            </article>
+                            </a>
+                        </div>
+                        <div class="swiper-slide">
+                            <a href="https://sh.hkjc.com/d/zh-HK/share/kol-profile/colette/?cid=OSXXIOA_O2ODiscover_discover-campaignsite_website_image">
+                            <article class="mspec-card">
+                                <div class="mspec-bg tone-gold"></div>
+                                <div class="mspec-text">
+                                    <div class="mspec-name">Colette</div>
+                                    <div class="mspec-title">冷馬獵人</div>
+                                </div>
+                                <div class="mspec-avatar"><img src="../assets/images/KOL Image-3.png" alt="Colette"></div>
+                            </article>
+                            </a>
+                        </div>
+                        <div class="swiper-slide">
+                            <a href="https://sh.hkjc.com/d/zh-HK/share/kol-profile/stevensbros/?cid=OSXXIOA_O2ODiscover_discover-campaignsite_website_image">
+                            <article class="mspec-card">
+                                <div class="mspec-bg tone-slate"></div>
+                                <div class="mspec-text">
+                                    <div class="mspec-name">阿粉知心友</div>
+                                    <div class="mspec-title">評分拆解王</div>
+                                </div>
+                                <div class="mspec-avatar"><img src="../assets/images/KOL Image-6.png" alt="Homan"></div>
+                            </article>
+                            </a>
+                        </div>
+                        <div class="swiper-slide">
+                            <a href="https://sh.hkjc.com/d/zh-HK/share/kol-profile/alex/?cid=OSXXIOA_O2ODiscover_discover-campaignsite_website_image">
+                            <article class="mspec-card">
+                                <div class="mspec-bg tone-teal"></div>
+                                <div class="mspec-text">
+                                    <div class="mspec-name">伍兆銓</div>
+                                    <div class="mspec-title">試閘密探</div>
+                                </div>
+                                <div class="mspec-avatar"><img src="../assets/images/KOL Image-7.png" alt="Kenson"></div>
+                            </article>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="swiper-button-prev"></div>
+                    <div class="swiper-button-next"></div>
+              </div>
+              <div class="mspec-quote-wrapper text-center">
+                  <div class="mspec-quote">接觸賽馬數季，對賽馬興趣一季比一季濃厚。揀馬時注重馬匹整體步速、慣性跑法等，特別留意年輕馬匹於試閘狀態是否值博。最常投注連贏及位置Q彩池。</div>
+                  <button class="hkjc-outline-button button-blue "><a href="https://sh.hkjc.com/d/zh-HK/share/kol-profile/kk/?cid=OSXXIOA_O2ODiscover_discover-campaignsite_website_image">查看更多</a></button>
+              </div>
+          </div>
+        </section>
+
+        <!-- Card Animation Section -->
+        <section id="animation" class="px-0">
+            <div class="animation-stage container-fluid p-0">
+                <div class="animation-group-wrapper">
+                    <div class="animation-image-wrapper">
+                      <img src="../assets/images/yjs.png" alt="Racing Education Background" />
+                    </div>
+                    <div class="animation-text-wrapper">
+                        <div class="animation-text top">RACING</div>
+                        <div class="animation-text center">EDUCATION</div>
+                        <div class="animation-text bottom">FOR YOU</div>
+                    </div>
+                    <div class="animation-cards-layer">
+                        <figure class="media-card" onclick="openPopup(0)">
+                          <img src="../assets/images/edu_area_video1.jpg" class="video-thumbnail" alt="Race replay highlight 1">
+                          <img src="../assets/images/video-play-icon.png" class="play-icon" alt="Play Icon">
+                            <div class="img-overlay"></div>
+                            <div class="info-box">
+                                <div class="video-tag-wrapper">
+                                    <span class="video-tag">賽馬新手</span>
+                                    <span class="video-tag">投注初體驗</span>
+                              </div>
+                                <p class="video-title">由零開始新手上路！2分鐘學識四大基本彩池</p>
+                          </div>
+                      </figure>
+                        <figure class="media-card" onclick="openPopup(1)">
+                          <img src="../assets/images/edu_area_video2.jpg" class="video-thumbnail" alt="Race replay highlight 2">
+                          <img src="../assets/images/video-play-icon.png" class="play-icon" alt="Play Icon">
+                            <div class="img-overlay"></div>
+                            <div class="info-box">
+                                <div class="video-tag-wrapper">
+                                    <span class="video-tag">賽馬新手</span>
+                                    <span class="video-tag">投注初體驗</span>
+                              </div>
+                                <p class="video-title">揀馬毋須左度右度！排位表兩大因素篩選機會馬</p>
+                          </div>
+                      </figure>
+                        <figure class="media-card" onclick="openPopup(2)">
+                          <img src="../assets/images/edu_area_video3.jpg" class="video-thumbnail" alt="Race replay highlight 3">
+                          <img src="../assets/images/video-play-icon.png" class="play-icon" alt="Play Icon">
+                            <div class="img-overlay"></div>
+                            <div class="info-box">
+                                <div class="video-tag-wrapper">
+                                    <span class="video-tag">賽馬新手</span>
+                                    <span class="video-tag">投注攻略</span>
+                              </div>
+                                <p class="video-title">排位表度馬攻略！一眼睇晒重點賽事資訊</p>
+                          </div>
+                      </figure>
+                        <figure class="media-card" onclick="openPopup(3)">
+                          <img src="../assets/images/edu_area_video4.jpg" class="video-thumbnail" alt="Race replay highlight 4">
+                          <img src="../assets/images/video-play-icon.png" class="play-icon" alt="Play Icon">
+                            <div class="img-overlay"></div>
+                            <div class="info-box">
+                                <div class="video-tag-wrapper">
+                                    <span class="video-tag">賽馬新手</span>
+                                    <span class="video-tag">馬匹與騎練指南</span>
+                              </div>
+                                <p class="video-title">Stevan 教你三大揀頭馬法則！天時 x 地利 x 人和</p>
+                          </div>
+                      </figure>
+                        <figure class="media-card" onclick="openPopup(4)">
+                          <img src="../assets/images/edu_area_video5.jpg" class="video-thumbnail" alt="Race replay highlight 5">
+                          <img src="../assets/images/video-play-icon.png" class="play-icon" alt="Play Icon">
+                            <div class="img-overlay"></div>
+                            <div class="info-box">
+                                <div class="video-tag-wrapper">
+                                    <span class="video-tag">賽馬新手</span>
+                                    <span class="video-tag">投注攻略</span>
+                              </div>
+                                <p class="video-title">Ling Ling 教你季初、中、尾三個揀馬關鍵字！</p>
+                          </div>
+                      </figure>
+                    </div>
+                    <div class="animation-button-wrapper">
+                        <button class="hkjc-outline-button button-blue">查看更多</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Discover More Section -->
+        <section id="discover" >
+            <div class="discover-image-background">
+              <img src="../assets/images/Rectangle 16.png" class="left-vector" alt="Discover More Background" />
+              <img src="../assets/images/Vector.png" class="right-vector" alt="Discover More Background" />
+            </div>
+            <div class="discover-background"></div>
+            <div class="discover-content">
+              <img class="discover-icon" src="../assets/images/EngLogo.png"/>
+                <p class="discover-dot"></p>
+                <p class="discover-text">「馬上發現」 提供一站式賽馬及娛樂資訊，只需設定對賽馬的喜好和熟悉程度，即可瀏覽為你度身推薦的個人化內容，無論你是喜歡鑽研冷門精密數據的資深馬迷，或是新手需要入門指南，皆一應俱全。立即下載「馬會投注三合一」，隨時隨地暢享更多精彩內容！</p>
+            </div>
+            <div class="discover-post">
+                
+                <div class="post-wrapper first">
+                    <h2 class="section-title text-white">「馬上發現」精選</h2>
+                    <div class="swiper discover-posts-swiper-1">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide">
+                                <div class="post">
+                                    <a class="post-link" href="#">
+                                        <div class="feature-img"><img src="../assets/images/KOL_video_1.png" alt="Race replay highlight 1"></div>
+                                        <div class="post-text-wrapper">
+                                            <p class="post-title">Meet Apprentice Jockey Bonnie Wong</p>
+                                            <p class="post-excerpt">Lorem Ipsum is simply dummy text of the printing and Lorem Ipsum is simply dummy text of the printing and Lorem Ipsum is simply dummy text of the printing and Lorem Ipsum is simply dummy text of the printing and</p>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="post">
+                                    <a class="post-link" href="#">
+                                        <div class="feature-img"><img src="../assets/images/KOL_video_2.png" alt="Race replay highlight 2"></div>
+                                        <div class="post-text-wrapper">
+                                            <p class="post-title">Meet Apprentice Jockey John Doe</p>
+                                            <p class="post-excerpt">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</p>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="post">
+                                    <a class="post-link" href="#">
+                                        <div class="feature-img"><img src="../assets/images/KOL_video_3.png" alt="Race replay highlight 3"></div>
+                                        <div class="post-text-wrapper">
+                                            <p class="post-title">Meet Apprentice Jockey Jane Smith</p>
+                                            <p class="post-excerpt">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</p>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                        
+                    <!--div class="button-wrapper">
+                        <button class="hkjc-outline-button button-white">查看更多</button>
+                    </div-->
+                </div>
+                <div class="post-wrapper second">
+                    <h2 class="section-title text-white">馬場精彩活動</h2>
+                    <div class="swiper discover-posts-swiper-2">
+                        <div class="post-row swiper-wrapper">
+                            <div class="swiper-slide">
+                                <div class="post">
+                                    <a class="post-link" href="#">
+                                        <div class="feature-img"><img src="../assets/images/KOL_video_4.png" alt="Race replay highlight 4"></div>
+                                        <div class="post-text-wrapper">
+                                            <p class="post-title">Meet Apprentice Jockey Alex Brown</p>
+                                            <p class="post-excerpt">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</p>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="post">
+                                    <a class="post-link" href="#">
+                                        <div class="feature-img"><img src="../assets/images/KOL_video_5.png" alt="Race replay highlight 5"></div>
+                                        <div class="post-text-wrapper">
+                                            <p class="post-title">Meet Apprentice Jockey Chris Green</p>
+                                            <p class="post-excerpt">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</p>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="post">
+                                    <a class="post-link" href="#">
+                                        <div class="feature-img"><img src="../assets/images/KOL_video_6.png" alt="Race replay highlight 6"></div>
+                                        <div class="post-text-wrapper">
+                                            <p class="post-title">Meet Apprentice Jockey David Lee</p>
+                                            <p class="post-excerpt">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</p>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--div class="button-wrapper">
+                        <button class="hkjc-outline-button button-white">查看更多</button>
+                    </div-->
+                </div>
+            </div>
+      </section>
+      <section id="footer" class="px-5">
+            <div class="container text-left">
+                <p class="footer-text">*所有資料只供參考，並不代表香港賽馬會的立場，亦不構成任何建議。</p>
+                <p class="footer-text">^「一按投注」功能只適用於已登入投注戶口之用戶。</p>
+                <p class="footer-text"><a href="https://www.hkjc.com/responsible-gambling/ch/index">博彩要有節制</a></p>
+                <ul class="footer-list">
+                    <li class="footer-list">未滿十八歲人士不得投注或進入可投注的地方。</li>
+                    <li class="footer-list">向非法或海外莊家下注，即屬違法，且可被判監禁。</li>
+                    <li class="footer-list">切勿沉迷賭博，如需尋求輔導協助，可致電平和基金熱線1834 633。</li>
+                </ul>                              
+          </div>
+        </section>
+</main>
+
+    
+    <!-- SVG defs for reusable clip paths/masks -->
+    <svg width="0" height="0" style="position:absolute">
+        <defs>
+            <clipPath id="discover-clip" clipPathUnits="userSpaceOnUse">
+                <rect id="discoverClipRect" x="0" y="0" width="0" height="0" rx="0" ry="0" />
+            </clipPath>
+            <clipPath id="discover-clip-mobile" clipPathUnits="userSpaceOnUse">
+                <rect id="discoverClipRectMobile" x="0" y="0" width="0" height="0" rx="0" ry="0" />
+            </clipPath>
+        </defs>
+    </svg>
+
+    <svg width="0" height="0" style="position:absolute">
+        <defs>
+            <!-- Rounded trapezium: narrower top, rounded corners; normalized to 0..1 -->
+            <clipPath id="roundedTrap-large" clipPathUnits="objectBoundingBox">
+                <path d="M0.05,1 
+               L0.98,1 
+               Q1,1,1,0.92 
+               L1,0.2 
+               Q1,0.1,0.96,0.12 
+               L0.03,0.3 
+               Q0,0.32,0,0.4 
+               L0,0.92 
+               Q0,1,0.02,1 Z" />
+            </clipPath>
+        </defs>
+    </svg>
+
+    <svg width="0" height="0" style="position:absolute">
+        <defs>
+            <!-- Rounded trapezium: narrower top, rounded corners; normalized to 0..1 -->
+            <clipPath id="roundedTrap-large-mobile" clipPathUnits="objectBoundingBox">
+                <path d="M0.05,1 
+               L0.97,1 
+               Q1,1,1,0.92 
+               L1,0.2 
+               Q1,0.1,0.945,0.12 
+               L0.04,0.294 
+               Q0,0.3,0,0.39 
+               L0,0.92 
+               Q0,1,0.03,1 Z"></path>
+            </clipPath>
+        </defs>
+    </svg>
+
+    <svg width="0" height="0" style="position:absolute">
+        <defs>
+            <!-- Rounded trapezium: narrower top, rounded corners; normalized to 0..1 -->
+            <clipPath id="roundedTrap-small" clipPathUnits="objectBoundingBox">
+                <path d="M0.05,1 
+               L0.92,1 
+               Q1,1,1,0.92 
+               L1,0.2 
+               Q1,0.1,0.9,0.12 
+               L0.1,0.3 
+               Q0,0.32,0,0.4 
+               L0,0.92 
+               Q0,1,0.08,1 Z" />
+            </clipPath>
+        </defs>
+    </svg>
+
+    <svg width="0" height="0" style="position:absolute">
+        <defs>
+            <!-- Rounded trapezium: narrower top, rounded corners; normalized to 0..1 -->
+            <clipPath id="roundedTrap-small-style-2" clipPathUnits="objectBoundingBox">
+                <path d="M0.05,1 
+               L0.92,1 
+               Q1,1,1,0.92 
+               L1,0.2 
+               Q1,0.1,0.865,0.12 
+               L0.1,0.3 
+               Q0,0.32,0,0.4 
+               L0,0.92 
+               Q0,1,0.08,1 Z"></path>
+            </clipPath>
+        </defs>
+    </svg>
+
+    <svg width="0" height="0" style="position:absolute">
+        <defs>
+            <!-- Rounded trapezium: narrower top, rounded corners; normalized to 0..1 -->
+            <clipPath id="roundedTrap-small-style-2-img" clipPathUnits="objectBoundingBox">
+                <path d="M 0.05 1 
+                L 0.92 1 
+                Q 1 1 1 0.92 
+                Q 1 0 1 0 
+                Q 0 0 0 0 
+                L 0 0.92 
+                Q 0 1 0.08 1 
+                Z"></path>
+            </clipPath>
+        </defs>
+    </svg>
+
+    
+    
+    <!-- Scroll to Top on Page Load/Refresh -->
+    <script>
+    $(function() {
+        // Scroll to top on page load/refresh
+        if ('scrollRestoration' in history) {
+            history.scrollRestoration = 'manual';
+        }
+        window.scrollTo(0, 0);
+    });
+    </script>
+
+    <!-- Main Banner JS -->
+    <script>
+      $(document).ready(function() {
+        if (typeof Swiper === 'undefined') {
+          console.warn('Swiper library not loaded');
+          return;
+        }
+        const bannerSwiper = new Swiper('.home-banner-wrapper', {
+          loop: true,
+          speed: 600,
+          slidesPerView: 1.2,
+          centeredSlides: true,
+          spaceBetween: 16,
+          watchSlidesProgress: true,
+          pagination: {
+            el: '.banner-pagination',
+            clickable: true,
+          },
+          on: {
+            progress(swiper) {
+              $(swiper.slides).each(function() {
+                const slide = this;
+                const slideProgress = slide.progress;
+                const scale = 1 - Math.min(Math.abs(slideProgress) * 0.06, 0.12); // gentler scale
+                const opacity = 1 - Math.min(Math.abs(slideProgress) * 0.35, 0.50); // keep side visible
+                $(slide).css({
+                  'transform': `scale(${scale})`,
+                  'opacity': opacity
+                });
+              });
+            },
+            setTransition(swiper, duration) {
+              $(swiper.slides).each(function() {
+                $(this).css('transition', duration + 'ms');
+              });
+            }
+          }
+        });
+        
+        // Store instance globally
+        if (window.hkjcSwipers) {
+          window.hkjcSwipers.banner = bannerSwiper;
+        }
+      });
+    </script>
+
+    <!-- Specialists Swiper JS -->
+    <script>
+      // Specialists Swiper + Tab syncing
+      $(document).ready(function(){
+        if (typeof Swiper === 'undefined') return;
+
+        // Conditional slide presentation base on device screen width
+        var slidesPerView;
+        var spaceBetween;
+        var allowTouchMove
+        if( window.innerWidth <= 768 ){
+            slidesPerView = 1.2;
+            spaceBetween = 10;
+            allowTouchMove = true;
+        } else{
+            slidesPerView = 3;
+            spaceBetween = 20;
+            allowTouchMove = false;
+        }
+
+        const specialistsSwiper = new Swiper('.specialists-swiper', {
+          loop: true,
+          slidesPerView: slidesPerView,
+          centeredSlides: true,
+          spaceBetween: spaceBetween,
+          speed: 600,
+          allowTouchMove: allowTouchMove,
+          watchSlidesProgress: true,
+        });
+        
+        // Store instance globally
+        if (window.hkjcSwipers) {
+          window.hkjcSwipers.specialists = specialistsSwiper;
+        }
+
+                const picksData = [
+          {
+            name: 'Elke',
+            picks: [
+                            { race: '第1場', type: 'QUINELLA PLACE', meta: '16:45 Group 2 TURF 1600M', list: ['5. BEAUTY WAVES','7. HAPPY UNITED','12. SUPER FORTUNE'] },
+                            { race: '第2場', type: 'WIN', meta: '16:45 Group 2 TURF 1600M', list: ['3. FAST GLORY','8. RAIN SHADOW','14. SUNNY ACE'] },
+                            { race: '第3場', type: 'PLACE', meta: '16:45 Group 2 TURF 1600M', list: ['1. GOLDEN STAR','6. WIND RIDER','11. MOON HUNTER'] },
+                            { race: '第4場', type: 'QUINELLA PLACE', meta: '16:45 Group 2 TURF 1600M', list: ['2. NIGHT FURY','7. OCEAN KING','10. SWIFT ARROW'] },
+                            { race: '第5場', type: 'WIN', meta: '16:45 Group 2 TURF 1600M', list: ['4. DREAM CHASER','9. BOLD HERO','12. LUCKY HARBOR'] },
+                            { race: '第6場', type: 'PLACE', meta: '16:45 Group 2 TURF 1600M', list: ['5. SKY DANCER','8. RIVER FLOW','13. FIRE BLOOM'] },
+                            { race: '第7場', type: 'QUINELLA PLACE', meta: '16:45 Group 2 TURF 1600M', list: ['6. LUCKY DRAGON','9. NIGHT STAR','11. OCEAN PRIDE'] },
+                            { race: '第8場', type: 'WIN', meta: '16:45 Group 2 TURF 1600M', list: ['3. DESERT KING','7. THUNDER ROAD','10. SILK LEGEND'] },
+                            { race: '第9場', type: 'PLACE', meta: '16:45 Group 2 TURF 1600M', list: ['1. STARLIGHT SON','5. ROYAL CHARM','12. GREEN HAWK'] },
+                            { race: '第10場', type: 'QUINELLA PLACE', meta: '16:45 Group 2 TURF 1600M', list: ['6. BRAVE SWORD','9. SEA SPRINTER','11. PURE MAGIC'] }
+            ]
+          },
+          {
+            name: 'KK',
+            picks: [
+                            { race: '第1場', type: 'WIN', meta: '16:45 Group 2 TURF 1600M', list: ['1. SMART ACE','4. GOLDEN DASH','9. TACTICAL MASTER'] },
+                            { race: '第2場', type: 'PLACE', meta: '16:45 Group 2 TURF 1600M', list: ['2. SILVER WIND','6. BLUE RIVER','8. BRAVE CHAMP'] },
+                            { race: '第3場', type: 'QUINELLA PLACE', meta: '16:45 Group 2 TURF 1600M', list: ['3. LUCKY DRAGON','5. NIGHT STAR','11. OCEAN PRIDE'] },
+                            { race: '第4場', type: 'WIN', meta: '16:45 Group 2 TURF 1600M', list: ['7. CITY LIGHTS','10. RED FALCON','12. NOBLE QUEST'] },
+                            { race: '第5場', type: 'PLACE', meta: '16:45 Group 2 TURF 1600M', list: ['1. IRON WILL','8. SILENT RIVER','13. JADE EMPEROR'] },
+                            { race: '第6場', type: 'QUINELLA PLACE', meta: '16:45 Group 2 TURF 1600M', list: ['2. NORTHERN STAR','6. BRIGHT WINGS','9. MYSTIC HILL'] },
+                            { race: '第7場', type: 'WIN', meta: '16:45 Group 2 TURF 1600M', list: ['5. SHADOW BLADE','11. TOP HONOR','14. CRYSTAL KING'] },
+                            { race: '第8場', type: 'PLACE', meta: '16:45 Group 2 TURF 1600M', list: ['3. SILVER SAGA','7. DRAGON DANCE','12. JET STREAM'] },
+                            { race: '第9場', type: 'QUINELLA PLACE', meta: '16:45 Group 2 TURF 1600M', list: ['4. TIGER ROAR','6. WHITE LOTUS','10. RAPID CHARGE'] },
+                            { race: '第10場', type: 'QUINELLA PLACE', meta: '16:45 Group 2 TURF 1600M', list: ['2. GOLDEN PEAK','8. CLOUD RIDER','15. SKY VOYAGER'] }
+            ]
+          },
+          {
+            name: 'Krystal',
+            picks: [
+                            { race: '第1場', type: 'WIN', meta: '16:45 Group 2 TURF 1600M', list: ['2. MYSTIC LIGHT','7. HAPPY LUCK','10. FLYING HIGH'] },
+                            { race: '第2場', type: 'PLACE', meta: '16:45 Group 2 TURF 1600M', list: ['4. DANCING QUEEN','6. SKY HERO','12. SWIFT RUN'] },
+                            { race: '第3場', type: 'QUINELLA PLACE', meta: '16:45 Group 2 TURF 1600M', list: ['1. POWER KING','8. RAINBOW JOY','9. SILENT WAVE'] },
+                            { race: '第4場', type: 'WIN', meta: '16:45 Group 2 TURF 1600M', list: ['3. GOLD SPARK','6. VIOLET RAY','12. NIGHT SPRING'] },
+                            { race: '第5場', type: 'PLACE', meta: '16:45 Group 2 TURF 1600M', list: ['5. ROSE BLOOM','7. FAIRY TALE','9. DREAM RUN'] },
+                            { race: '第6場', type: 'QUINELLA PLACE', meta: '16:45 Group 2 TURF 1600M', list: ['2. WIND SONG','8. SILK RIVER','10. SHINING BELL'] },
+                            { race: '第7場', type: 'WIN', meta: '16:45 Group 2 TURF 1600M', list: ['1. AZURE LINE','4. PURE LIGHT','11. SWEET HONEY'] },
+                            { race: '第8場', type: 'PLACE', meta: '16:45 Group 2 TURF 1600M', list: ['3. LUNA BLOOM','5. DEEP OCEAN','8. STAR TRAIL'] },
+                            { race: '第9場', type: 'QUINELLA PLACE', meta: '16:45 Group 2 TURF 1600M', list: ['6. SUNNY LANE','9. EVERGREEN','12. HARMONY SKY'] },
+                            { race: '第10場', type: 'QUINELLA PLACE', meta: '16:45 Group 2 TURF 1600M', list: ['2. HIDDEN GEM','7. BLUE MEADOW','13. SILENT HARBOR'] }
+            ]
+          }
+        ];
+
+        // Picks Swiper instance (created after first render)
+        let picksSwiper = null;
+
+        function renderPicks(idx){
+            const spec = picksData[idx % picksData.length];
+            const slidesHtml = spec.picks.map(p => `
+                <div class="swiper-slide">
+                    <div class="pick-card">
+                        <h6 class="race-number">${p.race}</h6>
+                        <div class="meta">${p.meta}</div>
+                        <hr/>
+                        <div class="type mb-2">${p.type}</div>
+                        <div class="d-flex flex-row justify-content-between flex-nowrap align-items-end w-100">
+                            <div class="list">
+                                ${p.list.map(i => `<p>${i}</p>`).join('')}
+                            </div>
+                            <div class="">
+                                <button class="cta" type="button">投注</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+            $('#picksWrapper').html(slidesHtml);
+
+                        // (Re)initialize picks swiper for fresh content
+                        if (picksSwiper) {
+                            picksSwiper.destroy(true, true);
+                            picksSwiper = null;
+                        }
+                        if(window.innerWidth <= 768){
+                            var spaceBetween = 16;
+                        } else{
+                            var spaceBetween = 32;
+                        }
+                        picksSwiper = new Swiper('.picks-swiper', {
+                            slidesPerView: 'auto',
+                            spaceBetween: spaceBetween,
+                            watchSlidesProgress: true
+                            // breakpoints: {
+                            //     0: { slidesPerView: 1.2 },
+                            //     576: { slidesPerView: 2.2 },
+                            //     992: { slidesPerView: 2.8 },
+                            //     1200: { slidesPerView: 3.7 }
+                            // }
+                        });
+                        
+                        // Store instance globally
+                        if (window.hkjcSwipers) {
+                          window.hkjcSwipers.picks = picksSwiper;
+                        }
+        }
+
+        // Initial render - use realIndex which is correct even in loop mode
+        renderPicks(specialistsSwiper.realIndex);
+
+        // Click to center slide
+        $('.specialists-swiper').on('click', '.swiper-slide', function() {
+            if( $(this).hasClass('swiper-slide-prev') ){
+                specialistsSwiper.slidePrev();
+            } else if( $(this).hasClass('swiper-slide-next') ){
+                specialistsSwiper.slideNext();
+            }
+        });
+
+                // Update picks on slide change
+        specialistsSwiper.on('slideChange', function() {
+          renderPicks(specialistsSwiper.realIndex);
+          specialistsSwiper.updateSlides();
+          specialistsSwiper.updateProgress();
+          specialistsSwiper.updateSlidesClasses();
+          specialistsSwiper.update();
+        });
+
+      });
+    </script>
+
+    <!-- More Specialists Swiper JS -->
+    <script>
+    // More Specialists Swiper with dynamic scaling and quote updates
+    $(document).ready(function(){
+        
+        // rAF handle for ongoing animation updates (hoisted before swiper init)
+        var moreAnimRaf = null;
+
+        //Conditional slide presentation base on device screen width
+        var allowTouchMove;
+        var spaceBetween;
+        if( window.innerWidth <= 768 ){
+            spaceBetween = 10;
+            allowTouchMove = true;
+        } else{
+            spaceBetween = 30;
+            allowTouchMove = false;
+        }
+
+        const moreSwiper = new Swiper('.more-specialists-swiper', {
+            loop: true,
+            slidesPerView: 5,
+            spaceBetween: spaceBetween,
+            centeredSlides: true,
+            allowTouchMove: allowTouchMove,
+            watchSlidesProgress: true,
+            speed: 1000,
+            navigation: {
+                nextEl: ".more-specialists-swiper .swiper-button-next",
+                prevEl: ".more-specialists-swiper .swiper-button-prev",
+            },
+            // autoplay: {
+            //     delay: 3000
+            // },
+            on: {
+                init(sw) {
+                    // Apply initial scaling and update caption
+                    applyMoreScale(sw);
+                    updateMspecQuote(sw);
+                },
+                setTranslate(sw) {
+                    // Keep scaling smooth while swiping/animating
+                    applyMoreScale(sw);
+                },
+                progress(sw) {
+                    // Sync scale on internal progress updates
+                    applyMoreScale(sw);
+                },
+                setTransition(sw, duration) {
+                    $(sw.slides).each(function() {
+                        $(this).css('transition', duration + 'ms');
+                    });
+                },
+                slideChange(sw) {
+                    // Update quote whenever the active slide changes
+                    updateMspecQuote(sw);
+                },
+                transitionStart(sw) {
+                    // For fast swipes, continuously re-apply during animation
+                    ensureAnimatingUpdates(sw);
+                },
+                transitionEnd(sw) {
+                    // Final settle after animation completes
+                    applyMoreScale(sw);
+                },
+            },
+        });
+
+        // Helper: smooth, position-based scaling
+        // Mapping: |progress| = 0 => 1.00 (active), 1 => 0.85 (prev/next), >=2 => 0.70 (others)
+        function applyMoreScale(swiper) {
+            $(swiper.slides).each(function() {
+                const slide = this;
+                const raw = slide.progress || 0; // negative: left, positive: right
+                const p = Math.abs(raw);
+                const reduce = Math.min(0.40, 0.25 * p); // 0 -> 1.00, 1 -> 0.85, >=2 -> 0.70
+                const scale = 1 - reduce;
+                const $slide = $(slide);
+                // Dynamic transform-origin so scaling always pulls toward the center
+                // Combine class check with progress thresholds for robustness during fast swipes
+                const hasPrevNextClass = $slide.hasClass('swiper-slide-prev') || $slide.hasClass('swiper-slide-next');
+                const isActive = $slide.hasClass('swiper-slide-active');
+                const nearPrev = raw <= -0.85 && raw >= -1.15; // treat as immediate prev
+                const nearNext = raw >= 0.85 && raw <= 1.15;   // treat as immediate next
+                const isImmediate = hasPrevNextClass || nearPrev || nearNext;
+
+                if (isActive) {
+                    // Never set inline origin on active slide
+                    $slide.css('transform-origin', '');
+                } else if (isImmediate) {
+                    // Immediate prev/next -> clear inline to let CSS control
+                    $slide.css('transform-origin', '');
+                } else if (raw < -0.05) {
+                    // Slide is on the left side (beyond immediate prev) -> pull toward center
+                    $slide.css('transform-origin', '0% 50%');
+                } else if (raw > 0.05) {
+                    // Slide is on the right side (beyond immediate next) -> pull toward center
+                    $slide.css('transform-origin', '100% 50%');
+                } else {
+                    // Near center -> clear inline
+                    $slide.css('transform-origin', '');
+                }
+
+                $slide.css('transform', `scale(${scale})`);
+            });
+        }
+        // During animations, ensure updates keep running in case of fast swipes
+        function ensureAnimatingUpdates(swiper) {
+            if (moreAnimRaf) cancelAnimationFrame(moreAnimRaf);
+            const tick = () => {
+                applyMoreScale(swiper);
+                if (swiper && swiper.animating) {
+                    moreAnimRaf = requestAnimationFrame(tick);
+                } else {
+                    moreAnimRaf = null;
+                }
+            };
+            moreAnimRaf = requestAnimationFrame(tick);
+        }
+
+
+        // Specialist data structure - organized for easy backend rendering
+        // Each specialist has: name, quote, and explore link
+        const specialistsData = {
+            'Ling Ling': {
+                name: 'Ling Ling',
+                quote: '2024/25年度馬季「揀馬世一」總冠軍，不時在馬場或體驗店分享賽馬心得。最常投注連贏及位置Q彩池，揀馬通常兩熱一冷混搭，穩中求勝。',
+                exploreLink: 'https://sh.hkjc.com/d/zh-HK/share/kol-profile/lingling/?cid=OSXXIOA_O2ODiscover_discover-campaignsite_website_image'
+            },
+            '富仔': {
+                name: '富仔',
+                quote: '第二年參與「揀馬世一」，擁有資深賽馬經驗，由晨操角度揀選每場最好狀態的馬。與此同時，亦會提供變化馬予馬迷參考，目標在馬匹未成為熱門之前，冷門命中。',
+                exploreLink: 'https://sh.hkjc.com/d/zh-HK/share/kol-profile/fujai/?cid=OSXXIOA_O2ODiscover_discover-campaignsite_website_image'
+            },
+            'Colette': {
+                name: 'Colette',
+                quote: '行內又名「叻姐」，擅長運用獨家的「相對步速」計算法，精準分析馬匹實力，專注以科學方法發掘冷門值博馬，與馬迷扒冷馬。',
+                exploreLink: 'https://sh.hkjc.com/d/zh-HK/share/kol-profile/colette/?cid=OSXXIOA_O2ODiscover_discover-campaignsite_website_image'
+            },
+            "阿粉知心友": {
+                name: "阿粉知心友",
+                quote: '由三名中生代賽馬狂熱分子阿粉、Homan及Kenson組成，擅長拆解賽績及分析段速。喜愛研究馬匹評分，結合形勢找尋機會馬。精通投注策略，務求以少注數換來最高回報。',
+                exploreLink: 'https://sh.hkjc.com/d/zh-HK/share/kol-profile/stevensbros/?cid=OSXXIOA_O2ODiscover_discover-campaignsite_website_image'
+            },
+            '伍兆銓': {
+                name: '伍兆銓',
+                quote: '參與賽馬活動多年，現時於賽日作現場評述，以及主持《聽日有馬跑》。關注馬匹狀態及試閘走勢，留意馬房出擊部署，發掘值博半冷WP。',
+                exploreLink: 'https://sh.hkjc.com/d/zh-HK/share/kol-profile/alex/?cid=OSXXIOA_O2ODiscover_discover-campaignsite_website_image'
+            },
+            'KK': {
+                name: 'KK',
+                quote: '接觸賽馬數季，對賽馬興趣一季比一季濃厚。揀馬時注重馬匹整體步速、慣性跑法等，特別留意年輕馬匹於試閘狀態是否值博。最常投注連贏及位置Q彩池。',
+                exploreLink: 'https://sh.hkjc.com/d/zh-HK/share/kol-profile/kk/?cid=OSXXIOA_O2ODiscover_discover-campaignsite_website_image'
+            },
+            'Elke': {
+                name: 'Elke',
+                quote: '第三年參與「揀馬世一」，馬會及有線18台賽馬主持。喜歡從馬匹賽績及狀態揀馬，最常投注獨贏及位置Q彩池。從小熱愛動物，喜歡研究各種動物的情緒和行為。',
+                exploreLink: 'https://sh.hkjc.com/d/zh-HK/share/kol-profile/elke/?cid=OSXXIOA_O2ODiscover_discover-campaignsite_website_image'
+            },
+            'Krystal': {
+                name: 'Krystal',
+                quote: '賽馬新手，累積數年研究賽馬經驗。擔任有線18台賽馬主持，亦在馬場或體驗店分享賽馬心得。揀馬最注重馬匹往績，最常投注位置及位置Q彩池。',
+                exploreLink: 'https://sh.hkjc.com/d/zh-HK/share/kol-profile/krystal/?cid=OSXXIOA_O2ODiscover_discover-campaignsite_website_image'
+            }
+        };
+        
+        const defaultSpecialistData = {
+            quote: 'Insights that matter—balance data with instincts for smarter picks.',
+            exploreLink: '#'
+        };
+
+        // Update the quote and button link based on the active slide
+        function updateMspecQuote(sw) {
+            try {
+                const $active = $(sw.slides[sw.activeIndex]);
+                const name = ($active.find('.mspec-name').text() || '').trim();
+                const specialistInfo = specialistsData[name] || defaultSpecialistData;
+                
+                // Update quote text
+                $('.more-specialists-wrap .mspec-quote').text(`"${specialistInfo.quote}"`);
+                $('.more-specialists-wrap .mspec-quote-wrapper button a').attr('href', specialistInfo.exploreLink);
+
+            } catch (e) {
+                // fail-safe: do nothing
+            }
+        }
+
+        // Store instance globally
+        if (window.hkjcSwipers) {
+          window.hkjcSwipers.moreSpecialists = moreSwiper;
+        }
+
+      });
+    </script>
+
+    <!-- Card Animation Section JS (GSAP + ScrollTrigger) -->
+    <script>
+    // Global references for discover animation functions
+    window.discoverAnimationFunctions = {
+        setStartState: null,
+        buildTimeline: null
+    };
+    
+    $(function() {
+        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+        if (!window.gsap || !window.ScrollTrigger) return;
+        gsap.registerPlugin(ScrollTrigger);
+
+        const animationSticky = document.querySelector('#animation');
+        if (!animationSticky) return;
+
+        const cards = gsap.utils.toArray('#animation .media-card');
+        
+        // Mobile swipe state
+        let currentCardIndex = 0;
+        let swipeEnabled = false;
+        let touchStartX = 0;
+        let touchEndX = 0;
+        let isDragging = false;
+        let initialCardPositions = [];
+        let dragOffset = 0;
+
+        function layoutRow() {
+            const n = cards.length;
+            const cw = cards[0].offsetWidth;
+            const ch = cards[0].offsetHeight;
+            const marginLeft = 24; // px margin from left edge on mobile
+            const offSetWidthLeft = ( cw * Math.cos(7*Math.PI / 180) + ch * Math.sin(7*Math.PI / 180) - cw ) / 2; // find the exceeded width due to rotation on one side
+            const isMobile = window.innerWidth <= 768;
+
+            if (isMobile) {
+                // Mobile: first card near left edge, rest stacked to the right
+                // Cards use xPercent:-50, so we offset by half width to position near left edge
+                const leftEdgeMargin = offSetWidthLeft + marginLeft;
+                const startOffset = -window.innerWidth / 2 + cw / 2 + leftEdgeMargin;
+                // Calculate if all cards can fit with default 70% step
+                let step = cw * 0.70;
+                
+                cards.forEach((el, i) => {
+                    const offsetX = startOffset + i * step;
+                    el.dataset.offsetX = String(offsetX);
+                    el.dataset.baseOffsetX = String(offsetX); // Store base offset for swipe calculations
+                    el.style.zIndex = String(100 - i);
+                });
+            } else {
+                // Desktop: center the entire row
+                // Check if all cards can fit without overflow
+                const viewportWidth = window.innerWidth;
+                const margin = 40; // Safe margin on each side
+                const availableWidth = viewportWidth - margin * 2;
+                
+                // Calculate if all cards can fit with default 70% step
+                let step = cw * 0.70;
+                let total = cw + (n - 1) * step;
+                
+                // If total width exceeds available width, adjust step to fit all cards
+                if (total > availableWidth) {
+                    // Calculate step needed to fit all cards within viewport
+                    step = (availableWidth - cw) / (n - 1);
+                    total = cw + (n - 1) * step;
+                }
+                
+                // Center the row around the viewport center; we'll use xPercent:-50 as baseline
+                const centerOffset = -total / 2 + cw / 2; // px offset for i=0
+
+                cards.forEach((el, i) => {
+                    const offsetX = centerOffset + i * step;
+                    el.dataset.offsetX = String(offsetX);
+                    el.style.zIndex = String(100 + i);
+                });
+            }
+        }
+
+        // Initial style for all three groups
+        function setCardAnimationStartState() {
+            // Text: start lower on screen and visible
+            gsap.set('#animation .animation-text-wrapper .animation-text', {
+                yPercent: 15,
+                opacity: 1
+            });
+
+            gsap.set('#animation .animation-text-wrapper .animation-text.top', {
+                yPercent: 0,
+                xPercent: -30
+            });
+
+            gsap.set('#animation .animation-text-wrapper .animation-text.center', {
+                yPercent: 0,
+                xPercent: 20
+            });
+
+            gsap.set('#animation .animation-text-wrapper .animation-text.bottom', {
+                yPercent: 0,
+                xPercent: -20
+            });
+
+            // Image: start hidden, slight downscale
+            gsap.set('#animation .animation-image-wrapper img', {
+                xPercent: -50,
+                yPercent: -50,
+                x:0,
+                y: 0,
+                opacity: 0,
+                scale: 0.9
+            });
+
+            // Cards: bottom-center pile
+            cards.forEach((el, i) => {
+                gsap.set(el, {
+                    xPercent: -50, // baseline center horizontally
+                    yPercent: -50, // baseline center vertically
+                    x: 0,
+                    y: '70vh', // appear from lower area
+                    scale: 0.94,
+                    opacity: 0,
+                });
+            });
+
+            // button: start hidden
+            gsap.set('#animation .animation-button-wrapper button', {
+                opacity: 0,
+            });
+
+        }
+
+        // Build timeline
+        function buildCardAnimationTimeline() {
+            // Kill existing ScrollTriggers
+            ScrollTrigger.getById('animation-timeline')?.kill();
+            ScrollTrigger.getById('animation-pin')?.kill();
+            
+            // Clear previous inline pin styles if any
+            gsap.set(animationSticky, { clearProps: 'all' });
+            const sectionEl = document.querySelector('#animation');
+            
+            // Get header height for pin start position
+            const header = document.querySelector('.site-header');
+            const headerH = header ? header.offsetHeight : 0;
+            const vh = window.innerHeight;
+            const stageHeight = vh - headerH;
+            
+            // ScrollTrigger #1: Animation only (no pin)
+            // Starts when element enters viewport (bottom of section hits bottom of viewport)
+            const tl = gsap.timeline({
+                scrollTrigger: {
+                    id: 'animation-timeline',
+                    trigger: sectionEl,
+                    start: 'top bottom',  // Animation starts when entering viewport
+                    end: '+=2500',          // Must match pin's end
+                    scrub: 1,
+                    markers: false,
+                    invalidateOnRefresh: true,
+                    onRefresh: () => {
+                        layoutRow();
+                    },
+                    onLeave: () => {
+                        tl.scrollTrigger.disable(false);
+                    }
+                }
+            });
+
+            // ScrollTrigger #2: Pin only (no animation)
+            // Starts when top of element hits bottom of header
+            const pin = gsap.timeline({
+                scrollTrigger: {
+                    id: 'animation-pin',
+                    trigger: sectionEl,
+                    start: () => {
+                        const header = document.querySelector('.site-header');
+                        const headerH = header ? header.offsetHeight : 0;
+                        return `top +=${headerH}px`; // Start when section top hits bottom of header
+                    },
+                    end: () => {
+                        return `+=${2500 - stageHeight}`;
+                    },
+                    scrub: 1,
+                    pin: animationSticky,
+                    markers: false,
+                    invalidateOnRefresh: true,
+                    onToggle: (self) => {
+                        if( self.isActive ) {
+                            $('.animation-stage').css('position', 'relative');
+                        } else {
+                            // Clear styles when leaving active state
+                            $('.animation-stage').css('position', '');
+                        }
+                    },
+                    onLeave: () => {
+                        // Get current scroll position and pin-spacer info
+                        const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+                        const pinSpacer = document.querySelector('.pin-spacer-animation-pin');
+                        const animSection = document.querySelector('#animation');
+                        
+                        if (pinSpacer && animSection) {
+                            // Get the old height before changes
+
+                            tl.progress(1); // Ensure timeline is at end state
+
+                            const oldHeight = pinSpacer.offsetHeight;
+                            
+                            // Disable the pin ScrollTrigger
+                            pin.scrollTrigger.disable(false);
+                            
+                            // Get the natural height of the animation section
+                            const naturalHeight = animSection.offsetHeight;
+                            
+                            // Calculate height difference
+                            const heightDiff = oldHeight - naturalHeight;
+                            
+                            // Adjust pin-spacer to natural height
+                            pinSpacer.style.height = naturalHeight + 'px';
+                            pinSpacer.style.padding = '0px';
+                            
+                            // Adjust scroll position to compensate for height change
+                            // This prevents the visual jump
+                            const newScroll = currentScroll - heightDiff;
+                            window.scrollTo(0, Math.max(0, newScroll));
+
+                            // Fight mobile momentum scroll
+                            if( window.innerWidth <= 768 ){
+                                fightCardMomentumScroll();
+                            }else{
+                                // For non-mobile, init discover animation
+                                ScrollTrigger.getById('discover-pin')?.kill();
+                                window.discoverAnimationFunctions.setStartState();
+                                window.discoverAnimationFunctions.buildTimeline();
+                            }
+                            
+                            // Clear any transform properties on the sticky element
+                            gsap.set(animationSticky, { clearProps: 'transform' });
+                            
+                        }
+                    }
+                }
+            })
+            
+            
+
+            pin.add('text');
+            // Sequence label
+            tl.add('text');
+
+            // 1) TEXT: move upward across screen, with horizontal variations per line, then fade wrapper
+            // Top and Center move right; Bottom moves left
+            tl.to('#animation .animation-text-wrapper .animation-text.top', {
+
+                xPercent: 30,
+                ease: 'none',
+                opacity: 0,
+                duration: 1.5
+            }, 'text');
+            tl.to('#animation .animation-text-wrapper .animation-text.center', {
+
+                xPercent: -20,
+                ease: 'none',
+                opacity: 0,
+                duration: 1.7
+            }, 'text+=0.08');
+            tl.to('#animation .animation-text-wrapper .animation-text.bottom', {
+
+                xPercent: 1,
+                ease: 'none',
+                opacity: 0,
+                duration: 2.1
+            }, 'text+=0.16');
+
+            // 2) CARDS: after text completes, stack into place sequentially
+            tl.to(cards, {
+                x: (i, el) => parseFloat(el.dataset.offsetX || '0'),
+                y: 0,
+                rotation: (i) => (i % 2 ? 7 : -7),
+                scale: 1,
+                opacity: 1,
+                ease: 'power1.out',
+                duration: 0.6,
+                stagger: 0.18
+            }, 'text+=1.05');
+
+            // 3) IMAGE: begin in the middle of the text sequence
+            tl.to('#animation .animation-image-wrapper img', {
+                opacity: 1,
+                scale: 1,
+                ease: 'power2.out',
+                duration: 0.6
+            }, 'text+=1.75');
+
+            // 4) IMAGE: begin in the middle of the text sequence
+            tl.to('#animation .animation-button-wrapper button', {
+                ease: 'power2.out',
+                opacity: 1,
+                duration: 0.3
+            }, 'text+=2');
+
+            // 5) do nothing for a while to allow lingering view
+            tl.to('#animation .animation-button-wrapper button', {
+            }, 'text+=2.5');
+            
+            // Enable swipe on mobile after animation completes
+            const isMobile = window.innerWidth <= 768;
+            if (isMobile) {
+                tl.call(() => {
+                    swipeEnabled = true;
+                }, null, 'text+=2.5');
+            }
+
+        }
+
+        function fightCardMomentumScroll() {
+            let lastScrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            let momentumTimeout = null;
+            let isLocked = true;
+            let touchEndReceived = false;
+            
+            // Check if user is currently touching after a short delay
+            // If no touchend after 50ms, assume momentum scroll (finger already gone)
+            const initialTouchCheck = setTimeout(() => {
+                if (!touchEndReceived) {
+                    // Enable timeout-based release for momentum
+                }
+            }, 50);
+            
+            // Store reference to scroll handler so we can remove it later
+            const scrollLockHandler = () => {
+                window.scrollTo(0, lastScrollTop);
+                $('.animation-stage').css('position', 'fixed');
+                $('.animation-stage').css('bottom', '0');
+                $('.animation-stage').css('z-index', '9');
+                
+                // Always reset timeout - will auto-release when momentum stops
+                // But only if touchend hasn't been received yet (pure momentum case)
+                if (!touchEndReceived) {
+                    clearTimeout(momentumTimeout);
+                    momentumTimeout = setTimeout(() => {
+                        if (isLocked) {
+                            releaseLock();
+                        }
+                    }, 150);
+                }
+            };
+            
+            // Release lock when user lifts finger or momentum stops
+            const releaseLock = () => {
+                if (!isLocked) return; // Prevent multiple calls
+                isLocked = false;
+                
+                clearTimeout(initialTouchCheck);
+                clearTimeout(momentumTimeout);
+                window.removeEventListener('scroll', scrollLockHandler);
+                document.removeEventListener('touchend', onTouchEnd);
+                document.removeEventListener('touchcancel', onTouchEnd);
+                
+                $('.animation-stage').css('position', '');
+                $('.animation-stage').css('bottom', '');
+                $('.animation-stage').css('z-index', '');
+                
+                ScrollTrigger.getById('discover-pin')?.kill();
+                window.discoverAnimationFunctions.setStartState();
+                window.discoverAnimationFunctions.buildTimeline();
+                
+            };
+            
+            // Called when user lifts finger
+            const onTouchEnd = () => {
+                touchEndReceived = true;
+                clearTimeout(initialTouchCheck);
+                releaseLock();
+            };
+            
+            // Activate scroll lock
+            window.addEventListener('scroll', scrollLockHandler);
+            
+            // Release on touch end (user lifts finger)
+            document.addEventListener('touchend', onTouchEnd, { once: true });
+            document.addEventListener('touchcancel', onTouchEnd, { once: true });
+        }
+        
+        // Mobile swipe functionality
+        function handleDragMove(currentX) {
+            const isMobile = window.innerWidth <= 768;
+            if (!isMobile || !swipeEnabled || !isDragging) return;
+            
+            // Calculate drag offset from start position
+            dragOffset = currentX - touchStartX;
+            
+            // Apply real-time position updates
+            cards.forEach((el, i) => {
+                const baseOffset = parseFloat(el.dataset.baseOffsetX || '0');
+                const cw = cards[0].offsetWidth;
+                const step = cw * 0.70;
+                const currentSwipeOffset = -currentCardIndex * step;
+                const newX = baseOffset + currentSwipeOffset + dragOffset;
+                
+                // Update position immediately without animation for smooth dragging
+                gsap.set(el, {
+                    x: newX
+                });
+            });
+        }
+        
+        function findNearestCard() {
+            const isMobile = window.innerWidth <= 768;
+            if (!isMobile) return currentCardIndex;
+            
+            const cw = cards[0].offsetWidth;
+            const step = cw * 0.70;
+            const screenCenter = 0; // Center is at x=0 due to xPercent:-50
+            
+            // Calculate which card is closest to center based on total movement
+            const totalOffset = -currentCardIndex * step + dragOffset;
+            const estimatedIndex = Math.round(-totalOffset / step);
+            
+            // Clamp to valid range
+            return Math.max(0, Math.min(cards.length - 1, estimatedIndex));
+        }
+        
+        function handleSwipeEnd() {
+            const isMobile = window.innerWidth <= 768;
+            if (!isMobile || !swipeEnabled) return;
+            
+            // Find the nearest card to center and snap to it
+            const nearestIndex = findNearestCard();
+            currentCardIndex = nearestIndex;
+            
+            // Reset drag offset
+            dragOffset = 0;
+            
+            // Animate to the centered position
+            updateCardPositions(true);
+        }
+        
+        function updateCardPositions(animate = true) {
+            const isMobile = window.innerWidth <= 768;
+            if (!isMobile) return;
+            
+            const cw = cards[0].offsetWidth;
+            const step = cw * 0.70;
+            const swipeOffset = -currentCardIndex * step;
+            
+            cards.forEach((el, i) => {
+                const baseOffset = parseFloat(el.dataset.baseOffsetX || '0');
+                const newX = baseOffset + swipeOffset;
+                
+                if (animate) {
+                    // Animate card positions with GSAP for smooth transition
+                    gsap.to(el, {
+                        x: newX,
+                        duration: 0.4,
+                        ease: 'power2.out'
+                    });
+                } else {
+                    // Set immediately without animation
+                    gsap.set(el, {
+                        x: newX
+                    });
+                }
+                
+                // Update z-index to bring current card forward
+                const zIndex = i === currentCardIndex ? 200 : (100 - i);
+                el.style.zIndex = String(zIndex);
+            });
+        }
+        
+        // Touch event listeners for mobile swipe
+        function initSwipeListeners() {
+            const cardsLayer = document.querySelector('#animation .animation-cards-layer');
+            if (!cardsLayer) return;
+            
+            cardsLayer.addEventListener('touchstart', (e) => {
+                const isMobile = window.innerWidth <= 768;
+                if (!isMobile || !swipeEnabled) return;
+                
+                touchStartX = e.touches[0].clientX;
+                touchEndX = touchStartX;
+                isDragging = true;
+                dragOffset = 0;
+                
+                // Store initial positions
+                cards.forEach((el, i) => {
+                    const baseOffset = parseFloat(el.dataset.baseOffsetX || '0');
+                    const cw = cards[0].offsetWidth;
+                    const step = cw * 0.70;
+                    const currentSwipeOffset = -currentCardIndex * step;
+                    initialCardPositions[i] = baseOffset + currentSwipeOffset;
+                });
+            }, { passive: true });
+            
+            cardsLayer.addEventListener('touchmove', (e) => {
+                const isMobile = window.innerWidth <= 768;
+                if (!isMobile || !swipeEnabled || !isDragging) return;
+                
+                touchEndX = e.touches[0].clientX;
+                handleDragMove(touchEndX);
+            }, { passive: true });
+            
+            cardsLayer.addEventListener('touchend', (e) => {
+                const isMobile = window.innerWidth <= 768;
+                if (!isMobile || !swipeEnabled || !isDragging) return;
+                
+                isDragging = false;
+                handleSwipeEnd();
+            }, { passive: true });
+            
+            cardsLayer.addEventListener('touchcancel', (e) => {
+                const isMobile = window.innerWidth <= 768;
+                if (!isMobile || !swipeEnabled || !isDragging) return;
+                
+                isDragging = false;
+                handleSwipeEnd();
+            }, { passive: true });
+        }
+
+        layoutRow();
+        setCardAnimationStartState();
+        buildCardAnimationTimeline();
+        initSwipeListeners();
+        // Set initial dynamic height once ScrollTrigger exists
+        // updateAnimationSectionHeight();
+
+        // Rebuild on resize
+        let resizeTO;
+        window.addEventListener('resize', () => {
+            clearTimeout(resizeTO);
+            resizeTO = setTimeout(() => {
+                // Kill both ScrollTriggers
+                ScrollTrigger.getById('animation-timeline')?.kill();
+                ScrollTrigger.getById('animation-pin')?.kill();
+                
+                // Reset swipe state on resize
+                currentCardIndex = 0;
+                swipeEnabled = false;
+                
+                // Recalculate layout and rebuild both timeline and pin
+                layoutRow();
+                setCardAnimationStartState();
+                buildCardAnimationTimeline();
+            }, 150);
+        });
+    });
+
+    // Video instagram like swiper
+
+    var videoPop = new VideoPopup(); 
+
+    videoPop.videoList = [ 
+	{link:'https://streaminghkjc-a.akamaihd.net/hdflash/dei-content007/2025/20250905/racingacademyep1/chi/dei-content007_20250905_racingacademyep1_chi_2500kbps.mp4',thumbnail:'../assets/images/edu_area_video1.jpg',title:'<p class="video-title">由零開始新手上路！2分鐘學識四大基本彩池</p>由香港體育評述員鍾志光淺淡香港賽馬「平分彩金」制度，以及賠率變化的啟示；然後介紹四大基本彩池，並提供新手兩大揀馬貼士。'},
+	{link:'https://streaminghkjc-a.akamaihd.net/hdflash/dei-content007/2025/20250912/racingacademyep2/chi/dei-content007_20250912_racingacademyep2_chi_2500kbps.mp4',thumbnail:'../assets/images/edu_area_video2.jpg',title:'<p class="video-title">揀馬毋須左度右度！排位表兩大因素篩選機會馬</p>由香港體育評述員鍾志光，教你如何使用排位表自己度馬。影片將介紹兩大最入門因素，包括「6次近績」及「騎師」，對新手揀馬有何啟示。'},
+	{link:'https://streaminghkjc-a.akamaihd.net/hdflash/dei-content007/2025/20250919/racingacademyep4/chi/dei-content007_20250919_racingacademyep4_chi_2500kbps.mp4',thumbnail:'../assets/images/edu_area_video3.jpg',title:'<p class="video-title">排位表度馬攻略！一眼睇晒重點賽事資訊</p>由香港體育評述員鍾志光教你學識睇負磅及評分。'},
+	{link:'https://streaminghkjc-a.akamaihd.net/hdflash/dei-content003/2025/20250623/education-14-stevan/dei-content003_20250623_education-14-stevan_2500kbps.mp4',thumbnail:'../assets/images/edu_area_video4.jpg',title:'<p class="video-title">Stevan 教你三大揀頭馬法則！天時 x 地利 x 人和</p>世一分析師 Stevan 教你揀頭馬三大黃金法則——「查天氣、看場地、計騎練」。天時、地利、人和皆有數據可尋！'},
+	{link:'https://streaminghkjc-a.akamaihd.net/hdflash/dei-content003/2025/20250310/education-10-lingling/dei-content003_20250310_education-10-lingling_2500kbps.mp4',thumbnail:'../assets/images/edu_area_video5.jpg',title:'<p class="video-title">Ling Ling 教你季初、中、尾三個揀馬關鍵字！</p>馬季不同階段均有不同的度馬指南，緊記「經驗」、「實力」、「體力」三大關鍵字。'}
+	]; 
+
+	// videoPop.init()
+
+	function openPopup(i){
+		videoPop.open(i);
+	}
+
+
+    </script>
+
+    <!-- Discover Animation Section JS (GSAP + ScrollTrigger) -->
+    <script>
+        $(function() {
+        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+        if (!window.gsap || !window.ScrollTrigger) return;
+        gsap.registerPlugin(ScrollTrigger);
+        ScrollTrigger.normalizeScroll(true);
+        ScrollTrigger.config({ ignoreMobileResize: true });
+
+        const discoverSticky = document.querySelector('#discover');
+        if (!discoverSticky) return;
+        const clipRect = document.querySelector('#discoverClipRect');
+        const clipRectMobile = document.querySelector('#discoverClipRectMobile');
+        if (!clipRect || !clipRectMobile) return;
+
+        const DISCOVER_BASE_RATIO = 490 / 928;
+        const DISCOVER_MOBILE_RATIO = 407 / 269;
+        let discoverGeom = null;
+
+        function calculateDiscoverGeometry() {
+            const header = document.querySelector('.site-header');
+            const headerH = header ? header.offsetHeight : 0;
+            const sectionWidth = window.innerWidth;
+            const sectionHeight = Math.max(0, window.innerHeight - headerH);
+            const isMobile = window.innerWidth <= 768;
+
+            let baseWidth, baseHeight;
+            
+            if (isMobile) {
+                const maxHeightFromViewport = sectionHeight * 0.82;
+                const maxHeightFromWidth = sectionWidth * DISCOVER_MOBILE_RATIO * 0.92;
+                baseHeight = Math.max(280, Math.min(928, maxHeightFromViewport * 0.9));
+                baseWidth = baseHeight / DISCOVER_MOBILE_RATIO;
+                rx = baseWidth/2;
+                ry = baseWidth/2;
+            } else {
+                const maxWidthFromViewport = sectionWidth * 0.82;
+                const maxWidthFromHeight = sectionHeight / DISCOVER_BASE_RATIO * 0.92;
+                baseWidth = Math.max(280, Math.min(928, maxWidthFromViewport * 0.8));
+                baseHeight = baseWidth * DISCOVER_BASE_RATIO;
+                rx = baseHeight / 2;
+                ry = baseHeight / 2;
+            }
+
+            const initialX = (sectionWidth - baseWidth) / 2;
+            const initialY = (sectionHeight - baseHeight) / 2;
+
+            const overshootX = sectionWidth * 0.18;
+            const overshootY = sectionHeight * 0.22;
+
+            return {
+                sectionWidth,
+                sectionHeight,
+                baseWidth,
+                baseHeight,
+                initialRect: {
+                    x: initialX,
+                    y: initialY,
+                    width: baseWidth,
+                    height: baseHeight,
+                    rx: rx,
+                    ry: ry
+                },
+                finalRect: {
+                    x: -overshootX,
+                    y: -overshootY,
+                    width: sectionWidth + overshootX * 2,
+                    height: sectionHeight + overshootY * 2,
+                    rx: 0,
+                    ry: 0
+                }
+            };
+        }
+
+        function applyDiscoverLayout(geom) {
+            const background = discoverSticky.querySelector('.discover-background');
+            const imgBackground = discoverSticky.querySelector('.discover-image-background');
+            const isMobile = window.innerWidth <= 768;
+            
+            if (background) {
+                background.style.setProperty('--discover-shell-width', `${geom.baseWidth}px`);
+                background.style.setProperty('--discover-shell-height', `${geom.baseHeight}px`);
+                background.style.setProperty('--discover-shell-radius', `${Math.min(geom.baseWidth, geom.baseHeight) / 2}px`);
+                
+                if (isMobile) {
+                    background.style.clipPath = 'url(#discover-clip-mobile)';
+                    background.style.webkitClipPath = 'url(#discover-clip-mobile)';
+                    imgBackground.style.clipPath = 'url(#discover-clip-mobile)';
+                    imgBackground.style.webkitClipPath = 'url(#discover-clip-mobile)';
+                } else {
+                    background.style.clipPath = 'url(#discover-clip)';
+                    background.style.webkitClipPath = 'url(#discover-clip)';
+                    imgBackground.style.clipPath = 'url(#discover-clip)';
+                    imgBackground.style.webkitClipPath = 'url(#discover-clip)';
+                }
+            }
+
+            const activeClipRect = isMobile ? clipRectMobile : clipRect;
+            gsap.set(activeClipRect, {
+                attr: {
+                    x: geom.initialRect.x,
+                    y: geom.initialRect.y,
+                    width: geom.initialRect.width,
+                    height: geom.initialRect.height,
+                    rx: geom.initialRect.rx,
+                    ry: geom.initialRect.ry
+                }
+            });
+        }
+
+        function refreshDiscoverGeometry() {
+            discoverGeom = calculateDiscoverGeometry();
+            applyDiscoverLayout(discoverGeom);
+            return discoverGeom;
+        }
+
+        // Initial style for all three groups
+        function setDiscoverStartState() {
+            discoverGeom = refreshDiscoverGeometry();
+
+            gsap.set('#discover .discover-background', {
+                xPercent: -50,
+                yPercent: -50,
+                scale: 1
+            });
+
+            gsap.set('#discover .discover-content .discover-dot', {
+                opacity: 0
+            });
+
+            gsap.set('#discover .discover-content .discover-text', {
+                opacity: 0,
+                x:0,
+                xPercent: -50,
+                yPercent: -50,
+                maxWidth: discoverGeom.baseWidth - 80 + 'px',
+                scale:1.1
+            });  
+
+            // get initial text position
+            const isMobile = window.innerWidth <= 768;
+            var offsetDifferent;
+            var iconHeight = document.querySelector('#discover .discover-content .discover-icon')?.offsetHeight || 0;
+            if( isMobile ){
+                offsetDifferent = 20 ; // account for mobile scaling
+            }else{
+                offsetDifferent = (discoverGeom.baseHeight/2 - iconHeight - 30)/2 ; // account for desktop scaling
+            }
+            var textHeight = document.querySelector('#discover .discover-content .discover-text')?.offsetHeight || 0;
+            var textInitialY = 30 + offsetDifferent + textHeight/2 - 6; // 30 is the center offset of dot plus 30 offset difference between text center and dot center
+            gsap.set('#discover .discover-content .discover-text', {
+                y: textInitialY
+            });  
+            
+            gsap.set('#discover .discover-content .discover-icon', {
+                x:0,
+                y:0,
+                xPercent: -50,
+                yPercent: -50
+            });
+
+            gsap.set('#discover .discover-image-background img', {
+                scale: 1.04
+            });
+
+            gsap.set('#discover .discover-post', {
+                opacity: 0,
+                visibility: 'hidden'
+            });
+
+            // Set post dimensions based on screen size
+            if(isMobile){
+                adjustMobileDiscoverSwiperWidth();
+            }else{
+                adjustDesktopDiscoverSwiperWidth();
+            }
+        }
+
+        // Build timeline
+        function buildDiscoverTimeline() {
+            const sectionEl = document.querySelector('#discover');
+            var discoverGeom = refreshDiscoverGeometry();
+            const tl = gsap.timeline({
+                scrollTrigger: {
+                    id: 'discover-pin',
+                    trigger: sectionEl,
+                    // Start when the TOP of the section hits the BOTTOM of the header
+                    start: () => {
+                        const header = document.querySelector('.site-header');
+                        const headerH = header ? header.offsetHeight : 0;
+                        return `top +=${headerH}px`; // Start when section top hits bottom of header
+                    },
+                    end: '+=400%',
+                    scrub: 1,
+                    pin: discoverSticky,
+                    anticipatePin: 1,
+                    markers: false,
+                    invalidateOnRefresh: true,
+                    onRefresh: refreshDiscoverGeometry,
+                    onLeave: () => {
+                        // Force timeline to complete to end position (progress = 1)
+                        // This ensures animation finishes even if scrolled quickly
+                        tl.progress(1);
+                        
+                        // Get current scroll position and pin-spacer info
+                        const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+                        const pinSpacer = document.querySelector('.pin-spacer-discover-pin');
+                        const discoverSection = document.querySelector('#discover');
+                        
+                        if (pinSpacer && discoverSection) {
+                            // Get the old height before changes
+                            const oldHeight = pinSpacer.offsetHeight;
+                            
+                            // Disable the pin ScrollTrigger
+                            tl.scrollTrigger.disable(false);
+                            
+                            // Get the natural height of the discover section
+                            const naturalHeight = discoverSection.offsetHeight;
+                            
+                            // Calculate height difference
+                            const heightDiff = oldHeight - naturalHeight;
+                            
+                            // Adjust pin-spacer to natural height
+                            pinSpacer.style.height = naturalHeight + 'px';
+                            pinSpacer.style.padding = '0px';
+                            
+                            // Adjust scroll position to compensate for height change
+                            // This prevents the visual jump
+                            const newScroll = currentScroll - heightDiff;
+                            window.scrollTo(0, Math.max(0, newScroll));
+                            
+                            // Fight mobile momentum scroll
+                            if( window.innerWidth <= 768 ){
+                                fightDiscoverMomentumScroll();
+                            }
+                            
+                            // Clear any transform properties on the sticky element
+                            gsap.set(discoverSticky, { clearProps: 'transform' });
+                        }
+                    }
+                }
+            });
+            // Sequence label
+            tl.add('timeline');
+
+            //1 icon move up
+            //Calculate final y to align center of icon with center of discover section
+            const isMobile = window.innerWidth <= 768;
+            var offsetDifferent;
+            var iconHeight = document.querySelector('#discover .discover-content .discover-icon')?.offsetHeight || 0;
+            if( isMobile ){
+                offsetDifferent = 20 ; // account for mobile scaling
+            }else{
+                offsetDifferent = (discoverGeom.baseHeight/2 - iconHeight - 30)/2;
+            }
+            var iconFinalY = 30 + offsetDifferent + iconHeight/2; // 30 is the center offset of dot plus 30 offset difference between icon center and dot center
+
+            tl.to('#discover .discover-content .discover-icon', {
+                y: -iconFinalY,
+                opacity: 1,
+                ease: 'power1.out',
+                duration: 1,
+            }, 'timeline');
+
+            // 2 dot appear
+            tl.to('#discover .discover-content .discover-dot', {
+                opacity: 1,
+                ease: 'power4.in',
+                duration: 1.5,
+            }, 'timeline+=0.5');
+
+            //3 dot grow
+            tl.to('#discover .discover-content .discover-dot', {
+                height: '60px',
+                ease: 'power1.in',
+                duration: 1.5,
+            }, 'timeline+=2');
+
+            tl.to('#discover .discover-content .discover-dot', {
+                y: 0,
+                ease: 'power1.out',
+                duration: 1.5,
+            }, 'timeline+=2');
+
+            //4 text appear
+            tl.to('#discover .discover-content .discover-text', {
+                opacity: 1,
+                scale:1,
+                ease: 'power4.out',
+                duration: 2,
+            }, 'timeline+=3.5');
+
+            //5 reveal background image via clip-path expansion
+            const activeClipRect = isMobile ? clipRectMobile : clipRect;
+            
+            tl.to(activeClipRect, {
+                attr: {
+                    x: () => discoverGeom.finalRect.x,
+                    y: () => discoverGeom.finalRect.y,
+                    width: () => discoverGeom.finalRect.width,
+                    height: () => discoverGeom.finalRect.height,
+                    rx: () => discoverGeom.finalRect.rx,
+                    ry: () => discoverGeom.finalRect.ry
+                },
+                ease: 'power2.inOut',
+                duration: 5,
+            }, 'timeline+=5.5');
+
+            //6 hideout everything except bg
+            tl.to('#discover .discover-content .discover-icon', {
+                opacity: 0,
+                ease: 'power1.out',
+                duration: 1,
+            }, 'timeline+=8'); 
+            tl.to('#discover .discover-content .discover-dot', {
+                opacity: 0,
+                ease: 'power1.out',
+                duration: 1,
+            }, 'timeline+=8');
+            tl.to('#discover .discover-content .discover-text', {
+                opacity: 0,
+                ease: 'power1.out',
+                duration: 1,
+            }, 'timeline+=8'); 
+
+            //7 display posts
+            tl.to('#discover .discover-post', {
+                opacity: 1,
+                visibility: 'visible',
+                ease: 'power1.out',
+                duration: 1,
+            }, 'timeline+=9');
+
+        }
+
+        function adjustMobileDiscoverSwiperWidth(){
+
+            const isMobile = window.innerWidth <= 768;
+            if (!isMobile) return; // Only for mobile
+
+            const discoverPost = document.querySelector('#discover .discover-post');
+            if (!discoverPost) return;
+
+            const postWrappers = discoverPost.querySelectorAll('.post-wrapper');
+            
+            postWrappers.forEach(wrapper => {
+                const swiper = wrapper.querySelector('.swiper');
+                const title = wrapper.querySelector('.section-title');
+                
+                if (!swiper) return;
+
+                // Get available height for post-wrapper (50% of discover-post)
+                const discoverPostHeight = discoverPost.offsetHeight - 48 - 15 ; // account for padding and gap between rows
+                const wrapperMaxHeight = discoverPostHeight * 0.5;
+                
+                // Calculate space taken by title and button
+                const titleHeight = title.offsetHeight;
+                const gap = 15; // gap between elements (from CSS)
+                
+                // Available height for swiper (posts)
+                const availableHeight = wrapperMaxHeight - titleHeight - gap;
+
+                // Calculate post dimensions
+                // Post = feature-img + text-wrapper
+                // Assuming text-wrapper is approximately 60px (title + excerpt with padding)
+                const textWrapperHeight = wrapper.querySelector('.post-text-wrapper')?.offsetHeight || 60;
+                const featureImgHeight = availableHeight - textWrapperHeight;
+                
+                // Calculate width from aspect ratio (245/138)
+                const aspectRatio = 245 / 138;
+                var postWidth = featureImgHeight * aspectRatio;
+
+                // Prevent overly wide swipers
+                if( postWidth > window.innerWidth - 15 ){
+                    postWidth = (window.innerWidth - 30 )/1.3;
+                }
+                
+                // Set post width for each slide
+                const slides = swiper.querySelectorAll('.swiper-slide .post');
+                slides.forEach(slide => {
+                    
+                    slide.style.width = `${postWidth}px`;
+                });
+            });
+
+        }
+
+        function adjustDesktopDiscoverSwiperWidth() {
+            
+            const isMobile = window.innerWidth <= 768;
+            if (isMobile) return; // Only for desktop
+
+            const discoverPost = document.querySelector('#discover .discover-post');
+            if (!discoverPost) return;
+
+            const postWrappers = discoverPost.querySelectorAll('.post-wrapper');
+            
+            postWrappers.forEach(wrapper => {
+                const swiper = wrapper.querySelector('.swiper');
+                const title = wrapper.querySelector('.section-title');
+                
+                if (!swiper) return;
+
+                // Get available height for post-wrapper (50% of discover-post)
+                const discoverPostHeight = discoverPost.offsetHeight - 40 - 20 ; // account for padding and gap between rows
+                const wrapperMaxHeight = discoverPostHeight * 0.5;
+                
+                // Calculate space taken by title and button
+                const titleHeight = title.offsetHeight;
+                const gap = 20; // gap between elements (from CSS)
+                
+                // Available height for swiper (posts)
+                const availableHeight = wrapperMaxHeight - titleHeight - gap;
+
+                // Calculate post dimensions
+                // Post = feature-img + text-wrapper
+                // Assuming text-wrapper is approximately 60px (title + excerpt with padding)
+                const textWrapperHeight = wrapper.querySelector('.post-text-wrapper')?.offsetHeight || 60;
+                const featureImgHeight = availableHeight - textWrapperHeight;
+                
+                // Calculate width from aspect ratio (245/138)
+                const aspectRatio = 245 / 138;
+                const postWidth = featureImgHeight * aspectRatio;
+                
+                // Calculate swiper width: 3 posts + 2 gaps (20px each)
+                const swiperWidth = (postWidth * 3) + (gap * 2);
+                
+                if (swiperWidth > 900) return; // Prevent overly wide swipers
+                
+                // Set the swiper width
+                swiper.style.width = `${swiperWidth}px`;
+                swiper.style.maxWidth = '100%'; // Ensure it doesn't overflow
+                // Set post width for each slide
+                const slides = swiper.querySelectorAll('.swiper-slide .post');
+                slides.forEach(slide => {
+                    
+                    slide.style.width = `${postWidth}px`;
+                });
+            });
+
+        }
+
+        function fightDiscoverMomentumScroll() {
+            let lastScrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            let momentumTimeout = null;
+            let isLocked = true;
+            let touchEndReceived = false;
+            
+            // Check if user is currently touching after a short delay
+            // If no touchend after 50ms, assume momentum scroll (finger already gone)
+            const initialTouchCheck = setTimeout(() => {
+                if (!touchEndReceived) {
+                    // Enable timeout-based release for momentum
+                }
+            }, 50);
+            
+            // Store reference to scroll handler so we can remove it later
+            const scrollLockHandler = () => {
+                window.scrollTo(0, lastScrollTop);
+                
+                // Always reset timeout - will auto-release when momentum stops
+                // But only if touchend hasn't been received yet (pure momentum case)
+                if (!touchEndReceived) {
+                    clearTimeout(momentumTimeout);
+                    momentumTimeout = setTimeout(() => {
+                        if (isLocked) {
+                            releaseLock();
+                        }
+                    }, 150);
+                }
+            };
+            
+            // Release lock when user lifts finger or momentum stops
+            const releaseLock = () => {
+                if (!isLocked) return; // Prevent multiple calls
+                isLocked = false;
+                
+                clearTimeout(initialTouchCheck);
+                clearTimeout(momentumTimeout);
+                window.removeEventListener('scroll', scrollLockHandler);
+                document.removeEventListener('touchend', onTouchEnd);
+                document.removeEventListener('touchcancel', onTouchEnd);
+            };
+            
+            // Called when user lifts finger
+            const onTouchEnd = () => {
+                touchEndReceived = true;
+                clearTimeout(initialTouchCheck);
+                releaseLock();
+            };
+            
+            // Activate scroll lock
+            window.addEventListener('scroll', scrollLockHandler);
+            
+            // Release on touch end (user lifts finger)
+            document.addEventListener('touchend', onTouchEnd, { once: true });
+            document.addEventListener('touchcancel', onTouchEnd, { once: true });
+        }
+        
+        // Expose functions globally for card animation to call
+        window.discoverAnimationFunctions.setStartState = setDiscoverStartState;
+        window.discoverAnimationFunctions.buildTimeline = buildDiscoverTimeline;
+        
+    });
+    </script>
+
+       <!-- Discover Posts Swiper JS (Mobile Only) -->
+    <script>
+    $(document).ready(function() {
+        if (typeof Swiper === 'undefined') return;
+
+        // Initialize discover posts swipers only on mobile
+        let discoverSwiper1 = null;
+        let discoverSwiper2 = null;
+
+        function adjustMobilePostSize() {
+            const isMobile = window.innerWidth <= 768;
+            if (!isMobile) return; // Only for mobile
+
+            const discoverPost = document.querySelector('#discover .discover-post');
+            if (!discoverPost) return;
+
+            const postWrappers = discoverPost.querySelectorAll('.post-wrapper');
+            
+            postWrappers.forEach(wrapper => {
+                const title = wrapper.querySelector('.section-title');
+                const button = wrapper.querySelector('.button-wrapper');
+                const swiperSlides = wrapper.querySelectorAll('.swiper-slide');
+
+                if (!title || !button || swiperSlides.length === 0) return;
+
+                // Get available height for post-wrapper (50% of discover-post)
+                const discoverPostHeight = discoverPost.offsetHeight;
+                const gap = 15; // gap between post-wrapper rows
+                const padding = 15; // padding on discover-post (mobile)
+                const availableHeightPerWrapper = (discoverPostHeight - padding * 2 - gap) / 2;
+                
+                // Calculate space taken by title and button
+                const titleHeight = title.offsetHeight;
+                const buttonHeight = button.offsetHeight;
+                const gapBetweenElements = 15; // gap between elements (from CSS)
+                
+                // Available height for posts
+                var availableHeightForPosts = availableHeightPerWrapper - titleHeight - buttonHeight - (gapBetweenElements * 2);
+                
+                // Calculate post dimensions
+                // Post = feature-img + text-wrapper
+                // Assuming text-wrapper is approximately 60px (title + excerpt with padding)
+                const textWrapperHeight = 60;
+                var featureImgHeight = availableHeightForPosts - textWrapperHeight;
+                
+                // Calculate width from aspect ratio (245/138)
+                const aspectRatio = 245 / 138;
+                var postWidth = featureImgHeight * aspectRatio;
+
+                if( window.innerWidth - 15 < postWidth * 1.2 ){
+                    postWidth = (window.innerWidth - 15) / 1.2; // Ensure at least 1.2 posts fit in viewport
+                    featureImgHeight = postWidth / aspectRatio;
+                    availableHeightForPosts = featureImgHeight + textWrapperHeight;
+                }
+                
+                // Apply dimensions to each post
+                // Note: Don't set width on swiper-slide, let CSS fit-content handle it
+                swiperSlides.forEach(slide => {
+                    const post = slide.querySelector('.post');
+                    if (!post) return;
+                    
+                    // Set width and height on post (CSS fit-content will size the slide)
+                    post.style.width = `${postWidth}px`;
+                    post.style.height = `${availableHeightForPosts}px`;
+                    
+                    // Also set the feature image height
+                    const featureImg = post.querySelector('.feature-img');
+                    if (featureImg) {
+                        featureImg.style.height = `${featureImgHeight}px`;
+                    }
+                });
+            });
+        }
+        
+        function initDiscoverSwipers() {
+            const isMobile = window.innerWidth <= 768;
+            
+            if (isMobile) {
+                // Initialize first post-row swiper if not already initialized
+                adjustMobilePostSize();
+                if (!discoverSwiper1) {
+                    discoverSwiper1 = new Swiper('.discover-posts-swiper-1', {
+                        slidesPerView: 'auto',
+                        spaceBetween: 15,
+                        watchSlidesProgress: true,
+                        allowTouchMove: true,
+                        speed: 600,
+                    });
+                    
+                    // Store instance globally
+                    if (window.hkjcSwipers) {
+                        window.hkjcSwipers.discoverPosts1 = discoverSwiper1;
+                    }
+                }
+                
+                // Initialize second post-row swiper if not already initialized
+                if (!discoverSwiper2) {
+                    discoverSwiper2 = new Swiper('.discover-posts-swiper-2', {
+                        slidesPerView: 'auto',
+                        spaceBetween: 15,
+                        watchSlidesProgress: true,
+                        allowTouchMove: true,
+                        speed: 600,
+                    });
+                    
+                    // Store instance globally
+                    if (window.hkjcSwipers) {
+                        window.hkjcSwipers.discoverPosts2 = discoverSwiper2;
+                    }
+                }
+            } else {
+                // Destroy swipers on desktop
+                if (discoverSwiper1) {
+                    discoverSwiper1.destroy(true, true);
+                    discoverSwiper1 = null;
+                    if (window.hkjcSwipers) {
+                        window.hkjcSwipers.discoverPosts1 = null;
+                    }
+                }
+                if (discoverSwiper2) {
+                    discoverSwiper2.destroy(true, true);
+                    discoverSwiper2 = null;
+                    if (window.hkjcSwipers) {
+                        window.hkjcSwipers.discoverPosts2 = null;
+                    }
+                }
+            }
+        }
+        
+        // Initialize on page load
+        initDiscoverSwipers();
+        
+        // Reinitialize on window resize with debounce
+        let discoverResizeTimeout;
+        $(window).on('resize', function() {
+            clearTimeout(discoverResizeTimeout);
+            discoverResizeTimeout = setTimeout(initDiscoverSwipers, 300);
+        });
+    });
+    </script>
+
+    <!-- Global Resize Handler for Swiper and GSAP -->
+    <script>
+    $(function() {
+        // Store all swiper instances globally
+        window.hkjcSwipers = {
+            banner: null,
+            specialists: null,
+            picks: null,
+            moreSpecialists: null
+        };
+
+        let resizeTimeout;
+        let previousWidth = window.innerWidth;
+        
+        // Comprehensive resize handler
+        window.addEventListener('resize', function() {
+            clearTimeout(resizeTimeout);
+            
+            resizeTimeout = setTimeout(function() {
+                const currentWidth = window.innerWidth;
+                const hasBreakpointChanged = (previousWidth <= 768 && currentWidth > 768) || 
+                                            (previousWidth > 768 && currentWidth <= 768);
+                
+                // If breakpoint changed (mobile <-> desktop), do full reinitialization
+                if (hasBreakpointChanged) {
+                    console.log('Breakpoint changed - reinitializing all components');
+                    
+                    // Kill all GSAP ScrollTriggers
+                    if (window.ScrollTrigger) {
+                        ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+                    }
+                    
+                    // Destroy and reinitialize all Swipers
+                    Object.keys(window.hkjcSwipers).forEach(key => {
+                        if (window.hkjcSwipers[key]) {
+                            try {
+                                window.hkjcSwipers[key].destroy(true, true);
+                                window.hkjcSwipers[key] = null;
+                            } catch (e) {
+                                console.warn('Error destroying swiper:', key, e);
+                            }
+                        }
+                    });
+                    
+                    // Force page reload to reinitialize everything cleanly
+                    setTimeout(() => {
+                        location.reload();
+                    }, 100);
+                } else {
+                    // Just refresh ScrollTrigger for minor size changes
+                    if (window.ScrollTrigger) {
+                        ScrollTrigger.refresh();
+                    }
+                    
+                    // Recalculate discover swiper width
+                    if ( window.innerWidth > 768 ) {
+                        setTimeout(() => {
+                            window.adjustDesktopDiscoverSwiperWidth();
+                        }, 100);
+                    }else{
+                        setTimeout(() => {
+                            window.adjustMobileDiscoverSwiperWidth();
+                        }, 100);
+                    }
+                }
+
+                previousWidth = currentWidth;
+            }, 300); // Debounce 300ms
+        });
+        
+        // Handle orientation change on mobile devices
+        window.addEventListener('resize', function() {
+            console.log('Orientation changed - refreshing ScrollTrigger');
+            setTimeout(function() {
+                if (window.ScrollTrigger) {
+                    ScrollTrigger.refresh();
+                }
+            }, 500);
+        });
+    });
+    
+    // Mobile navigation toggle icon handler
+    document.addEventListener('DOMContentLoaded', function() {
+        const mobileNav = document.getElementById('mobileNav');
+        const hamburgerIcon = document.querySelector('.hamburger-icon');
+        const closeIcon = document.querySelector('.close-icon');
+        
+        if (mobileNav && hamburgerIcon && closeIcon) {
+            mobileNav.addEventListener('show.bs.collapse', function() {
+                hamburgerIcon.classList.add('d-none');
+                closeIcon.classList.remove('d-none');
+            });
+            
+            mobileNav.addEventListener('hide.bs.collapse', function() {
+                hamburgerIcon.classList.remove('d-none');
+                closeIcon.classList.add('d-none');
+            });
+        }
+    });
+    </script>
+    
+</body>
+</html>

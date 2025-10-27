@@ -26,7 +26,7 @@ body {
     color:#000;
     font-size: 16px;
     line-height: 21px;
-    font-weight: 300;
+    font-weight: 400;
     max-width: 600px;
     margin: 0 auto;
     max-width: 1000px;
@@ -39,6 +39,28 @@ body {
     line-height: 1.14;
     font-weight: 600;
     margin-bottom: 32px;
+}
+
+.dropdown-toggle::after {
+    display: none;
+}
+
+.dropdown-item {
+    font-size: 16px;
+    line-height: 32px;
+    padding: 0;
+    color: #022169;
+}
+
+.dropdown-item.active, .dropdown-item:active, .dropdown-item:hover, .dropdown-item:focus {
+    background-color: transparent;
+}
+
+.dropdown-menu {
+    padding: 16px 24px;
+    margin-top: 13px !important;
+    border-radius: 4px;
+    border-color: #dee2e6;
 }
 
 main.main-content {
@@ -72,9 +94,13 @@ main.main-content {
 
     .section-title {
         font-size: 7vw;
-        margin-bottom: 12px!important;
+    }
+
+    .pin-spacer .section-title {
+        margin-bottom: 0!important;
 
     }
+
     .section-sub-title{
         font-size: 4.5vw;
     }
@@ -95,10 +121,25 @@ main.main-content {
     transform: translateZ(0);
     -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
+    color: #022169;
 }   
 
 div#mobileNav {
     font-size: 12px;
+}
+
+nav li .nav-link {
+    color: #022169;
+}
+
+.mobile-nav-wrapper .container-fiuld {
+    height: calc(100vh - 55px);
+}
+
+.mobile-nav-wrapper nav li .nav-link {
+    font-size: 18px;
+    margin-bottom:24px;
+    font-weight: 500;
 }
 
 .site-logo {
@@ -108,6 +149,12 @@ div#mobileNav {
 
 .header-bar{
     height: 90px;
+}
+
+.mobile-lang {
+    position: absolute;
+    top: 15px;
+    right: 55px;
 }
 
 @media (min-width: 1025px) {
@@ -167,6 +214,23 @@ div#mobileNav {
     transition:transform .6s ease, opacity .6s ease;
 }
 
+.home-banner-wrapper .swiper-slide .swiper-image {
+    position: relative;
+}
+
+.home-banner-wrapper .swiper-slide .swiper-image:before {
+    content: "";
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, .1);
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    border-radius: 24px;
+}
+
+
 .home-banner-wrapper .swiper-slide-prev{
     transform-origin: 100% 50%;
 }
@@ -193,6 +257,7 @@ div#mobileNav {
     top: 0;
     border-radius: 32px;
     background: rgb(18 18 18 / 10%);
+    z-index: 2;
 }
 
 .swiper-image-overlay .overlay-content {
@@ -503,11 +568,11 @@ a.banner-cta-link {
     }
 
     .race-chip{
-        padding: 2px 12px!important;
+        padding: 8px!important;
     }
 
     .race-chip .text{
-        font-size: 1.5rem;
+        font-size: 1.5rem!important;
     }
 
     .race-chip  img{
@@ -727,7 +792,6 @@ section#specialists {
 }
 
 .metric .label {
-    font-weight:medium;
     line-height: 1.23;
 }
 
@@ -738,10 +802,10 @@ section#specialists {
 
 .race-chip {
     margin-top: 12px;
-    height: 48px;
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: 8px;
     gap: 8px;
     background: #eaf2ff;
     color: #003c84;
@@ -750,7 +814,6 @@ section#specialists {
 }
 
 .race-chip .text{
-    margin-top: -3px;
     color: #000;
     font-size: 21px;
     line-height: 26px;
@@ -894,6 +957,11 @@ section#specialists {
         padding: 12px 24px;
     }
 
+    .more-specialists-swiper .swiper-button-next,
+    .more-specialists-swiper .swiper-button-prev {
+        display: none!important;
+    }
+
 }
 
 section#specialists-second {
@@ -902,13 +970,13 @@ section#specialists-second {
 }
 
 .more-specialists-wrap {
-    max-width: 1200px;
-    width: 1200px;
+    max-width: 1400px;
+    width: 1400px;
     margin: 0 auto;
 }
 
 .more-specialists-swiper {
-    height: 300px;
+    height: 350px;
 }
 
 .more-specialists-swiper .swiper-wrapper { 
@@ -931,7 +999,7 @@ section#specialists-second {
 
 .mspec-card {
     position: relative;
-    height: 300px;
+    height: 350px;
     display: flex;
     align-items: flex-end;
     justify-content: flex-start;
@@ -952,16 +1020,16 @@ section#specialists-second {
     padding: 32px 32px 0 32px;
 }
 
-.mspec-quote{
+.mspec-quote {
     font-family: "Noto Sans", "Noto Sans TC", sans-serif;
     color:#000;
-    font-size: 24px;
+    font-size: 20px;
     line-height: 28px;
     font-weight: 400;
     margin: 0 auto;
-    max-width: 650px;
-    padding-bottom: 20px;
-    height: 100px;
+    /*max-width: 650px;*/
+    padding-bottom: 32px;
+    /*height: 100px;*/
 }
 
 .hkjc-outline-button {
@@ -1025,6 +1093,9 @@ section#specialists-second {
     opacity: 1;
     transition: all 0.6s;
 }
+.more-specialists-swiper a {
+    text-decoration: unset;
+}
 .mspec-name { 
     font-family: "Noto Sans", "Noto Sans TC", sans-serif;
     font-weight: 700;
@@ -1038,6 +1109,33 @@ section#specialists-second {
     font-size: 20px;
     line-height: 1.2;
     text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.more-specialists-swiper .swiper-button-prev {
+    left: 37.3%;
+    top: 60%;
+    font-weight: bold;
+    color: #FFF;
+    background: #cfcfcf;
+    border-radius: 50px;
+    width: 38px;
+    height: 38px;
+}
+
+.more-specialists-swiper .swiper-button-next {
+    right: 37.3%;
+    top: 60%;
+    font-weight: bold;
+    color: #FFF;
+    background: #cfcfcf;
+    border-radius: 50px;
+    width: 38px;
+    height: 38px;
+}
+
+.more-specialists-swiper .swiper-button-next:after, 
+.more-specialists-swiper .swiper-button-prev:after{
+    font-size: 20px!important;
 }
 
 /* =============================  Card Animation Section ============================= */
@@ -1071,6 +1169,8 @@ section#specialists-second {
     .animation-image-wrapper img {
         width: 228px!important;
         top: 48.72px!important;
+        width: min(200px,29vw);
+        margin-top: 0;
     }
 
     .animation-button-wrapper button{
@@ -1096,11 +1196,12 @@ section#specialists-second {
 
 .animation-image-wrapper img {
     position: absolute;
-    top: 50px;
+    top: 35px;
     left: 50%;      
     transform: translate(-50%, -50%);
-    width: min(200px,29vw);
+    width: min(240px,30vw);
     height: auto;
+    margin-top: 24px;
 }
 
 .animation-group-wrapper {
@@ -1170,7 +1271,7 @@ section#specialists-second {
 
 .media-card .video-thumbnail { 
     width: 100%; 
-    height: auto; 
+    height: 100%; 
     object-fit: cover; 
     display: block; 
     z-index: 0;
@@ -1201,6 +1302,7 @@ section#specialists-second {
     position: absolute;
     bottom: 0;
     left: 20px;
+    right: 20px;
     z-index: 2;
 }
 
@@ -1231,6 +1333,10 @@ section#specialists-second {
     font-size: 16px;
     font-weight: 600;
     margin: 3px 0 20px 0;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
 }
 
 .animation-button-wrapper button{
@@ -1243,13 +1349,7 @@ section#specialists-second {
 
 /* ============================= Discover Section ============================= */
 
-@media (max-width: 1024px) {
-
-    p.discover-text {
-        font-size: 14px!important;
-    }       
-
-    
+@media (max-width: 1024px) { 
 
 }
 
@@ -1303,7 +1403,7 @@ section#specialists-second {
 
     #discover .swiper{
         width: 100%;
-        height: 100%;
+        height: fit-content;
     }
 
     #discover .swiper-wrapper {
@@ -1327,7 +1427,7 @@ section#specialists-second {
     }
 
     .discover-post {
-        padding: 15px 0!important;
+        padding: 24px 0!important;
         gap: 15px;
     }
 
@@ -1385,14 +1485,21 @@ p.discover-text {
     transform: translate(-50%, -50%);
     left: 50%;
     top: 50%;
-    width: 500px;
+    width: 550px;
     margin: unset;
     text-align: center;
     color: #FFF;
     font-family: "Noto Sans", "Noto Sans TC", sans-serif;
     font-size: 16px;
 }
+@media (max-width: 1024px) {
 
+    p.discover-text {
+        font-size: 13px!important;
+        line-height: 1.2;
+    }       
+
+}
 p.discover-dot {
     position: absolute;
     top: -30px;
@@ -1416,7 +1523,7 @@ p.discover-dot {
     top: 50%;
     transform: translate(-50%, -50%);
     padding: 20px;
-    max-width: 900px;
+    max-width: 940px;
     width: 100%;
     opacity: 0;
     z-index: 2;
@@ -1456,7 +1563,7 @@ p.post-title {
 }
 
 .post-text-wrapper {
-    padding: 8px 15px 10px;
+    padding: 24px;
     background: #FFF;
 }
 
@@ -1512,7 +1619,21 @@ img.right-vector {
     justify-content: flex-end;
 }
 .post-wrapper.second {
+    
     justify-content: flex-start;
+}
+
+@media (max-width: 768px) {
+    .discover-post {
+        background: url(../images/bg_mobile_blue_area.png) no-repeat center bottom     #2655cc;
+        background-size: 100% auto;
+    }
+    img.left-vector {
+        display: none;
+    }
+    img.right-vector {
+        display: none;
+    }
 }
 
 .post-wrapper .hkjc-outline-button {
@@ -1531,8 +1652,6 @@ img.right-vector {
     text-align: center;
 }
 
-
-
 /* ============================= Footer ============================= */
 
 p.footer-text, .footer-list {
@@ -1544,7 +1663,7 @@ p.footer-text, .footer-list {
     font-weight: 300;
 }
 
-p.footer-text a{
+p.footer-text a {
     color: #000;
     text-decoration: underline;
 }
@@ -1552,5 +1671,79 @@ p.footer-text a{
 section#footer {
     background: #FFF;
     border-top: 1px solid #D9D9D9;
-    margin-bottom: 60px;
+    padding-top: 64px;
+    padding-bottom: 64px;
 }
+
+section#footer .container {
+}
+
+@media (max-width: 768px) {
+    section#footer {
+        padding-top: 32px;
+        padding-bottom: 32px;
+    }
+    section#footer .container {
+        padding-bottom: 80px;
+    }
+}
+
+/*  Arrow  */
+.l-wrapper {
+    position: relative;
+    width: 100%;
+    height: 50px
+  }
+  
+  .c-arrow {
+    position: absolute;
+    top: 25%;
+    left: 50%;
+    transform-origin: 50% 50%;
+    transform: translate3d(-50%, -50%, 0);
+    opacity: 0;
+    cursor: pointer;
+  }
+  
+  .c-arrow:first-child {
+    animation: arrow 2s ease-in-out infinite;
+  }
+  
+  .c-arrow:last-child {
+    animation: arrow 2s 1s ease-in-out infinite;
+  }
+  
+  .c-arrow::before,
+  .c-arrow::after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 15px;
+    height: 3px;
+    background-color: #022169;
+  }
+  
+  .c-arrow::before {
+    transform: rotate(45deg) translateX(-13%);
+    transform-origin: top left;
+  }
+  
+  .c-arrow::after {
+    transform: rotate(-45deg) translateX(13%);
+    transform-origin: top right;
+  }
+  
+  @keyframes arrow {
+    0% {
+      opacity: 0;
+      top: 0%;
+    }
+    70% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
+  }

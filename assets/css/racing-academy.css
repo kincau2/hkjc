@@ -9,12 +9,26 @@
 }
 
 .page-header-section {
-    padding: 30px 0 0px;
+    padding: 32px 0 0px;
+}
+
+.page-header-section .filter-controls-section {
+    padding: 0;
+}
+
+.page-header-section .filter-controls-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.section-title {
+    margin-bottom: 0!important;
 }
 
 /* Filter Controls Section */
 .filter-controls-section {
-    padding: 20px 0 20px;
+    padding: 24px 0;
 }
 
 .filter-controls-wrapper {
@@ -33,11 +47,36 @@
     flex: 1;
 }
 
+@media (max-width: 768px) {
+    .tag-filters {
+        flex-wrap: nowrap;
+        overflow-x: scroll;
+    }
+    .page-header-section .filter-controls-section {
+        padding: 0;
+    }
+    .racing-academy-page {
+        padding: 0;
+    }
+    .racing-academy-page .page-header-section {
+        padding: 20px 15px;
+    }
+    .racing-academy-page .posts-grid-section {
+        padding: 0 15px 80px 15px;
+    }
+    .racing-academy-page .filter-controls-section .container {
+        padding: 0;
+    }
+    .racing-academy-page .tag-filter-btn:first-child {
+        margin-left: 15px;
+    }
+}
+
 .tag-filter-btn {
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    padding: 5px 10px 5px 5px;
+    padding: 8px 12px 8px 10px;
     border: 3px solid #FFF;
     outline: 3px solid #FFF;
     margin: 3px;
@@ -58,6 +97,7 @@
 /* Individual tag button colors when active */
 .tag-filter-btn[data-tag="all"] {
     background: #2655CC;
+    outline: 3px solid transparent;
 }
 
 .tag-filter-btn[data-tag="all"] i{
@@ -65,11 +105,12 @@
 }
 
 .tag-filter-btn[data-tag="all"].active {
-    outline: 3px solid #2655CC;
+    outline: 3px solid rgba(37, 84, 203, 0.2);
 }
 
 .tag-filter-btn[data-tag="racing-kickstarter"] {
     background: #804CFF;
+    outline: 3px solid transparent;
 }
 
 .tag-filter-btn[data-tag="racing-kickstarter"] i{
@@ -77,11 +118,12 @@
 }
 
 .tag-filter-btn[data-tag="racing-kickstarter"].active {
-    outline: 3px solid #804CFF;
+    outline: 3px solid rgba(127, 76, 255, 0.2);
 }
 
 .tag-filter-btn[data-tag="basics-to-racing"] {
     background: #5CAD2D;
+    outline: 3px solid transparent;
 }
 
 .tag-filter-btn[data-tag="basics-to-racing"] i{
@@ -89,11 +131,12 @@
 }
 
 .tag-filter-btn[data-tag="basics-to-racing"].active {
-    outline: 3px solid #5CAD2D;
+    outline: 3px solid rgba(92, 173, 45, 0.2);
 }
 
 .tag-filter-btn[data-tag="bet-type"] {
     background: #D54B8D;
+    outline: 3px solid transparent;
 }
 
 .tag-filter-btn[data-tag="bet-type"] i{
@@ -101,11 +144,12 @@
 }
 
 .tag-filter-btn[data-tag="bet-type"].active {
-    outline: 3px solid #D54B8D;
+    outline: 3px solid rgba(213, 75, 141, 0.2);
 }
 
 .tag-filter-btn[data-tag="betting-strategy"] {
     background: #EC9223;
+    outline: 3px solid transparent;
 }
 
 .tag-filter-btn[data-tag="betting-strategy"] i{
@@ -113,11 +157,12 @@
 }
 
 .tag-filter-btn[data-tag="betting-strategy"].active {
-    outline: 3px solid #EC9223;
+    outline: 3px solid rgba(236, 146, 35, 0.2);
 }
 
 .tag-filter-btn[data-tag="horse-jockey-trainer"] {
     background: #2F94CD;
+    outline: 3px solid transparent;
 }
 
 .tag-filter-btn[data-tag="horse-jockey-trainer"] i{
@@ -125,11 +170,12 @@
 }
 
 .tag-filter-btn[data-tag="horse-jockey-trainer"].active {
-    outline: 3px solid #2F94CD;
+    outline: 3px solid rgba(47, 148, 205, 0.2);
 }
 
 .tag-filter-btn[data-tag="simulcast-racing"] {
     background: #BCA12A;
+    outline: 3px solid transparent;
 }
 
 .tag-filter-btn[data-tag="simulcast-racing"] i{
@@ -137,16 +183,19 @@
 }
 
 .tag-filter-btn[data-tag="simulcast-racing"].active {
-    outline: 3px solid #BCA12A;
+    outline: 3px solid rgba(188, 161, 42, 0.2);
 }
 
 .tag-filter-btn .tag-icon {
     font-size: 16px;
     display: flex;
     align-items: center;
-    padding: 5px 6px;
+    padding: 0;
     background: #FFF;
     border-radius: 50px;
+    width: 32px;
+    height: 32px;
+    justify-content: center;
 }
 
 /* Sort/Filter Button */
@@ -248,7 +297,7 @@
     padding: 20px;
     display: flex;
     flex-direction: column;
-    gap: 7px;
+    gap: 4px;
     padding: 10px 0px;
 }
 
@@ -256,11 +305,12 @@
     display: flex;
     flex-wrap: wrap;
     gap: 8px;
+    margin-bottom: 6px;
 }
 
 .post-tag {
-    padding: 4px 12px;
-    border-radius: 12px;
+    padding: 8px 16px;
+    border-radius: 100px;
     font-size: 12px;
     font-weight: 500;
     white-space: nowrap;
@@ -330,7 +380,7 @@
     position: absolute;
     top: 100%;
     right: 0;
-    z-index: 9999;
+    z-index: 99;
     display: none;
     margin-top: 8px;
 }
@@ -346,10 +396,10 @@
 .sort-filter-content {
     background: #ffffff;
     border-radius: 16px;
-    padding: 24px;
-    width: 380px;
+    padding: 16px;
+    width: 470px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
-    border: 1px solid #e5e7eb;
+    border: none;
     animation: slideDown 0.2s ease-out;
 }
 
@@ -364,9 +414,11 @@
     }
 }
 
-.sort-section,
+.sort-section {
+    margin-bottom: 12px;
+}
 .filter-section {
-    margin-bottom: 20px;
+    margin-bottom: 24px;
 }
 
 .sort-section:last-of-type,
@@ -397,9 +449,9 @@
     border-bottom: none;
 }
 
-.option-btn:hover {
+/*.option-btn:hover {
     background: #f9fafb;
-}
+}*/
 
 .option-btn.active {
     color: #022169;
@@ -431,13 +483,20 @@
 .modal-actions {
     display: flex;
     gap: 12px;
-    margin-top: 24px;
+    /*margin-top: 24px;
     padding-top: 20px;
-    border-top: 1px solid #e5e7eb;
+    border-top: 1px solid #e5e7eb;*/
+}
+.modal-actions .reset-btn {
+    width: 30%;
+}
+
+.modal-actions .show-result-btn {
+    width: 70%;
 }
 
 .action-btn {
-    flex: 1;
+    /*flex: 1;*/
     padding: 12px 24px;
     border: 2px solid transparent;
     border-radius: 25px;
@@ -473,7 +532,7 @@
 @media (max-width: 1200px) {
     .level-group-posts {
         grid-template-columns: repeat(3, 1fr);
-        gap: 20px;
+        gap: 24px;
     }
     
     .sort-filter-content {
@@ -492,7 +551,7 @@
     
     .level-group-posts {
         grid-template-columns: repeat(2, 1fr);
-        gap: 20px;
+        gap: 24px;
     }
     
     .tag-filter-btn {
@@ -503,17 +562,23 @@
     .sort-filter-content {
         width: 340px;
     }
+    .filter-controls-section {
+        padding: 0 0 20px 0;
+    }
 }
 
 @media (max-width: 768px) {
 
     .sort-filter-modal {
-        top: 80px;
-        right: 20px;
-    }   q
+        right: 10px;
+    }   
 
     .page-header-section {
-        padding: 20px 0 0px;
+        padding: 20px 0;
+    }
+
+    .page-header-section .filter-controls-wrapper {
+        justify-content: center;
     }
     
     .level-group-title {
@@ -540,24 +605,21 @@
     }
     
     .sort-filter-btn {
-        top: 30px;
+        /*top: 30px;
         right: 20px;
-        position: absolute;
+        position: absolute;*/
     }
     
     .level-group-posts {
-        grid-template-columns: 1fr;
-        gap: 16px;
+        gap: 24px;
     }
     
     .sort-filter-content {
-        padding: 20px;
         width: 340px;
         right: 0;
     }
     
     .option-btn {
-        padding: 10px 12px;
         font-size: 14px;
     }
 }

@@ -4,12 +4,12 @@
 
 /* Main Content */
 main.main-content.post-detail-page {
-    padding: 0;
+    padding: 0 15px;
 }
 
 /* Post Hero & Content Section */
 .post-hero-content-section {
-    padding: 60px 0;
+    padding: 60px 0 32px 0;
 }
 
 .post-hero-content-wrapper {
@@ -28,7 +28,7 @@ main.main-content.post-detail-page {
     width: 100%;
     height: auto;
     display: block;
-    border-radius: 16px;
+    border-radius: 24px    ;
     object-fit: contain;
 }
 
@@ -38,7 +38,7 @@ main.main-content.post-detail-page {
 }
 
 .post-header {
-    margin-bottom: 30px;
+    margin-bottom: 12px;
 }
 
 .post-header .post-title {
@@ -52,7 +52,7 @@ main.main-content.post-detail-page {
 .post-body {
     font-size: 16px;
     line-height: 1.7;
-    color: #374151;
+    color: #000;
 }
 
 .post-body p {
@@ -60,7 +60,7 @@ main.main-content.post-detail-page {
 }
 
 .post-body p:last-of-type {
-    margin-bottom: 20px;
+    margin-bottom: 0;
 }
 
 .see-less-link {
@@ -78,8 +78,7 @@ main.main-content.post-detail-page {
 
 /* Related Posts Section */
 .related-posts-section {
-    padding: 60px 0 80px;
-    background: #f9fafb;
+    padding: 22px 0 80px 0;
 }
 
 .related-posts-section .section-title {
@@ -131,7 +130,7 @@ main.main-content.post-detail-page {
     
     .related-posts-section .posts-grid {
         grid-template-columns: repeat(2, 1fr);
-        gap: 20px;
+        gap: 24px;
     }
     
     .related-posts-section .section-title {
@@ -147,7 +146,7 @@ main.main-content.post-detail-page {
     
     .post-hero-content-wrapper {
         flex-direction: column;
-        gap: 30px;
+        gap: 24px;
     }
     
     .post-hero-image {
@@ -156,7 +155,7 @@ main.main-content.post-detail-page {
     }
     
     .post-header {
-        margin-bottom: 20px;
+        margin-bottom: 12px;
     }
     
     .post-header .post-title {
@@ -181,18 +180,17 @@ main.main-content.post-detail-page {
     
     .related-posts-section .section-title {
         font-size: 28px;
-        margin-bottom: 30px;
+        margin-bottom: 24px!important;
     }
     
     .related-posts-section .posts-grid {
-        grid-template-columns: 1fr;
-        gap: 20px;
+
     }
 }
 
 @media (max-width: 480px) {
     .post-hero-content-section {
-        padding: 30px 0;
+        padding: 24px 0;
     }
     
     .post-header .post-title {

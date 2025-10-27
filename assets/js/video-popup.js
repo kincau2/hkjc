@@ -155,14 +155,14 @@
       const html = (this.videoList || []).map((v, i) => `
         <div class="vp-slide" data-index="${i}">
           <div class="vp-media">
-            <img class="vp-thumb" src="${this._escape(v.thumbnail)}" alt="${this._escape(v.title || ('thumb '+i))}">
+            <img class="vp-thumb" src="${this._escape(v.thumbnail)}" alt="${v.title || ('thumb '+i)}">
             <video class="vp-video" preload="metadata" playsinline muted></video>
             <button class="vp-volume-toggle" aria-label="Toggle mute">
               <i class="fa-solid fa-volume-xmark"></i>
             </button>
           </div>
           <div class="vp-caption">
-            <div class="vp-title">${this._escape(v.title || '')}</div>
+            <div class="vp-title">${v.title || ''}</div>
             <div class="vp-progress">
               <div class="vp-progress-track">
                 <div class="vp-progress-fill"></div>
