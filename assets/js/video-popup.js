@@ -152,26 +152,43 @@
       const $wrap = this._getWrap();
       if (!$wrap.length) return;
 
-      const html = (this.videoList || []).map((v, i) => `
-        <div class="vp-slide" data-index="${i}">
-          <div class="vp-media">
-            <img class="vp-thumb" src="${this._escape(v.thumbnail)}" alt="${v.title || ('thumb '+i)}">
-            <video class="vp-video" preload="metadata" playsinline muted></video>
-            <button class="vp-volume-toggle" aria-label="Toggle mute">
-              <i class="fa-solid fa-volume-xmark"></i>
-            </button>
-          </div>
-          <div class="vp-caption">
-            <div class="vp-title">${v.title || ''}</div>
-            <div class="vp-progress">
-              <div class="vp-progress-track">
-                <div class="vp-progress-fill"></div>
-                <div class="vp-progress-dot"></div>
+      const html = (this.videoList || []).map((v, i) => {
+        // Render video tags if available
+        const tagsHtml = (v.videotag && v.videotag.length) 
+          ? v.videotag.map(tag => `<span class="vp-tag">${this._escape(tag)}</span>`).join('')
+          : '';
+        
+        // Render description if available
+        const descHtml = v.description 
+          ? `<div class="vp-description-wrapper">
+               <div class="vp-description">${this._escape(v.description)}</div>
+               <button class="vp-read-more" data-action="toggle-desc" style="display: none;">Read More</button>
+             </div>`
+          : '';
+        
+        return `
+          <div class="vp-slide" data-index="${i}">
+            <div class="vp-media">
+              <img class="vp-thumb" src="${this._escape(v.thumbnail)}" alt="${v.title || ('thumb '+i)}">
+              <video class="vp-video" preload="metadata" playsinline muted></video>
+              <button class="vp-volume-toggle" aria-label="Toggle mute">
+                <i class="fa-solid fa-volume-xmark"></i>
+              </button>
+            </div>
+            <div class="vp-caption">
+              ${tagsHtml ? `<div class="vp-tags">${tagsHtml}</div>` : ''}
+              <div class="vp-title">${v.title || ''}</div>
+              ${descHtml}
+              <div class="vp-progress">
+                <div class="vp-progress-track" data-action="seek">
+                  <div class="vp-progress-fill"></div>
+                  <div class="vp-progress-dot" data-action="drag"></div>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-      `).join("");
+        `;
+      }).join("");
 
       $wrap.html(html);
 
@@ -185,7 +202,9 @@
           centerPadding: "0px",
           infinite: true,
           dots: false,
-          arrows: false,
+          arrows: true,
+          prevArrow: '<button type="button" class="slick-prev" aria-label="Previous"><i class="fa-solid fa-chevron-left"></i></button>',
+          nextArrow: '<button type="button" class="slick-next" aria-label="Next"><i class="fa-solid fa-chevron-right"></i></button>',
           focusOnSelect: true,
           variableWidth: false,
           adaptiveHeight: false
@@ -280,9 +299,18 @@
           this._autoNext(); // 自動循環下一段
         });
         
+        // Store flag to prevent video click after drag
+        let justFinishedDragging = false;
+        
         // 點擊影片切換播放/暫停
         video.addEventListener("click", (e) => {
           e.stopPropagation(); // 防止冒泡觸發其他點擊事件
+          
+          // Ignore click if we just finished dragging
+          if (justFinishedDragging) {
+            return;
+          }
+          
           if (video.paused) {
             video.play().catch(() => {});
           } else {
@@ -298,10 +326,102 @@
           this._updateVolumeIcon($slideEl, video.muted);
         });
         
+        // 點擊 "Read More" 按鈕展開/收起描述
+        const $readMoreBtn = $slideEl.find(".vp-read-more");
+        const $description = $slideEl.find(".vp-description");
+        $readMoreBtn.on("click", (e) => {
+          e.stopPropagation(); // 防止冒泡暫停影片
+          const isExpanded = $description.hasClass("expanded");
+          if (isExpanded) {
+            $description.removeClass("expanded");
+            $readMoreBtn.text("Read More");
+          } else {
+            $description.addClass("expanded");
+            $readMoreBtn.text("Show Less");
+          }
+        });
+        
+        // Check if description needs "Read More" button (after a brief delay for layout)
+        setTimeout(() => {
+          if ($description.length) {
+            const lineHeight = parseFloat(window.getComputedStyle($description[0]).lineHeight);
+            const maxHeight = lineHeight * 2; // 2 lines max when collapsed
+            if ($description[0].scrollHeight > maxHeight) {
+              $readMoreBtn.show();
+            }
+          }
+        }, 100);
+        
+        // 點擊進度條跳轉到指定時間
+        const $progressTrack = $slideEl.find(".vp-progress-track");
+        $progressTrack.on("click", (e) => {
+          e.stopPropagation(); // 防止冒泡暫停影片
+          const rect = $progressTrack[0].getBoundingClientRect();
+          const clickX = e.clientX - rect.left;
+          const percent = Math.max(0, Math.min(1, clickX / rect.width));
+          const newTime = percent * video.duration;
+          if (!isNaN(newTime)) {
+            video.currentTime = newTime;
+          }
+        });
+        
+        // 拖動進度點來調整時間
+        const $progressDot = $slideEl.find(".vp-progress-dot");
+        let isDragging = false;
+        let wasPlayingBeforeDrag = false;
+        
+        $progressDot.on("mousedown touchstart", (e) => {
+          e.stopPropagation();
+          e.preventDefault();
+          isDragging = true;
+          wasPlayingBeforeDrag = !video.paused;
+          
+          // Pause video when starting to drag
+          if (!video.paused) {
+            video.pause();
+          }
+          
+          $slideEl.addClass("vp-dragging");
+        });
+        
+        jQuery(document).on("mousemove.vp-drag touchmove.vp-drag", (e) => {
+          if (!isDragging) return;
+          e.preventDefault();
+          
+          const rect = $progressTrack[0].getBoundingClientRect();
+          const clientX = e.clientX || (e.touches && e.touches[0] ? e.touches[0].clientX : 0);
+          const moveX = clientX - rect.left;
+          const percent = Math.max(0, Math.min(1, moveX / rect.width));
+          const newTime = percent * video.duration;
+          
+          if (!isNaN(newTime)) {
+            video.currentTime = newTime;
+          }
+        });
+        
+        jQuery(document).on("mouseup.vp-drag touchend.vp-drag", (e) => {
+          if (isDragging) {
+            isDragging = false;
+            $slideEl.removeClass("vp-dragging");
+            
+            // Set flag to prevent video click handler from triggering
+            justFinishedDragging = true;
+            setTimeout(() => {
+              justFinishedDragging = false;
+            }, 100);
+            
+            // Resume playback if video was playing before drag started
+            if (wasPlayingBeforeDrag) {
+              video.play().catch(() => {});
+            }
+            wasPlayingBeforeDrag = false;
+          }
+        });
+        
         $slideEl.data("vpBound", true);
       }
 
-      // 切 slide 一律從 0 秒開始（你要求）
+      // 切 slide 一律從 0 秒開始
       if (resetToZero) {
         try { video.currentTime = 0; } catch (_) {}
         // 也同步把 UI 進度歸零

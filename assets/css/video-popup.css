@@ -144,6 +144,28 @@ ease;
   background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,.5) 60%, rgba(0,0,0,.65) 100%);
 }
 
+/* Video Tags */
+.videoPopContainer .vp-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: calc(var(--vh, 1vh) * 0.5);
+  margin-bottom: calc(var(--vh, 1vh) * 0.6);
+  pointer-events: auto;
+}
+
+.videoPopContainer .vp-tag {
+  display: inline-block;
+  padding: calc(var(--vh, 1vh) * 0.3) calc(var(--vh, 1vh) * 0.8);
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: calc(var(--vh, 1vh) * 1.2);
+  font-size: calc(var(--vh, 1vh) * 1.2);
+  font-weight: 500;
+  line-height: 1.2;
+  text-shadow: 0 1px 3px rgba(0,0,0,.3);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+
 .videoPopContainer .vp-title {
   font-weight: 700;
   font-size: calc(var(--vh, 1vh) * 1.8);
@@ -153,11 +175,51 @@ ease;
   pointer-events: auto; /* 如要可選取文字 */
 }
 
+/* Description */
+.videoPopContainer .vp-description-wrapper {
+  margin-bottom: calc(var(--vh, 1vh) * 0.8);
+  pointer-events: auto;
+}
+
+.videoPopContainer .vp-description {
+  font-size: calc(var(--vh, 1vh) * 1.4);
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.9);
+  text-shadow: 0 1px 4px rgba(0,0,0,.4);
+  max-height: calc(var(--vh, 1vh) * 1.4 * 1.5 * 2); /* 2 lines max */
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+}
+
+.videoPopContainer .vp-description.expanded {
+  max-height: calc(var(--vh, 1vh) * 30); /* Allow expansion */
+}
+
+.videoPopContainer .vp-read-more {
+  display: inline-block;
+  margin-top: calc(var(--vh, 1vh) * 0.4);
+  padding: 0;
+  background: none;
+  border: none;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: calc(var(--vh, 1vh) * 1.3);
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: underline;
+  transition: color 0.2s ease;
+}
+
+.videoPopContainer .vp-read-more:hover {
+  color: #fff;
+}
+
 /* 進度條（底部） */
 .videoPopContainer .vp-progress {
   position: relative;
   height: calc(var(--vh, 1vh) * 0.8);
-  pointer-events: none;
+  pointer-events: auto; /* Enable interaction */
+  padding: calc(var(--vh, 1vh) * 0.8) 0; /* Increase hit area */
+  margin: 0 calc(var(--vh, 1vh) * -0.4); /* Compensate padding */
 }
 
 .videoPopContainer .vp-progress-track {
@@ -165,7 +227,14 @@ ease;
   height: 3px;
   background: rgba(255,255,255,.25);
   border-radius: 999px;
-  overflow: hidden;
+  overflow: visible; /* Allow dot to show */
+  cursor: pointer;
+  transition: height 0.2s ease;
+}
+
+.videoPopContainer .vp-progress-track:hover,
+.videoPopContainer .vp-slide.vp-dragging .vp-progress-track {
+  height: 5px;
 }
 
 .videoPopContainer .vp-progress-fill {
@@ -175,19 +244,22 @@ ease;
   background: #fff;
   border-radius: 999px;
   transition: width .15s linear;
+  pointer-events: none;
 }
 
 /* 小圓點（進度頭） */
 .videoPopContainer .vp-progress-dot {
-  position: absolute;
-  top: 50%;
-  width: 12px; height: 12px;
-  margin-top: -6px;
-  left: 0%;
-  background: #fff;
-  border-radius: 50%;
-  box-shadow: 0 2px 6px rgba(0,0,0,.35);
-  transform: translateX(-50%);
+    position: absolute;
+    top: 50%;
+    width: 25px; height: 25px;
+    margin-top: -12.5px;
+    left: 0%;
+    background: #ffffff00;
+    border-radius: 50%;
+    transform: translateX(-50%);
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    pointer-events: auto;
 }
 
 /* ============ 媒體顯示：中心 slide 顯示 video，其餘只顯示 thumb ============ */
@@ -252,6 +324,54 @@ ease;
     margin-top: 2px;
 }
 
+/* ============ Navigation Arrows ============ */
+.videoPopContainer .slick-prev,
+.videoPopContainer .slick-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: calc(var(--vh, 1vh) * 6);
+  height: calc(var(--vh, 1vh) * 6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.5);
+  border: none;
+  border-radius: 50%;
+  color: #fff;
+  font-size: calc(var(--vh, 1vh) * 2.5);
+  cursor: pointer;
+  z-index: 10;
+  transition: all 0.2s ease;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.videoPopContainer .slick-prev {
+  left: calc(var(--vh, 1vh) * -8);
+}
+
+.videoPopContainer .slick-next {
+  right: calc(var(--vh, 1vh) * -8);
+}
+
+.videoPopContainer .slick-prev:hover,
+.videoPopContainer .slick-next:hover {
+  background: rgba(0, 0, 0, 0.7);
+  transform: translateY(-50%) scale(1.1);
+}
+
+.videoPopContainer .slick-prev:active,
+.videoPopContainer .slick-next:active {
+  transform: translateY(-50%) scale(0.95);
+}
+
+.videoPopContainer .slick-prev.slick-disabled,
+.videoPopContainer .slick-next.slick-disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
 /* Mobile adjustments */
 @media (max-width: 768px) {
   .videoPopContainer .vp-volume-toggle {
@@ -260,5 +380,29 @@ ease;
     font-size: calc(var(--vh, 1vh) * 2);
     top: calc(var(--vh, 1vh) * 1.5);
     right: calc(var(--vh, 1vh) * 1.5);
+  }
+  
+  .videoPopContainer .slick-prev,
+  .videoPopContainer .slick-next {
+    width: calc(var(--vh, 1vh) * 5);
+    height: calc(var(--vh, 1vh) * 5);
+    font-size: calc(var(--vh, 1vh) * 2);
+  }
+  
+  .videoPopContainer .slick-prev {
+    left: calc(var(--vh, 1vh) * 1);
+  }
+  
+  .videoPopContainer .slick-next {
+    right: calc(var(--vh, 1vh) * 1);
+  }
+  
+  .videoPopContainer .vp-tag {
+    font-size: calc(var(--vh, 1vh) * 1.4);
+    padding: calc(var(--vh, 1vh) * 0.4) calc(var(--vh, 1vh) * 1);
+  }
+  
+  .videoPopContainer .vp-description {
+    font-size: calc(var(--vh, 1vh) * 1.5);
   }
 }
