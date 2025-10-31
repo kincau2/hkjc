@@ -555,8 +555,8 @@
     }
     
     .tag-filter-btn {
-        font-size: 14px;
-        padding: 8px 16px;
+        font-size: 13px;
+        padding: 6px 14px 6px 7px;
     }
     
     .sort-filter-content {
@@ -631,7 +631,7 @@
     
     .tag-filter-btn {
         font-size: 13px;
-        padding: 6px 14px;
+        padding: 6px 14px 6px 7px;
     }
     
     .sort-filter-btn {

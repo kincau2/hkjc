@@ -9,7 +9,13 @@ main.main-content.post-detail-page {
 
 /* Post Hero & Content Section */
 .post-hero-content-section {
-    padding: 60px 0 32px 0;
+    padding: 60px 0 64px 0;
+}
+
+@media (max-width: 768px) {
+    .post-hero-content-section {
+        padding: 60px 0 32px 0;
+    }
 }
 
 .post-hero-content-wrapper {
@@ -184,7 +190,7 @@ main.main-content.post-detail-page {
     }
     
     .related-posts-section .posts-grid {
-
+        grid-template-columns: repeat(1, 1fr);
     }
 }
 

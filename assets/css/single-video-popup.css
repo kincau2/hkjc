@@ -1,0 +1,251 @@
+/* ======================================
+   single-video-popup.css - 單獨視頻彈窗樣式
+   完全獨立於 video-popup.css，用於單個視頻播放
+   ====================================== */
+
+/* 容器：預設隱藏；.is-active 時顯示 */
+.singleVideoPopupContainer {
+  position: fixed;
+  inset: 0;
+  display: none;
+  z-index: 10000;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial,
+               "Noto Sans", "PingFang TC", "Microsoft JhengHei", sans-serif;
+}
+.singleVideoPopupContainer.is-active { display: block; }
+
+/* 黑色半透明遮罩 */
+.singleVideoPopupContainer .svp-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,.85);
+  backdrop-filter: blur(1px);
+  -webkit-backdrop-filter: blur(1px);
+  z-index: 1;
+  animation: svpFade .2s ease both;
+}
+
+/* 舞台：置中承載視頻 */
+.singleVideoPopupContainer .svp-stage {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  align-content: center;
+  justify-content: center;
+  padding: 40px 24px;
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* 關閉鍵 */
+.singleVideoPopupContainer .svp-close {
+  position: absolute;
+  top: calc(var(--vh, 1vh) * 6);
+  left: calc(var(--vh, 1vh) * 21.5 + 50%);
+  transform: translateX(-50%);
+  width: calc(var(--vh, 1vh) * 5);
+  height: calc(var(--vh, 1vh) * 5);
+  line-height: calc(var(--vh, 1vh) * 5);
+  text-align: center;
+  border: 0;
+  border-radius: 50%;
+  background: none;
+  color: #fff;
+  font-size: calc(var(--vh, 1vh) * 5);
+  cursor: pointer;
+  pointer-events: auto;
+  z-index: 10;
+  transition: background .2s ease, transform .1s ease;
+}
+.singleVideoPopupContainer .svp-close:hover { background: rgba(255,255,255,.28); }
+.singleVideoPopupContainer .svp-close:active { transform: translateX(-50%) scale(.96); }
+
+/* 視頻容器 */
+.singleVideoPopupContainer .svp-video-wrapper {
+  width: calc(var(--vh, 1vh) * 45);
+  pointer-events: auto;
+  background: #000;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 18px 55px rgba(0,0,0,.45), 0 4px 14px rgba(0,0,0,.25);
+  margin-top: calc(var(--vh, 1vh) * 5);
+  position: relative;
+}
+
+.singleVideoPopupContainer .svp-video-container {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 9 / 16; /* 垂直影片比例（打直的影片） */
+  background: #000;
+}
+
+/* 視頻元素 */
+.singleVideoPopupContainer .svp-video {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  cursor: pointer;
+}
+
+/* 音量按鈕 */
+.singleVideoPopupContainer .svp-volume-toggle {
+  position: absolute;
+  top: calc(var(--vh, 1vh) * 2);
+  right: calc(var(--vh, 1vh) * 2);
+  width: calc(var(--vh, 1vh) * 5);
+  height: calc(var(--vh, 1vh) * 5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.6);
+  border: none;
+  border-radius: 50%;
+  color: #fff;
+  font-size: calc(var(--vh, 1vh) * 2.2);
+  cursor: pointer;
+  pointer-events: auto;
+  z-index: 15; /* 提高 z-index 確保在 caption 之上 */
+  transition: background 0.2s ease, transform 0.1s ease;
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+
+.singleVideoPopupContainer .svp-volume-toggle:hover {
+  background: rgba(0, 0, 0, 0.8);
+}
+
+.singleVideoPopupContainer .svp-volume-toggle:active {
+  transform: scale(0.95);
+}
+
+/* 標題和進度條區域 */
+.singleVideoPopupContainer .svp-caption {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: calc(var(--vh, 1vh) * 1.2) calc(var(--vh, 1vh) * 1.4);
+    color: #fff;
+    pointer-events: none;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, .5) 60%, rgba(0, 0, 0, .65) 100%);
+    z-index: 5;
+}
+
+.singleVideoPopupContainer .svp-title {
+  color: #fff;
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 8px;
+  line-height: 1.4;
+}
+
+.singleVideoPopupContainer .svp-description {
+  color: #fff;
+  font-size: 14px;
+  line-height: 1.5;
+  opacity: .9;
+  max-height: calc(1.5em * 3);
+  overflow: hidden;
+}
+
+.singleVideoPopupContainer .svp-description.expanded {
+  max-height: none;
+}
+
+.singleVideoPopupContainer .svp-read-more {
+  display: none;
+  background: none;
+  color: rgba(255, 255, 255, 0.8);
+  border: none;
+  padding: 0;
+  font-size: 13px;
+  line-height: 1;
+  cursor: pointer;
+  pointer-events: auto; /* 允許點擊 */
+  margin-top: calc(var(--vh, 1vh) * 0.4);
+  text-decoration: underline;
+}
+
+.singleVideoPopupContainer .svp-read-more:hover {
+    color: #fff;
+}
+
+
+
+/* 進度條需要可以點擊 */
+.singleVideoPopupContainer .svp-progress {
+  pointer-events: auto;
+}
+
+/* 進度條 */
+.singleVideoPopupContainer .svp-progress {
+  width: 100%;
+  padding: 10px 0;
+}
+
+.singleVideoPopupContainer .svp-progress-track {
+  position: relative;
+  width: 100%;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 2px;
+  cursor: pointer;
+}
+
+.singleVideoPopupContainer .svp-progress-fill {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  background: #fff;
+  border-radius: 2px;
+  width: 0%;
+  transition: width 0.1s linear;
+}
+
+.singleVideoPopupContainer .svp-progress-dot {
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 14px;
+  height: 14px;
+  background: #fff;
+  border-radius: 50%;
+  left: 0%;
+  cursor: grab;
+  transition: left 0.1s linear;
+}
+
+.singleVideoPopupContainer .svp-progress-dot:active {
+  cursor: grabbing;
+}
+
+/* 淡入動畫 */
+@keyframes svpFade {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* 手機調整 */
+@media (max-width: 768px) {
+  .singleVideoPopupContainer .svp-stage {
+    padding: 24px 12px;
+  }
+  
+  .singleVideoPopupContainer .svp-volume-toggle {
+    width: calc(var(--vh, 1vh) * 4.5);
+    height: calc(var(--vh, 1vh) * 4.5);
+    font-size: calc(var(--vh, 1vh) * 2);
+    top: calc(var(--vh, 1vh) * 1.5);
+    right: calc(var(--vh, 1vh) * 1.5);
+  }
+  
+  .singleVideoPopupContainer .svp-title {
+    font-size: 16px;
+  }
+  
+  .singleVideoPopupContainer .svp-caption {
+    padding: 15px;
+  }
+}
+

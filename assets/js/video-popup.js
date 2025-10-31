@@ -43,9 +43,6 @@
       this.container = null;  // DOM element
       this.currentIndex = 0;  // 原始索引（0..N-1）
       this._audioUnlocked = false; // 首次互動解除靜音後設為 true
-      this._justFinishedDragging = false; // Track if we just finished dragging progress
-      this._isActualSlideChange = false; // Track if beforeChange is actually changing slides
-      this._isDraggingProgress = false; // Track if user is currently dragging progress bar
     }
 
     /** 簡單 escape（用於 title） */
@@ -164,8 +161,8 @@
         // Render description if available
         const descHtml = v.description 
           ? `<div class="vp-description-wrapper">
-               <div class="vp-description expanded">${this._escape(v.description)}</div>
-               <button class="vp-read-more" data-action="toggle-desc" style="display: none;">Read More</button>
+               <div class="vp-description">${this._escape(v.description)}</div>
+               <button class="vp-read-more" data-action="toggle-desc" style="display: none;">查看更多</button>
              </div>`
           : '';
         
@@ -206,11 +203,9 @@
           infinite: true,
           dots: false,
           arrows: true,
-          draggable: false,     // Disable desktop mouse dragging
-          swipe: false,         // Disable touch swiping
           prevArrow: '<button type="button" class="slick-prev" aria-label="Previous"><i class="fa-solid fa-chevron-left"></i></button>',
           nextArrow: '<button type="button" class="slick-next" aria-label="Next"><i class="fa-solid fa-chevron-right"></i></button>',
-          focusOnSelect: false, // Disable click to select - prevents conflicts with drag release
+          focusOnSelect: true,
           variableWidth: false,
           adaptiveHeight: false
         });
@@ -224,9 +219,6 @@
           const $currEl = toEl(slick, curr);
           this._pauseSlideEl($currEl);
           
-          // Track if we're actually changing to a different slide
-          this._isActualSlideChange = (curr !== next);
-          
           // 立即更新下一個 slide 的 is-active 和 side classes
           const $nextEl = toEl(slick, next);
           this._getWrap().find(".vp-slide").removeClass("is-active");
@@ -234,14 +226,11 @@
           this._updateSideClasses();
         });
 
-        // 切換後：啟動當前顯示中的 DOM slide，並從 0 秒開始（只在真正切換時重置）
+        // 切換後：啟動當前顯示中的 DOM slide，並從 0 秒開始
         $wrap.on("afterChange.vp", (e, slick, curr) => {
           const $currEl = toEl(slick, curr);
           const realIdx = toReal(slick, curr);
-          // Only reset to zero if we actually changed slides AND not dragging
-          const shouldReset = this._isActualSlideChange && !this._justFinishedDragging;
-          this._activateSlideEl($currEl, realIdx, /*resetToZero*/ shouldReset);
-          this._isActualSlideChange = false; // Reset flag
+          this._activateSlideEl($currEl, realIdx, /*resetToZero*/ true);
         });
 
         // 首次啟動：針對「當前顯示中的 DOM slide」
@@ -249,21 +238,6 @@
         const $initialEl = jQuery(slickApi.$slides[slickApi.currentSlide]);
         const initialReal = Number($initialEl.data("index"));
         this._activateSlideEl($initialEl, initialReal, /*resetToZero*/ false);
-        
-        // Add click handlers to side slides for navigation (since focusOnSelect is disabled)
-        $wrap.on("click.vpSlideNav", ".vp-slide:not(.is-active)", (e) => {
-          // Don't navigate if clicking on interactive elements
-          if (jQuery(e.target).closest(".vp-progress, .vp-volume-toggle, .vp-read-more").length) {
-            return;
-          }
-          
-          const $clickedSlide = jQuery(e.currentTarget);
-          const targetIndex = Number($clickedSlide.data("index"));
-          
-          if (!isNaN(targetIndex)) {
-            this.open(targetIndex);
-          }
-        });
       }
     }
 
@@ -321,10 +295,6 @@
       if (!$slideEl.data("vpBound")) {
         video.addEventListener("timeupdate", () => this._updateProgress($slideEl, video));
         video.addEventListener("ended", () => {
-          // Don't auto-advance if user is currently dragging the progress bar
-          if (this._isDraggingProgress) {
-            return;
-          }
           this._updateProgress($slideEl, video, true);
           this._autoNext(); // 自動循環下一段
         });
@@ -359,18 +329,15 @@
         // 點擊 "Read More" 按鈕展開/收起描述
         const $readMoreBtn = $slideEl.find(".vp-read-more");
         const $description = $slideEl.find(".vp-description");
-        const $descriptionWrapper = $slideEl.find(".vp-description-wrapper");
         $readMoreBtn.on("click", (e) => {
           e.stopPropagation(); // 防止冒泡暫停影片
           const isExpanded = $description.hasClass("expanded");
           if (isExpanded) {
             $description.removeClass("expanded");
-            $descriptionWrapper.removeClass("expanded");
-            $readMoreBtn.text("Read More");
+            $readMoreBtn.text("查看更多");
           } else {
             $description.addClass("expanded");
-            $readMoreBtn.text("Show Less");
-            $descriptionWrapper.addClass("expanded");
+            $readMoreBtn.text("顯示較少");
           }
         });
         
@@ -378,33 +345,17 @@
         setTimeout(() => {
           if ($description.length) {
             const lineHeight = parseFloat(window.getComputedStyle($description[0]).lineHeight);
-            const elementHeight = $description[0].offsetHeight;
-            console.log('line height:', lineHeight, 'element height:', elementHeight);
-            console.log('lines:', elementHeight / lineHeight);
-            if ( elementHeight/lineHeight > 1.5 ) {
+            const maxHeight = lineHeight * 2; // 2 lines max when collapsed
+            if ($description[0].scrollHeight > maxHeight) {
               $readMoreBtn.show();
-              $description.removeClass("expanded");
-            }else {
-              $readMoreBtn.hide();
             }
           }
-        }, 150);
+        }, 100);
         
         // 點擊進度條跳轉到指定時間
         const $progressTrack = $slideEl.find(".vp-progress-track");
-        
-        // Store drag state to share between handlers
-        let isDragging = false;
-        let wasPlayingBeforeDrag = false;
-        
         $progressTrack.on("click", (e) => {
           e.stopPropagation(); // 防止冒泡暫停影片
-          
-          // Ignore click if we just finished dragging (prevents synthetic click after touchend)
-          if (justFinishedDragging || isDragging) {
-            return;
-          }
-          
           const rect = $progressTrack[0].getBoundingClientRect();
           const clickX = e.clientX - rect.left;
           const percent = Math.max(0, Math.min(1, clickX / rect.width));
@@ -416,12 +367,13 @@
         
         // 拖動進度點來調整時間
         const $progressDot = $slideEl.find(".vp-progress-dot");
+        let isDragging = false;
+        let wasPlayingBeforeDrag = false;
         
         $progressDot.on("mousedown touchstart", (e) => {
           e.stopPropagation();
           e.preventDefault();
           isDragging = true;
-          this._isDraggingProgress = true; // Set class-level flag
           wasPlayingBeforeDrag = !video.paused;
           
           // Pause video when starting to drag
@@ -450,29 +402,17 @@
         jQuery(document).on("mouseup.vp-drag touchend.vp-drag", (e) => {
           if (isDragging) {
             isDragging = false;
-            this._isDraggingProgress = false; // Clear class-level flag
             $slideEl.removeClass("vp-dragging");
             
-            // Store the current time before any operations
-            const currentTimeAfterDrag = video.currentTime;
-            const isAtEnd = video.ended || (video.duration - currentTimeAfterDrag < 0.1);
-            
-            // Set flag to prevent video click handler and reset from triggering
-            // Longer timeout for touch devices to prevent synthetic click events
+            // Set flag to prevent video click handler from triggering
             justFinishedDragging = true;
-            this._justFinishedDragging = true;
             setTimeout(() => {
               justFinishedDragging = false;
-              this._justFinishedDragging = false;
-            }, 300);
+            }, 100);
             
             // Resume playback if video was playing before drag started
-            // But not if we're at the end (let it stay at the end)
-            if (wasPlayingBeforeDrag && !isAtEnd) {
+            if (wasPlayingBeforeDrag) {
               video.play().catch(() => {});
-            } else if (isAtEnd) {
-              // If at the end, ensure the time stays at the end position
-              video.currentTime = currentTimeAfterDrag;
             }
             wasPlayingBeforeDrag = false;
           }
@@ -492,12 +432,10 @@
       // 確保已設置「首次互動後開聲」的監聽
       this._enableAudioOnFirstInteraction();
 
-      // 播放 (but not if we just finished dragging - let the drag handler control playback)
-      if (!this._justFinishedDragging) {
-        const p = video.play();
-        if (p && typeof p.catch === "function") {
-          p.catch(() => { /* 需要互動才可播放時保持靜默 */ });
-        }
+      // 播放
+      const p = video.play();
+      if (p && typeof p.catch === "function") {
+        p.catch(() => { /* 需要互動才可播放時保持靜默 */ });
       }
 
       // 若已解鎖音訊，立即取消靜音

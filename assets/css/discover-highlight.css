@@ -15,14 +15,11 @@ main.main-content.discover-highlight-page {
     padding: 0 15px;
 }
 
-.discover-highlight-page .post-text-wrapper p {
+.discover-highlight-page .post-text-wrapper p.post-title {
     -webkit-line-clamp: 2;
 }
-
-@media (max-width: 768px) {
-    .discover-highlight-page .post-text-wrapper p {
-        -webkit-line-clamp: 1;
-    }
+.discover-highlight-page .post-text-wrapper p.post-excerpt {
+    -webkit-line-clamp: 1;
 }
 
 /* Filter Controls Section */
@@ -269,7 +266,7 @@ main.main-content.discover-highlight-page {
     }
     
     .posts-grid {
-        gap: 24px;
+        grid-template-columns: repeat(1, 1fr);
     }
     
     .sort-filter-content {
