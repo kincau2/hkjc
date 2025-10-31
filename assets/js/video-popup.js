@@ -380,14 +380,15 @@
             const lineHeight = parseFloat(window.getComputedStyle($description[0]).lineHeight);
             const elementHeight = $description[0].offsetHeight;
             console.log('line height:', lineHeight, 'element height:', elementHeight);
-            if ( elementHeight > lineHeight ) {
+            console.log('lines:', elementHeight / lineHeight);
+            if ( elementHeight/lineHeight > 1.5 ) {
               $readMoreBtn.show();
               $description.removeClass("expanded");
             }else {
               $readMoreBtn.hide();
             }
           }
-        }, 200);
+        }, 150);
         
         // 點擊進度條跳轉到指定時間
         const $progressTrack = $slideEl.find(".vp-progress-track");

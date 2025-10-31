@@ -155,7 +155,7 @@ ease;
 
 .videoPopContainer .vp-tag {
     display: inline-block;
-    padding: calc(var(--vh, 1vh) * 0.8) calc(var(--vh, 1vh) * 1.5) calc(var(--vh, 1vh) * 0.5) calc(var(--vh, 1vh) * 1.5);
+    padding: calc(var(--vh, 1vh) * 0.5) calc(var(--vh, 1vh) * 1.5);
     border: 1px solid #FFFFFF;
     border-radius: 100px;
     font-size: calc(var(--vh, 1vh) * 1.8);
