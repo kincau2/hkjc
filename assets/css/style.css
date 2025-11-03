@@ -920,10 +920,13 @@ section#specialists {
 
 /* ============================= More Specialists (Second) ============================= */
 
-@media (max-width: 1200px) {
+@media (max-width: 1400px) {
 
     .more-specialists-swiper .swiper-wrapper {
-        left: calc(50vw - 600px);
+        left: calc(50vw - 700px);
+    }
+    .swiper-button-prev, .swiper-button-next {
+        left: calc(37.3% + 50vw - 700px) !important;
     }
 
 }
@@ -1631,7 +1634,7 @@ p.post-title {
     -webkit-box-orient: vertical;  
     overflow: hidden;
     color: #000;
-    -webkit-line-clamp: 2;
+    -webkit-line-clamp: 1;
 }
 .post-text-wrapper p.post-excerpt {
     -webkit-line-clamp: 1;
@@ -1713,11 +1716,10 @@ img.right-vector {
 }
 
 .post-wrapper.first {
-    /*justify-content: flex-start;*/
-    margin-bottom: 24px;
+    justify-content: flex-end;
 }
 .post-wrapper.second {
-    /*justify-content: flex-end;*/
+    justify-content: flex-start;
 }
 
 @media (max-width: 768px) {

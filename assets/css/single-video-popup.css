@@ -57,8 +57,6 @@
   z-index: 10;
   transition: background .2s ease, transform .1s ease;
 }
-.singleVideoPopupContainer .svp-close:hover { background: rgba(255,255,255,.28); }
-.singleVideoPopupContainer .svp-close:active { transform: translateX(-50%) scale(.96); }
 
 /* 視頻容器 */
 .singleVideoPopupContainer .svp-video-wrapper {

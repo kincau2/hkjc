@@ -223,6 +223,9 @@ window.discoverAnimationFunctions = {
     buildTimeline: null
 };
 
+// Global flag to check if animation section is hidden
+window.isAnimationHidden = false;
+
 $(function() {
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
     if (!window.gsap || !window.ScrollTrigger) return;
@@ -230,6 +233,14 @@ $(function() {
 
     const animationSticky = document.querySelector('#animation');
     if (!animationSticky) return;
+    
+    // Check if animation section is hidden (e.g., d-none class)
+    window.isAnimationHidden = animationSticky.classList.contains('d-none') || 
+                               window.getComputedStyle(animationSticky).display === 'none';
+    
+    if (window.isAnimationHidden) {
+        return;
+    }
 
     const cards = gsap.utils.toArray('#animation .media-card');
     
@@ -707,6 +718,9 @@ $(function() {
     const DISCOVER_BASE_RATIO = 490 / 928;
     const DISCOVER_MOBILE_RATIO = 407 / 269;
     let discoverGeom = null;
+    
+    // Check if animation section is hidden - if so, initialize directly
+    const shouldInitializeDirectly = window.isAnimationHidden || false;
 
     
     function calculateDiscoverGeometry() {
@@ -1049,7 +1063,7 @@ $(function() {
     function adjustDesktopDiscoverSwiperWidth() {
         const isMobile = window.innerWidth <= 768;
         if (isMobile) return;
-
+        
         const discoverPost = document.querySelector('#discover .discover-post');
         if (!discoverPost) return;
 
@@ -1068,9 +1082,11 @@ $(function() {
             const gap = 20;
             
             const availableHeight = wrapperMaxHeight - titleHeight - gap;
+
             const textWrapperHeight = wrapper.querySelector('.post-text-wrapper')?.offsetHeight || 60;
+
             const featureImgHeight = availableHeight - textWrapperHeight;
-            
+
             const aspectRatio = 245 / 138;
             const postWidth = featureImgHeight * aspectRatio;
             
@@ -1144,6 +1160,13 @@ $(function() {
     
     window.discoverAnimationFunctions.setStartState = setDiscoverStartState;
     window.discoverAnimationFunctions.buildTimeline = buildDiscoverTimeline;
+
+    // If animation section is hidden, initialize discover animations directly
+    if (shouldInitializeDirectly) {
+        setDiscoverStartState();
+        buildDiscoverTimeline();
+    }
+
 });
 
 // =============================================================================
