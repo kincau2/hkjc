@@ -48,6 +48,39 @@
       this._isDraggingProgress = false; // Track if user is currently dragging progress bar
     }
 
+    /** 檢測語言版本 */
+    _getLanguage() {
+      // 從 HTML lang 屬性檢測
+      const htmlLang = document.documentElement.lang || '';
+      if (htmlLang.toLowerCase().includes('zh') || htmlLang.toLowerCase().includes('tc')) {
+        return 'tc';
+      }
+      // 從 URL 路徑檢測
+      const path = window.location.pathname;
+      if (path.includes('/tc/')) {
+        return 'tc';
+      } else if (path.includes('/en/')) {
+        return 'en';
+      }
+      // 默認返回英文
+      return 'en';
+    }
+
+    /** 獲取語言相關文字 */
+    _getTexts() {
+      const lang = this._getLanguage();
+      if (lang === 'tc') {
+        return {
+          readMore: '查看更多',
+          showLess: '顯示較少'
+        };
+      }
+      return {
+        readMore: 'Read More',
+        showLess: 'Show Less'
+      };
+    }
+
     /** 簡單 escape（用於 title） */
     _escape(s) {
       return String(s == null ? "" : s)
@@ -162,10 +195,11 @@
           : '';
         
         // Render description if available
+        const texts = this._getTexts();
         const descHtml = v.description 
           ? `<div class="vp-description-wrapper">
                <div class="vp-description expanded">${this._escape(v.description)}</div>
-               <button class="vp-read-more" data-action="toggle-desc" style="display: none;">Read More</button>
+               <button class="vp-read-more" data-action="toggle-desc" style="display: none;">${texts.readMore}</button>
              </div>`
           : '';
         
@@ -360,16 +394,17 @@
         const $readMoreBtn = $slideEl.find(".vp-read-more");
         const $description = $slideEl.find(".vp-description");
         const $descriptionWrapper = $slideEl.find(".vp-description-wrapper");
+        const texts = this._getTexts();
         $readMoreBtn.on("click", (e) => {
           e.stopPropagation(); // 防止冒泡暫停影片
           const isExpanded = $description.hasClass("expanded");
           if (isExpanded) {
             $description.removeClass("expanded");
             $descriptionWrapper.removeClass("expanded");
-            $readMoreBtn.text("Read More");
+            $readMoreBtn.text(texts.readMore);
           } else {
             $description.addClass("expanded");
-            $readMoreBtn.text("Show Less");
+            $readMoreBtn.text(texts.showLess);
             $descriptionWrapper.addClass("expanded");
           }
         });
@@ -382,7 +417,7 @@
             console.log('line height:', lineHeight, 'element height:', elementHeight);
             console.log('lines:', elementHeight / lineHeight);
             if ( elementHeight/lineHeight > 1.5 ) {
-              $readMoreBtn.show();
+              $readMoreBtn.text(texts.readMore).show();
               $description.removeClass("expanded");
             }else {
               $readMoreBtn.hide();

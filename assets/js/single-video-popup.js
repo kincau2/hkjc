@@ -27,6 +27,39 @@
       this._audioUnlocked = false;
     }
 
+    /** 檢測語言版本 */
+    _getLanguage() {
+      // 從 HTML lang 屬性檢測
+      const htmlLang = document.documentElement.lang || '';
+      if (htmlLang.toLowerCase().includes('zh') || htmlLang.toLowerCase().includes('tc')) {
+        return 'tc';
+      }
+      // 從 URL 路徑檢測
+      const path = window.location.pathname;
+      if (path.includes('/tc/')) {
+        return 'tc';
+      } else if (path.includes('/en/')) {
+        return 'en';
+      }
+      // 默認返回英文
+      return 'en';
+    }
+
+    /** 獲取語言相關文字 */
+    _getTexts() {
+      const lang = this._getLanguage();
+      if (lang === 'tc') {
+        return {
+          readMore: '查看更多',
+          showLess: '顯示較少'
+        };
+      }
+      return {
+        readMore: 'Read More',
+        showLess: 'Show Less'
+      };
+    }
+
     /** 簡單 escape */
     _escape(s) {
       return String(s == null ? "" : s)
@@ -101,16 +134,19 @@
       
       const $caption = jQuery("<div/>", { "class": "svp-caption" });
       const $title = jQuery("<div/>", { "class": "svp-title" });
-      const $desc = jQuery("<div/>", { "class": "svp-description" });
-      const $readMore = jQuery("<button/>", { "class": "svp-read-more", text: "查看更多" });
+      const $descWrapper = jQuery("<div/>", { "class": "svp-description-wrapper" });
+      const $desc = jQuery("<div/>", { "class": "svp-description expanded" });
+      const texts = this._getTexts();
+      const $readMore = jQuery("<button/>", { "class": "svp-read-more", "data-action": "toggle-desc", text: texts.readMore, style: "display: none;" });
       const $progress = jQuery("<div/>", { "class": "svp-progress" });
       const $progressTrack = jQuery("<div/>", { "class": "svp-progress-track", "data-action": "seek" });
       const $progressFill = jQuery("<div/>", { "class": "svp-progress-fill" });
       const $progressDot = jQuery("<div/>", { "class": "svp-progress-dot", "data-action": "drag" });
       
+      $descWrapper.append($desc, $readMore);
       $progressTrack.append($progressFill, $progressDot);
       $progress.append($progressTrack);
-      $caption.append($title, $desc, $readMore, $progress);
+      $caption.append($title, $descWrapper, $progress);
       
       $videoContainer.append($video, $volumeBtn);
       $videoWrapper.append($videoContainer, $caption);
@@ -128,50 +164,61 @@
       const $cont = jQuery(this.container);
       const $title = $cont.find(".svp-title");
       const $desc = $cont.find(".svp-description");
+      const $descWrapper = $cont.find(".svp-description-wrapper");
       const $readMore = $cont.find(".svp-read-more");
       const $video = $cont.find(".svp-video");
       
       // 設置標題
       $title.text(this.videoData.title || '');
       
-      // 設置描述（可選）
+      // 設置描述（可選）- 統一與 video-popup 的做法
       const descText = this.videoData.description || '';
       if ($desc.length) {
         if (descText) {
-          $desc.text(descText).show().removeClass('expanded');
+          $desc.html(this._escape(descText)).show().addClass('expanded');
+          $descWrapper.show();
         } else {
           $desc.text('').hide();
+          $descWrapper.hide();
         }
       }
       
-      // 讀取描述高度，決定是否顯示「查看更多」
+      // 讀取描述高度，決定是否顯示「查看更多」- 統一與 video-popup 的做法
       if ($desc.length && $readMore.length) {
-        // 先重置按鈕與描述收起狀態
-        $desc.removeClass('expanded');
+        // 先重置按鈕與描述展開狀態（初始為 expanded，判斷後再決定是否收起）
+        $desc.addClass('expanded');
+        $descWrapper.removeClass('expanded');
         $readMore.hide();
         
-        // 計算是否超出三行（根據 line-height 與實際 scrollHeight 判斷）
+        // 綁定切換事件（使用命名空間避免重複）
+        const texts = this._getTexts();
+        $readMore.off('click.svpReadMore').on('click.svpReadMore', (e) => {
+          e.stopPropagation(); // 防止冒泡暫停影片
+          const isExpanded = $desc.hasClass('expanded');
+          if (isExpanded) {
+            $desc.removeClass('expanded');
+            $descWrapper.removeClass('expanded');
+            $readMore.text(texts.readMore);
+          } else {
+            $desc.addClass('expanded');
+            $descWrapper.addClass('expanded');
+            $readMore.text(texts.showLess);
+          }
+        });
+        
+        // Check if description needs "Read More" button (after a brief delay for layout)
         setTimeout(() => {
-          if ($desc.is(':visible')) {
-            const el = $desc[0];
-            const cs = window.getComputedStyle(el);
-            const lineHeight = parseFloat(cs.lineHeight) || 20;
-            const maxHeight = lineHeight * 3; // 與 CSS 對齊
-            if (el.scrollHeight > maxHeight + 1) {
-              $readMore.text('查看更多').show();
+          if ($desc.length && $desc.is(':visible')) {
+            const lineHeight = parseFloat(window.getComputedStyle($desc[0]).lineHeight);
+            const elementHeight = $desc[0].offsetHeight;
+            if (elementHeight / lineHeight > 1.5) {
+              $readMore.text(texts.readMore).show();
+              $desc.removeClass('expanded');
             } else {
               $readMore.hide();
             }
           }
-        }, 50);
-        
-        // 綁定切換事件（使用命名空間避免重複）
-        $readMore.off('click.svpReadMore').on('click.svpReadMore', (e) => {
-          e.stopPropagation();
-          e.preventDefault();
-          const expanded = $desc.toggleClass('expanded').hasClass('expanded');
-          $readMore.text(expanded ? '顯示較少' : '查看更多');
-        });
+        }, 150);
       }
       
       // 設置視頻源
@@ -212,7 +259,13 @@
       const $container = jQuery(this.container);
       const $progressFill = $container.find(".svp-progress-fill");
       const $progressDot = $container.find(".svp-progress-dot");
+      const $progressTrack = $container.find(".svp-progress-track");
       const $volumeBtn = $container.find(".svp-volume-toggle");
+      
+      // Store drag state to share between handlers (defined before handlers so they can access it)
+      let isDragging = false;
+      let wasPlayingBeforeDrag = false;
+      let justFinishedDragging = false;
       
       // 創建事件處理函數
       const handleTimeUpdate = () => {
@@ -230,6 +283,12 @@
       
       const handleVideoClick = (e) => {
         e.stopPropagation();
+        
+        // Ignore click if we just finished dragging
+        if (justFinishedDragging) {
+          return;
+        }
+        
         if (video.paused) {
           video.play().catch(() => {});
         } else {
@@ -267,17 +326,83 @@
       // 標記為已綁定
       video.dataset.svpBound = "true";
       
-      // 進度條點擊（使用命名空間）
-      const $progressTrack = $container.find(".svp-progress-track");
+      // 進度條點擊和拖動（統一與 video-popup.js 的行為）
+      // 點擊進度條跳轉到指定時間
       $progressTrack.off("click.svpProgress").on("click.svpProgress", (e) => {
         e.stopPropagation();
         e.preventDefault();
+        
+        // Ignore click if we just finished dragging (prevents synthetic click after touchend)
+        if (justFinishedDragging || isDragging) {
+          return;
+        }
+        
         const rect = $progressTrack[0].getBoundingClientRect();
         const clickX = e.clientX - rect.left;
         const percent = Math.max(0, Math.min(1, clickX / rect.width));
         const newTime = percent * video.duration;
         if (!isNaN(newTime) && video.duration) {
           video.currentTime = newTime;
+        }
+      });
+      
+      // 拖動進度點來調整時間
+      $progressDot.off("mousedown.svpDrag touchstart.svpDrag").on("mousedown.svpDrag touchstart.svpDrag", (e) => {
+        e.stopPropagation();
+        e.preventDefault();
+        isDragging = true;
+        wasPlayingBeforeDrag = !video.paused;
+        
+        // Pause video when starting to drag
+        if (!video.paused) {
+          video.pause();
+        }
+        
+        $container.addClass("svp-dragging");
+      });
+      
+      // 拖動中
+      jQuery(document).off("mousemove.svp-drag touchmove.svp-drag").on("mousemove.svp-drag touchmove.svp-drag", (e) => {
+        if (!isDragging) return;
+        e.preventDefault();
+        
+        const rect = $progressTrack[0].getBoundingClientRect();
+        const clientX = e.clientX || (e.touches && e.touches[0] ? e.touches[0].clientX : 0);
+        const moveX = clientX - rect.left;
+        const percent = Math.max(0, Math.min(1, moveX / rect.width));
+        const newTime = percent * video.duration;
+        
+        if (!isNaN(newTime) && video.duration) {
+          video.currentTime = newTime;
+        }
+      });
+      
+      // 拖動結束
+      jQuery(document).off("mouseup.svp-drag touchend.svp-drag").on("mouseup.svp-drag touchend.svp-drag", (e) => {
+        if (isDragging) {
+          isDragging = false;
+          $container.removeClass("svp-dragging");
+          
+          // Store the current time before any operations
+          const currentTimeAfterDrag = video.currentTime;
+          const isAtEnd = video.ended || (video.duration - currentTimeAfterDrag < 0.1);
+          
+          // Set flag to prevent video click handler and reset from triggering
+          // Longer timeout for touch devices to prevent synthetic click events
+          justFinishedDragging = true;
+          setTimeout(() => {
+            justFinishedDragging = false;
+          }, 300);
+          
+          // Resume playback if video was playing before drag started
+          // But not if we're at the end (let it stay at the end)
+          if (wasPlayingBeforeDrag && !isAtEnd) {
+            video.play().catch(() => {});
+          } else if (isAtEnd) {
+            // If at the end, ensure the time stays at the end position
+            video.currentTime = currentTimeAfterDrag;
+          }
+          wasPlayingBeforeDrag = false;
         }
       });
       

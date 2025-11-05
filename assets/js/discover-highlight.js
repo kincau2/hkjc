@@ -60,7 +60,8 @@ $(document).ready(function() {
                 orderedVideoList.push({
                     link: post.videoLink,
                     thumbnail: post.thumbnail,
-                    title: post.title
+                    title: post.title,
+                    description: post.description || post.excerpt || ''
                 });
             }
 
@@ -75,7 +76,12 @@ $(document).ready(function() {
 
         // Show message if no results
         if (filteredPosts.length === 0) {
-            $grid.append('<div class="no-results">No posts match your filters. Try adjusting your selection.</div>');
+            // Detect language from URL path
+            const isTC = window.location.pathname.indexOf('/tc/') !== -1;
+            const noResultsMsg = isTC 
+                ? '暫時未有內容符合你的篩選條件。請重新調整你的選擇。'
+                : 'No articles match your filters. Please try adjusting your selection.';
+            $grid.append(`<div class="no-results">${noResultsMsg}</div>`);
         }
     }
 

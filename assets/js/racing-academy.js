@@ -80,11 +80,41 @@ $(document).ready(function() {
                 const $levelPosts = $('<div class="level-group-posts"></div>');
 
                 groupedPosts[level].forEach(post => {
-                    // Add to video list in display order
+                    // Add to video list in display order (with description & videotag like index.html)
+                    const isTC = window.location.pathname.indexOf('/tc/') !== -1;
+                    const tcLevelLabelMap = {
+                        'beginner': '賽馬新手',
+                        'intermediate': '賽馬新晉',
+                        'advanced': '賽馬好手',
+                        'expert': '賽馬老手',
+                        'master': '賽馬大師'
+                    };
+                    const enLevelLabelMap = {
+                        'beginner': 'Beginner',
+                        'intermediate': 'Intermediate',
+                        'advanced': 'Advanced',
+                        'expert': 'Expert',
+                        'master': 'Master'
+                    };
+                    const tcTagLabelMap = {
+                        'racing-kickstarter': '投注初體驗',
+                        'basics-to-racing': '賽馬基礎',
+                        'bet-type': '投注種類大全',
+                        'betting-strategy': '投注攻略',
+                        'horse-jockey-trainer': '馬匹與騎練指南',
+                        'simulcast-racing': '越洋賽事精讀'
+                    };
+                    const rawTag = (post.tags && post.tags[0]) || '';
+                    const enTagLabel = rawTag.split('-').map(function(word){ return word.charAt(0).toUpperCase() + word.slice(1); }).join(' ');
+                    const tagLabel = isTC ? (tcTagLabelMap[rawTag] || enTagLabel) : enTagLabel;
+                    const levelLabel = (isTC ? tcLevelLabelMap : enLevelLabelMap)[post.level] || post.level;
+
                     orderedVideoList.push({
                         link: post.videoLink,
                         thumbnail: post.thumbnail,
-                        title: post.title
+                        title: post.title,
+                        description: post.excerpt,
+                        videotag: [levelLabel, tagLabel]
                     });
 
                     // Create post card with sequential display index
@@ -102,14 +132,26 @@ $(document).ready(function() {
 
         console.log('Ordered Video List:', orderedVideoList);
 
-        // Update the global video popup list
+        // Update the global video popup list; if already initialized, destroy to refresh on next open
         if (window.videoPop) {
             window.videoPop.videoList = orderedVideoList;
+            try {
+                if (window.videoPop.initialized) {
+                    window.videoPop.destroy();
+                }
+            } catch (e) {
+                console.warn('VideoPopup destroy failed:', e);
+            }
         }
 
         // Show message if no results
         if (filteredPosts.length === 0) {
-            $grid.append('<div class="no-results">No posts match your filters. Try adjusting your selection.</div>');
+            // Detect language from URL path
+            const isTC = window.location.pathname.indexOf('/tc/') !== -1;
+            const noResultsMsg = isTC 
+                ? '暫時未有內容符合你的篩選條件。請重新調整你的選擇。'
+                : 'No articles match your filters. Please try adjusting your selection.';
+            $grid.append(`<div class="no-results">${noResultsMsg}</div>`);
         }
     }
 

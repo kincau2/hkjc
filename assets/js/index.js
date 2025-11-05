@@ -960,7 +960,7 @@ $(function() {
         }, 'timeline+=0.5');
 
         tl.to('#discover .discover-content .discover-dot', {
-            height: '60px',
+            height: '50px',
             ease: 'power1.in',
             duration: 1.5,
         }, 'timeline+=2');

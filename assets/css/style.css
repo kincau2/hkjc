@@ -1573,6 +1573,10 @@ p.discover-dot {
     position: absolute;
 }
 
+html:lang(en) p.discover-dot {
+    top: -15px;
+}
+
 .discover-post {
     position: absolute;
     display: flex;
@@ -1624,7 +1628,6 @@ p.post-title {
     p.post-excerpt {
         font-size: 12px;
     }
-
 
 }
 
@@ -1728,6 +1731,10 @@ img.right-vector {
     }
     .discover-post {
         background: url(../images/bg_mobile_blue_area.png) no-repeat center bottom #2655cc;
+        background-size: 100% auto;
+    }
+    html:lang(en) .discover-post {
+        background: url(../images/bg_mobile_blue_area.png) no-repeat center bottom -90px #2655cc;
         background-size: 100% auto;
     }
     img.left-vector {

@@ -130,42 +130,72 @@
 }
 
 .singleVideoPopupContainer .svp-title {
-  color: #fff;
-  font-size: 18px;
-  font-weight: 600;
-  margin-bottom: 8px;
-  line-height: 1.4;
+  font-weight: 700;
+  font-size: calc(var(--vh, 1vh) * 1.8);
+  line-height: 1.3;
+  margin: 0 0 calc(var(--vh, 1vh) * 1);
+  text-shadow: 0 2px 6px rgba(0,0,0,.45);
+  pointer-events: auto; /* 如要可選取文字 */
+}
+
+/* Description Wrapper - 統一與 video-popup 的做法 */
+.singleVideoPopupContainer .svp-description-wrapper {
+  display: flex;
+  justify-content: space-between;
+  gap: 5px;
+  margin-bottom: calc(var(--vh, 1vh) * 1);
+  pointer-events: auto;
+  position: relative;
+}
+
+.singleVideoPopupContainer .svp-description-wrapper.expanded {
+  flex-direction: column;
+  gap: 0px;
 }
 
 .singleVideoPopupContainer .svp-description {
-  color: #fff;
-  font-size: 14px;
+  font-size: calc(var(--vh, 1vh) * 1.4);
   line-height: 1.5;
-  opacity: .9;
-  max-height: calc(1.5em * 3);
+  color: rgba(255, 255, 255, 0.9);
+  text-shadow: 0 1px 4px rgba(0, 0, 0, .4);
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  line-clamp: 1;
+  -webkit-box-orient: vertical;
   overflow: hidden;
+  transition: all 0.3s ease;
 }
 
 .singleVideoPopupContainer .svp-description.expanded {
-  max-height: none;
+  -webkit-line-clamp: unset;
+  line-clamp: unset;
+  display: block;
 }
 
 .singleVideoPopupContainer .svp-read-more {
-  display: none;
-  background: none;
-  color: rgba(255, 255, 255, 0.8);
-  border: none;
+  display: inline;
   padding: 0;
-  font-size: 13px;
-  line-height: 1;
+  margin-left: calc(var(--vh, 1vh) * 0.4);
+  background: none;
+  border: none;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: calc(var(--vh, 1vh) * 1.4);
+  font-weight: 600;
   cursor: pointer;
-  pointer-events: auto; /* 允許點擊 */
+  transition: color 0.2s ease;
+  white-space: nowrap;
+}
+
+/* When expanded, button moves to bottom right */
+.singleVideoPopupContainer .svp-description.expanded ~ .svp-read-more {
+  display: block;
+  text-align: right;
+  margin-left: 0;
   margin-top: calc(var(--vh, 1vh) * 0.4);
-  text-decoration: underline;
 }
 
 .singleVideoPopupContainer .svp-read-more:hover {
-    color: #fff;
+  color: #fff;
 }
 
 
@@ -173,21 +203,30 @@
 /* 進度條需要可以點擊 */
 .singleVideoPopupContainer .svp-progress {
   pointer-events: auto;
+  z-index: 9;
 }
 
 /* 進度條 */
 .singleVideoPopupContainer .svp-progress {
-  width: 100%;
-  padding: 10px 0;
+  position: relative;
+  height: calc(var(--vh, 1vh) * 0.8);
+  pointer-events: auto; /* Enable interaction */
+  padding: calc(var(--vh, 1vh) * 0.8) 0; /* Increase hit area */
+  margin: 0 calc(var(--vh, 1vh) * -0.4); /* Compensate padding */
 }
 
 .singleVideoPopupContainer .svp-progress-track {
   position: relative;
   width: 100%;
-  height: 4px;
+  height: 3px;
   background: rgba(255, 255, 255, 0.3);
   border-radius: 2px;
   cursor: pointer;
+}
+
+.singleVideoPopupContainer .svp-progress-track:hover,
+.singleVideoPopupContainer.svp-dragging .svp-progress-track {
+  height: 5px;
 }
 
 .singleVideoPopupContainer .svp-progress-fill {
@@ -204,19 +243,18 @@
 .singleVideoPopupContainer .svp-progress-dot {
   position: absolute;
   top: 50%;
-  transform: translate(-50%, -50%);
-  width: 14px;
-  height: 14px;
-  background: #fff;
-  border-radius: 50%;
+  width: 25px; height: 25px;
+  margin-top: -12.5px;
   left: 0%;
-  cursor: grab;
-  transition: left 0.1s linear;
+  background: #ffffff00;
+  border-radius: 50%;
+  transform: translateX(-50%);
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  pointer-events: auto;
 }
 
-.singleVideoPopupContainer .svp-progress-dot:active {
-  cursor: grabbing;
-}
+ 
 
 /* 淡入動畫 */
 @keyframes svpFade {
