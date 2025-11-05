@@ -925,8 +925,11 @@ section#specialists {
     .more-specialists-swiper .swiper-wrapper {
         left: calc(50vw - 700px);
     }
-    .swiper-button-prev, .swiper-button-next {
+    .swiper-button-prev {
         left: calc(37.3% + 50vw - 700px) !important;
+    }
+    .swiper-button-next {
+        right: calc(37.3% - 50vw + 700px) !important;
     }
 
 }

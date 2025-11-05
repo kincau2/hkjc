@@ -31,6 +31,10 @@ $(document).ready(function() {
         centeredSlides: true,
         spaceBetween: 16,
         watchSlidesProgress: true,
+        autoplay: {
+            delay: 4000,
+            disableOnInteraction: false,
+        },
         pagination: {
             el: '.banner-pagination',
             clickable: true,
