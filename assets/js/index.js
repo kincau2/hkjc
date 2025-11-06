@@ -684,22 +684,6 @@ $(function() {
     setCardAnimationStartState();
     buildCardAnimationTimeline();
     initSwipeListeners();
-
-    let resizeTO;
-    window.addEventListener('resize', () => {
-        clearTimeout(resizeTO);
-        resizeTO = setTimeout(() => {
-            ScrollTrigger.getById('animation-timeline')?.kill();
-            ScrollTrigger.getById('animation-pin')?.kill();
-            
-            currentCardIndex = 0;
-            swipeEnabled = false;
-            
-            layoutRow();
-            setCardAnimationStartState();
-            buildCardAnimationTimeline();
-        }, 150);
-    });
 });
 
 // =============================================================================
@@ -1269,12 +1253,6 @@ $(document).ready(function() {
     }
     
     initDiscoverSwipers();
-    
-    let discoverResizeTimeout;
-    $(window).on('resize', function() {
-        clearTimeout(discoverResizeTimeout);
-        discoverResizeTimeout = setTimeout(initDiscoverSwipers, 300);
-    });
 });
 
 // =============================================================================
@@ -1282,55 +1260,19 @@ $(document).ready(function() {
 // =============================================================================
 
 $(function() {
-    window.hkjcSwipers = {
-        banner: null,
-        specialists: null,
-        picks: null,
-        moreSpecialists: null,
-        discoverPosts1: null,
-        discoverPosts2: null
-    };
-
-    // (removed) equal-height logic for #discover .post-text-wrapper
-
-    let resizeTimeout;
-    let previousWidth = window.innerWidth;
     
     window.addEventListener('resize', function() {
-        clearTimeout(resizeTimeout);
-        resizeTimeout = setTimeout(() => {
-            const currentWidth = window.innerWidth;
-            const wasDesktop = previousWidth > 768;
-            const isDesktop = currentWidth > 768;
-            const deviceChanged = wasDesktop !== isDesktop;
-            
-            if (deviceChanged) {
-                Object.keys(window.hkjcSwipers).forEach(key => {
-                    const swiper = window.hkjcSwipers[key];
-                    if (swiper && swiper.update) {
-                        swiper.update();
-                    }
-                });
-                
-                if (window.ScrollTrigger) {
-                    ScrollTrigger.refresh();
-                }
-            }
-            
-            previousWidth = currentWidth;
-
-            // (removed) re-equalize on resize
-        }, 300);
+        setTimeout(() => {
+            window.location.reload();
+        }, 500);
     });
     
     window.addEventListener('orientationchange', function() {
         setTimeout(() => {
-            if (window.ScrollTrigger) {
-                ScrollTrigger.refresh();
-            }
+            window.location.reload();
         }, 500);
-        // (removed) re-equalize after orientationchange
     });
+    
 });
 
 // =============================================================================
