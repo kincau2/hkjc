@@ -5,12 +5,41 @@
 // INITIALIZATION
 // =============================================================================
 
-// Scroll to Top on Page Load/Refresh
+function scrollToHash(hash, options) {
+    if (!hash || hash === '#') return;
+    var target = null;
+    try {
+        target = document.querySelector(hash);
+    } catch (_) {
+        return;
+    }
+    if (!target) return;
+
+    var header = document.querySelector('.site-header');
+    var headerHeight = header ? header.offsetHeight : 0;
+    var rect = target.getBoundingClientRect();
+    var offsetTop = rect.top + window.pageYOffset - headerHeight;
+    var behavior = (options && options.behavior) ? options.behavior : 'smooth';
+
+    window.scrollTo({
+        top: Math.max(offsetTop, 0),
+        behavior: behavior
+    });
+}
+
+// Scroll handling on Page Load/Refresh
 $(function() {
     if ('scrollRestoration' in history) {
         history.scrollRestoration = 'manual';
     }
-    window.scrollTo(0, 0);
+    var hash = window.location.hash;
+    if (hash) {
+        setTimeout(function() {
+            scrollToHash(hash, { behavior: 'auto' });
+        }, 0);
+    } else {
+        window.scrollTo(0, 0);
+    }
 });
 
 // =============================================================================
@@ -1296,22 +1325,56 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Reload handler for links marked with data-reload (force load current page with hash)
+    // Handler for links that should collapse mobile menu before reloading with hash
     document.addEventListener('click', function(e) {
-        const link = e.target.closest('a[data-reload]');
+        const link = e.target.closest('a[data-collapse-reload]');
         if (!link) return;
+
+        const targetHref = link.getAttribute('data-collapse-reload') || link.getAttribute('href');
+        if (!targetHref) return;
+
         e.preventDefault();
-        const href = link.getAttribute('href') || '#tipping';
-        let hash = '#tipping';
-        try {
-            const url = new URL(href, window.location.href);
-            hash = url.hash || '#tipping';
-        } catch(_) {
-            if (href.startsWith('#')) hash = href;
+
+        const navigate = function() {
+            window.location.href = targetHref;
+        };
+
+        if (mobileNav && mobileNav.classList.contains('show')) {
+            let completed = false;
+            const cleanup = function() {
+                if (completed) return;
+                completed = true;
+                mobileNav.removeEventListener('hidden.bs.collapse', onHidden);
+            };
+
+            const onHidden = function() {
+                cleanup();
+                navigate();
+            };
+
+            mobileNav.addEventListener('hidden.bs.collapse', onHidden);
+
+            if (window.bootstrap && window.bootstrap.Collapse) {
+                const instance = window.bootstrap.Collapse.getOrCreateInstance(mobileNav);
+                instance.hide();
+            } else {
+                mobileNav.classList.remove('show');
+                mobileNav.classList.add('collapsing');
+                setTimeout(function() {
+                    mobileNav.classList.remove('collapsing');
+                    mobileNav.classList.add('collapse');
+                    onHidden();
+                }, 300);
+            }
+
+            setTimeout(function() {
+                if (!completed) {
+                    cleanup();
+                    navigate();
+                }
+            }, 400);
+        } else {
+            navigate();
         }
-        const base = window.location.pathname;
-        // Navigate then force reload to ensure scripts/animations re-initialize
-        window.location.href = base + hash;
-        setTimeout(function(){ window.location.reload(); }, 0);
     });
 });

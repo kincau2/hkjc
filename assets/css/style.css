@@ -157,11 +157,7 @@ nav li .nav-link {
     height: 90px;
 }
 
-.mobile-lang {
-    position: absolute;
-    top: 15px;
-    right: 55px;
-}
+
 
 @media (min-width: 1025px) {
 
@@ -169,7 +165,18 @@ nav li .nav-link {
 
 @media (max-width: 1024px) {
 
+    .mobile-lang {
+        position: absolute;
+        top: 15px;
+        right: 70px;
+    }
 
+}
+
+.mobile-lang {
+    position: absolute;
+    top: 15px;
+    right: 55px;
 }
 
 @media (max-width: 991px){
@@ -931,7 +938,6 @@ section#specialists {
     .swiper-button-next {
         right: calc(37.3% - 50vw + 700px) !important;
     }
-
 }
 
 @media (max-width: 768px) {
@@ -1868,4 +1874,8 @@ section#footer .container {
     100% {
       opacity: 0;
     }
+  }
+
+  html:lang(en) .badge {
+    font-size: 12px;
   }
